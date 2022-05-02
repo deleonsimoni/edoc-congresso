@@ -1,0 +1,13 @@
+<i class="fa fa-times pointer" (click)="close()"></i>
+<div class="container">
+  <div class="scroll">
+    <div class="row">
+      <div class="col-md-6" *ngFor="let grupos of apoiadores; let i = index">
+        <h4 [ngClass]="{'mt-4': i > 1}"><strong>{{ grupos.nome }}</strong></h4>
+
+        <p *ngFor="let pessoas of grupos.equipe">{{ pessoas }}</p>
+      </div>
+
+    </div>
+  </div>
+</div>

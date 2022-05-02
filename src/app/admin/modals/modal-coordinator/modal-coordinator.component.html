@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row justify-content-between">
+        <div class="section-header" mat-dialog-title>
+            <h2>Cadastrar Parecerista</h2>
+        </div>
+        <i class="fa fa-times" (click)="close()"></i>
+    </div>
+    <div class="row" mat-dialog-content>
+        <form role="form" class="coordinator" [formGroup]="coordinatorForm" (ngSubmit)="saveCoordinator()">
+            <div class="scrolling">
+                <div class="form-row justify-content-center">
+                    <div class="form-group col-md-12">
+                        <div formArrayName="authors" *ngFor="let item of authors['controls']; let i = index;">
+                            <div [formArrayName]="i">
+                                <input type="text" name="autor" class="form-control" [ngClass]="{'mt-2': i >= 1}"
+                                    id="autor" placeholder="Email do usuario cadastrado no sistema"
+                                    formControlName="email" />
+                            </div>
+                            <!-- <div class="alert alert-danger" *ngIf="(authors.email == null && submit)">
+                                <span>Preencha o campo email</span>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-end">
+                <!--<button class="add" type="button" (click)="addAuthors()"><i class="fas fa-plus"></i>
+                    Pareceristas</button>-->
+                <button class="btn-get-started" type="submit">Submeter</button>
+            </div>
+        </form>
+    </div>
+</div>

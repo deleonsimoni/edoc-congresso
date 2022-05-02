@@ -1,0 +1,38 @@
+<div class="form">
+    <div  >
+        Selecione o grupo de usuários
+        <select
+        class="form-control"
+        (change)="changeGroup()"
+        placeholder="Grupo"
+        id="opt"
+        [(ngModel)]="groupId"
+        >
+        <option *ngFor="let group of groups" [value]="group.id" [disabled]="group.id == 4 || group.id == 5"
+            >{{ group.name }}
+        </option>
+        </select>
+    </div>
+
+    <div class="mt-4" *ngIf="groupId">
+        <input type="text" name="title" class="form-control mt-2" id="title" placeholder="Título do email"
+        [(ngModel)]="title" />
+    </div>
+
+    <div class="white-background mt-2" *ngIf="groupId">
+        <quill-editor [style]="editorStyle" style="height: 800px;" [(ngModel)]="description" placeholder="Texto do Email">
+        </quill-editor>
+    </div>
+
+    <div class="custom-file mt-2">
+        <input type="file" class="custom-file-input"
+          data-max-size="2048" id="customPreReadFile" (change)="setFile($event.target.files)"
+          #fileInput />
+        <label class="custom-file-label" for="customPreReadFile">{{ getFileName() }}</label>
+      </div>
+
+    <div *ngIf="groupId" class="form-group mt-4">
+        <button class="btn-primary btn-large" (click)="sendEmail()">Enviar Email</button>
+    </div>
+
+</div>

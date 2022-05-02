@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="header">
+        <h2 mat-dialog-title>{{ programacao.titulo }}</h2>
+        <i class="fa fa-times" (click)="close()"></i>
+    </div>
+    <div class="row">
+        <div mat-dialog-content>
+            <div class="row" *ngFor="let sessao of programacao.sessoes">
+                <div class="col-md-12 horario">
+                    <p>
+                        <strong>{{ sessao.data }} - {{ sessao.horario }}</strong>
+                    </p>
+                </div>
+                <div class="col-md-12 informacoes" *ngFor="let palestra of sessao.palestras; let i = index">
+                    <h4>
+                        {{ palestra.tema }}
+                    </h4>
+                    <ng-container *ngFor="let coordenador of palestra.coordenadores">
+                        <div class="col-md-12">
+                            <p>{{ coordenador }}</p>
+                        </div>
+                    </ng-container>
+                    <div class="col-md-12">
+                        <p class="mt-2 mb-3">LOCAL:
+                            {{ palestra.local }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

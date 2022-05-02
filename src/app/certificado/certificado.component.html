@@ -1,0 +1,70 @@
+<main id="certificados">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div id="box" class="box">
+          <div class="section-header">
+            <h2>Certificados</h2>
+          </div>
+
+          <div *ngIf="!carregando && user.icAdmin" class="form-row">
+            <div class="form-group col-md-6">
+              <div class="mt-2">
+                <select
+                  class="form-control"
+                  (change)="preencherTemplate($event, '_____', '_____')"
+                  placeholder="Eixo"
+                  id="opt"
+                >
+                  <option disabled="true" [selected]="true"> Selecione o modelo</option>
+                  <option *ngFor="let template of templates">{{ template.name }} </option>
+                </select>
+              </div>
+
+              <input
+                type="text"
+                *ngIf="certificados.length > 0"
+                name="Nome do participante"
+                class="form-control mt-2"
+                id="title"
+                placeholder="Nome do participante"
+                [(ngModel)]="certificados[0].nome"
+              />
+
+              <input
+                type="text"
+                *ngIf="exibirGT && certificados.length > 0"
+                [(ngModel)]="certificados[0].coringa"
+                name="GT"
+                class="form-control mt-2"
+                id="title"
+                placeholder="Complemento"
+              />
+            </div>
+          </div>
+
+          <div *ngFor="let certificado of certificados; let i = index">
+            <div id="certificado{{ i }}" class="certified">
+              <div *ngIf="!carregando" class="certified-details">
+                <h4>
+                  Certificamos que <strong>{{ certificado.nome }}</strong
+                  >{{ certificado.coringa }}
+                  {{ certificado.textoTemplate }}
+                </h4>
+              </div>
+            </div>
+
+            <div *ngIf="!carregando" class="row justify-center">
+              <button class="btn-get-started" (click)="captureScreen(i)">Download</button>
+            </div>
+            <div class="row" *ngIf="carregando">
+              <button class="btn-get-started"><i class="fas fa-spinner fa-pulse"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>

@@ -1,0 +1,61 @@
+<div>
+  <div *ngIf="pager.totalItems">Total de {{ pager.totalItems }} inscritos
+
+    <!-- <button *ngIf="status == '5' && !gerandoRelatorio" (click)="export()" class="btn btn-primary">
+            <i class="fa fa-file-excel-o"></i> Exportar
+            Excel
+        </button>-->
+
+    <div *ngIf="gerandoRelatorio">
+      <i class="fas fa-spinner fa-pulse"></i>Aguarde...
+    </div>
+
+  </div>
+
+  <div class="row" *ngIf="user && user.icAdmin">
+    <div class="col-md-8">
+      <input type="text" class="form-control mb-4" [(ngModel)]="textSearch"
+        placeholder="Filtrar participante por email ou cpf" (keyup)="clearStatus()">
+    </div>
+    <div class="col-md-4">
+      <select class="form-control" [(ngModel)]="status" (change)="clearEmail()">
+        <option value="5">Todos </option>
+
+        <option value="7">Aguardando validação de pagamento</option>
+        <option value="6">Pagamento Válido</option>
+        <option value="3">Deficientes</option>
+        <option disabled="disabled">-----------------------</option>
+        <option value="4">Trabalhos Submetidos</option>
+      </select>
+    </div>
+
+  </div>
+
+  <div class="row" style="padding-bottom: 6px;" *ngIf="user && user.icAdmin">
+
+    <div class="col-md-4">
+      <button class="btn-primary" (click)="retrieveAdminData(null)">Pesquisar</button>
+    </div>
+    <div *ngIf="status == '6' && !gerandoRelatorio" style="padding-left: 50%;" class="col-md-8 float-right pull-right">
+      <button class="btn-danger" (click)="gerarRelatorio()">Gerar Relatório</button>
+    </div>
+  </div>
+
+  <div *ngFor="let subscribed of users; let i = index" [ngClass]="{'mb-3': users.length > 1}">
+
+    <subscribers-card [subscribed]="subscribed" (selected)="receiverSelectedUser($event)">
+    </subscribers-card>
+
+    <subscribers-data [subscribed]="subscribed" (update)="updateUser($event)"
+      *ngIf="user.icAdmin && (subscribed && subscribed._id == userSelect)">
+    </subscribers-data>
+
+  </div>
+
+  <div *ngIf="pager.totalItems" class="pagination justify-content-center">
+
+    <mat-paginator [length]="pager.totalItems" [pageSize]="pager.pageSize"
+      (page)="pageEvent = retrieveAdminData($event)">
+    </mat-paginator>
+
+  </div>

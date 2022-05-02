@@ -1,0 +1,109 @@
+<!--==========================
+    Top Bar
+  ============================-->
+<div class="header">
+
+  <section id="topbar" class="d-none d-lg-block">
+    <div class="container clearfix">
+      <div class="social-links float-right">
+        <a href="https://www.facebook.com/endipe2022/" target="_blank" alt="Facebook" title="Facebook"
+          class="facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/endipe2022/?hl=pt-br" target="_blank" alt="Instagram" title="Instagram"
+          class="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.youtube.com/channel/UCbUslY4DzrZs3fQEkky2NJQ" target="_blank" alt="YouTube" title="YouTube"
+          class="youtube"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!--==========================
+        Header
+      ============================-->
+  <header id="header">
+    <div class="container">
+
+      <div id="logo" class="pull-left">
+        <h1><a tabindex="0" [routerLink]="['/home']" fragment="body" class="scrollto">Endi<span>pe</span></a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="#body"><img src="img/logo.png" alt="" title="" /></a>-->
+      </div>
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li class="pointer">
+            <a class="aoVivo">ENDIPE VIRTUAL </a>
+          </li>
+          <li class="menu-has-children pointer">
+            <!--<a [routerLink]="['/home']" fragment="team">Organização</a></li>
+                        <li><a [routerLink]="['/home']" fragment="programacao">Programação</a></li>                        
+                        <li><a [routerLink]="['/home']" fragment="contact">Contato</a></li> -->
+            <a>SOBRE <i class="fa fa-chevron-down"></i></a>
+            <ul>
+              <li><a tabindex="0" [routerLink]="['/home']" fragment="about">Dias</a></li>
+              <li><a tabindex="0" [routerLink]="['/home']" fragment="about">Local</a></li>
+              <li><a tabindex="0" [routerLink]="['/home']" fragment="clients">Apresentação</a></li>
+              <li><a tabindex="0" [routerLink]="['/home']" fragment="about">Tema</a></li>
+              <li><a tabindex="0" [routerLink]="['/home']" fragment="services">Eixos</a></li>
+              <li><a tabindex="0" [routerLink]="['/home']" fragment="historico">Histórico</a></li>
+            </ul>
+          </li>
+          <li class="menu-has-children pointer">
+            <a tabindex="0">ORGANIZAÇÃO <i class="fa fa-chevron-down"></i></a>
+            <ul>
+              <li><a tabindex="0" [routerLink]="['/home']" fragment="team">Coordenação</a></li>
+              <li><a tabindex="0" [routerLink]="['/home']" fragment="team">Instituições</a></li>
+              <li><a tabindex="0" [routerLink]="['/home']" fragment="team">Comitê Organizador</a></li>
+              <li><a tabindex="0" [routerLink]="['/home']" fragment="team">Secretaria</a></li>
+              <li><a tabindex="0" [routerLink]="['/home']" fragment="team">Grupos de Trabalho</a></li>
+              <li><a tabindex="0" [routerLink]="['/home']" fragment="comiteCientifico">Comitê Científico</a></li>
+              <li><a tabindex="0" [routerLink]="['/home']" fragment="parcerias">Parcerias</a></li>
+              <li><a tabindex="0" [routerLink]="['/home']" fragment="conferencistas">Conferencistas</a></li>
+              <li><a tabindex="0" [routerLink]="['/home']" fragment="contact">Contato</a></li>
+            </ul>
+          </li>
+          <li class="menu-has-children pointer">
+            <a tabindex="0" [routerLink]="['/programacao']">PROGRAMAÇÃO</a>
+          </li>
+          <li class="menu-has-children pointer">
+            <a> tabindex="0"SUBMISSÃO <i class="fa fa-chevron-down"></i></a>
+            <ul>
+              <li><a tabindex="0" [routerLink]="['/home']" fragment="modalidades">Modalidades</a></li>
+              <li><a tabindex="0" [routerLink]="['/home']" fragment="normas">Normas</a></li>
+              <li><a tabindex="0" [routerLink]="['/home']" fragment="prazos">Prazos</a></li>
+              <li><a tabindex="0" [routerLink]="['/home']" fragment="anais">Anais</a></li>
+            </ul>
+          </li>
+          <li class="menu-has-children pointer">
+            <a tabindex="0">RIO DE JANEIRO <i class="fa fa-chevron-down"></i></a>
+            <ul>
+              <li><a tabindex="0" [routerLink]="['/home']" fragment="hospedagem">Hospedagem</a></li>
+              <li><a tabindex="0" [routerLink]="['/home']" fragment="hospedagem">Transporte</a></li>
+              <li><a tabindex="0" [routerLink]="['/home']" fragment="hospedagem">Alimentação</a></li>
+              <li><a tabindex="0" [routerLink]="['/home']" fragment="hospedagem">Turismo</a></li>
+              <li><a tabindex="0" [routerLink]="['/home']" fragment="hospedagem">Clima</a></li>
+            </ul>
+          </li>
+          <!--<li class="pointer">
+            <a tabindex="0" class="text-danger" *ngIf="!isAuth" [routerLink]="['/register']" fragment="">INSCRIÇÃO</a>
+          </li>-->
+          <li class="pointer" *ngIf="!isAuth"><a tabindex="0" [routerLink]="['/login']">LOGIN</a></li>
+          <li *ngIf="isAuth" class="menu-has-children pointer">
+            <a tabindex="0" [routerLink]="">AÇÕES <i class="fa fa-chevron-down"></i></a>
+            <ul>
+              <li><a tabindex="0" [routerLink]="['/pagamento']">Pagamento</a></li>
+              <li *ngIf="user && user.icAdmin">
+                <a tabindex="0" [routerLink]="['/meus-trabalhos']">Submissão</a>
+              </li>
+              <li><a tabindex="0" [routerLink]="['/certificados']">Certificados</a></li>
+              <li *ngIf="user && (user.icAdmin || user.reviewer)">
+                <a tabindex="0" [routerLink]="['/admin']">Dashboard</a>
+              </li>
+              <li><a tabindex="0" style="cursor: pointer;" (click)="logout()">Sair</a></li>
+
+            </ul>
+          </li>
+        </ul>
+      </nav><!-- #nav-menu-container -->
+    </div>
+  </header><!-- #header -->
+</div>

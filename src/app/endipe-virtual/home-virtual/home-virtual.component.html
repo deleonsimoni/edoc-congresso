@@ -1,0 +1,43 @@
+<!--==========================
+    coordenação Section
+============================-->
+
+<!--<section id="team" class="wow fadeInUp">
+    <div class="container">
+        <div class="middle section-header">
+            <h1 style="color: #2c8d13;">Aguarde</h1>
+            <hr>
+            <p style="font-size:30px">Estamos preparando um formato virtual do congresso</p>
+            <p *ngIf="days" style="font-size:30px">{{days + ' dias ' + hours + ' horas ' + minutes + ' minutos ' + seconds + ' segundos'}}</p>
+        </div>
+    </div>
+</section>-->
+
+<section id="schedule" class="wow fadeInUp mt-2">
+  <mat-tab-group mat-align-tabs="center" animationDuration="1500ms">
+    <mat-tab label="AO VIVO">
+      <ng-template matTabContent>
+        <div class="container-schedule">
+          <app-live-virtual></app-live-virtual>
+        </div>
+      </ng-template>
+
+    </mat-tab>
+    <mat-tab label="Mural">
+      <ng-template matTabContent>
+        <div class="container-schedule">
+          <app-time-line-virtual [user]="user"></app-time-line-virtual>
+        </div>
+      </ng-template>
+
+    </mat-tab>
+    <mat-tab label="Fale Conosco">
+      <ng-template matTabContent>
+        <div class="container-schedule">
+          <app-secretaria-virtual [user]="user"></app-secretaria-virtual>
+        </div>
+      </ng-template>
+
+    </mat-tab>
+  </mat-tab-group>
+</section>

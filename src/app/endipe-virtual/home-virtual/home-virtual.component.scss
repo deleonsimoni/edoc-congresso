@@ -1,0 +1,116 @@
+
+
+
+.container-schedule {
+    padding: 16px 50px 0px 50px;
+  
+    .nav-item {
+      background-color: #20959b;
+      color: #fff;
+      border-radius: 4px;
+      cursor: pointer;
+  
+      &:not(:last-child) {
+        margin-right: 10px;
+      }
+  
+      &.activated {
+        background-color: #2c8d13;
+      }
+    }
+  
+    .filter {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: flex-start;
+  
+      :last-child {
+        justify-self: flex-end;
+      }
+    }
+  }
+
+  #team .member {
+    text-align: left;
+  
+    .pic img {
+      max-width: 100%;
+      border-radius: 50%;
+      border: 4px solid #fff;
+      margin: 0 auto;
+      -webkit-box-shadow: 0 5px 5px 0 #adb5bd;
+      box-shadow: 0 5px 5px 0 #adb5bd;
+    }
+  
+    // h3 {
+    //   font-size: 18px;
+    //   font-weight: bold;
+    //   margin: 10px 0 5px 0;
+    //   color: #111;
+    // }
+    // h4 {
+    //   font-size: 14px;
+    //   color: #999;
+    //   margin: 0;
+    // }
+    p {
+      padding: 0;
+      margin: 0 0 4px 0;
+      font-weight: 400;
+      font-size: 14px;
+    }
+  }
+
+  .topleft {
+    position: absolute;
+    top: 0;
+    left: 16px;
+  }
+  
+  .bottomleft {
+    position: absolute;
+    bottom: 0;
+    left: 16px;
+  }
+  
+  .middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  hr {
+    margin: auto;
+    width: 40%;
+  }
+
+#schedule {
+      ::ng-deep .mat-tab-label {
+        font-size: 18px;
+        font-weight: 700;
+        color: #2c8d13;
+
+        &:first-child {
+          color: red;
+          animation: pulse 0.7s infinite;
+          animation-direction: alternate;
+          -webkit-animation-name: pulse;
+          animation-name: pulse;
+        }
+
+      }
+
+      ::ng-deep .mat-tab-list .mat-tab-labels .mat-tab-label-active {
+        background-color: #7df7d2;
+    }
+        
+        /* ink bar */
+    ::ng-deep .mat-ink-bar {
+        background-color: var(--primary-color,#4c4f52) !important;
+    }
+
+
+}

@@ -1,0 +1,21 @@
+<div class="container">
+    <i class="fa fa-times pull-right" (click)="close()"></i>
+
+    <div class="row justify-content-between">
+        <div class="section-header" mat-dialog-title>
+            <h2>Inscritos em {{titulo}}.</h2>
+            <h4>{{subscribers.length}} inscritos</h4>
+        </div>
+        
+    </div>
+    <div class="row" mat-dialog-content>
+        
+        <div *ngFor="let item of subscribers">
+
+            <div class="rwo col-12">
+                {{item.userEmail}}
+            </div>
+
+        </div>
+    </div>
+</div>

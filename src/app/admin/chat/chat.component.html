@@ -1,0 +1,29 @@
+<div *ngFor="let subscribed of chats; let i = index" [ngClass]="{'mb-3': chats.length > 0}">
+
+    <div [ngClass]="{'card-works': subscribed.icReply, 'card-reply': !subscribed.icReply}">
+        <div class="row">
+            <div class="col-sm-6 border-right">
+                <small>NOME</small>
+                <h4>{{ subscribed.author.name.toLowerCase() }}</h4>
+            </div>
+            <div class="col-sm-5 border-right">
+                <small>EMAIL</small>
+                <h4>{{ subscribed.author.email.toLowerCase() }}</h4>
+            </div>
+            <div class="col-sm-1 text-center align-self-center pointer" (click)="selectChat(subscribed._id);">
+                <i class="fa fa-chevron-down"></i>
+            </div>
+        </div>
+    </div>
+
+    <app-admin-chat-virtual *ngIf="(subscribed && subscribed._id == chatSelected)" [comments]="comments" [user]="user"></app-admin-chat-virtual>
+
+  </div>
+
+  <div *ngIf="pager.totalItems" class="pagination justify-content-center">
+
+    <mat-paginator [length]="pager.totalItems" [pageSize]="pager.pageSize"
+      (page)="pageEvent = getListChatAdmin($event)">
+    </mat-paginator>
+
+  </div>

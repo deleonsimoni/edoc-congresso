@@ -1,0 +1,60 @@
+<!--==========================
+    Login Section
+============================-->
+<main id="login">
+    <div class="container login-content">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-sm-10 col-lg-6">
+                <div class="box">
+                    <div class="section-header">
+                        <h2>Recuperar Senha</h2>
+                    </div>
+                    <form [formGroup]="loginForm" (ngSubmit)="resetarSenha()">
+                        <div class="form-row justify-content-center">
+                            <div class="form-group col-md-12">
+                                <input type="text" name="Código do email" class="form-control" id="codEmail"
+                                    placeholder="Código do Email" formControlName="mailCodePassword" />
+                                <div *ngIf="validate.mailCodePassword.errors && submit" class="alert alert-danger">
+                                    <div [hidden]="!validate.mailCodePassword.errors.required">
+                                        Preencha o campo email
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <input type="password" name="password" class="form-control" id="password"
+                                    placeholder="Senha" formControlName="password" />
+                                <div *ngIf="(validate.password.errors && submit) || (validate.password.errors && !validate.password.pristine)"
+                                    class="alert alert-danger">
+                                    <div [hidden]="!validate.password.errors.required">
+                                        Preencha o campo senha
+                                    </div>
+                                    <div [hidden]="!validate.password.errors.minlength">
+                                        A senha deve conter no mínimo 6 caracteres.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <input type="password" class="form-control" name="cf-password" id="cf-password"
+                                    placeholder="Confirmar senha" formControlName="cfPassword" />
+                                <div *ngIf="(validate.cfPassword.errors && submit) || (validate.cfPassword.errors && !validate.cfPassword.pristine)"
+                                    class="alert alert-danger">
+                                    <div [hidden]="!validate.cfPassword.errors.required">
+                                        Preencha o campo confirmar senha
+                                    </div>
+                                    <div [hidden]="!validate.cfPassword.errors.minlength">
+                                        A senha deve conter no mínimo 6 caracteres.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row justify-content-center">
+                            <button class="btn-get-started" type="submit">Enviar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main><!-- #eixos -->

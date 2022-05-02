@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="row justify-content-between">
+        <h1 mat-dialog-title></h1>
+        <i class="fa fa-times" (click)="close()"></i>
+    </div>
+    <div class="row">
+        <h2 mat-dialog-title>HOSPEDAGEM</h2>
+        <div mat-dialog-content>
+            <div style="text-align: justify;">
+                O XX ENDIPE Rio 2020 acontecerá no complexo que reúne a Universidade Federal do
+                Rio de Janeiro (UFRJ), o Instituto Benjamin Constant (IBC) e a Universidade Federal
+                do Estado do Rio de Janeiro (UNIRIO) ao longo da Avenida Pasteur no Bairro da Urca.
+                <br><br>
+                Recomendamos que as reservas nos hotéis sejam feitas o quanto antes através de sites
+                que permitam pagamento posterior e que apresentem boas avaliações quanto à
+                localização.
+                <br><br>
+                Veja algumas sugestões de hospedagem, observando que a organização do XX ENDIPE
+                Rio 2020 não possui nenhum vínculo com as empresas listadas.
+            </div>
+            <table class="table table-responsive table-striped tabelaCronograma">
+                <thead>
+                    <tr>
+                        <th class="text-center">
+                            Hotéis
+                        </th>
+                        <th class="text-center">
+                            Hostels
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr *ngFor="let hotel of hoteis;let i=index">
+                        <td>
+                            <b><a href="{{hotel.site}}" target="_blank">{{hotel.nome}}</a></b>
+                            <br />
+                            {{hotel.endereco}}
+                            <br />
+                            Tel: {{hotel.tel}}
+                            <br />
+                            Tempo de deslocamento: {{hotel.deslocamento}}
+                        </td>
+                        <td>
+                            <a href="{{hostels[i]?.site}}" target="_blank"><b>{{hostels[i]?.nome}}</b></a>
+                            <br />
+                            {{hostels[i]?.endereco}}
+                            <br />
+                            {{hostels[i]?.tel}} {{ hostels[i]?.email}}
+                            <br />
+                            {{hostels[i]?.deslocamento}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>

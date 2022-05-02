@@ -1,0 +1,145 @@
+.container {
+  .header {
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+    h2 {
+      text-align: center;
+    }
+
+    i {
+      position: absolute;
+      top: 0;
+      right: 0;
+      cursor: pointer;
+    }
+  }
+
+  div.mat-dialog-content {
+    padding: 0 42px;
+
+    .card-content {
+      position: relative;
+
+      .card {
+        background: #2c8d13;
+        width: 100%;
+        padding: 16px;
+        margin: 8px 0px;
+
+        .flex {
+          display: flex;
+          flex-flow: row nowrap;
+        }
+
+        .expand {
+          display: flex;
+          flex-grow: 1;
+          color: #fff;
+          background: #0d235f;
+          box-shadow: 0px 0px 5px #000000bd;
+          cursor: pointer;
+          border-radius: 50%;
+          margin: 0px 0px 28px 0px;
+
+          .fa-plus {
+            margin: auto;
+          }
+        }
+
+        .group {
+          flex-flow: column nowrap;
+          align-items: start;
+          margin-bottom: 8px;
+          flex-grow: 11;
+
+          .label {
+            color: #fff;
+            margin-bottom: 8px;
+          }
+
+          .hour {
+            color: #fff;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 300;
+            font-family: sans-serif;
+          }
+
+          .title {
+            color: #fff;
+            margin-bottom: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 0.1rem;
+            margin: 0px 0px 4px 12px;
+
+            &:before {
+              content: "-";
+            }
+          }
+
+          .theme {
+            color: #fff;
+            font-family: sans-serif;
+            font-weight: 600;
+            line-height: 2rem;
+            font-size: 16px;
+          }
+        }
+      }
+
+      .card-info {
+        background: #20959b;
+        border-radius: 4px;
+        padding: 8px;
+        position: absolute;
+        z-index: 999;
+        top: 70px;
+        left: 16px;
+        display: none;
+      }
+    }
+
+    // table {
+    //   thead {
+    //     p {
+    //       margin-bottom: 4px;
+    //       font-size: 14px;
+    //     }
+    //   }
+    //   tbody {
+    //     th {
+    //       h4 {
+    //         font-size: 16px;
+    //         margin-bottom: 12px;
+    //       }
+
+    //       p {
+    //         font-weight: 500;
+    //         font-size: 14px;
+    //         margin-bottom: 6px;
+
+    //         &.space-left {
+    //           padding-left: 48px;
+    //         }
+    //       }
+
+    //       div.indent {
+    //         padding-left: 48px;
+    //         white-space: normal;
+    //         word-break: break-word;
+    //         margin: 8px 0px;
+
+    //         p {
+    //           font-size: 14px;
+    //           margin-bottom: 0px;
+    //         }
+    //       }
+    //     }
+    //   }
+    // }
+  }
+}

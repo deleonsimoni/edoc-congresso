@@ -1,0 +1,39 @@
+<div class="card-works">
+  <div class="row">
+    <div *ngIf="reviewers.length > 0" class="col-md-10 border-right">
+      <small>PARECERISTA</small>
+      <select *ngIf="reviewers" class="form-control" [(ngModel)]="selectReview">
+        <option *ngFor="let reviewer of reviewers" [selected]="reviewer._id == (work?.reviewers)[0]?.userId"
+          [ngValue]="reviewer" type="combobox">
+          {{ reviewer.email }}
+        </option>
+      </select>
+    </div>
+    <!--<div *ngIf="reviewers.length > 0" class="col-md-10 border-right">
+      <small>-</small>
+      <h4>-</h4>
+    </div>-->
+    <div *ngIf="reviewers.length > 0" style="cursor: pointer;" class="col-md-2 text-center align-self-center pointer"
+      (click)="markReviewerWork(work._id)">
+      <i class="fa fa-check"> Vincular</i>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-10 border-right">
+      <small>TÍTULO</small>
+      <h4>{{ work.title }}</h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-10 border-right">
+      <small>Modalidade</small>
+      <h4>{{ work.modalityId | modalities }}</h4>
+    </div>
+    <div style="cursor: pointer;" class="col-md-2 text-center align-self-center pointer" (click)="selectWork(work)">
+      <i class="fa fa-plus"> Detalhes</i>
+    </div>
+  </div>
+</div>

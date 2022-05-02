@@ -1,0 +1,43 @@
+
+<section id="forum" class="section-header wow fadeInUp">
+    <div>
+        <ul style="height: 200px !important; overflow-y: scroll">
+          <li *ngFor="let comment of comments?.chat">
+              
+            <header>
+              <h1 *ngIf="!comment?.publisher?.icAdmin" [ngClass]="{ 'author': isAuthor(comment?.publisher?.email) }">
+                    {{ comment.publisher.name }}
+              </h1>
+              <h1 *ngIf="comment?.publisher?.icAdmin" [ngClass]="{ 'author': isAuthor(comment?.publisher?.email) }">
+                XX ENDIPE
+              </h1>
+              <!--<div>
+                <button (click)="love(comment.id)" [ngClass]="{ 'loved': comment.loved }"></button>
+                <button (click)="reply(comment.publisher.name)"></button>
+              </div>-->
+
+            </header>
+            <p [innerHTML]="parseContent(comment.content)"></p>
+
+          </li>
+        </ul>
+        <form name="form" (ngSubmit)="addNewComment()" novalidate>
+
+          <div class="textarea-wrapper">
+            {{remainingText}}
+            <textarea placeholder="Digite aqui..." maxlength="240" 
+                      [ngModelOptions]="{standalone: true}" 
+                      [(ngModel)]="newComment" 
+                      (ngModelChange)="justifyChange(newComment)"
+                      required>
+            </textarea>
+            <span class="remaning">{{remainingText}} Caracteres restantes.</span>
+            <button type="submit">Enviar</button>
+
+          </div>
+
+        </form>
+        <span class="remaning">{{remainingText}} Caracteres restantes.</span>
+
+    </div>
+</section>

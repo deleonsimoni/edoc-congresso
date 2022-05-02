@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row justify-content-between">
+        <h1 mat-dialog-title></h1>
+        <i class="fa fa-times" (click)="close()"></i>
+    </div>
+    <div class="row">
+        <h2 mat-dialog-title></h2>
+        <div mat-dialog-content>
+            <p></p>
+            <br>
+            <div *ngIf="programacao.horarios.length < 1">
+                Aguarde, em breve publicaremos os horários desta sessão.
+            </div>
+            <table *ngIf="programacao.horarios.length > 1"
+                class="table table-responsive table-striped tabelaCronograma">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th class="text-center">
+                            1º Dia
+                        </th>
+                        <th class="text-center">
+                            2º Dia
+                        </th>
+                        <th class="text-center">
+                            3º Dia
+                        </th>
+                        <th class="text-center">
+                            4º Dia
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let horarios of programacao.horarios">
+                        <th class="text-nowrap" scope="row" [innerHTML]="horarios[0]"></th>
+                        <td [innerHTML]="horarios[1]"></td>
+                        <td [innerHTML]="horarios[2]"></td>
+                        <td [innerHTML]="horarios[3]"></td>
+                        <td [innerHTML]="horarios[4]"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

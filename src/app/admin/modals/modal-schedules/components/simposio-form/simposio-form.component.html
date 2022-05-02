@@ -1,0 +1,76 @@
+<div [formGroup]="form" class="form">
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <label for="theme" class="label">Eixo</label>
+            <select class="form-control" name="theme" id="theme" formControlName="theme">
+                <option *ngFor="let item of themes" [value]="item.id">{{ item.name }}</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="startTime" class="label">Horário início</label>
+            <input type="time" class="form-control" formControlName="startTime" name="startTime">
+        </div>
+        <div class="form-group col-md-4">
+            <label for="endTime" class="label">Horário fim</label>
+            <input type="time" class="form-control" formControlName="endTime" name="endTime">
+        </div>
+        <div class="form-group col-md-4">
+            <label for="date" class="label">Data</label>
+            <select class="form-control" name="date" id="date" formControlName="date">
+                <option *ngFor="let day of days" [value]="day">{{ day }}</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <label for="theme" class="label">Tema da palestra</label>
+            <input type="text" class="form-control" formControlName="themeSpeeches" name="theme">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <label for="titles" class="label">Conferencista(s)</label>
+            <br>
+            <small>**Caso o conferencista seja um coordenador, assinale no campo à esquerda.</small>
+            <br>
+            <div class="mb-2" formArrayName="coordinators" *ngFor="let item of coordinators['controls']; let i = index">
+                <div [formArrayName]="i">
+                    <div class="row justify-content-center">
+                        <div class="col-md-1 align-items-center">
+                            <div class="form-group form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1"
+                                    formControlName="isCoordinator">
+                            </div>
+                        </div>
+                        <div class="align-items-center" [ngClass]="{'col-md-10': i > 0, 'col-md-11': i < 1}">
+                            <input type="text" class="form-control" formControlName="name">
+                        </div>
+                        <div class="col-md-1 align-items-center icon" *ngIf="i > 0">
+                            <button type="button" (click)="removeCoordinator(i)">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button type="button" class="add-coordinator" (click)="addCoordinator()">
+            <i class="fa fa-plus"></i>
+            Conferencista(s)
+        </button>
+    </div>
+    <div class="form-row" formGroupName="virtual">
+        <div class="form-group col-md-12">
+            <label for="linkYoutube" class="label">Link do Youtube</label>
+            <input type="text" class="form-control" formControlName="linkYoutube" name="linkYoutube">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-md-12">
+            <button class="btn-get-started" type="button" (click)="submitSchedule()">SUBMETER PROGRAMAÇÃO</button>
+        </div>
+    </div>
+</div>

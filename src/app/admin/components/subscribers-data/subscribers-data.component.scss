@@ -1,0 +1,51 @@
+.work-content {
+  border: 1px solid #000;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-top: 0px;
+  padding: 12px;
+
+  .section {
+    &.first h6 {
+      margin-top: 6px;
+    }
+
+    h6 {
+      font-size: 18px;
+      color: #2c8d13;
+      text-transform: uppercase;
+      font-weight: 700;
+      position: relative;
+      margin: 22px 0 12px 0;
+      padding-bottom: 8px;
+
+      i {
+        cursor: pointer;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 50px;
+        height: 3px;
+        background: #20959b;
+        bottom: 0;
+        left: 0;
+      }
+    }
+  }
+
+  strong {
+    font-size: 14px;
+    color: #2c8d13;
+  }
+
+  p {
+    margin: 0px;
+
+    a {
+      padding: 8px 0px;
+    }
+  }
+}

@@ -1,0 +1,44 @@
+<section id="programacao" class="wow fadeInUp">
+    <div class="container">
+  
+      <div id="inscreva">
+  
+        <div class="section-header mt-3 mb-5">
+          <h2>Programação</h2>
+        </div>
+
+        <h4 tabindex="0" alt="Selecione a modalidade" class="title">Selecione a Modalidade</h4>
+        <div class="container">
+         <div class="row">
+             <div *ngFor="let modality of modalities" class="col-lg-3 col-12">
+                 <button (click)="selectModality(modality)" type="button"
+                 [ngClass]="{'btn btn-modalidade-focus btn-lg button-programacao': modality.type == modalitySelect, 'btn btn-modalidade btn-lg button-programacao': modality.type != modalitySelect}">
+                 {{modality.name}}</button>
+           </div>
+         </div>
+       </div>
+   
+        <h4 #selecioneDia tabindex="0" class="title">Selecione o Dia</h4>
+        <div class="container">
+         <div class="row">
+             <div *ngFor="let day of days" class="col-lg-3 col-sm-6">
+                 <button (click)="selectDate(day)" type="button"
+                 [ngClass]="{'btn btn-outline-primary-focus btn-lg button-programacao': day == daySelect, 'btn btn-outline-primary btn-lg button-programacao': day != daySelect}">
+                 {{day | dayMonth}}</button>
+           </div>
+         </div>
+       </div>
+  
+      <div class="section-header mt-3 mb-5">
+        <h2>Programação</h2>
+      </div>
+  
+      <div class="container" *ngIf="daySelect && modalitySelect">
+        <app-schedule-virtual [day]="daySelect" [user]="user" [type]="modalitySelect"></app-schedule-virtual>
+      </div>
+  
+     </div> 
+      
+    </div>
+  </section>
+  

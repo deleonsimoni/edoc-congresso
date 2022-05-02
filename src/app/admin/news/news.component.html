@@ -1,0 +1,25 @@
+<div class="form">
+  <div *ngFor="let noticia of noticias; let i = index" [ngClass]="{'mb-3': noticias.length > 1}">
+    <div class="card-news">
+      <!-- [ngClass]="{'no-radius-bottom': infos == true}" -->
+      <div class="row">
+        <div class="col-sm-10 border-right">
+          <small>{{ noticia.name }}</small>
+          <h4 [innerHtml]="noticia.description"></h4>
+        </div>
+        <div class="col-sm-1 text-center align-self-center pointer" title="Deletar" (click)="deletar(noticia)">
+          <i class="fa fa-trash"></i>
+        </div>
+        <div class="col-sm-1 text-center align-self-center pointer" title="Atualizar" (click)="register(noticia)">
+          <i class="fa fa-edit"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <not-found *ngIf="noticias.length < 1" msg="Não há notícias cadastradas"></not-found>
+
+  <div class="row justify-content-end">
+    <button class="btn-get-started" (click)="register(0)">Cadastrar</button>
+  </div>
+</div>

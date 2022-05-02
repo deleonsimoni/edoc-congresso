@@ -1,0 +1,96 @@
+<div class="container">
+  <div class="row justify-content-between">
+    <div class="section-header" mat-dialog-title>
+      <h2>Parecer</h2>
+    </div>
+    <i class="fa fa-times" (click)="close(null)"></i>
+  </div>
+  <div class="row justify-content-center" mat-dialog-content>
+
+    <form role="form" class="reviewer" [formGroup]="reviewForm">
+      <div class="form-row justify-content-center">
+        <div class="form-group col-md-12">
+          <label id="example-radio-group-label">Cabeçalho e rodapé conforme
+            template</label>
+          <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+            formControlName="question1">
+            <mat-radio-button class="example-radio-button" value="Sim">
+              Sim
+            </mat-radio-button>
+            <mat-radio-button class="example-radio-button" value="Nao">
+              Não
+            </mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+
+
+      <div class="form-row justify-content-center">
+        <div class="form-group col-md-12">
+          <label id="example-radio-group-label">Segue a formatação indicada
+            para a modalidade</label>
+          <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+            formControlName="question2">
+            <mat-radio-button class="example-radio-button" value="Sim">
+              Sim
+            </mat-radio-button>
+            <mat-radio-button class="example-radio-button" value="Nao">
+              Não
+            </mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+
+
+      <div class="form-row justify-content-center">
+        <div class="form-group col-md-12">
+          <label id="example-radio-group-label">Respeita o número máximo de
+            autores</label>
+          <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+            formControlName="question3">
+            <mat-radio-button class="example-radio-button" value="Sim">
+              Sim
+            </mat-radio-button>
+            <mat-radio-button class="example-radio-button" value="Nao">
+              Não
+            </mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+
+      <div class="form-row justify-content-center">
+        <div class="form-group col-md-12">
+          <label id="example-radio-group-label">Segue o número de páginas
+            da modalidade</label>
+          <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+            formControlName="question4">
+            <mat-radio-button class="example-radio-button" value="Sim">
+              Sim
+            </mat-radio-button>
+            <mat-radio-button class="example-radio-button" value="Nao">
+              Não
+            </mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+
+      <div class="form-row justify-content-center">
+        <div class="form-group col-md-12">
+          <label id="example-radio-group-label">Aprovado?</label>
+          <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+            formControlName="icAllow">
+            <mat-radio-button class="example-radio-button" value="Sim">
+              Aceito
+            </mat-radio-button>
+            <mat-radio-button class="example-radio-button" value="Nao">
+              Não Aceito
+            </mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+      <div class="row justify-content-end">
+        <button class="btn-get-started" (click)="registerReview()">Submeter</button>
+      </div>
+    </form>
+  </div>
+</div>

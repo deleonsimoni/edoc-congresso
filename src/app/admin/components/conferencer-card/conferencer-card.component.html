@@ -1,0 +1,14 @@
+<div class="card-conferencer">
+    <div style="cursor:pointer " class="row justify-content-between">
+        <i class="fa fa-times" style="color: red;" (click)="delete(conferencista._id)">Excluir</i>
+        <br>
+    </div>
+    <div class="header">
+        <img width="150px" height="150px" id="imageRender" src="../../assets/img/user.png" alt="" #imageRender>
+    </div>
+    <div class="content">
+        <h2>{{ conferencista.fullname }}</h2>
+        <hr>
+        <h4>{{ conferencista.description }}</h4>
+    </div>
+</div>

@@ -1,0 +1,84 @@
+<div class="card-content">
+    <div class="card">
+        <div class="row">
+            <div class="col-6">
+                <div class="group">
+                    <p class="label">Horário</p>
+                    <p class="hour">{{ schedule.startTime }} - {{ schedule.endTime }}</p>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="row justify-content-end">
+                    <div class="dropdown show" *ngIf="admin">
+                        <a class="btn btn-secondary dropdown-toggle menu" href="#" role="button" id="dropdownMenuLink"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-cogs"></i>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item pointer" (click)="editSchedule()">Editar</a>
+                            <a class="dropdown-item pointer" (click)="removeSchedule(schedule._id)">Excluir</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="group">
+            <p class="label">{{ title }}</p>
+            <p class="title" *ngFor="let titulo of schedule.titles">
+                {{ titulo }}
+            </p>
+        </div>
+        <div class="group" *ngIf="type != '7' && type != '11' && type != '9'">
+            <p class="label">Conferencista(s)</p>
+            <p class="title" *ngFor="let coordinator of schedule.coordinators">
+                {{ coordinator.name }} {{ coordinator.isCoordinator ? '(coordenador)' : '' }}
+            </p>
+        </div>
+        <div class="group" *ngIf="type == '11'">
+            <p class="label">Entrevistado(s)</p>
+            <p class="title" *ngFor="let entrevistados of schedule.entrevistados">
+                {{ entrevistados.name }} </p>
+        </div>
+        <div class="group" *ngIf="type == '11'">
+            <p class="label">Entrevistador(es)</p>
+            <p class="title" *ngFor="let entrevistadores of schedule.entrevistadores">
+                {{ entrevistadores.name }}
+            </p>
+        </div>
+        <div class="group" *ngIf="type != '9'">
+            <p class="label">Link do Youtube</p>
+            <p class="hour"><a href="{{ schedule?.virtual?.linkYoutube }}" target="_blank">{{ schedule?.virtual?.linkYoutube }}</a></p>
+
+        </div>
+        <div class="group" *ngIf="type == '9'">
+            <p class="label">Link do Zoom</p>
+            <p class="hour"><a href="{{ schedule?.virtual?.linkZoom }}" target="_blank">{{ schedule?.virtual?.linkZoom }}</a></p>
+
+        </div>
+        <!-- EXIBICAO WORK POSTER-->
+
+        <div class="group" *ngIf="type == '9'">
+            <p class="label">Obra(s)</p>
+            <div *ngFor="let books of schedule.books; let i = index">
+                <p class="title">
+                    {{ books.title }}
+                </p>
+                <p class="title not-dash" style="margin: 0px 0px 4px 24px !important;">
+                    Autor(es): {{ books.author }}
+                </p>
+                <p class="title not-dash" style="margin: 0px 0px 4px 24px !important; text-align: justify !important;">
+                    Resumo: {{ books.resume }}
+                </p>
+                <p class="title not-dash" style="margin: 0px 0px 4px 24px !important;">
+                    Link do livro: {{ books.linkSale }}
+                </p>
+                <p class="title not-dash" style="margin: 0px 0px 4px 24px !important;">
+                    <img width="100px" height="150px" src="https://ffainfinity.s3-sa-east-1.amazonaws.com/books/{{books.nameMiniature}}">
+                </p>
+            </div>
+        </div>
+
+        <!-- FIM WORK POSTER-->
+
+    </div>
+</div>

@@ -1,0 +1,101 @@
+<!--==========================
+    Payment
+  ============================-->
+<main id="payment">
+    <div class="container payment-content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box">
+                    <div class="section-header">
+                        <h2>Pagamento</h2>
+                    </div>
+
+                    <div *ngIf="carregando">
+                        <i class="fas fa-spinner fa-pulse"></i>Aguarde...
+                    </div>
+
+                    <form [formGroup]="paymentForm" role="form" class="contactForm">
+                        <div *ngIf="!user?.payment?.icPaid && !carregando">
+
+                            <div class="row">
+                                <table class="table table-responsive table-striped tabelaCronograma">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th class="text-center">
+                                                Março a Novembro/2022
+                                            </th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <tr>
+                                            <th class="text-nowrap" scope="row">Estudantes de Graduação e
+                                                pós-graduação com comprovação</th>
+                                            <td style="text-align: center">R$ 40,00</td>
+
+                                        </tr>
+
+                                        <tr>
+                                            <th class="text-nowrap" scope="row">Professores e demais
+                                                profissionais da Educação Básica</th>
+                                            <td style="text-align: center">R$ 80,00</td>
+
+                                        </tr>
+                                        <tr>
+                                            <th class="text-nowrap" scope="row">Docentes de Educação
+                                                Superior</th>
+                                            <td style="text-align: center">R$ 120,00</td>
+
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+
+
+                        </div>
+
+                        <div *ngIf="user?.payment?.icPaid" class="row justify-content-center">
+                            <h3 style="color: rgb(33, 141, 12);">Recebemos seu pagamento, aguardamos por você.</h3>
+
+                        </div>
+
+                        <div *ngIf="!user?.payment?.icPaid" class="form-row">
+                            <div class="form-group">
+                                Para realizar o pagamento será necessário acessar o sistema FAU, onde será emitido um
+                                boleto para pagamento.<br>
+                                Após o pagamento o sistema tem o prazo de até 2 dias úteis para validar sua incrição.
+                                Estando tudo certo
+                                enviaremos um email de confirmação.
+                                <br><br>
+                                Vale lembrar que o pagamento da inscrição é condicionado para a submissão de trabalhos.
+                                <br><br>
+                                <strong>ATENÇÃO: ATUALIZE O SEU E-MAIL NO CADASTRO DA FAU.</strong>
+
+                            </div>
+                        </div>
+
+
+
+                        <div *ngIf="!user?.payment?.icPaid" class="row justify-content-center">
+                            <!--<button *ngIf="!enviando" class="btn-get-started" (click)="gerarPagamento()">Enviar Comprovante</button>-->
+
+                            <a href="https://sistemas.fau.org.br/participante/index.xhtml?idevento=743" target="_blank"
+                                class="btn-get-started" role="button">Gerar
+                                Boleto FAU</a>
+
+
+                        </div>
+
+
+                        <div *ngIf="enviando" class="row justify-content-center"><button><i
+                                    class="fas fa-spinner fa-pulse"></i></button></div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

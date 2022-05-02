@@ -1,0 +1,23 @@
+<div class="row">
+    {{ metrics | json }}
+    <div class="col-md-2 metrics">
+        <small>Inscritos</small>
+        <h4>{{ metrics.subscribers }}</h4>
+    </div>
+    <div class="col-md-2 metrics">
+        <small>PCD</small>
+        <h4>{{ metrics.subscribersPcd }}</h4>
+    </div>
+    <div class="col-md-2 metrics">
+        <small>Pagos</small>
+        <h4>{{ metrics.confirmPayment }}</h4>
+    </div>
+    <div class="col-md-2 metrics">
+        <small>Negados</small>
+        <h4>{{ metrics.denyPayment }}</h4>
+    </div>
+    <div class="col-md-2 metrics">
+        <small>Pendentes</small>
+        <h4>{{ metrics.pendingPayment }}</h4>
+    </div>
+</div>

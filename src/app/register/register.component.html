@@ -1,0 +1,332 @@
+<!--==========================
+    Intro Section
+  ============================-->
+<main id="main">
+
+    <div class="container" id="register">
+        <div class="form">
+            <form [formGroup]="registerForm" (ngSubmit)="register()" role="form" class="contactForm">
+                <div class="section-header">
+                    <h2>Dados Pessoais</h2>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <!--<div class="form-check">
+                            <input class="form-check-input" type="radio" name="icForeign" id="foreign1" [value]="true"
+                                formControlName="icForeign">
+                            <label class="form-check-label" for="foreign1">
+                                Sou estrangeiro
+                            </label>
+                        </div>
+                        <div class="form-check" last>
+                            <input class="form-check-input" type="radio" name="icForeign" id="foreign2" [value]="false"
+                                formControlName="icForeign">
+                            <label class="form-check-label" for="foreign2">
+                                Não sou estrangeiro
+                            </label>
+                        </div>-->
+                        <input type="text" class="form-control" name="document" id="document" placeholder="CPF"
+                            formControlName="document" [dropSpecialCharacters]="true" mask="000.000.000-00" />
+                        <span class="text-danger"
+                            *ngIf="registerForm.controls.document.touched  && registerForm.controls.document.errors">
+                            Verifique o CPF
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <input type="text" name="name" class="form-control" id="name" placeholder="Nome"
+                            data-rule="minlen:4" data-msg="Please enter at least 4 chars" formControlName="fullname" />
+                        <span class="text-danger"
+                            *ngIf="registerForm.controls.fullname.touched  && registerForm.controls.fullname.errors">
+                            Verifique o Nome
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <input type="text" name="name" class="form-control" id="name" placeholder="Nome Social"
+                            formControlName="socialname" />
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Email"
+                            data-rule="email" data-msg="Please enter a valid email" formControlName="email" />
+                        <span class="text-danger"
+                            *ngIf="registerForm.controls.email.touched  && registerForm.controls.email.errors">
+                            Verifique o Email
+                        </span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input type="email" class="form-control" name="emailConfirm" id="emailConfirm"
+                            placeholder="Digite novamente o Email" data-rule="email"
+                            data-msg="Please enter a valid email" formControlName="emailConfirm" />
+                        <span class="text-danger"
+                            *ngIf="registerForm.controls.emailConfirm.touched  && registerForm.controls.emailConfirm.errors">
+                            Verifique a confirmação de email
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <input type="text" name="birth-date" class="form-control" id="birth-date"
+                            placeholder="Data de nascimento" formControlName="dateBirth" bsDatepicker
+                            [bsConfig]="{ isAnimated: true, dateInputFormat: 'DD/MM/YYYY' }" autocomplete="false" />
+                    </div>
+                    <div class="form-group col-md-4" formGroupName="phones">
+                        <input type="text" name="telephone" class="form-control" id="telephone" placeholder="Telefone"
+                            formControlName="telephone" [dropSpecialCharacters]="true" mask="(00) 0000-0000" />
+                        <div class="validation"></div>
+                    </div>
+                    <div class="form-group col-md-4" formGroupName="phones">
+                        <input type="text" class="form-control" name="cellphone" id="cellphone" placeholder="Celular"
+                            formControlName="cellphone" [dropSpecialCharacters]="true" mask="(00) 00000-0000" />
+
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <input type="password" name="password" class="form-control" id="password" placeholder="Senha"
+                            formControlName="password" />
+                        <span class="text-danger"
+                            *ngIf="registerForm.controls.password.touched  && registerForm.controls.password.errors">
+                            Verifique a Senha
+                        </span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input type="password" class="form-control" name="cf-password" id="cf-password"
+                            placeholder="Confirmar senha" formControlName="cfPassword" />
+                        <span class="text-danger"
+                            *ngIf="registerForm.controls.cfPassword.touched  && registerForm.controls.cfPassword.errors">
+                            Verifique a Confirmação de Senha
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group col-md-6">
+                        Categoria
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="categoriaId" id="radio1" [value]="1"
+                                formControlName="categoriaId">
+                            <label class="form-check-label" for="radio1">
+                                Estudante de Graduação e
+                                pós-graduação com comprovação
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="categoriaId" id="radio2" [value]="2"
+                                formControlName="categoriaId">
+                            <label class="form-check-label" for="radio2">
+                                Professor e demais profissional
+                                da Educação Básica
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="categoriaId" id="radio3" [value]="3"
+                                formControlName="categoriaId">
+                            <label class="form-check-label" for="radio3">
+                                Docente de Educação Superior
+                            </label>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group col-md-6">
+                        Possui alguma deficiência?
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="pcdId" id="radio1">
+                            <label class="form-check-label" for="radio1">
+                                Nenhuma
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="pcdId" id="radio1" [value]="1"
+                                formControlName="pcdId">
+                            <label class="form-check-label" for="radio1">
+                                Auditiva
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="pcdId" id="radio2" [value]="2"
+                                formControlName="pcdId">
+                            <label class="form-check-label" for="radio2">
+                                Visual
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group col-md-12">
+
+                        <div *ngIf="showUpload()" class="custom-file col-md-4">
+                            <input type="file" class="custom-file-input" data-max-size="2048" id="customPreReadFile"
+                                (change)="setFileName($event.target.files)" #fileInput />
+                            <label class="custom-file-label" for="customPreReadFile">{{ getFileName() }}</label>
+                        </div>
+
+
+
+                    </div>
+
+
+
+                </div>
+
+
+
+                <div class="section-header">
+                    <h2 mt-2>Endereço</h2>
+                </div>
+                <div class="form-row" formGroupName="address">
+                    <div class="form-group col-md-6">
+                        <input type="text" name="street" class="form-control" id="street" placeholder="Endereço"
+                            data-rule="minlen:4" data-msg="Please enter at least 4 chars" formControlName="street" />
+                        <div class="validation"></div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input type="text" class="form-control" name="num" id="num" placeholder="Nº" data-rule="email"
+                            data-msg="Please enter a valid email" formControlName="num" />
+                        <div class="validation"></div>
+                    </div>
+                </div>
+                <div class="form-row" formGroupName="address">
+                    <div class="form-group col-md-6">
+                        <input type="text" name="zip" class="form-control" id="zip" placeholder="Código postal"
+                            formControlName="zip" [dropSpecialCharacters]="true" mask="00000-000" />
+                        <div class="validation"></div>
+                    </div>
+
+
+                    <div class="form-group col-md-6">
+                        <input type="text" name="district" class="form-control" id="district" placeholder="Bairro"
+                            data-rule="minlen:4" data-msg="Please enter at least 4 chars" formControlName="district" />
+                        <div class="validation"></div>
+                    </div>
+                </div>
+                <div class="form-row" formGroupName="address">
+                    <div class="form-group col-md-4">
+                        <input type="text" class="form-control" name="city" id="city" placeholder="Cidade"
+                            data-rule="email" data-msg="Please enter a valid email" formControlName="city" />
+                        <div class="validation"></div>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <input type="text" class="form-control" name="state" id="state" placeholder="Estado"
+                            data-rule="email" data-msg="Please enter a valid email" formControlName="state" />
+                        <div class="validation"></div>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <input type="text" class="form-control" name="country" id="country" placeholder="País"
+                            data-rule="email" data-msg="Please enter a valid email" formControlName="country" />
+                        <div class="validation"></div>
+                    </div>
+                </div>
+
+                <div class="section-header">
+                    <h2 mt-2>Instituição</h2>
+                </div>
+                <div class="form-row" formGroupName="institution">
+                    <div class="form-group col-md-8">
+                        <input type="text" name="ies-name" class="form-control" id="ies-name" placeholder="Nome"
+                            data-rule="minlen:4" data-msg="Please enter at least 4 chars" formControlName="name" />
+                        <div class="validation"></div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <input type="text" class="form-control" name="ies-sg" id="ies-sg" placeholder="Sigla"
+                            data-rule="email" data-msg="Please enter a valid email" formControlName="initials" />
+                        <div class="validation"></div>
+                    </div>
+                </div>
+                <!-- <div class="section-header">
+                    <h2 mt-2>Categoria</h2>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="modalityId" id="radio1" [value]="1"
+                                formControlName="modalityId">
+                            <label class="form-check-label" for="radio1">
+                                Convidado de sessão especial
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="modalityId" id="radio3" [value]="3"
+                                formControlName="modalityId">
+                            <label class="form-check-label" for="radio3">
+                                Expositor de pôster
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="modalityId" id="radio4" [value]="4"
+                                formControlName="modalityId">
+                            <label class="form-check-label" for="radio4">
+                                Mediador de minicurso
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="modalityId" id="radio7" [value]="7"
+                                formControlName="modalityId">
+                            <label class="form-check-label" for="radio7">
+                                Ouvinte
+                            </label>
+                        </div>
+
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="modalityId" id="radio5" [value]="5"
+                                formControlName="modalityId">
+                            <label class="form-check-label" for="radio5">
+                                Coordenador e expositor de painel
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="modalityId" id="radio6" [value]="6"
+                                formControlName="modalityId">
+                            <label class="form-check-label" for="radio6">
+                                Simposista
+                            </label>
+                        </div>
+                    </div>
+                </div>-->
+                <div class="col-md-12 pt-4">
+                    <hr>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="id" id="termo" [value]="true"
+                            formControlName="icAcceptTerms">
+                        <label class="form-check-label" for="termo">
+                            Li e concordo com o <a [routerLink]="" (click)="openRules()">termo de uso</a>
+                        </label>
+                    </div>
+                </div>
+                <div *ngIf="!carregando" class="text-center pt-5"><button type="submit">Enviar</button></div>
+                <div *ngIf="carregando" class="text-center pt-5"><button><i
+                            class="fas fa-spinner fa-pulse"></i>Aguarde...</button></div>
+
+            </form>
+        </div>
+
+    </div>
+
+</main>
+
+
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>

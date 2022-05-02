@@ -1,0 +1,70 @@
+.form {
+  width: 100%;
+
+  .label {
+    color: #2c8d13;
+    font-weight: 600;
+    font-size: 0.9em;
+    margin-bottom: 4px;
+  }
+
+  select,
+  textarea,
+  input {
+    padding: 6px 14px;
+    border-radius: 0;
+    box-shadow: none;
+    font-size: 15px;
+  }
+
+  .form-check-input {
+    height: 20px;
+    width: 20px;
+  }
+
+  .form-group .alert {
+    border-radius: 0px;
+    margin-bottom: 0rem;
+    margin-top: 1px;
+    padding: 0.3rem 1.25rem;
+    font-size: 13px;
+  }
+
+  .icon {
+    margin: auto auto;
+    padding: 0px;
+
+    button {
+      padding: 0px;
+      background-color: transparent;
+      border: none;
+
+      &:focus {
+        outline: none;
+      }
+
+      .fa-trash {
+        color: #e63b3b;
+        font-size: 1.3rem;
+      }
+    }
+  }
+
+  .add-coordinator {
+    background-color: #20959b;
+    color: #fff;
+    width: 100%;
+    border: none;
+    height: calc(1.5em + 0.75rem + 2px);
+    margin: 0px 6px;
+  }
+
+  .btn-get-started {
+    background-color: #2c8d13;
+    color: #fff;
+    width: 100%;
+    border: none;
+    margin: 22px 0px;
+    height: calc(1.5em + 0.75rem + 2px);
+  }
+}

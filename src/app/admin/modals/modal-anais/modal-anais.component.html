@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="row justify-content-between">
+    <div class="section-header" mat-dialog-title>
+      <h2>Cadastrar Anais</h2>
+    </div>
+    <i class="fa fa-times" (click)="close()"></i>
+  </div>
+
+
+  <div class="row justify-content-center" mat-dialog-content>
+
+    <form role="form" class="reviewer" [formGroup]="anaisForm" (ngSubmit)="register()">
+      <div class="form-row justify-content-center">
+        <div class="form-group col-md-12">
+          <input type="text" name="notice" class="form-control" id="notice" placeholder="Nome do livro"
+            formControlName="name" />
+        </div>
+      </div>
+      <div class="form-row justify-content-center">
+        <div class="form-group col-md-12">
+          <input type="text" name="link" class="form-control" id="link" placeholder="Link de download completo (Driver)"
+            formControlName="link" />
+        </div>
+      </div>
+
+      <div class="form-row justify-content-center">
+        <div class="form-group col-md-12">
+          <input type="text" name="link" class="form-control" id="link" placeholder="Link da imagem do livro (Driver)"
+            formControlName="image" />
+        </div>
+      </div>
+
+
+      <!-- ARRAY SUMÁRIO-->
+      <div class="mb-2 miniature" formArrayName="summary" *ngFor="let item of summaries['controls']; let i = index">
+        <div [formArrayName]="i">
+          <div class="row justify-content-center">
+
+            <div class="form-group col-md-12">
+              <label for="title" class="label">Sumário</label>
+              <input type="text" class="form-control" formControlName="name" />
+            </div>
+  
+            <div class="form-group col-md-12">
+              <label for="author" class="label">Link para download</label>
+              <input type="text" class="form-control" formControlName="link" />
+            </div>
+
+              <button type="button" class="btn btn-danger" (click)="removeSumary(i)">
+                <i class="fas fa-trash"> Excluir Sumário</i>
+              </button>
+
+          </div>
+        </div>
+      </div>
+
+      <button type="button" class="btn btn-primary" (click)="addSumary()">
+        <i class="fa fa-plus"></i>
+         Sumário
+      </button>
+
+
+      <div class="row justify-content-end">
+        <button class="btn-get-started" type="submit">Submeter</button>
+      </div>
+    </form>
+  </div>
+</div>

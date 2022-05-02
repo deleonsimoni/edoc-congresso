@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row justify-content-between header">
+    <div class="section-header" mat-dialog-title>
+      <h2>Cadastrar programação</h2>
+    </div>
+    <i class="fa fa-times" (click)="close()"></i>
+  </div>
+  <div class="row" mat-dialog-content>
+    <div class="contactForm">
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <select class="form-control" id="axis" [formControl]="axis">
+            <option disabled="true" [selected]="true">Selecione
+              o tipo</option>
+            <option *ngFor="let type of types" [value]="type.id">{{ type.name }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="row" *ngIf="carregando">
+        <i class="fas fa-spinner fa-pulse"></i>
+      </div>
+      <ng-container *ngIf="showGenericForm && !carregando">
+        <generic-form (submitForm)="sendSchedule($event)" [type]="axis.value" [data]="form ? form.data : null">
+        </generic-form>
+      </ng-container>
+      <ng-container *ngIf="showSimposioForm && !carregando">
+        <simposio-form (submitForm)="sendSchedule($event)" [type]="axis.value" [data]="form ? form.data : null">
+        </simposio-form>
+      </ng-container>
+      <ng-container *ngIf="showWorkScheduleForm && !carregando">
+        <work-schedule-form (submitForm)="sendSchedule($event)" [type]="axis.value" [data]="form ? form.data : null">
+        </work-schedule-form>
+      </ng-container>
+    </div>
+  </div>
+</div>

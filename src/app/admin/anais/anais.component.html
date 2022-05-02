@@ -1,0 +1,70 @@
+
+<div class="form mt-4">
+  <div *ngFor="let anal of anais; let i = index" [ngClass]="{'mb-3': anais.length > 1}">
+    <div class="card-news">
+      <!-- [ngClass]="{'no-radius-bottom': infos == true}" -->
+      <div class="row">
+        <div class="col-12 border-right">
+
+
+          <div  class="row form-group col-md-12">
+              <div class="form-group col-md-4">
+                  <div class="miniature-img ">
+                      <img width="200px" height="300px" src="{{anal.image}}">
+                  </div>
+              </div>
+
+              <div class="col-md-8">
+                  <div class="row">
+
+                      <div class="form-group col-md-12">
+                        <strong>{{anal.name}}</strong>
+                      </div>
+
+                      <div class="form-group col-md-12">
+                          <span style="text-align: justify; text-justify: inter-word; cursor: pointer;"><a [attr.href]="anal.link" target="_blank">Baixar livro completo (Clique aqui)</a></span>
+                      </div>
+                      <div >
+
+                      <div class="form-group col-12" style="height: 400px !important; overflow-y: scroll">
+                        <strong >Sumário</strong>
+
+                        <ul *ngFor="let summary of anal?.summary" >
+                          <li>
+                            <span style="text-align: justify; text-justify: inter-word; cursor: pointer;"><a [attr.href]="summary.link" target="_blank">{{summary.name}}</a></span>
+                            <br>
+                            <span style="text-align: justify; text-justify: inter-word; cursor: pointer;"><a [attr.href]="summary.link" target="_blank">(Clique aqui para baixar)</a></span>
+
+                          </li>
+                        </ul>
+                      </div>
+
+                  </div>
+              </div>
+          </div>
+
+
+
+        </div>
+
+        <div class="row">
+          <div class="col-sm-1 text-center align-self-center pointer" (click)="confirmDeleteAnais(anal)">
+            <i class="fa fa-trash"> Excluir</i>
+          </div>
+
+          <div class="col-sm-1 text-center align-self-center pointer" (click)="register(anal)">
+            <i class="fa fa-edit"> Alterar</i>
+          </div>
+      </div>
+
+      </div>
+    </div>
+  </div>
+
+  <not-found *ngIf="anais.length < 1" msg="Não há anais cadastrados"></not-found>
+
+  
+</div>
+<div class="row justify-content-end">
+  <button class="btn-get-started" (click)="register(0)">Cadastrar</button>
+</div>

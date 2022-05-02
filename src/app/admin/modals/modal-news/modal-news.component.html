@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row justify-content-between">
+        <div class="section-header" mat-dialog-title>
+            <h2>Cadastrar notícia</h2>
+        </div>
+        <i class="fa fa-times" (click)="close()"></i>
+    </div>
+    <div class="row justify-content-center" mat-dialog-content>
+
+        <form role="form" class="reviewer" [formGroup]="newsForm" (ngSubmit)="registerNotice()">
+            <div class="form-row justify-content-center">
+                <div class="form-group col-md-12">
+                    <input type="text" name="notice" class="form-control" id="notice" placeholder="Título da notícia"
+                        formControlName="name" />
+                    <div class="alert alert-danger"
+                        *ngIf="(nameNotice.errors && submit) || (nameNotice.errors && !nameNotice.pristine)">
+                        <span>Preencha o campo título</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row justify-content-center">
+                <div class="form-group col-md-12">
+                    <quill-editor formControlName="description" placeholder="Descrição da notícia">
+                        <div quill-editor-toolbar>
+                            <span class="ql-formats">
+                                <button class="ql-bold" [title]="'Bold'"></button>
+                            </span>
+                            <span class="ql-formats">
+                                <select class="ql-align" [title]="'Aligment'">
+                                    <option selected></option>
+                                    <option value="center"></option>
+                                    <option value="right"></option>
+                                    <option value="justify"></option>
+                                </select>
+                            </span>
+                        </div>
+                    </quill-editor>
+                    <div class="alert alert-danger"
+                        *ngIf="(descNotice.errors && submit) || (descNotice.errors && !descNotice.pristine)">
+                        <span>Preencha o campo descrição</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-end">
+                <button class="btn-get-started" type="submit">Submeter</button>
+            </div>
+        </form>
+    </div>
+</div>

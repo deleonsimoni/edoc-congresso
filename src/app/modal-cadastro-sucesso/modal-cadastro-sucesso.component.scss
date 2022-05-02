@@ -1,0 +1,23 @@
+mat-dialog-container {
+    background-color: #000;
+    width: 100px;
+    height: auto
+}
+
+div.container {
+    h3 > strong {
+        color: #2c8d13;
+        text-align: center
+    }
+    i {
+        float: right;
+        font-size: 16px;
+    }
+    p {
+        font-size: 14px;
+        font-weight: 400;
+    }
+    img {
+        width: 100%;
+    }
+}

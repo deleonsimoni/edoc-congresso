@@ -1,0 +1,70 @@
+<div class="form">
+
+    <div *ngIf="user.icAdmin">
+
+
+        <label for="">Selecione o eixo</label>
+        <select class="form-control mb-3" (change)="listReviewer()" placeholder="Eixo" id="opt" [(ngModel)]="axisId">
+            <option disabled="true" [selected]="true">Selecione o eixo</option>
+            <option *ngFor="let eixo of eixos" [value]="eixo.id">{{ eixo.name }}
+            </option>
+        </select>
+
+    </div>
+
+    <div *ngIf="!user.icAdmin">
+        Eixo <strong>{{ axisId | axis }}</strong>
+    </div>
+
+
+    <div class="card-works" *ngFor="let coordinator of coordinators; let i = index"
+        [ngClass]="{'mb-3': coordinators.length > 1}">
+        <div class="row">
+            <div *ngIf="user.icAdmin" class="col-sm-2 border-right">
+                <section class="example-section">
+                    <small>COORDENADOR?</small>
+                    <section class="example-section">
+                        <mat-checkbox #checkboxMultiple [value]="[coordinator, i]"
+                            (change)="markCoordinator(coordinator._id, $event)" type="checkbox" class="example-margin"
+                            [checked]="coordinator.reviewer.icCoordinator">
+                            Sim
+                        </mat-checkbox>
+                    </section>
+                </section>
+            </div>
+            <div *ngIf="!user.icAdmin" class="col-sm-2 border-right">
+                <section class="example-section">
+                    <small>COORDENADOR</small>
+                    <section *ngIf="coordinator.reviewer.icCoordinator" class="example-section">
+                        Sim
+                    </section>
+                    <section *ngIf="!coordinator.reviewer.icCoordinator" class="example-section">
+                        Não
+                    </section>
+                </section>
+            </div>
+            <div class="col-sm-4 border-right">
+                <small>NOME</small>
+                <h4>{{ coordinator.fullname }}</h4>
+            </div>
+            <div class="col-sm-5 border-right">
+                <small>EMAIL</small>
+                <h4>{{ coordinator.email }}</h4>
+            </div>
+            <div *ngIf="!coordinator.reviewer.icCoordinator || user.icAdmin"
+                class="col-sm-1 text-center align-self-center pointer">
+                <i class="fa fa-trash" (click)="removeCoordinator(coordinator._id)"></i>
+            </div>
+        </div>
+    </div>
+
+    <not-found *ngIf="coordinators.length < 1" msg="Não há pareceristas para este eixo"></not-found>
+
+    <!-- <div *ngIf="coordinators.length == 0">
+        <h4>Não há usuários para este eixo</h4>
+    </div> -->
+
+    <div *ngIf="axisId" class="row justify-content-end">
+        <button class="btn-get-started" (click)="showRegister()">CADASTRAR</button>
+    </div>
+</div>

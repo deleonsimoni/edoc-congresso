@@ -1,0 +1,122 @@
+#submission {
+  padding: 180px 0 40px 0;
+  .box {
+    h4 {
+      margin-left: 0px;
+    }
+    p {
+      margin-left: 0px;
+    }
+    table.table{
+      border: 1px solid #e9e9e9;
+
+      thead{
+        background: #20959b;
+        color: #fff
+      }
+    }
+  }
+}
+
+#submission .box {
+  padding: 40px;
+  margin-bottom: 40px;
+  box-shadow: 0px 0px 18px 14px rgba(73, 78, 92, 0.1);
+  background: #fff;
+  transition: 0.4s;
+}
+
+#submission .box .icon {
+  float: left;
+}
+
+#submission .box .icon i {
+  color: #444;
+  font-size: 64px;
+  transition: 0.5s;
+  line-height: 0;
+  margin-top: 34px;
+}
+
+#submission .box .icon i:before {
+  background: #2c8d13;
+  background: linear-gradient(45deg, #20959b 0%, #a3ebd5 100%);
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#submission .box h4 {
+  margin-left: 100px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  font-size: 22px;
+}
+
+#submission .box h4 a {
+  color: #444;
+}
+
+#submission .box p {
+  font-size: 14px;
+  margin-left: 100px;
+  margin-bottom: 0;
+  line-height: 24px;
+}
+
+#submission .submission-content .btn-get-started,
+#submission .submission-content .btn-projects {
+  font-family: "Raleway", sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 10px 32px;
+  border-radius: 2px;
+  transition: 0.5s;
+  margin: 10px;
+  color: #fff;
+  cursor: pointer;
+}
+
+#submission .submission-content button[type="button"].btn-get-started {
+  background-color: #20959b;
+  color: #fff;
+  width: 100%;
+  border: none;
+  margin: 8px 0px;
+  height: calc(1.5em + 0.75rem + 2px);
+  i {
+    font-size: 14px;
+  }
+}
+
+#submission .submission-content .btn-get-started {
+  background: #2c8d13;
+  border: 2px solid #2c8d13;
+}
+
+#submission .submission-content .btn-get-started:hover {
+  background: none;
+  color: #2c8d13;
+}
+
+#submission .submission-content .btn-projects {
+  background: #20959b;
+  border: 2px solid #20959b;
+}
+
+#submission a {
+  padding: 8px;
+  text-decoration: underline;
+  color: #2c8d13;
+}
+
+#submission a:hover {
+  color: #20959b;
+}
+
+#submission .submission-content .btn-projects:hover {
+  background: none;
+  color: #20959b !important;
+}

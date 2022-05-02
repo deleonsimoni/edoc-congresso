@@ -1,0 +1,106 @@
+<main id="main">
+
+    <div class="container" id="register">
+        <div class="form">
+            <form [formGroup]="profileForm" role="form" class="contactForm" (ngSubmit)="updateUser()">
+                <div class="row justify-content-between">
+                    <div class="section-header" mat-dialog-title>
+                        <h2>Editar Usuário</h2>
+                    </div>
+                    <i class="fa fa-times" (click)="close()"></i>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <input type="text" name="fullname" class="form-control" id="fullname" placeholder="Nome"
+                            formControlName="fullname" />
+                        <div *ngIf="(validate.fullname.errors && submit) || (validate.fullname.errors && !validate.fullname.pristine)"
+                            class="alert alert-danger">
+                            <div [hidden]="!validate.fullname.errors.required">
+                                Preencha o campo nome
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group col-md-6">
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Email"
+                            formControlName="email" />
+                        <div *ngIf="(validate.email.errors && submit) || (validate.email.errors && !validate.email.pristine)"
+                            class="alert alert-danger">
+                            <div [hidden]="!validate.email.errors.required">
+                                Preencha o campo email
+                            </div>
+                            <div [hidden]="!validate.email.errors.pattern">
+                                Formato de email inválido
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <input type="text" name="document" class="form-control" id="document" placeholder="Documento"
+                            formControlName="document" />
+                        <div *ngIf="(validate.document.errors && submit) || (validate.document.errors && !validate.document.pristine)"
+                            class="alert alert-danger">
+                            <div [hidden]="!validate.document.errors.required">
+                                Preencha o campo documento
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group col-md-6">
+                        <div>
+                            <select class="form-control" id="opt" formControlName="categoryId">
+                                <option disabled="true" [selected]="true">Selecione
+                                    a modalidade</option>
+                                <option *ngFor="let option of categories" [value]="option.id">
+                                    {{ option.name }}
+                                </option>
+                            </select>
+                        </div>
+                        <!-- <div *ngIf="(validate.email.errors && submit) || (validate.email.errors && !validate.email.pristine)"
+                            class="alert alert-danger">
+                            <div [hidden]="!validate.email.errors.required">
+                                Preencha o campo email
+                            </div>
+                            <div [hidden]="!validate.email.errors.pattern">
+                                Formato de email inválido
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="form-row" formGroupName="institution">
+                    <div class="form-group col-md-6">
+                        <input type="text" name="name" class="form-control" id="name" placeholder="Nome"
+                            formControlName="name" />
+                        <div *ngIf="(validateInstitution.name.errors && submit) || (validateInstitution.name.errors && !validateInstitution.name.pristine)"
+                            class="alert alert-danger">
+                            <div [hidden]="!validateInstitution.name.errors.required">
+                                Preencha o campo nome da instituição
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group col-md-6">
+                        <input type="text" class="form-control" name="initials" id="initials" placeholder="Iniciais"
+                            formControlName="initials" />
+                        <div *ngIf="(validateInstitution.initials.errors && submit) || (validateInstitution.initials.errors && !validateInstitution.initials.pristine)"
+                            class="alert alert-danger">
+                            <div [hidden]="!validateInstitution.initials.errors.required">
+                                Preencha o campo iniciais da instituição
+                            </div>
+                            <div [hidden]="!validateInstitution.initials.errors.pattern">
+                                Formato de iniciais da instituição inválido
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <button class="btn-get-started" type="submit">Submeter</button>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+
+</main>

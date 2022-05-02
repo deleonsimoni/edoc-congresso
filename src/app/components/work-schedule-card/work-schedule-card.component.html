@@ -1,0 +1,120 @@
+<div class="card-content">
+  <div class="card">
+    <div class="row">
+      <div class="col-6">
+        <span class="title" style="color: white;">Dia(s)</span>
+        <div class="group" *ngFor="let item of schedule.dates">
+          <p class="title">{{ item.date }} </p>
+          <p class="title not-dash" style="margin: 0px 0px 4px 24px !important;">{{ item.startTime }} -
+            {{ item.endTime }} </p>
+          <!---   <p class="title not-dash" style="margin: 0px 0px 4px 24px !important;">Link do Zoom: {{  item.linkZoom  }} </p>-->
+          <p class="label">Link do Zoom</p>
+          <p class="title not-dash" style="margin: 0px 0px 4px 24px !important;"><a href="{{  item.linkZoom  }}"
+              target="_blank">{{ item.linkZoom }}</a></p>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="row justify-content-end">
+          <div class="dropdown show" *ngIf="admin">
+            <a class="btn btn-secondary dropdown-toggle menu" href="#" role="button" id="dropdownMenuLink"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-cogs"></i>
+            </a>
+
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item pointer" (click)="showSubscribers(schedule.workTitle, schedule.subscribers)">Ver Inscritos</a>
+              <a class="dropdown-item pointer" (click)="editSchedule()">Editar</a>
+              <!--<a class="dropdown-item pointer" (click)="removeSchedule(schedule._id)">Excluir</a>-->
+            </div>
+          </div>
+
+          <div *ngIf="!admin">
+           
+           
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
+    <div class="row">
+      <div class="col-12">
+        <div class="group" *ngIf="type != '3'">
+          <p class="label">Título</p>
+          <p class="title">
+            {{ schedule.workTitle }}
+          </p>
+        </div>
+
+
+        <!-- EXIBICAO WORK POSTER-->
+
+        <div class="group" *ngIf="type == '3'">
+          <p class="label">Pôsteres</p>
+          <div *ngFor="let work of schedule.worksPoster">
+            <p class="title">
+              {{ work.workTitle }}
+            </p>
+            <p class="title not-dash" style="margin: 0px 0px 4px 24px !important;">
+              Link da apresentação: <a href="{{  work.linkPPT  }}" target="_blank">{{ work.linkPPT }}</a>
+            </p>
+          </div>
+        </div>
+
+        <!-- FIM WORK POSTER-->
+
+
+        <div class="group">
+          <p class="label">Eixo</p>
+          <p class="title">
+            {{ schedule.axis | axis }}
+          </p>
+        </div>
+        <!--- <div *ngIf="type == '3'">
+          <div class="group">
+            <p class="label">Programação dos trabalhos</p>
+            <a [href]="schedule.pdf" target="_blank">{{ schedule.pdf }}</a>
+            <p class="title">
+              {{ schedule.workTitle }}
+            </p> 
+          </div>
+        </div> -->
+        <div class="group" *ngIf="type != '3'">
+          <p class="label">Resumo da proposta</p>
+          <p class="title not-dash" style="text-align: justify !important;">
+            {{ schedule.resumePropose }}
+          </p>
+        </div>
+        <div class="group" *ngIf="type != '3'">
+          <p class="label">Autores</p>
+          <p class="title not-dash">
+            {{ schedule.authors }}
+          </p>
+        </div>
+        <div class="group" *ngIf="type != '3'">
+          <p class="label">Vagas</p>
+          <p class="hour">
+            {{ schedule.qtdSubscribers - (schedule.subscribers ? schedule.subscribers.length : 0) }}
+          </p>
+        </div>
+        <!--<div class="group" *ngIf="type != '3'">
+          <p class="label">Local</p>
+          <p class="hour">{{ schedule.place }}</p>
+        </div>-->
+        <div class="group">
+          <p class="label">E-mail do monitor</p>
+          <p class="title not-dash">{{ schedule.monitor }}</p>
+        </div>
+        <div class="group" *ngIf="type == '3'">
+          <p class="label">E-mail do mediador</p>
+          <p class="title not-dash">{{ schedule.mediator }}</p>
+        </div>
+
+        <!-- <div class="group" *ngIf="type == '4' || type == '9'">
+          <p class="label">Endereço</p>
+          <p class="hour">{{ schedule.address }}</p>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</div>

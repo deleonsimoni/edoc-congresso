@@ -1,0 +1,204 @@
+<form [formGroup]="form" class="form">
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <label for="titles" class="label">{{ title }}</label>
+      <div formArrayName="titles" *ngFor="let item of titles['controls']; let i = index">
+        <div class="row justify-content-center mb-1">
+          <div class="align-items-center" [ngClass]="{ 'col-md-11': i > 0, 'col-md-12': i < 1 }">
+            <input type="text" class="form-control" [formControlName]="i" />
+          </div>
+          <div class="col-md-1 align-items-center icon" *ngIf="i > 0">
+            <button type="button" (click)="removeTitles(i)">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type="button" class="add-titles" (click)="addTitles()" *ngIf="type != '9'">
+      <i class="fa fa-plus"></i>
+      {{ title }}
+    </button>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="startTime" class="label">Horário início</label>
+      <input type="time" class="form-control" formControlName="startTime" name="startTime" />
+    </div>
+    <div class="form-group col-md-4">
+      <label for="endTime" class="label">Horário fim</label>
+      <input type="time" class="form-control" formControlName="endTime" name="endTime" />
+    </div>
+    <div class="form-group col-md-4">
+      <label for="date" class="label">Data</label>
+      <select class="form-control" name="date" id="date" formControlName="date">
+        <option *ngFor="let day of days" [value]="day">{{ day }}</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-row" formGroupName="virtual" *ngIf="type != '9'">
+    <div class="form-group col-md-12">
+      <label for="linkYoutube" class="label">Link do Youtube</label>
+      <input type="text" class="form-control" formControlName="linkYoutube" name="linkYoutube" />
+    </div>
+  </div>
+  <div class="form-row" formGroupName="virtual" *ngIf="type == '9'">
+    <div class="form-group col-md-12">
+      <label for="linkZoom" class="label">Link do Zoom</label>
+      <input type="text" class="form-control" formControlName="linkZoom" name="linkZoom" />
+    </div>
+  </div>
+  <div class="form-row" *ngIf="type != '9' && type != '7' && type != '11'">
+    <div class="form-group col-md-12">
+      <label for="coordinators" class="label">Conferencista(s)</label>
+      <br />
+      <small>**Caso o conferencista seja um coordenador, assinale no campo à esquerda.</small>
+      <br />
+      <div class="mb-2" formArrayName="coordinators" *ngFor="let item of coordinators['controls']; let i = index">
+        <div [formArrayName]="i">
+          <div class="row justify-content-center">
+            <div class="col-md-1 align-items-center">
+              <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1" formControlName="isCoordinator" />
+              </div>
+            </div>
+            <div class="align-items-center" [ngClass]="{ 'col-md-10': i > 0, 'col-md-11': i < 1 }">
+              <input type="text" class="form-control" formControlName="name" />
+            </div>
+            <div class="col-md-1 align-items-center icon" *ngIf="i > 0">
+              <button type="button" (click)="removeCoordinator(i)">
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type="button" class="add-coordinator" (click)="addCoordinator()">
+      <i class="fa fa-plus"></i>
+      Conferencista(s)
+    </button>
+  </div>
+  <div class="form-row" *ngIf="type == '11'">
+    <div class="form-group col-md-12">
+      <label for="entrevistado" class="label">Entrevistado(s)</label>
+      <br />
+      <div class="mb-2" formArrayName="entrevistados" *ngFor="let item of entrevistados['controls']; let i = index">
+        <div [formArrayName]="i">
+          <div class="row justify-content-center">
+            <div class="align-items-center" [ngClass]="{ 'col-md-10': i > 0, 'col-md-11': i < 1 }">
+              <input type="text" class="form-control" formControlName="name" />
+            </div>
+            <div class="col-md-1 align-items-center icon" *ngIf="i > 0">
+              <button type="button" (click)="removeEntrevistado(i)">
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type="button" class="add-entrevistado" (click)="addEntrevistado()">
+      <i class="fa fa-plus"></i>
+      Entrevistado(s)
+    </button>
+  </div>
+  <div class="form-row" *ngIf="type == '11'">
+    <div class="form-group col-md-12">
+      <label for="entrevistador" class="label">Entrevistador(es)</label>
+      <br />
+      <div class="mb-2" formArrayName="entrevistadores" *ngFor="let item of entrevistadores['controls']; let i = index">
+        <div [formArrayName]="i">
+          <div class="row justify-content-center">
+            <div class="align-items-center" [ngClass]="{ 'col-md-10': i > 0, 'col-md-11': i < 1 }">
+              <input type="text" class="form-control" formControlName="name" />
+            </div>
+            <div class="col-md-1 align-items-center icon" *ngIf="i > 0">
+              <button type="button" (click)="removeEntrevistador(i)">
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type="button" class="add-entrevistador" (click)="addEntrevistador()">
+      <i class="fa fa-plus"></i>
+      Entrevistador(es)
+    </button>
+  </div>
+  <!-- LANCAMENTO DE LIVROS -->
+  <div class="form-group col-md-12" *ngIf="type == '9'">
+    <label for="books" class="label">Obras</label>
+    <br />
+    <div class="mb-2 miniature" formArrayName="books" *ngFor="let item of books['controls']; let i = index">
+      <div [formArrayName]="i">
+        <div class="row justify-content-center">
+          <div class="form-group col-md-12">
+            <label for="title" class="label">Título</label>
+            <input type="text" class="form-control" formControlName="title" />
+          </div>
+
+          <div class="form-group col-md-12">
+            <label for="author" class="label">Autor(es)</label>
+            <input type="text" class="form-control" formControlName="author" />
+          </div>
+
+          <div #images class="row form-group col-md-12">
+
+              <div class="form-group col-md-2">
+                <div class="miniature-img ">
+                  <img  id="imageRender{{i}}" src="../../assets/img/user.png">
+                  <button (click)="loadImage(i)"><i class="fas fa-camera"></i></button>
+                </div>
+              </div>
+
+              <div class="col-md-10">
+                <div class="row">
+                  <div class="form-group col-md-12">
+                    <label for="resume" class="label">Resumo</label>
+                    <textarea name="resume" class="form-control" id="resume{{i}}" cols="30" rows="5"
+                      formControlName="resume"></textarea>
+                  </div>
+
+                  <div class="form-group col-md-12">
+                    <label for="linkSale" class="label">Link do livro</label>
+                    <input type="text" class="form-control" formControlName="linkSale" />
+                  </div>
+                </div>
+              </div>
+
+
+          </div>          
+
+
+          <div class="col-md-1 align-items-center icon" *ngIf="i > 0">
+            <button type="button" (click)="removeBook(i)">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+
+
+
+
+        </div>
+      </div>
+      <input type="file" class="custom-file-input" style="display:none" accept="image/*" data-max-size="5048"
+        id="miniature{{i}}" (change)="setMiniature($event.target.files, i)" #fileInput />
+    </div>
+  </div>
+  <button *ngIf="type == '9'" type="button" class="add-book" (click)="addBook()">
+    <i class="fa fa-plus"></i>
+    Mais Obras
+  </button>
+
+
+  <!-- FIM LANCAMENTO DE LIVROS -->
+
+
+  <div class="form-row">
+    <div class="col-md-12">
+      <button class="btn-get-started" type="button" (click)="submitSchedule()">SUBMETER PROGRAMAÇÃO</button>
+    </div>
+  </div>
+</form>

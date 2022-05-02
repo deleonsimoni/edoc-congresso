@@ -1,0 +1,118 @@
+<section id="programacao" class="wow fadeInUp">
+    <div class="container">
+  
+      <div id="inscreva">
+  
+        <div tabindex="0" alt="Se inscreva" class="section-header mt-3 mb-5">
+          <h2>Se inscreva</h2>
+        </div>
+
+        <h4 tabindex="0" alt="Selecione a modalidade" class="title">Selecione a Modalidade</h4>
+        <div class="container">
+         <div class="row">
+             <div *ngFor="let modality of modalities" class="col-lg-3 col-12">
+                 <button (click)="selectModality(modality)" type="button"
+                 [ngClass]="{'btn btn-modalidade-focus btn-lg button-programacao': modality.type == modalitySelect, 'btn btn-modalidade btn-lg button-programacao': modality.type != modalitySelect}">
+                 {{modality.name}}</button>
+           </div>
+         </div>
+       </div>
+   
+        <h4 #selecioneDia tabindex="0" alt="Selecione o Dia" class="title">Selecione o Dia</h4>
+        <div class="container">
+         <div class="row">
+             <div *ngFor="let day of days" class="col-lg-3 col-sm-6">
+                 <button (click)="selectDate(day)" type="button"
+                 [ngClass]="{'btn btn-outline-primary-focus btn-lg button-programacao': day == daySelect, 'btn btn-outline-primary btn-lg button-programacao': day != daySelect}">
+                 {{day | dayMonth}}</button>
+           </div>
+         </div>
+       </div>
+       
+       
+      <div *ngIf="daySelect && modalitySelect" class="row col-12">
+
+        <fieldset class="row col-12">
+          <legend>Mais Filtros</legend>
+            <div class="col-lg-6 col-sm-12">
+                Selecione o eixo
+                <select
+                  class="form-control"
+                  placeholder="Eixo"
+                  id="opt"
+                  [(ngModel)]="axisId">
+                  <option value=""
+                  >Todos
+                </option>
+                  <option *ngFor="let eixo of eixos" [value]="eixo.id"
+                    >{{ eixo.name }}
+                  </option>
+                </select>
+            </div>
+
+        
+          <div class="col-lg-6 col-sm-12">
+            Pesquisar trabalho por nome
+            <input
+              type="text"
+              class="form-control mb-1"
+              [(ngModel)]="workTitle"
+              placeholder="Digite o nome do trabalho que deseja pesquisar"
+            />
+          </div>
+
+          <div class="row col-12">
+            <button class="btn btn-primary" class="btn btn-large btn-primary" (click)="filterWorks()">Buscar</button>
+          </div>
+
+        </fieldset>
+
+      </div>
+       
+
+       
+  
+      <div class="section-header mt-3 mb-5">
+        <h2>Programação</h2>
+      </div>
+  
+      <div class="container" *ngIf="daySelect && modalitySelect">
+        <app-schedule-virtual [day]="daySelect" [user]="user" [type]="modalitySelect" [search]="pressbutton" [eixo]="axisId" [titulo]="workTitle"></app-schedule-virtual>
+      </div>
+  
+     </div> 
+      
+  <!--
+       <mat-tab-group (selectedTabChange)="currentTab($event)">
+        <mat-tab *ngFor="let workModality of programacoes" [label]="workModality.name">
+          <div class="container-schedule">
+      
+            <div class="btn-group" role="group">
+              <button type="button" (click)="selectDay(day)" style="padding-left: 10.5px;padding-right: 10.5px;" *ngFor="let day of days" class="btn btn-primary">{{day}}</button>
+            </div>
+      
+            <div *ngIf="loading" class="row" style="display: flex; justify-content: center; align-items: center; height: 300px;">
+                  <button type="button" class="btn btn-large btn-primary"><i class="fas fa-spinner fa-pulse ml-1"></i> Aguarde</button>
+            </div>
+      
+            <div *ngIf="!loading" class="row">
+              <ng-container *ngIf="(schedules$ | async)?.length > 0">
+                <div class="col-12 col-sm-12 col-md-12 mb-3" *ngFor="let schedule of (schedules$ | async)">
+                  <ng-container *ngIf="showWorkCard()">
+                    <work-schedule-card [schedule]="schedule" [user]="user" [admin]="true" [type]="typeId" [user]="user"></work-schedule-card>
+                  </ng-container>
+                </div>
+              </ng-container>
+              <ng-container *ngIf="(schedules$ | async)?.length < 1">
+                <div class="not-schedule">
+                  Não há programação para esse dia
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+  -->
+    </div>
+  </section>
+  

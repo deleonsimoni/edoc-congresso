@@ -1,0 +1,99 @@
+<div class="form">
+  <div *ngIf="user.icAdmin">
+    Selecione o eixo
+    <select class="form-control" (change)="nameWork = ''; modalidadeFilter = 0; status = 0; loadData()"
+      placeholder="Eixo" id="opt" [(ngModel)]="axisId">
+      <option *ngFor="let eixo of eixos" [value]="eixo.id">{{ eixo.name }}
+      </option>
+    </select>
+  </div>
+
+  <div *ngIf="!user.icAdmin">
+    Eixo <strong>{{ axisId | axis }}</strong>
+  </div>
+
+  <hr />
+
+  <div class="row" *ngIf="axisId > 0 && user">
+    Total de {{ pager.totalItems }} trabalhos
+    <br />
+    <!--{{ works | contagemModalidade }}-->
+
+    <div class="col-md-12">
+      Filtro de Pesquisa
+      <select class="form-control" [(ngModel)]="status" (change)="loadData()">
+        <option value="0">Todos</option>
+        <!-- <option value="1">Parecer Pendente Secretaria</option>
+        <option value="2">Parecer Negativo Secretaria</option>
+        <option value="3">Parecer Positivo Secretaria</option>-->
+        <option disabled>---------------</option>
+        <option value="4">Parecer Pendente Parecerista</option>
+        <option value="5">Parecer Negativo Parecerista</option>
+        <option value="6">Parecer Positivo Parecerista</option>
+        <option disabled>---------------</option>
+
+        <option value="10">Aguardando Avaliação de Recurso</option>
+        <option value="11">Recurso Aceito</option>
+        <option value="12">Recurso Negado</option>
+        <option disabled>---------------</option>
+        <option value="13">Trabalhos Aceitos</option>
+
+      </select>
+      <select class="form-control" [(ngModel)]="modalidadeFilter" (change)="loadData()">
+        <option value="0">Todas Modalidades</option>
+        <option value="3">Pôster</option>
+        <option value="5">Painel</option>
+        <option value="4">Mini Curso</option>
+
+      </select>
+      <hr />
+
+      Pesquisar trabalho por nome
+      <input type="text" class="form-control mb-1" [(ngModel)]="nameWork"
+        placeholder="Digite o nome do trabalho que deseja pesquisar" />
+      <button class="btn-primary" (click)="loadData()">
+        Pesquisar pelo nome
+      </button>
+    </div>
+
+    <!-- RELATORIOS 
+    <div
+      *ngIf="user.icAdmin && modalidadeFilter == 0"
+      style="padding-left: 30px;"
+      class="mt-4"
+    >
+      <div class="row" *ngIf="!gerandoRelatorio">
+        <button
+          class="col-xs-6 btn-primary mr-4"
+          (click)="gerarRelatorio(true)"
+        >
+          Relatório - Parecer Positivo Parecerista
+        </button>
+        <button class="col-xs-6 btn-primary" (click)="gerarRelatorio(false)">
+          Relatório - Parecer Negativo Parecerista
+        </button>
+      </div>
+    </div>-->
+    <hr />
+  </div>
+  <br />
+
+  <div *ngIf="carregando">
+    <i class="fas fa-spinner fa-pulse"></i>Carregando... Aguarde.
+  </div>
+
+  <div *ngIf="!carregando">
+    <div *ngFor="let work of works; let i = index" [ngClass]="{ 'mb-3': works.length > 1 }">
+      <work-card [work]="work" [reviewers]="reviewers" (selected)="receiverSelectedWork($event)">
+      </work-card>
+
+      <app-work-data [work]="work" [user]="user" *ngIf="work && work._id == workSelect">
+      </app-work-data>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="pager.totalItems" class="pagination justify-content-center">
+  <mat-paginator [length]="pager.totalItems" [pageSize]="pager.pageSize" (page)="pageEvent = loadWorksPaginate($event)">
+  </mat-paginator>
+</div>

@@ -1,0 +1,361 @@
+<div class="work-content">
+  <div class="not-work" *ngIf="!work">
+    <h6>Nenhum trabalho foi submetido</h6>
+  </div>
+  <div *ngIf="work">
+    <div class="row align-items-center mb-2">
+      <div class="col-md-4">
+        <strong>Título</strong>
+        <p>{{ work.title }}</p>
+      </div>
+      <div class="col-md-4">
+        <strong>Data de submissão</strong>
+        <p>{{ work.createdAt | date: "dd/MM/yyyy" }}</p>
+      </div>
+      <!--<div class="col-md-4">
+        <strong>Tipo de trabalho</strong>
+        <p>{{ work.typeWork ? (work.typeWork | typeWork) : "---" }}</p>
+      </div>-->
+    </div>
+    <div class="row align-items-center mb-2">
+      <div class="col-md-4">
+        <strong>Modalidade</strong>
+        <p>{{ work.modalityId | modalities }}</p>
+      </div>
+      <div class="col-md-8">
+        <strong>Eixo</strong>
+        <p>{{ work.axisId | axis }}</p>
+      </div>
+    </div>
+    <div *ngIf="user.icAdmin || user?.reviewer?.icCoordinator" class="row align-items-center mb-2">
+      <div class="col-md-12">
+        <strong>DOC</strong>
+        <p>
+          <a [routerLink]="" (click)="download(work.pathS3PDF)">Download DOC</a>
+        </p>
+        <div *ngIf="user.icAdmin" class="custom-file mt-2">
+          <input type="file" class="custom-file-input"
+            accept="application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+            data-max-size="2048" id="customPreReadFile" (change)="setFileNameDOC($event.target.files)" #fileInput />
+          <label class="custom-file-label" for="customPreReadFile">{{ getFileNameDOC() }}</label>
+          <div class="col-md-4">
+            <button class="btn-primary" (click)="alterarArquivos()">
+              Alterar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="user.icAdmin" class="row align-items-center mb-2">
+      <div class="col-md-12">
+        <strong>PDF</strong>
+        <p>
+          <a [routerLink]="" (click)="download(work.pathS3DOC)">Download PDF</a>
+        </p>
+        <div *ngIf="user.icAdmin" class="custom-file mt-2">
+          <input type="file" name="arquivoPDF" class="custom-file-input" accept="application/pdf" data-max-size="2048"
+            id="customPreReadFile" (change)="setFileNamePDF($event.target.files)" #fileInput />
+          <label class="custom-file-label" for="customPreReadFile">{{ getFileNamePDF() }}</label>
+          <div class="col-md-4">
+            <button class="btn-primary" (click)="alterarArquivos()">
+              Alterar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row align-items-center mb-2">
+      <div class="col-md-12">
+
+        <strong>{{ work.authors.length > 1 ? "Autores" : "Autor" }}</strong>
+        <p *ngFor="let author of work.authors">{{ author.userEmail }}</p>
+      </div>
+    </div>
+    <!--  <div *ngIf="work.reviewAdmin || work.reviewers" class="row align-items-center mb-2">
+      <div class="col-md-12">
+        <strong>Parecerista
+           <div *ngIf="work.reviewers">
+            <p *ngFor="let reviewerCoordinator of work.reviewers">{{ reviewerCoordinator.userEmail }}</p>
+          </div>
+        </strong>
+        <div *ngIf="work.reviewAdmin">
+          <div>
+              <p *ngIf="user.icAdmin || user?.reviewer?.icCoordinator">
+              Parecer: {{ work.reviewAdmin.userEmail }}
+            </p>
+            <p>
+              Cabeçalho e rodapé conforme template -
+              {{ work.reviewAdmin.review.question1 }}
+            </p>
+            <p>
+              Segue a formatação indicada para a modalidade -
+              {{ work.reviewAdmin.review.question2 }}
+            </p>
+            <p>
+              Respeita o número máximo de autores -
+              {{ work.reviewAdmin.review.question3 }}
+            </p>
+            <p>
+              Segue o número de páginas da modalidade -
+              {{ work.reviewAdmin.review.question4 }}
+            </p>
+            <p *ngIf="!work.reviewReviewer">Trabalho apto? {{ work.reviewAdmin.review.icAllow }}</p>
+          </div>
+        </div>
+      </div>
+    </div>-->
+    <hr />
+
+    <div *ngIf="work.reviewReviewer && (user.icAdmin || user?.reviewer?.icCoordinator)"
+      class="row align-items-center mb-2">
+      <hr />
+      <div class="col-md-12">
+
+        <!-- <strong *ngIf="user.icAdmin || user?.reviewer?.icCoordinator"
+          >Parecer de {{ work.reviewReviewer.userEmail }}</strong
+        >-->
+
+        <div *ngIf="work.reviewReviewer.review">
+          <strong>Parecer</strong>
+          <div>
+            <p>
+              Cabeçalho e rodapé conforme template -
+              {{ work.reviewReviewer.review.question1 }}
+            </p>
+            <p>
+              Segue a formatação indicada para a modalidade -
+              {{ work.reviewReviewer.review.question2 }}
+            </p>
+            <p>
+              Respeita o número máximo de autores -
+              {{ work.reviewReviewer.review.question3 }}
+            </p>
+            <p>
+              Segue o número de páginas da modalidade -
+              {{ work.reviewReviewer.review.question4 }}
+            </p>
+            <p>
+              Adequação ao eixo e ao evento -
+              {{ work.reviewReviewer.review.question5 }}
+            </p>
+            <p>Correção textual -
+              {{ work.reviewReviewer.review.question6 }}</p>
+            <p>
+              Clareza na apresentação -
+              {{ work.reviewReviewer.review.question7 }}
+            </p>
+            <p>
+              Coerência entre objetivos/metodologia/fundamentação -
+              {{ work.reviewReviewer.review.question8 }}
+            </p>
+            <p>
+              Contém identificação que configura quebra de anonimato -
+              {{ work.reviewReviewer.review.question9 }}
+            </p>
+
+            <p>Aprovado - {{ work.reviewReviewer.review.icAllow }}</p>
+
+            <p>Justificativa - {{ work.reviewReviewer.review.justify }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RECURSOS COLOCAR FALSE ATE A DATA D ELIBERACAO-->
+
+
+
+    <!-- RECURSOS COLOCAR FALSE ATE A DATA D ELIBERACAO-->
+
+    <div
+      *ngIf="false && work.reviewReviewer && work.reviewReviewer.review.icAllow == 'Nao' && !user.icAdmin && !user?.reviewer?.icCoordinator && !work.recurso?.justify"
+      class="row align-items-center mb-2" style="border: crimson; margin: 1px; border-style: dotted;">
+      <div class="col-md-12">
+        <h3 style="color:red;">Entrar com recurso</h3>
+
+        <div>
+
+          <div class="form-row justify-content-center">
+            <div class="form-group col-md-12">
+              <label id="example-radio-group-label">Justificativa</label>
+
+              <textarea *ngIf="!work.recurso?.icAllow" maxlength="2000" class="form-control" rows="5"
+                [(ngModel)]="justificativaRecurso">
+                      </textarea>
+              <span *ngIf="work.recurso?.icAllow">
+                <hr />
+                {{work.recurso?.justify}}
+              </span>
+
+              <div *ngIf="work.recurso?.icAllow == 'Sim'" class="row justify-content-end">
+                <b style="color: green">Recurso aceito</b>
+              </div>
+
+              <div *ngIf="work.recurso?.icAllow == 'Nao'" class="row justify-content-end">
+                <b style="color: red">Recurso recusado</b>
+              </div>
+
+              <div *ngIf="!work.recurso?.icAllow" class="row justify-content-end">
+                <button class="btn-get-started" (click)="aplicarRecurso()">Enviar Recurso</button>
+              </div>
+
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+    <div
+      *ngIf="false && work.reviewReviewer && work?.recurso?.justify && !user.icAdmin && !user?.reviewer?.icCoordinator"
+      class="row align-items-center mb-2" style="border: crimson; margin: 1px; border-style: dotted;">
+      <div class="col-md-12">
+        <h3 style="color: red;">Recurso</h3>
+
+        <div>
+          <div class="form-row justify-content-center">
+            <div class="form-group col-md-12">
+              <label id="example-radio-group-label">Justificativa</label>
+
+              <span>
+                <hr />
+                {{ work.recurso?.justify }}
+              </span>
+
+              <span *ngIf="work?.recurso?.reply">
+                <hr />
+                Resposta
+                <br /><br />
+                {{ work.recurso?.reply }}
+              </span>
+
+              <div *ngIf="work.recurso?.icAllow == 'Sim'" class="row justify-content-end">
+                <b style="color: green;">Recurso aceito</b>
+              </div>
+
+              <div *ngIf="work.recurso?.icAllow == 'Nao'" class="row justify-content-end">
+                <b style="color: red;">Recurso recusado</b>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div *ngIf="work.recurso?.justify && (user.icAdmin || user?.reviewer?.icCoordinator)"
+      class="row align-items-center mb-2" style="border: crimson; margin: 1px; border-style: dotted;">
+      <hr />
+      <div class="col-md-12">
+        <h3 style="color: red;">Avaliar recurso</h3>
+
+        <div class="form-row justify-content-center">
+          <div class="form-group col-md-12">
+            <label id="example-radio-group-label">Justificativa</label>
+            <br />
+            {{ work.recurso?.justify }}
+            <br />
+          </div>
+        </div>
+        <div class="form-row justify-content-center">
+          <div class="form-group col-md-12">
+            <div class="form-group">
+              Aceitar Recurso?
+              <hr />
+
+              <div class="form-group col-md-12">
+                <label id="example-radio-group-label">Réplica</label>
+
+                <textarea maxlength="2000" class="form-control" rows="5" [(ngModel)]="work.recurso.reply"> </textarea>
+                <span class="pull-right char"><em></em></span>
+              </div>
+
+              <div class="btn-group" role="group" aria-label="Basic example">
+                <button (click)="aceitarRecurso()" [ngStyle]="{
+                    'background-color: green;color:white': work.recurso?.icAllow == 'Sim',
+                    'background-color: white;color: black': work.recurso?.icAllow == 'Nao'
+                  }" type="button" [ngClass]="{
+                    'btn btn-success': work.recurso?.icAllow == 'Sim'
+                  }" class="btn">
+                  Sim
+                </button>
+                <button (click)="negarRecurso()" [ngStyle]="{
+                    'background-color: red;color:white': work.recurso?.icAllow == 'Sim',
+                    'background-color: white;color: black': work.recurso?.icAllow == 'Nao'
+                  }" type="button" [ngClass]="{
+                    'btn btn-danger': work.recurso?.icAllow == 'Nao'
+                  }" class="btn">
+                  Não
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--<div *ngIf="work.recursoAdmin?.justify && user.icAdmin" class="row align-items-center mb-2"
+      style="border: crimson; margin: 1px; border-style: dotted;">
+      <hr />
+      <div class="col-md-12">
+        <h3 style="color: red;">Avaliar recurso por forma</h3>
+
+        <div class="form-row justify-content-center">
+          <div class="form-group col-md-12">
+            <label id="example-radio-group-label">Justificativa Congressista</label>
+            <br />
+            {{ work.recursoAdmin?.justify }}
+            <br />
+          </div>
+          <div class="form-group col-md-12">
+            <label id="example-radio-group-label">Justificativa</label>
+            <br />
+            <textarea maxlength="2000" class="form-control" rows="5" [(ngModel)]="work.recursoAdmin.reply"> </textarea>
+          </div>
+        </div>
+        <div class="form-row justify-content-center">
+          <div class="form-group col-md-12">
+            <div class="form-group">
+              Aceitar Recurso?
+              <br />
+              <div class="btn-group" role="group" aria-label="Basic example">
+                <button (click)="aceitarRecursoAdmin()" [ngStyle]="{
+                    'background-color: green;color:white': work.recursoAdmin?.icAllow == 'Sim',
+                    'background-color: white;color: black': work.recursoAdmin?.icAllow == 'Nao'
+                  }" type="button" [ngClass]="{
+                    'btn btn-success': work.recursoAdmin?.icAllow == 'Sim'
+                  }" class="btn">
+                  Sim
+                </button>
+                <button (click)="negarRecursoAdmin()" [ngStyle]="{
+                    'background-color: red;color:white': work.recursoAdmin?.icAllow == 'Sim',
+                    'background-color: white;color: black': work.recursoAdmin?.icAllow == 'Nao'
+                  }" type="button" [ngClass]="{
+                    'btn btn-danger': work.recursoAdmin?.icAllow == 'Nao'
+                  }" class="btn">
+                  Não
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>-->
+
+    <div class="row">
+      <div class="col-md-12">
+        <!-- <button *ngIf="user.icAdmin" class="add" (click)="addReviewer(work)">
+          <i class="fas fa-plus"></i>
+          Parecer Admin
+        </button>-->
+        <button *ngIf="user?.reviewer?.icCoordinator" class="add" (click)="addReviewerCoordinator(work)">
+          <i class="fas fa-check"></i>
+          Parecer
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

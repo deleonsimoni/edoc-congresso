@@ -1,0 +1,65 @@
+<div class="work-content">
+    <div class="not-work" *ngIf="!work">
+        <h6>Nenhum trabalho foi submetido</h6>
+    </div>
+    <div *ngIf="work">
+        <div class="row align-items-center mb-2">
+            <div class="col-md-4">
+                <strong>Título</strong>
+                <p>{{ work.title }}</p>
+            </div>
+            <div class="col-md-4">
+                <strong>Data de submissão</strong>
+                <p>{{ work.createdAt | date: 'dd/MM/yyyy' }}</p>
+            </div>
+            <div class="col-md-4">
+                <strong>Tipo de trabalho</strong>
+                <p>{{ work.typeWork ? (work.typeWork | typeWork) : '---' }}</p>
+            </div>
+        </div>
+        <div class="row align-items-center mb-2">
+            <div class="col-md-8">
+                <strong>Modalidade</strong>
+                <p>{{ work.modalityId | modalities }}</p>
+            </div>
+            <div class="col-md-4">
+                <strong>Eixo</strong>
+                <p>{{ work.axisId | axis }}</p>
+            </div>
+        </div>
+        <div class="row align-items-center mb-2">
+            <div class="col-md-12">
+                <strong>DOC</strong>
+                <p>{{ work.pathS3DOC | doc }}</p>
+            </div>
+        </div>
+        <div class="row align-items-center mb-2">
+            <div class="col-md-12">
+                <strong>PDF</strong>
+                <p>{{ work.pathS3PDF | doc }}</p>
+            </div>
+        </div>
+        <div class="row align-items-center mb-2">
+            <div class="col-md-12">
+                <strong>{{ work.authors.length > 1 ? 'Autores' : 'Autor' }}</strong>
+                <p *ngFor="let author of work.authors">{{ author.userEmail }}</p>
+            </div>
+        </div>
+        <div class="row align-items-center mb-2">
+            <div class="col-md-12">
+                <strong>Pareceristas</strong>
+                <p *ngIf="!work.reviewers || work.reviewers.length < 1">Ainda não foram adicionados pareceristas a este
+                    trabalho</p>
+                <p *ngFor="let reviewer of work.reviewers">{{ reviewer._id }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <button class="add" (click)="addReviewer(work.axisId, work._id)">
+                    <i class="fas fa-plus"></i>
+                    Pareceristas
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

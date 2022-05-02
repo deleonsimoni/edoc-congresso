@@ -1,0 +1,192 @@
+<div class="work-content">
+    <div class="section first">
+        <h6>Dados pessoais<i class="fa fa-pencil ml-2" (click)="editProfile()"></i> </h6>
+    </div>
+    <div *ngIf="subscribed.reviewer" class="row align-items-center mb-4">
+        <div style="color:black !important;" *ngIf="subscribed.reviewer.icCoordinator" class="col-12 mb-12">
+            <strong>Coordenador - {{subscribed.reviewer.icModalityId | axis}}</strong>
+        </div>
+        <div style="color:black !important;" *ngIf="!subscribed.reviewer.icCoordinator" class="col-12 mb-12">
+            <strong>Parecerista - {{subscribed.reviewer.icModalityId | axis}}</strong>
+        </div>
+    </div>
+    <div class="row align-items-center">
+        <div class="col-12 mb-12">
+            <strong>Nome Social</strong>
+            <p>{{ subscribed.socialname ? subscribed.socialname : '-----' }}</p>
+        </div>
+
+    </div>
+    <div class="row align-items-center">
+        <div class="col-sm-4 mb-2">
+            <strong>Telefone</strong>
+            <p>{{ subscribed.phones.telephone ? subscribed.phones.telephone : '-----' }}</p>
+        </div>
+        <div class="col-sm-4 mb-2">
+            <strong>Celular</strong>
+            <p>{{ subscribed.phones.cellphone ? subscribed.phones.cellphone : '-----' }}</p>
+        </div>
+        <div class="col-sm-4 mb-2">
+            <strong>Data de inscrição</strong>
+            <p>{{ subscribed.createdAt | date: 'dd/MM/yyyy' }}</p>
+        </div>
+    </div>
+    <div class="row align-items-center">
+        <div class="col-12">
+            <strong>Código Postal</strong>
+            <p *ngIf="subscribed.address">{{ subscribed?.address?.zip | cep }}</p>
+        </div>
+        <div class="col-12">
+            <strong>Rua</strong>
+            <p>{{ subscribed?.address?.street ? subscribed.address.street : '-----' }} - {{ subscribed?.address?.num ?
+                subscribed.address.num : '-----' }}</p>
+        </div>
+        <div class="col-6">
+            <strong>Bairro</strong>
+            <p>{{ subscribed?.address?.district ? subscribed.address.district : '-----' }}</p>
+        </div>
+        <div class="col-6">
+            <strong>Cidade</strong>
+            <p>{{ subscribed?.address?.city ? subscribed.address.city : '-----' }}</p>
+        </div>
+        <div class="col-6">
+            <strong>Estado</strong>
+            <p>{{ subscribed?.address?.state ? subscribed.address.state : '-----' }}</p>
+        </div>
+        <div class="col-6">
+            <strong>País</strong>
+            <p>{{ subscribed?.address?.country ? subscribed.address.country : '-----' }}</p>
+        </div>
+
+        <div class="col-6">
+            <strong>Categoria</strong>
+
+
+            <p *ngIf="subscribed.categoriaId == 1">
+                Estudante de Graduação e pós-graduação com comprovação
+            </p>
+
+            <p *ngIf="subscribed.categoriaId == 2">
+                Professor e demais profissional da Educação Básica
+            </p>
+
+            <p *ngIf="subscribed.categoriaId == 3">
+                Docente de Educação Superior
+            </p>
+
+            <p *ngIf='!subscribed.categoriaId'>
+                -----
+            </p>
+
+
+        </div>
+
+        <div class="col-6">
+            <strong>Deficiência</strong>
+
+
+            <p *ngIf='subscribed.pcdId == 1'>
+                Auditiva
+            </p>
+
+            <p *ngIf='subscribed.pcdId == 2'>
+                Visual
+            </p>
+
+            <p *ngIf='!subscribed.pcdId'>
+                -----
+            </p>
+        </div>
+
+
+
+        <div *ngIf="subscribed.comprovanteAWS" class="col-12">
+            <strong>Download Comprovante:</strong>
+            <p><a [routerLink]="" (click)="download(subscribed.comprovanteAWS)">Clique aqui</a>
+            </p>
+        </div>
+
+        <div class="col-12">
+            <strong>Instituição:</strong>
+            <p>{{ subscribed.institution?.name ? subscribed.institution?.initials + '-' +
+                subscribed.institution?.name :
+                '----' }}
+            </p>
+        </div>
+
+
+    </div>
+
+    <div class="section">
+        <h6>Pagamento</h6>
+    </div>
+    <div class="row align-items-center">
+
+        <div class="col-sm-4">
+            <strong>Confirmar pagamento</strong>
+            <div *ngIf="subscribed.payment" class="form-group">
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button (click)="confirmPayment(subscribed)"
+                        [ngStyle]="{'background-color: green;color:white':  subscribed.payment.icPaid, 'background-color: white;color: black': subscribed.payment.icPaid}"
+                        type="button" [ngClass]="{'btn btn-success': subscribed.payment.icPaid}"
+                        class="btn">Sim</button>
+                    <button (click)="denyPayment(subscribed)"
+                        [ngStyle]="{'background-color: red;color:white':  !subscribed.payment.icPaid, 'background-color: white;color: black': subscribed.payment.icPaid}"
+                        type="button" [ngClass]="{'btn btn-danger': !subscribed.payment.icPaid}"
+                        class="btn">Não</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div *ngIf="subscribed.works.length > 0" class="section">
+        <h6>Trabalhos</h6>
+
+        <div class="row" *ngIf="carregandoTrabalhos">
+            <i class="fas fa-spinner fa-pulse"></i>Aguarde...
+        </div>
+        <!-- !carregandoTrabalhos -->
+
+        <div class="row" *ngFor="let work of works">
+
+            <div class="col-sm-4 align-self-center">
+                <strong>Título</strong>
+                <p>{{ work?.title }} <i class="fa fa-trash ml-2" *ngIf="!workWait" title="Excluir trabalho"
+                        style="color: red; cursor: pointer;" (click)="confirmDeletarTrabalho(work._id)"></i></p>
+            </div>
+            <div class="col-sm-4 align-self-center">
+                <strong>Eixo</strong>
+                <p>{{ retrieveEixo(work?.axisId)?.name }}</p>
+            </div>
+            <div class="col-sm-4 align-self-center">
+                <strong>Modalidade</strong>
+                <p>{{ retrieveModality(work?.modalityId)?.name }}</p>
+            </div>
+            <div class="col-sm-4 mt-2">
+                <strong>Autores</strong>
+                <span *ngFor="let author of work?.authors">
+                    <p>{{ author?.userEmail }}
+                        <i class="fa fa-trash ml-2" *ngIf="!workWait" title="Excluir autor do trabalho"
+                            style="color: red; cursor: pointer;"
+                            (click)="confirmDeletarAutor(author.userId, work._id)"></i>
+                    </p>
+                </span>
+                <hr>
+                <span>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Email do Participante"
+                        [(ngModel)]="newAuthor" />
+                    <button class="btn-primary" *ngIf="!workWait" title="Incluir participante no trabalho"
+                        (click)="incluirParticipanteTrabalho(work._id)">Incluir</button>
+                </span>
+                <hr>
+            </div>
+            <div class="col-sm-4 mt-2">
+                <strong>Arquivos</strong>
+                <p><a [routerLink]="" (click)="download(work.pathS3DOC)">Download pdf</a>
+                </p>
+                <p><a [routerLink]="" (click)="download(work.pathS3PDF)">Download doc</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

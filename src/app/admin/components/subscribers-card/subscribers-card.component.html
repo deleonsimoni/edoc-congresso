@@ -1,0 +1,48 @@
+<div class="card-works">
+    <div class="row">
+        <div class="col-sm-3 border-right">
+            <small>NOME</small>
+            <h4>{{ subscribed.fullname.toLowerCase() }}</h4>
+        </div>
+        <div class="col-sm-3 border-right">
+            <small>EMAIL</small>
+            <h4>{{ subscribed.email.toLowerCase() }}</h4>
+        </div>
+        <div class="col-sm-3 border-right">
+            <small>CPF</small>
+            <h4>{{ subscribed.document | maskCpf }}</h4>
+        </div>
+
+        <div class="col-sm-2">
+
+            <div class="row ">
+
+                <div class="col-sm-12">
+                    <small>STATUS</small>
+                    <h4>{{ subscribed.payment.icPaid ? 'Pagamento validado' : 'Aguardando validação'}}</h4>
+
+                    <small>Validar</small>
+                    <div *ngIf="subscribed.payment">
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <button (click)="confirmPayment(subscribed)"
+                                [ngStyle]="{'background-color: green;color:white':  subscribed.payment.icPaid, 'background-color: white;color: black': subscribed.payment.icPaid}"
+                                type="button" [ngClass]="{'btn btn-success': subscribed.payment.icPaid}"
+                                class="btn">Sim</button>
+                            <button (click)="denyPayment(subscribed)"
+                                [ngStyle]="{'background-color: red;color:white':  !subscribed.payment.icPaid, 'background-color: white;color: black': subscribed.payment.icPaid}"
+                                type="button" [ngClass]="{'btn btn-danger': !subscribed.payment.icPaid}"
+                                class="btn">Não</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-sm-1 text-center align-self-center pointer" style="cursor: pointer;"
+            (click)="selectUser(subscribed);">
+            <i class="fa fa-chevron-down"></i>
+        </div>
+    </div>
+</div>

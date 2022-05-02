@@ -1,0 +1,180 @@
+<form [formGroup]="form" class="form">
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <select class="form-control" id="axis" formControlName="axis">
+        <option *ngFor="let eixo of axisCollection" [selected]="eixo.id == axis" [value]="eixo.id">
+          {{ eixo.name }}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="form-row" *ngIf="type != '3'">
+    <div class="form-group col-md-12">
+      <select class="form-control" id="work" [ngModelOptions]="{ standalone: true }" [(ngModel)]="selectedWork"
+        (ngModelChange)="setWorkForm($event)">
+        <option disabled="true" [selected]="true">Selecione o trabalho</option>
+        <option *ngFor="let work of works" [ngValue]="work">
+          {{ work.title }}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="form-row" *ngIf="type != '3'">
+    <div class="form-group col-md-12">
+      <label for="authors" class="label">Autores</label>
+      <br />
+      <small>*** Adicione os autores separando-os por vírgula.</small>
+      <textarea name="authors" class="form-control" id="authors" cols="30" rows="5"
+        formControlName="authors"></textarea>
+    </div>
+  </div>
+  <div class="form-row" *ngIf="type != '3'">
+    <div class="form-group col-md-12">
+      <label for="resumePropose" class="label">Resumo da proposta</label>
+      <textarea name="resumePropose" class="form-control" id="resumePropose" cols="30" rows="5"
+        formControlName="resumePropose"></textarea>
+    </div>
+  </div>
+
+  <div class="form-row" *ngIf="type != '3'">
+    <div class="form-group col-md-12">
+      <label for="qtdSubscribers" class="label">Vagas</label>
+      <input type="text" name="qtdSubscribers" class="form-control" id="qtdSubscribers"
+        formControlName="qtdSubscribers" />
+    </div>
+  </div>
+
+  <hr/>
+
+
+
+
+    <div class="form-group col-md-12">
+      <label for="dates" class="label">Dias</label>
+      <br />
+      <div class="mb-2" formArrayName="dates" *ngFor="let item of dates['controls']; let i = index">
+        <div [formArrayName]="i">
+          <div class="row justify-content-center">
+           
+            <div class="form-group col-md-4" >
+              <label for="startTime" class="label">Hora início</label>
+              <input type="time" min="08:00" max="21:00" class="form-control" name="startTime" id="startTime"
+                formControlName="startTime" />
+            </div>
+            <div class="form-group col-md-4">
+              <label for="endTime" class="label">Hora fim</label>
+              <input type="time" min="08:00" max="21:00" class="form-control" name="endTime" id="endTime"
+                formControlName="endTime" />
+            </div>
+            <div class="form-group col-md-4">
+              <label for="date" class="label">Data</label>
+              <select class="form-control" name="date" id="date" formControlName="date">
+                <option *ngFor="let day of days" [value]="day">{{ day }}</option>
+              </select>
+            </div>
+            <div class="form-row col-md-12" >
+              <div class="form-group col-md-12">
+                <label for="linkZoom" class="label">Link do Zoom</label>
+                <input type="text" class="form-control" formControlName="linkZoom" name="linkZoom" />
+              </div>
+            </div>
+            <div class="col-md-1 align-items-center icon" *ngIf="i > 0">
+              <button type="button" (click)="removeDate(i)">
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button *ngIf="type != '3'" type="button" class="add-coordinator" (click)="addDate()">
+      <i class="fa fa-plus"></i>
+      Mais Dias
+    </button>
+
+
+    <!-- TRABALHOS DE POSTER -->
+    <div class="form-group col-md-12" *ngIf="type == '3'">
+      <label for="works" class="label">Trabalhos</label>
+      <br />
+      <div class="mb-2" formArrayName="worksPoster" *ngFor="let item of worksPoster['controls']; let i = index">
+        <div [formArrayName]="i">
+          <div class="row justify-content-center">
+
+            <div class="form-group col-md-12">
+              <label class="label">Pôster</label>
+              <select class="form-control" id="com{{i}}" [ngModelOptions]="{ standalone: true }" [(ngModel)]="selectedWorkPoster[i]"
+              (ngModelChange)="setWorkFormPoster($event, i)">
+                <option 
+                  *ngFor="let work of works; let j = index"
+                  id="d{{i}}{{j}}"
+                  [ngValue]="work"
+                  type="combobox">
+                  {{ work.title }}
+                </option>
+              </select>
+            </div>
+           
+            <div class="form-group col-md-12" >
+              <label for="startTime" class="label">Link da apresentação</label>
+              <input type="text" class="form-control" formControlName="linkPPT" />
+            </div>
+            
+            <div class="col-md-1 align-items-center icon" *ngIf="i > 0">
+              <button type="button" (click)="removeWorkPoster(i)">
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button *ngIf="type == '3'" type="button" class="add-coordinator" (click)="addWorkPoster()">
+      <i class="fa fa-plus"></i>
+      Mais Trabalhos
+    </button>
+    <!-- FIM TRABALHOS DE POSTER -->
+
+
+
+  <!-- <div class="form-row" *ngIf="type == '4' || type == '9'">
+        <div class="form-group col-md-12">
+            <label for="address" class="label">Endereço</label>
+            <input type="text" name="address" class="form-control" id="address" formControlName="address" />
+        </div>
+    </div> 
+  <div class="form-row" *ngIf="type != '3'">
+    <div class="form-group col-md-12">
+      <label for="place" class="label">Link do Zoom</label>
+      <input type="text" name="place" class="form-control" id="place" formControlName="place" />
+    </div>
+  </div>-->
+
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <label for="monitor" class="label">E-mail do Monitor (para mais de um separe usando ';')</label>
+      <input type="text" class="form-control" formControlName="monitor" name="monitor" />
+    </div>
+  </div>
+
+  <div class="form-row"  *ngIf="type == '3'">
+    <div class="form-group col-md-12">
+      <label for="mediator" class="label">E-mail do Mediador</label>
+      <input type="text" class="form-control" formControlName="mediator" name="mediator" />
+    </div>
+  </div>
+
+
+  <!--<div class="form-row" *ngIf="type == '3' || type == '5'">-->
+  <!--<div class="form-row" *ngIf="type == '3'">
+    <div class=" form-group col-md-12">
+      <label for="pdf" class="label">Url do arquivo</label>
+      <input type="text" name="pdf" class="form-control" id="place" formControlName="pdf" />
+    </div>
+  </div>-->
+  <div class="form-row">
+    <div class="col-md-12">
+      <button class="btn-get-started" type="button" (click)="submitSchedule()">SUBMETER PROGRAMAÇÃO</button>
+    </div>
+  </div>
+</form>

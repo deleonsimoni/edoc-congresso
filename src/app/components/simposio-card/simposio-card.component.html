@@ -1,0 +1,46 @@
+<div class="card-content">
+    <div class="card">
+        <div class="row">
+            <div class="col-6">
+                <div class="group">
+                    <p class="label">Horário</p>
+                    <p class="hour">{{ schedule.startTime }} - {{ schedule.endTime }}</p>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="row justify-content-end">
+                    <div class="dropdown show" *ngIf="admin">
+                        <a class="btn btn-secondary dropdown-toggle menu" href="#" role="button" id="dropdownMenuLink"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-cogs"></i>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item pointer" (click)="editSchedule()">Editar</a>
+                            <a class="dropdown-item pointer" (click)="removeSchedule(schedule._id)">Excluir</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="group">
+            <p class="label">Eixo</p>
+            <p class="title"> {{ schedule.theme | theme }} </p>
+        </div>
+        <div class="group">
+            <p class="label">Palestra</p>
+            <p class="title"> {{ schedule.themeSpeeches }} </p>
+        </div>
+        <div class="group">
+            <p class="label">Conferencista(s)</p>
+            <p class="title" *ngFor="let coordinator of schedule.coordinators">
+                {{ coordinator.name }} {{ coordinator.isCoordinator ? '(coordenador)' : '' }}
+            </p>
+        </div>
+        <div class="group">
+            <p class="label">Link do Youtube</p>
+            <!--   <p class="hour">{{ schedule.virtual.linkYoutube }}</p>-->
+            <p class="hour"><a href="{{ schedule?.virtual?.linkYoutube }}"
+                    target="_blank">{{ schedule?.virtual?.linkYoutube }}</a></p>
+        </div>
+    </div>
+</div>

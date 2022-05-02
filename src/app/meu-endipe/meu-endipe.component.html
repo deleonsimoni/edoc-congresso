@@ -1,0 +1,572 @@
+<!-- VERSAO NAO EOVLUIDA
+<section id="team" class="wow fadeInUp">
+    <div class="container">
+        
+        
+        <div class="middle section-header">
+            <h1 style="color: #2c8d13;">Aguarde</h1>
+            <hr>
+            <p style="font-size:30px">Aqui você terá acesso a suas incrições na programação do evento.</p>
+            <p style="font-size:30px">{{days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's'}}</p>
+        </div>
+        
+    </div>
+</section>
+-->
+
+<section id="programacao" class="wow fadeInUp">
+    <div class="container">
+        <div class="section-header mt-3 mb-5">
+            <h2>Suas Inscrições</h2>
+        </div>
+
+        <div *ngIf="!carregandoLista && schedules.length > 0">
+            <div *ngFor="let schedule of schedules">
+                <div class="card-works">
+                    <div class="row">
+                        <div class="col-sm-10">
+                            <h5 tabindex="0" style="color: #20959b">{{schedule.type | modalities}} - {{schedule.axis |
+                                axis}}</h5>
+                            <h3 tabindex="0" *ngIf="schedule.type != '3'"><b>{{schedule.workTitle}}</b></h3>
+                            <h3 tabindex="0" *ngIf="schedule.type == '3'"><b>Apresentação de trabalhos</b></h3>
+
+                            <div *ngFor="let day of schedule.dates">
+                                <h4 tabindex="0">
+                                    {{day.date + ' ' + day.startTime + ' - ' + day.endTime}}
+                                </h4>
+                                <h4 class="mb-1">
+                                    Link para acesso: <b>
+                                        <a tabindex="0" *ngIf="day.linkZoom" [attr.href]="day.linkZoom"
+                                            target="_blank">Clique Aqui </a>
+                                        <span tabindex="0" *ngIf="day.linkZoom"> ou copie {{day.linkZoom}}</span>
+                                        <span tabindex="0" *ngIf="!day.linkZoom">Em breve</span></b>
+                                </h4>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-2">
+                            <!--<small>STATUS</small>
+                            <h4>{{ !subscribed.payment ? 'Não realizou envio' : subscribed.payment.icPaid ? 'Pagamento validado' : subscribed.payment.icValid ? 'Comprovante validado' : 'Aguardando validação'}}
+                            </h4>
+
+                            <div *ngIf="!carregando && schedule.type != '3'">
+                                <ng-container>
+                                    <h4 class="mb-4"><button (click)="cancelSignUp(schedule.type, schedule)" class="btn btn-danger">Cancelar Inscrição</button></h4>
+                                </ng-container>
+                            </div>
+
+                            <div *ngIf="carregando">
+                                <h4 tabindex="0" class="mb-4"><button class="btn btn-inscrever"><i class="fas fa-spinner fa-pulse"></i></button></h4>
+                            </div>-->
+
+
+                            <div style="cursor: pointer !important;">
+                                <h4 tabindex="0"
+                                    style="position: absolute; bottom: 0; left: 0; cursor: pointer !important;"
+                                    (keyup.enter)="selectSchedule(schedule._id);"
+                                    (click)="selectSchedule(schedule._id);">Mais detalhes <i
+                                        class="fa fa-chevron-down"></i></h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="work-content">
+                    <div *ngIf="schedule._id == scheduleSelect">
+                        <div *ngIf="schedule.type != '3'" class="row align-items-center">
+                            <div class="col-12">
+                                <strong tabindex="0">Autores</strong>
+                                <p tabindex="0" *ngFor="let item of schedule.authors"
+                                    style="text-align: justify; text-justify: inter-word;">{{ item }}</p>
+                            </div>
+                            <div class="col-12">
+                                <strong tabindex="0">Resumo</strong>
+                                <p tabindex="0" style="text-align: justify; text-justify: inter-word;">{{
+                                    schedule.resumePropose }}</p>
+                            </div>
+                        </div>
+                        <div *ngIf="schedule.type == '3'">
+                            <div class="col-12">
+                                <div *ngFor="let item of schedule.worksPoster">
+
+                                    <div class="align-items-center"
+                                        style="text-align: justify; text-justify: inter-word;">
+                                        <div class="row">
+                                            <div class="col-sm-8 align-self-center">
+                                                <strong tabindex="0">Nome do Pôster</strong>
+                                                <p tabindex="0">{{ item.workTitle }}</p>
+                                            </div>
+                                            <div class="col-sm-4 align-self-center">
+                                                <strong tabindex="0">Acesse o Conteúdo</strong>
+                                                <p tabindex="0"><a *ngIf="item.linkPPT.includes('http')"
+                                                        [attr.href]="item.linkPPT" target="_blank">Clique aqui</a></p>
+                                                <p tabindex="0"><span *ngIf="!item.linkPPT.includes('http')">Banner não
+                                                        enviado</span></p>
+                                            </div>
+                                        </div>
+                                        <div class="row" *ngIf="item.workAuthor">
+                                            <div class="col-sm-12 align-self-center">
+                                                <strong tabindex="0">Autores</strong>
+                                                <p tabindex="0" *ngFor="let autores of item.workAuthor">{{
+                                                    autores.fullname }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <br />
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CHAT -->
+                        <br />
+                        <section id="forum" class="wow fadeInUp">
+
+                            <h2 tabindex="0" style="color: #2c8d13;">Chat - Discuta sobre o trabalho</h2>
+
+                            <div>
+                                <ul style="height: 400px !important; overflow-y: scroll">
+                                    <li *ngFor="let comment of comments?.chat">
+
+                                        <header>
+                                            <h1 tabindex="0"
+                                                [ngClass]="{ 'author': isAuthor(comment?.publisher?.email) }">
+                                                {{ comment.publisher.name }}
+                                            </h1>
+
+                                            <!--<div>
+                                        <button (click)="love(comment.id)" [ngClass]="{ 'loved': comment.loved }"></button>
+                                        <button (click)="reply(comment.publisher.name)"></button>
+                                    </div>-->
+
+                                        </header>
+                                        <p tabindex="0" [innerHTML]="parseContent(comment.content)"></p>
+
+                                    </li>
+                                </ul>
+                                <!--
+                                <form name="form" (ngSubmit)="addNewComment()" novalidate>
+                                <button tabindex="0" type="button" *ngIf="!carregando" class="btn btn-primary" (click)="atualizarChat()">Ver novas mensagens</button>
+                                <button tabindex="0" type="button" *ngIf="carregando" class="btn btn-primary"><i class="fa fa-spinner fa-pulse"></i></button> 
+
+                                <div class="textarea-wrapper">
+                                    {{remainingText}}
+                                    <textarea tabindex="0" placeholder="Digite aqui..." maxlength="120" 
+                                            [ngModelOptions]="{standalone: true}" 
+                                            [(ngModel)]="newComment" 
+                                            (ngModelChange)="justifyChange(newComment)"
+                                            required>
+                                    </textarea>
+                                    <button tabindex="0" type="submit">Enviar</button>
+        
+                                </div>
+        
+                                </form>-->
+
+                            </div>
+                        </section>
+                        <!-- FIM CHAT -->
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div *ngIf="!carregandoLista && schedules.length == 0">
+            <h2><b>Em breve</b></h2>
+            <hr />
+        </div>
+
+        <div *ngIf="carregandoLista" class="row"
+            style="display: flex; justify-content: center; align-items: center; height: 300px;">
+            <button type="button" class="btn btn-large btn-primary"><i class="fas fa-spinner fa-pulse ml-1"></i>
+                Aguarde</button>
+        </div>
+
+
+
+    </div>
+</section>
+
+
+
+<section id="voceApresenta" *ngIf="!carregandoApresentacao && apresentacoes.length > 0" class="wow fadeInUp">
+    <div class="container ">
+        <div class="section-header mt-3 mb-5">
+            <h2 tabindex="0">Suas Apresentações</h2>
+        </div>
+
+        <div *ngFor="let schedule of apresentacoes">
+            <div class="card-works">
+                <div class="row">
+                    <div class="col-sm-10">
+                        <h5 tabindex="0" style="color: #20959b">{{schedule.type | modalities}} - {{schedule.axis |
+                            axis}}</h5>
+                        <h3 tabindex="0"><b>{{schedule.workTitle}}</b></h3>
+
+                        <div *ngFor="let day of schedule.dates">
+                            <h4 tabindex="0">
+                                {{day.date + ' ' + day.startTime + ' - ' + day.endTime}}
+                            </h4>
+                            <h4 tabindex="0" class="mb-1">
+                                Link para acesso: <b>
+                                    <a tabindex="0" *ngIf="day.linkZoom" [attr.href]="day.linkZoom"
+                                        target="_blank">Clique Aqui</a>
+                                    <span tabindex="0" *ngIf="day.linkZoom"> ou copie {{day.linkZoom}}</span>
+                                    <span tabindex="0" *ngIf="!day.linkZoom">Em breve</span></b>
+                            </h4>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-2">
+                        <h4 tabindex="0" class="mb-4"><span class="btn btn-inscrever"><i
+                                    class="fas fa-users"></i></span></h4>
+
+                        <div style="cursor: pointer !important;">
+                            <h4 tabindex="0" style="position: absolute; bottom: 0; left: 0; cursor: pointer !important;"
+                                (keyup.enter)="selectSchedule(schedule._id);" (click)="selectSchedule(schedule._id);">
+                                Mais detalhes <i class="fa fa-chevron-down"></i></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="work-content">
+                <div *ngIf="schedule._id == scheduleSelect">
+                    <div class="row align-items-center">
+                        <div class="col-12">
+                            <strong tabindex="0">Autores</strong>
+                            <p tabindex="0" *ngFor="let item of schedule.authors"
+                                style="text-align: justify; text-justify: inter-word;">{{ item }}</p>
+                        </div>
+                        <div class="col-12">
+                            <strong tabindex="0">Resumo</strong>
+                            <p tabindex="0" style="text-align: justify; text-justify: inter-word;">{{
+                                schedule.resumePropose }}</p>
+                        </div>
+                    </div>
+
+                    <!-- CHAT -->
+                    <br />
+                    <section id="forum" class="wow fadeInUp">
+
+                        <h2 tabindex="0" style="color: #2c8d13;">Chat - Discuta sobre o trabalho</h2>
+
+                        <div>
+                            <ul style="height: 400px !important; overflow-y: scroll">
+                                <li *ngFor="let comment of comments?.chat">
+
+                                    <header>
+                                        <h1 tabindex="0" [ngClass]="{ 'author': isAuthor(comment?.publisher?.email) }">
+                                            {{ comment.publisher.name }}
+                                        </h1>
+
+                                        <!--<div>
+                                    <button (click)="love(comment.id)" [ngClass]="{ 'loved': comment.loved }"></button>
+                                    <button (click)="reply(comment.publisher.name)"></button>
+                                </div>-->
+
+                                    </header>
+                                    <p tabindex="0" [innerHTML]="parseContent(comment.content)"></p>
+
+                                </li>
+                            </ul>
+                            <!--
+                            <form name="form" (ngSubmit)="addNewComment()" novalidate>
+                            <button tabindex="0" type="button" *ngIf="!carregando" class="btn btn-primary" (click)="atualizarChat()">Ver novas mensagens</button>
+                            <button tabindex="0" type="button" *ngIf="carregando" class="btn btn-primary"><i class="fa fa-spinner fa-pulse"></i></button>    
+
+                            <div class="textarea-wrapper">
+                                {{remainingText}}
+                                <textarea tabindex="0" placeholder="Digite aqui..." maxlength="120" 
+                                        [ngModelOptions]="{standalone: true}" 
+                                        [(ngModel)]="newComment" 
+                                        (ngModelChange)="justifyChange(newComment)"
+                                        required>
+                                </textarea>
+                                <button type="submit">Enviar</button>
+    
+                            </div>
+    
+                            </form>-->
+
+                        </div>
+                    </section>
+                    <!-- FIM CHAT -->
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<section id="voceApresenta" *ngIf="mediators.length > 0" class="wow fadeInUp">
+    <div class="container ">
+        <div class="section-header mt-3 mb-5">
+            <h2 tabindex="0">Você é mediador em:</h2>
+        </div>
+
+        <div *ngFor="let schedule of mediators">
+            <div class="card-works">
+                <div class="row">
+                    <div class="col-sm-10">
+                        <h5 tabindex="0" style="color: #20959b">{{schedule.type | modalities}} - {{schedule.axis |
+                            axis}}</h5>
+                        <h3 tabindex="0"><b>{{schedule.workTitle}}</b></h3>
+
+                        <div *ngFor="let day of schedule.dates">
+                            <h4 tabindex="0">
+                                {{day.date + ' ' + day.startTime + ' - ' + day.endTime}}
+                            </h4>
+                            <h4 tabindex="0" class="mb-1">
+                                Link para acesso: <b>
+                                    <a *ngIf="day.linkZoom" [attr.href]="day.linkZoom" target="_blank">Clique Aqui</a>
+                                    <span tabindex="0" *ngIf="day.linkZoom"> ou copie {{day.linkZoom}}</span>
+                                    <span *ngIf="!day.linkZoom">Em breve</span></b>
+                            </h4>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-2">
+                        <h4 tabindex="0" class="mb-4"><span class="btn btn-inscrever"><i
+                                    class="fas fa-users"></i></span></h4>
+
+                        <div style="cursor: pointer !important;">
+                            <h4 tabindex="0" style="position: absolute; bottom: 0; left: 0; cursor: pointer !important;"
+                                (keyup.enter)="selectSchedule(schedule._id);" (click)="selectSchedule(schedule._id);">
+                                Mais detalhes <i class="fa fa-chevron-down"></i></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="work-content">
+                <div *ngIf="schedule._id == scheduleSelect">
+                    <div class="row align-items-center">
+                        <div class="col-12">
+                            <div *ngFor="let item of schedule.worksPoster"
+                                style="text-align: justify; text-justify: inter-word;">
+                                <div class="row">
+                                    <div class="col-sm-8 align-self-center">
+                                        <strong tabindex="0">Nome do Pôster</strong>
+                                        <p tabindex="0">{{ item.workTitle }}</p>
+                                    </div>
+                                    <div class="col-sm-4 align-self-center">
+                                        <strong tabindex="0">Acesse o Conteúdo</strong>
+                                        <p tabindex="0"><a *ngIf="item.linkPPT.includes('http')"
+                                                [attr.href]="item.linkPPT" target="_blank">Clique aqui</a></p>
+                                        <p tabindex="0"><span *ngIf="!item.linkPPT.includes('http')">Banner não
+                                                enviado</span></p>
+                                    </div>
+                                </div>
+                                <div class="row" *ngIf="item.workAuthor">
+                                    <div class="col-sm-12 align-self-center">
+                                        <strong tabindex="0">Autores</strong>
+                                        <p tabindex="0" *ngFor="let autores of item.workAuthor">{{ autores.fullname }}
+                                        </p>
+                                    </div>
+                                </div>
+                                <br />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CHAT -->
+                    <br />
+                    <section id="forum" class="wow fadeInUp">
+
+                        <h2 tabindex="0" style="color: #2c8d13;">Chat - Discuta sobre o trabalho</h2>
+
+                        <div>
+                            <ul style="height: 400px !important; overflow-y: scroll">
+                                <li *ngFor="let comment of comments?.chat">
+
+                                    <header>
+                                        <h1 tabindex="0" [ngClass]="{ 'author': isAuthor(comment?.publisher?.email) }">
+                                            {{ comment.publisher.name }}
+                                        </h1>
+
+                                        <!--<div>
+                                    <button (click)="love(comment.id)" [ngClass]="{ 'loved': comment.loved }"></button>
+                                    <button (click)="reply(comment.publisher.name)"></button>
+                                </div>-->
+
+                                    </header>
+                                    <p tabindex="0" [innerHTML]="parseContent(comment.content)"></p>
+
+                                </li>
+                            </ul>
+                            <!--
+                            <form name="form" (ngSubmit)="addNewComment()" novalidate>
+                            <button tabindex="0" type="button" *ngIf="!carregando" class="btn btn-primary" (click)="atualizarChat()">Ver novas mensagens</button>
+                            <button tabindex="0" type="button" *ngIf="carregando" class="btn btn-primary"><i class="fas fa-spinner fa-pulse"></i></button>    
+
+                            <div class="textarea-wrapper">
+                                {{remainingText}}
+                                <textarea tabindex="0" placeholder="Digite aqui..." maxlength="120" 
+                                        [ngModelOptions]="{standalone: true}" 
+                                        [(ngModel)]="newComment" 
+                                        (ngModelChange)="justifyChange(newComment)"
+                                        required>
+                                </textarea>
+                                <button tabindex="0" type="submit">Enviar</button>
+    
+                            </div>
+    
+                            </form>-->
+
+                        </div>
+                    </section>
+                    <!-- FIM CHAT -->
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<section id="voceApresenta" *ngIf="monitors.length > 0" class="wow fadeInUp">
+    <div class="container ">
+        <div class="section-header mt-3 mb-5">
+            <h2 tabindex="0">Você é monitor em:</h2>
+        </div>
+
+        <div *ngFor="let schedule of monitors">
+            <div class="card-works">
+                <div class="row">
+                    <div class="col-sm-10">
+                        <h5 tabindex="0" style="color: #20959b">{{schedule.type | modalities}} - {{schedule.axis |
+                            axis}}</h5>
+                        <h3 tabindex="0"><b>{{schedule.workTitle}}</b></h3>
+
+                        <div *ngFor="let day of schedule.dates">
+                            <h4 tabindex="0">
+                                {{day.date + ' ' + day.startTime + ' - ' + day.endTime}}
+                            </h4>
+                            <h4 class="mb-1">
+                                Link para acesso: <b>
+                                    <a tabindex="0" *ngIf="day.linkZoom" [attr.href]="day.linkZoom"
+                                        target="_blank">Clique Aqui</a>
+                                    <span tabindex="0" *ngIf="day.linkZoom"> ou copie {{day.linkZoom}}</span>
+                                    <span tabindex="0" *ngIf="!day.linkZoom">Em breve</span></b>
+                            </h4>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-2">
+                        <h4 class="mb-4"><span class="btn btn-inscrever"><i class="fas fa-users"></i></span></h4>
+
+                        <div style="cursor: pointer !important;">
+                            <h4 tabindex="0" style="position: absolute; bottom: 0; left: 0; cursor: pointer !important;"
+                                (keyup.enter)="selectSchedule(schedule._id);" (click)="selectSchedule(schedule._id);">
+                                Mais detalhes <i class="fa fa-chevron-down"></i></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="work-content">
+                <div *ngIf="schedule._id == scheduleSelect">
+                    <div *ngIf="schedule.type != '3'" class="row align-items-center">
+                        <div class="col-12">
+                            <strong tabindex="0">Autores</strong>
+                            <p tabindex="0" *ngFor="let item of schedule.authors"
+                                style="text-align: justify; text-justify: inter-word;">{{ item }}</p>
+                        </div>
+                        <div class="col-12">
+                            <strong tabindex="0">Resumo</strong>
+                            <p tabindex="0" style="text-align: justify; text-justify: inter-word;">{{
+                                schedule.resumePropose }}</p>
+                        </div>
+                    </div>
+
+                    <div *ngIf="schedule.type == '3'" class="row align-items-center">
+                        <div class="col-12">
+                            <div *ngFor="let item of schedule.worksPoster"
+                                style="text-align: justify; text-justify: inter-word;">
+                                <div class="row">
+                                    <div class="col-sm-8 align-self-center">
+                                        <strong tabindex="0">Nome do Pôster</strong>
+                                        <p tabindex="0">{{ item.workTitle }}</p>
+                                    </div>
+                                    <div class="col-sm-4 align-self-center">
+                                        <strong tabindex="0">Acesse o Conteúdo</strong>
+                                        <p tabindex="0"><a *ngIf="item.linkPPT.includes('http')"
+                                                [attr.href]="item.linkPPT" target="_blank">Clique aqui</a></p>
+                                        <p tabindex="0"><span *ngIf="!item.linkPPT.includes('http')">Banner não
+                                                enviado</span></p>
+                                    </div>
+                                </div>
+                                <div class="row" *ngIf="item.workAuthor">
+                                    <div class="col-sm-12 align-self-center">
+                                        <strong tabindex="0">Autores</strong>
+                                        <p tabindex="0" *ngFor="let autores of item.workAuthor">{{ autores.fullname }}
+                                        </p>
+                                    </div>
+                                </div>
+                                <br />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CHAT -->
+                    <br />
+                    <section id="forum" class="wow fadeInUp">
+
+                        <h2 tabindex="0" style="color: #2c8d13;">Chat - Discuta sobre o trabalho</h2>
+
+                        <div>
+                            <ul style="height: 400px !important; overflow-y: scroll">
+                                <li *ngFor="let comment of comments?.chat">
+
+                                    <header>
+                                        <h1 tabindex="0" [ngClass]="{ 'author': isAuthor(comment?.publisher?.email) }">
+                                            {{ comment.publisher.name }}
+                                        </h1>
+
+                                        <!--<div>
+                                    <button (click)="love(comment.id)" [ngClass]="{ 'loved': comment.loved }"></button>
+                                    <button (click)="reply(comment.publisher.name)"></button>
+                                </div>-->
+
+                                    </header>
+                                    <p tabindex="0" [innerHTML]="parseContent(comment.content)"></p>
+
+                                </li>
+                            </ul>
+                            <!--
+                            <form name="form" (ngSubmit)="addNewComment()" novalidate>
+                            <button tabindex="0" type="button" *ngIf="!carregando" class="btn btn-primary" (click)="atualizarChat()">Ver novas mensagens</button>
+                            <button tabindex="0" type="button" *ngIf="carregando" class="btn btn-primary"><i class="fas fa-spinner fa-pulse"></i></button>
+
+                            <div class="textarea-wrapper">
+                                {{remainingText}}
+                                <textarea tabindex="0" placeholder="Digite aqui..." maxlength="120" 
+                                        [ngModelOptions]="{standalone: true}" 
+                                        [(ngModel)]="newComment" 
+                                        (ngModelChange)="justifyChange(newComment)"
+                                        required>
+                                </textarea>
+                                <button type="submit">Enviar</button>
+    
+                            </div>
+    
+                            </form>-->
+
+                        </div>
+                    </section>
+                    <!-- FIM CHAT -->
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>

@@ -1,0 +1,68 @@
+<div class="container payment-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+             
+                <div id="faq" class="section-header">
+                    <h2>Interaja com os congressistas</h2>
+                </div>
+
+                <section *ngIf="!user" id="notLogged" class="section-header wow fadeInUp">
+                    Para interagir você precisa estar logado na plataforma.
+                </section>
+
+                <section *ngIf="user" id="forum" class="section-header wow fadeInUp">
+                    <div>
+                        <ul style="height: 400px !important; overflow-y: scroll">
+                            <li *ngFor="let comment of comments?.chat.slice().reverse()">
+                                
+                                <header>
+                                    <h1 [ngClass]="{ 'author': isAuthor(comment?.publisher?.email) }">
+                                            {{ comment.publisher.name }}
+                                            
+                                    </h1>
+                                    <!--<div>
+                                        <button (click)="love(comment.id)" [ngClass]="{ 'loved': comment.loved }"></button>
+                                        <button (click)="reply(comment.publisher.name)"></button>
+                                    </div>-->
+                                    <div class="oi" style="font: caption; background: red; color: white">
+                                        <button (click)="removerComentario(comment._id)" title="Remover Comentário" alt="Remover Comentário" *ngIf="user.icAdmin || isAuthor(comment?.publisher?.email)" type="button" class="btn btn-danger">X</button>
+
+                                    </div>
+                                </header>
+                                <p [innerHTML]="parseContent(comment.content)"></p>
+
+                            </li>
+                        </ul>
+
+                        <form name="form" (ngSubmit)="addNewComment()" novalidate>
+                        <button type="button" *ngIf="!carregando" class="btn btn-primary" (click)="atualizarChat()">Ver novas mensagens</button>
+                        <button type="button" *ngIf="carregando" class="btn btn-primary">Aguarde...</button>
+
+                        <div class="textarea-wrapper">
+                            {{remainingText}}
+                            <textarea placeholder="Digite aqui..." maxlength="120" 
+                                    [ngModelOptions]="{standalone: true}" 
+                                    [(ngModel)]="newComment" 
+                                    (ngModelChange)="justifyChange(newComment)"
+                                    required>
+                            </textarea>
+                            <span class="remaning">{{remainingText}} Caracteres restantes.</span>
+                            <button type="submit">Enviar</button>
+
+                        </div>
+
+                        </form>
+                        <span class="remaning">{{remainingText}} Caracteres restantes.</span>
+
+                    </div>
+                </section>
+
+
+
+
+                
+            </div>
+        </div>
+    </div>
+</div>

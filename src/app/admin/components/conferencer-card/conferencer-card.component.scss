@@ -1,0 +1,54 @@
+.card-conferencer {
+  background: #20959b;
+  border-radius: 8px;
+  padding: 16px;
+  max-width: 200px;
+  box-shadow: 2px 2px 8px 0px #000;
+  margin: auto;
+
+  .header {
+    display: flex;
+
+    .avatar {
+      border-radius: 100%;
+      max-width: 80%;
+      margin: auto auto;
+    }
+  }
+  .content {
+    margin-top: 16px;
+    text-align: center;
+
+    h2,
+    h4 {
+      color: #fff;
+      margin: 0px;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font-size: 18px;
+      font-weight: 600;
+      overflow: hidden;
+      height: 18px;
+    }
+
+    h4 {
+      font-style: italic;
+      font-weight: 500;
+      font-size: 16px;
+    }
+
+    hr {
+      border-top: 4px solid #fff;
+      border-radius: 8px;
+      width: 20px;
+    }
+  }
+}
+
+@media screen and (min-width: 576px) {
+  // .card-conferencer {
+  //   max-width: 300px;
+  // }
+}

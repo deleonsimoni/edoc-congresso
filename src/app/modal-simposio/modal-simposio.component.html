@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="header">
+        <h2 mat-dialog-title>{{ programacao.titulo }}</h2>
+        <i class="fa fa-times" (click)="close()"></i>
+    </div>
+    <div class="row">
+        <div mat-dialog-content>
+            <div class="row" *ngFor="let simposio of programacao.simposios">
+                <table class="table table-responsive table-bordered">
+                    <thead>
+                        <tr>
+                            <th colspan="2">{{ simposio.tema }} <span class="text-danger">{{ simposio.tipo }}</span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let palestra of simposio.palestras">
+                            <th>
+                                <h4>{{ palestra.classificacao }}</h4>
+                                <p><strong>{{ palestra.tema }}</strong></p>
+                                <p>HORÁRIO: {{ palestra.horario }}</p>
+                                <p>LOCAL: {{ palestra.local }}</p>
+                            </th>
+                            <th>
+                                <p *ngFor="let coordenador of palestra.coordenadores">
+                                    {{ coordenador }}
+                                </p>
+                            </th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

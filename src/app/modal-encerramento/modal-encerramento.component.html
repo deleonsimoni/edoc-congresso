@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="header">
+        <h2 mat-dialog-title>{{ programacao.titulo }}</h2>
+        <i class="fa fa-times" (click)="close()"></i>
+    </div>
+    <div class="row">
+        <div mat-dialog-content>
+            <div class="row">
+                <table class="table table-responsive table-bordered">
+                    <thead>
+                        <tr>
+                            <th>
+                                <p>
+                                    <strong>{{ programacao.data }} - {{ programacao.horario }}</strong>
+                                </p>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <ng-container *ngFor="let palestra of programacao.sessao">
+                                    <ng-container *ngFor="let titulo of palestra.titulos; let i = index">
+                                        <p [ngClass]="{'space-left': i > 0}">
+                                            {{ i == 0 ? palestra.horario : '' }} - {{ titulo }}
+                                        </p>
+                                        <div class="indent" *ngIf="i == 0">
+                                            <p><strong>{{ palestra?.tema }}</strong></p>
+                                            <ng-container *ngFor="let coordenador of palestra.coordenadores">
+                                                <p class="indent">{{ coordenador }}</p>
+                                            </ng-container>
+                                        </div>
+                                    </ng-container>
+                                </ng-container>
+                            </th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

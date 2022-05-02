@@ -1,0 +1,69 @@
+<div class="container">
+    <div class="header">
+        <h2 mat-dialog-title>Abertura</h2>
+        <i class="fa fa-times" (click)="close()"></i>
+    </div>
+    <div class="row">
+        <div mat-dialog-content>
+            <ng-container *ngFor="let programacao of programacoes">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card-content">
+                            <div class="card">
+                                <div class="flex">
+                                    <div class="group">
+                                        <p class="label">Horário</p>
+                                        <p class="hour">{{ programacao.horario }}</p>
+                                    </div>
+                                    <div class="expand" (click)="moreDetail = !moreDetail">
+                                        <i class="fas fa-plus"></i>
+                                    </div>
+                                </div>
+                                <div class="group">
+                                    <p class="label">Título(s)</p>
+                                    <p class="title" *ngFor="let titulo of programacao.titulos">
+                                        {{ titulo }}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="card-info" [@showDetail]="moreDetail ? true : false">
+                                <ng-container *ngIf="programacao.coordenadores">
+                                    <p *ngFor="let coordenador of programacao.coordenadores">{{ coordenador }}</p>
+                                </ng-container>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <table class="table table-responsive table-bordered">
+                        <thead>
+                        <tr>
+                            <th>
+                                <p>
+                                    <strong>{{ programacao.data }} - {{ programacao.horario }}</strong>
+                                </p>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <ng-container *ngFor="let palestra of programacao.sessao">
+                                    <p *ngFor="let titulo of palestra.titulos; let i = index"
+                                        [ngClass]="{'space-left': i > 0}">
+                                        {{ i == 0 ? palestra.horario + ' - ' : '' }} {{ titulo }}
+                                    </p>
+                                    <div class="indent">
+                                        <p><strong>{{ palestra?.tema }}</strong></p>
+                                        <ng-container *ngFor="let coordenador of palestra?.coordenadores">
+                                            <p class="indent">{{ coordenador }}</p>
+                                        </ng-container>
+                                    </div>
+                                </ng-container>
+                            </th>
+                        </tr>
+                    </tbody>
+                </table> -->
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>

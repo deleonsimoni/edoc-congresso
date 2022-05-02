@@ -1,0 +1,292 @@
+<div *ngIf="!user">
+    Atenção: Você não está logado. Para realizar as inscrições você previsa efetuar <a
+        [routerLink]="['/login']">login</a>.
+    <hr>
+</div>
+
+<div class="prog-day mb-2">
+    <b tabindex="0" #trabalho alt="Lista programações do dia"><span>{{day | dayAndMonth}}</span></b>
+</div>
+
+<div *ngIf="schedules.length > 0">
+    <div *ngFor="let schedule of schedules">
+        <!-- TRABALHOS COM INSCRIÇÕES -->
+        <div *ngIf="type == '3' || type == '2' || type == '4' || type == '5'">
+            <div class="card-works">
+                <div class="row">
+                    <div class="col-sm-10">
+                        <h5 style="color: #20959b">{{type | modalities}} - {{schedule.axis | axis}}</h5>
+                        <h3 *ngIf="type != '3'" tabindex="0"><b>{{schedule.workTitle}}</b></h3>
+                        <h3 *ngIf="type == '3'" tabindex="0" alt="Pôster"><b>Apresentação de trabalhos</b></h3>
+                        <h4 tabindex="0" *ngFor="let day of schedule.dates">{{day.date + ' ' + (day.startTime ?
+                            day.startTime : '') + ' - ' + (day.endTime ? day.endTime : '')}}</h4>
+                        <h4>{{schedule.qtdSubscribers}} Vagas</h4>
+
+                    </div>
+                    <div class="col-sm-2">
+
+
+                        <div>
+                            <ng-container *ngIf="type != '3'">
+                                <h4 class="mb-4"><button class="btn btn-warning">Inscrições Encerradas</button></h4>
+                            </ng-container>
+                        </div>
+                        <!--
+                        <div *ngIf="!carregando && user?.payment?.icPaid && type != '3'">
+                            <ng-container *ngIf="!isSubscribe(schedule) && schedule.qtdSubscribers - (schedule.subscribers ? schedule.subscribers.length : 0) > 0">
+                                <h4 class="mb-4"><button (click)="signUp(type, schedule)" class="btn btn-inscrever">Inscrever </button></h4>
+                            </ng-container>
+
+                            <ng-container *ngIf="(schedule.qtdSubscribers - schedule?.subscribers.length) == 0 && !isSubscribe(schedule)">
+                                <h4 class="mb-4"><button class="btn btn-warning">Vagas Encerradas</button></h4>
+                            </ng-container>
+
+                            <ng-container *ngIf="isSubscribe(schedule)">
+                                <h4 class="mb-4"><button (click)="cancelSignUp(type, schedule)" class="btn btn-danger">Cancelar Inscrição</button></h4>
+                            </ng-container>
+
+                        </div> 
+-->
+                        <div *ngIf="carregando">
+                            <h4 class="mb-4"><button class="btn btn-inscrever"><i
+                                        class="fas fa-spinner fa-pulse"></i></button></h4>
+                        </div>
+
+
+                        <div style="cursor: pointer !important;">
+                            <h4 style="position: absolute; bottom: 0; left: 0; cursor: pointer !important;"
+                                (click)="selectSchedule(schedule);">Mais detalhes <i class="fa fa-chevron-down"></i>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="work-content">
+                <div *ngIf="schedule._id == scheduleSelect">
+                    <div *ngIf="type != '3'" class="row align-items-center">
+                        <div class="col-12">
+                            <strong>Autores</strong>
+                            <p *ngFor="let item of schedule.authors"
+                                style="text-align: justify; text-justify: inter-word;">{{ item }}</p>
+                        </div>
+                        <div class="col-12">
+                            <strong>Resumo</strong>
+                            <p style="text-align: justify; text-justify: inter-word;">{{ schedule.resumePropose }}</p>
+                        </div>
+                    </div>
+
+                    <div *ngIf="type == '3'" class="row align-items-center">
+                        <div class="col-12">
+                            <div *ngFor="let item of schedule.worksPoster"
+                                style="text-align: justify; text-justify: inter-word;">
+                                <div class="row">
+                                    <div class="col-sm-8 align-self-center">
+                                        <strong>Nome do Pôster</strong>
+                                        <p>{{ item.workTitle }}</p>
+                                    </div>
+                                    <div class="col-sm-4 align-self-center">
+                                        <strong>Acesse o Conteúdo</strong>
+                                        <p><a *ngIf="item.linkPPT.includes('http')" [attr.href]="item.linkPPT"
+                                                target="_blank">Clique aqui</a></p>
+                                        <p><span *ngIf="!item.linkPPT.includes('http')">Banner não enviado</span></p>
+                                    </div>
+                                </div>
+                                <div class="row" *ngIf="item.workAuthor">
+                                    <div class="col-sm-12 align-self-center">
+                                        <strong>Autores</strong>
+                                        <p *ngFor="let autores of item.workAuthor">{{ autores.fullname }}</p>
+                                    </div>
+                                </div>
+                                <br />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <!-- TRABALHOS SEM INSCRICOES - ATIVIDADES ABERTAS -->
+        <div *ngIf="type == '1' || type == '7' || type == '8' || type == '10' || type == '11' || type == '12' ">
+
+            <div class="card-works">
+                <div class="row">
+                    <div class="col-sm-10">
+                        <h5 *ngIf="type != '8'" style="color: #20959b">{{type | modalitiesWork}}</h5>
+                        <h5 *ngIf="type == '8'" style="color: #20959b">{{schedule.theme | themeSimposio}}</h5>
+                        <h3 tabindex="0" *ngIf="type != '8'"><b>{{schedule?.titles[0]}}</b></h3>
+                        <h3 tabindex="0" *ngIf="type  == '8'"><b>{{schedule.themeSpeeches}}</b></h3>
+                        <h4 tabindex="0">{{schedule.date + ' ' + (schedule.startTime ? schedule.startTime : '') + ' - '
+                            + (schedule.endTime ? schedule.endTime : '')}}</h4>
+                    </div>
+
+                    <div class="col-sm-2">
+                        <div *ngIf="carregando">
+                            <h4 class="mb-4"><button class="btn btn-inscrever"><i
+                                        class="fas fa-spinner fa-pulse"></i></button></h4>
+                        </div>
+                        <div style="cursor: pointer !important;">
+                            <h4 style="position: absolute; bottom: 0; left: 0; cursor: pointer !important;"
+                                (click)="selectSchedule(schedule);">Mais detalhes <i class="fa fa-chevron-down"></i>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="work-content">
+                <div *ngIf="schedule._id == scheduleSelect">
+                    <div class="row align-items-center">
+                        <div *ngIf="type != '8'" class="col-12">
+                            <strong>Título</strong>
+                            <p *ngFor="let item of schedule.titles"
+                                style="text-align: justify; text-justify: inter-word;">{{ item }}</p>
+                        </div>
+                        <div *ngIf=" type != '11' && (schedule.coordinators || schedule.coordinator)" class="col-12">
+                            <strong>Conferencistas</strong>
+                            <div *ngIf="schedule.coordinators">
+                                <p *ngFor="let item of schedule.coordinators"
+                                    style="text-align: justify; text-justify: inter-word;">{{ item.name }} {{
+                                    item.isCoordinator ? '(Coordenador)' : '' }}</p>
+                            </div>
+                            <div *ngIf="schedule.coordinator">
+                                <p *ngFor="let item of schedule.coordinator"
+                                    style="text-align: justify; text-justify: inter-word;">{{ item.name }}</p>
+                            </div>
+                        </div>
+                        <div *ngIf="type == '11'" class="col-12">
+                            <strong>Entrevistados</strong>
+                            <div *ngIf="schedule.entrevistados">
+                                <p *ngFor="let item of schedule.entrevistados"
+                                    style="text-align: justify; text-justify: inter-word;">{{ item.name }}</p>
+                            </div>
+                            <strong>Entrevistadores</strong>
+                            <div *ngIf="schedule.entrevistadores">
+                                <p *ngFor="let item of schedule.entrevistadores"
+                                    style="text-align: justify; text-justify: inter-word;">{{ item.name }}</p>
+                            </div>
+
+                        </div>
+                        <hr />
+                        <div *ngIf="schedule?.virtual?.linkYoutube" class="row col-12 justify-content-center">
+                            <iframe tabindex="0" alt="clique para assistir" width="100%" height="400"
+                                [src]='linkYoutubeSafe' frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LANÇAMENTO DE LIVROS -->
+        <div *ngIf="type == '9'">
+
+            <div class="card-works">
+                <div class="row">
+                    <div class="col-sm-10">
+                        <h5 style="color: #20959b">{{type | modalitiesWork}}</h5>
+                        <h3 tabindex="0"><b>{{schedule?.titles[0]}}</b></h3>
+                        <h4 tabindex="0">{{schedule.date + ' ' + (schedule.startTime ? schedule.startTime : '') + ' - '
+                            + (schedule.endTime ? schedule.endTime : '')}}</h4>
+                        <h4 tabindex="0" class="mb-1">
+                            Link para acesso: <b>
+                                <a tabindex="0" *ngIf="schedule?.virtual?.linkZoom"
+                                    [attr.href]="schedule?.virtual?.linkZoom" target="_blank">Clique Aqui</a>
+                                <span tabindex="0" *ngIf="schedule?.virtual?.linkZoom"> ou copie
+                                    {{schedule?.virtual?.linkZoom}}</span>
+                                <span tabindex="0" *ngIf="!schedule?.virtual?.linkZoom">Em breve</span></b>
+                        </h4>
+                    </div>
+
+                    <div class="col-sm-2">
+                        <div *ngIf="carregando">
+                            <h4 class="mb-4"><button class="btn btn-inscrever"><i
+                                        class="fas fa-spinner fa-pulse"></i></button></h4>
+                        </div>
+                        <div style="cursor: pointer !important;">
+                            <h4 *ngIf="!carregando"
+                                style="position: absolute; bottom: 0; left: 0; cursor: pointer !important;"
+                                (click)="selectBookSchedule(schedule)">Mais detalhes <i class="fa fa-chevron-down"></i>
+                            </h4>
+                            <h4 *ngIf="carregando"
+                                style="position: absolute; bottom: 0; left: 0; cursor: pointer !important;"><i
+                                    class="fas fa-spinner fa-pulse"></i>Carregando</h4>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="work-content">
+                <div *ngIf="schedule._id == scheduleSelect">
+                    <div class="row justify-content-center" *ngFor="let item of schedule.books; let i = index">
+                        <div class="form-group col-md-12">
+                            <strong>Título</strong>
+                            <p style="text-align: justify; text-justify: inter-word;">{{ item.title }}</p>
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            <strong>Autores</strong>
+                            <p style="text-align: justify; text-justify: inter-word;">{{item.author}}</p>
+                        </div>
+
+                        <div #images class="row form-group col-md-12">
+
+                            <div class="form-group col-md-2">
+                                <div class="miniature-img ">
+                                    <img width="100px" height="150px"
+                                        src="https://ffainfinity.s3-sa-east-1.amazonaws.com/books/{{item.nameMiniature}}">
+                                </div>
+                            </div>
+
+                            <div class="col-md-10">
+                                <div class="row">
+                                    <div class="form-group col-md-12">
+                                        <strong>Acesse</strong>
+                                        <p style="text-align: justify; text-justify: inter-word;"><a
+                                                [attr.href]="item.linkSale" target="_blank">Clique aqui</a></p>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <strong>Resumo</strong>
+                                        <p style="text-align: justify; text-justify: inter-word;">{{item.resume}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                    </div>
+
+                    <div *ngIf="pagerBooks.totalItems" class="pagination justify-content-center">
+
+                        <mat-paginator [length]="pagerBooks.totalItems" [pageSize]="pagerBooks.pageSize"
+                            (page)="pageEventBooks = getBooksPaginated(schedule, $event)">
+                        </mat-paginator>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div *ngIf="pager.totalItems" class="pagination justify-content-center">
+
+        <mat-paginator [length]="pager.totalItems" [pageSize]="pager.pageSize"
+            (page)="pageEvent = getSchedulePaginate($event, day, type)">
+        </mat-paginator>
+
+    </div>
+
+</div>
+
+<div *ngIf="!carregandoLista && schedules.length == 0">
+    <h2 tabindex="0"><b>Não há {{type | modalitiesWork}} para o dia selecionado</b></h2>
+</div>
+
+<div *ngIf="carregandoLista" class="row"
+    style="display: flex; justify-content: center; align-items: center; height: 300px;">
+    <button type="button" class="btn btn-large btn-primary"><i class="fas fa-spinner fa-pulse ml-1"></i>
+        Aguarde</button>
+</div>

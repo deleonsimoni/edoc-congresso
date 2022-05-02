@@ -1,0 +1,46 @@
+#register {
+  padding: 60px 60px;
+  .form {
+    h2[mt-2] {
+      margin-top: 16px;
+    }
+    input {
+      padding: 10px 14px;
+      border-radius: 0;
+      box-shadow: none;
+      font-size: 15px;
+    }
+    div.form-group div.alert,
+    div.form-check div.alert {
+      margin-bottom: 0rem;
+      margin-top: 1px;
+      padding: 0.3rem 1.25rem;
+      font-size: 13px;
+    }
+    div.form-check {
+      .form-check-input {
+        margin-top: 0.4rem;
+      }
+      label {
+        font-size: 15px;
+        color: #495057;
+        a {
+          color: #2c8d13;
+          text-decoration: underline;
+        }
+      }
+    }
+    div.form-check[last] {
+      padding-bottom: 8px;
+    }
+    button {
+      background: #20959b;
+      border: 0;
+      border-radius: 3px;
+      padding: 10px 30px;
+      color: #fff;
+      transition: 0.4s;
+      cursor: pointer;
+    }
+  }
+}

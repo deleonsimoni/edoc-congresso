@@ -1,0 +1,1413 @@
+<!-- <app-header></app-header> -->
+<!--==========================
+    Intro Section
+  ============================-->
+<section id="intro">
+
+  <div alt="Logo do evento" title="Logo do evento" class="intro-content">
+    <!--<h2>XX Endipe <span>|</span> Rio 2020</h2>
+         <div>
+            <a class="btn-get-started scrollto" style="cursor: pointer" [routerLink]="['/home']"
+                fragment="pricing">Inscreva-se</a>
+             href="#about" 
+             <a href="#portfolio" class="btn-projects scrollto">Our Projects</a> 
+        </div>-->
+  </div>
+
+</section><!-- #intro -->
+
+<main id="main">
+
+  <!--==========================
+      Sobre Section
+    ============================-->
+  <section id="about" class="wow fadeInUp mt-4">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-lg-6 content">
+          <h2 style="color: #cb9b15;">TEMA</h2>
+          <h2 class="child"><strong style="color:#20959b">A Didática e as Práticas de Ensino no contexto das
+              contrarreformas neoliberais</strong></h2>
+
+          <!-- <h3>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
+                        id est laborum.</h3> -->
+          <ul>
+            <li>
+              <strong> Bianual, Volume 1, Número 42. Uberlândia-MG - MODO REMOTO</strong>
+            </li>
+            <li>
+              <strong> Universidade Federal de Uberlândia - 2022</strong>
+            </li>
+            <li>
+              <strong> Dias: 20/11 a 27/11 de 2022</strong>
+            </li>
+            <li>
+              <strong>Locais</strong>
+            </li>
+            <li>
+              <ul>
+                <li style="text-align: justify;">
+                  - A sessão de abertura, as sessões especiais, os simpósios e o
+                  lançamento de livros serão transmitidos ao vivo pelo nosso canal do
+                  youtube e poderão ser acessados por aqui no menu "ENDIPE VIRTUAL".
+                </li>
+
+                <li style="text-align: justify;">
+                  - Pôsteres, painéis, rodas de conversa e minicursos acontecerão em
+                  plataformas digitais com links de acesso disponíveis para os autores
+                  dos trabalhos e inscritos nas atividades aqui no site na aba "MEU ENDIPE".
+                </li>
+
+                <li style="text-align: justify;">
+                  - As gravações de todas as atividades ficarão disponíveis para o público
+                  em geral, no youtube e na aba "PROGRAMAÇÃO" do menu programação.
+
+                </li>
+
+              </ul>
+
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-6 agenda">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="agenda-titulo">
+                <marquee>
+                  <h2 style="color:#20959b">NOTÍCIAS</h2>
+                </marquee>
+              </div>
+            </div>
+          </div>
+          <div id="noticias" class="row">
+            <div class="agenda-items">
+              <div *ngFor="let noticia of noticias">
+                <div class="pull-right">{{noticia.createAt | date: 'dd/MM/yyyy' }}</div>
+                <div [innerHTML]="noticia.name"></div>
+                <div [innerHTML]="noticia.description"></div>
+
+                <hr />
+              </div>
+              <br />
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section><!-- #about -->
+
+  <!--==========================
+      Escolha do tema
+    ============================-->
+  <section id="escolha" class="wow fadeInUp">
+    <div class="container">
+      <div class="section-header">
+        <h2>Escolha do Tema</h2>
+        <p style="text-align: justify;">
+          Escolhemos como logo o Ipê, que contrariando a natureza, suas flores desabrocham em dias
+          secos e cinzentos de inverno. E é assim, antes mesmo do surgimento da nova folhagem, que
+          elas anunciam a proximidade da Primavera. O Ipê nos remete a resistência e beleza, tão
+          necessários nos tempos atuais.</p>
+
+      </div>
+
+
+      <div class="row align-items-center">
+        <div class="col">
+          <div style="display: flex;width: 100%;justify-content: center;">
+            <img src="../../assets/img/ipe3.jpg" alt="imagem ipê">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+
+  <!--==========================
+      Apresentação Section
+    ============================-->
+  <section id="clients" class="wow fadeInUp">
+    <div class="container">
+      <div class="section-header">
+        <h2>Apresentação</h2>
+        <p style="text-align: justify;">
+          O Encontro Nacional de Didática e Práticas de Ensino - ENDIPE é um evento científico,
+          no campo educacional, que ocorre bianualmente com a finalidade de reunir pesquisadoras
+          e pesquisadores, docentes da Educação básica e superior, demais profissionais da
+          educação, assim como estudantes de graduação e pós-graduação.
+          A cada edição o ENDIPE se consolida como um dos maiores eventos acadêmicos na área
+          da Educação, reunindo mais de três mil participantes em suas últimas edições, sendo que
+          no Rio de Janeiro, o evento, por ter ocorrido no ano pandêmico de 2020, foi realizado em
+          modo remoto e recebeu mais de sete mil inscrições.
+          O ENDIPE surgiu a partir da iniciativa de um grupo de docentes que, reunidos em um
+          seminário, realizado na PUC-Rio, em 1982 e 1983 e denominado “A didática em questão”
+          teve como objetivo problematizar e discutir o objeto e objetivos da Didática, sua
+          orientação epistemológica e política bem como a natureza de suas propostas para os
+          processos de ensinar. Esses seminários contaram com a participação de cerca de 60
+          pessoas e se encontram na origem dos atuais Encontros Nacionais de Didática e Prática
+          de Ensino. A realização do seminário “A Didática em Questão”, em 1982, na PUC-Rio,
+          foi marcada por profundo compromisso com a construção dos caminhos de
+          redemocratização da sociedade brasileira naquele contexto. Esse princípio orienta e
+          inspira a condução das ações, no sentido de aprofundar a compreensão sobre a necessária
+          articulação dos processos educacionais com as dinâmicas de transformação e
+          reconstrução do estado democrático de direito em nosso país.
+          A finalidade do ENDIPE é socializar os resultados de estudos e pesquisas relacionadas
+          ao ensinar e ao aprender, o que envolve, mais especificamente, a temática da formação
+          docente, do ensino das diferentes disciplinas e do currículo. Constitui-se, portanto, em
+          um espaço privilegiado de trocas de experiências, de articulação de grupos, de
+          questionamentos, de novas ideias e reflexões.
+          <br />
+          <br />
+          As edições anteriores do ENDIPE foram organizadas por instituições de educação
+          superior, sendo que, na assembleia final de cada encontro, há apresentação de
+          candidaturas para sediar o evento seguinte. Tendo em vista que a edição de 2022 constitui
+          o vigésimo primeiro encontro, a Universidade Federal de Uberlândia apresentou-se como
+          instituição para organizar e realizar o XXI ENDIPE em colaboração com outras
+          Instituições de Ensino Superior, dentre elas a UFTM (Universidade Federal do Triângulo
+          Mineiro); UFCat (Universidade Federal de Catalão); IFTM (Instituto Federal do
+          Triângulo Mineiro); UEMG (Universidade do Estado de Minas Gerais); UNIUBE
+          (Universidade de Uberaba).
+          <br />
+          <br />
+          Especificamente, a Didática e as práticas de ensino têm se constituído como áreas da
+          educação que vem sendo marcadas pelo atual contexto de expressivo retrocesso nas
+          conquistas de direitos, nas políticas sociais e educacionais.
+          Ao elegermos como tema - <strong>A Didática e as Práticas de Ensino no contexto das
+            contrarreformas neoliberais</strong>, o 21º ENDIPE se propõe a problematizar a educação
+          como prática social em interface com a didática e as práticas de ensino, frente aos desafios
+          impostos especialmente no campo da educação, que tem sido alicerçado no ideário
+          neoliberal, com forte apelo da visão neoeconomicista por parte de instâncias do atual
+          governo. Nesse cenário marcado por grave crise sanitária, econômica e política,
+          assinalada por preocupante involução das políticas sociais e educacionais, pelo
+          crescimento das desigualdades, pela intolerância, violência e discriminações, o XXI
+          ENDIPE se anuncia como espaço político-pedagógico aglutinador de processos coletivos
+          e democráticos, que tem como compromissos a qualidade social da educação, em todos
+          os níveis e modalidades, em defesa do Estado Democrático de Direito.
+          Portanto, esse contexto nos provoca a coletivamente superar a falta de esperança, o
+          cansaço e o desânimo que nos marcam nesse grave tempo, mas, constitui-se, sobretudo
+          em oportunidade que nos insta a resistir e a encontrar alternativas possíveis para
+          consolidar a educação pública, laica, de financiamento estatal e inclusiva, de acordo com
+          os parâmetros constitucionais.
+          <br />
+          <br />
+          Esperamos que a XXI edição do ENDIPE, mesmo nos limites que o modo remoto nos
+          impõe, se constitua em importante palco de reafirmação dos compromissos com a
+          democracia brasileira. Essa defesa ocorre não somente desde a primeira edição, mas em
+          todos os ENDIPES que se sucederam. Que estejamos firmes e possamos vislumbrar
+          possibilidades de articular os processos educacionais com as dinâmicas de transformação
+          e construção de uma sociedade democrática, pautada na justiça social, no pluralismo de
+          ideias e concepções, fundamentais ao desenvolvimento humano.
+          <br />
+
+          <i class="pull-right">
+            Comitê Organizador
+          </i>
+
+        </p>
+      </div>
+    </div>
+  </section><!-- #apresentação -->
+
+
+  <!--==========================
+      Objetivos Section
+    ============================-->
+  <section id="objetivos" class="wow fadeInUp">
+    <div class="container">
+      <div class="section-header">
+        <h2>Objetivos</h2>
+        <p style="text-align: justify;">
+          - Divulgar pesquisas, estudos, experiências sobre a Didática, práticas de ensino, docência,
+          saberes docentes, currículo e formação de professores, no entrecruzamento de múltiplos
+          olhares sobre o cenário político-social da atualidade, seus desafios, embates,
+          enfrentamentos e implicações sobre a educação básica e educação superior.
+          <br />
+          <br />
+          - Discutir e aprofundar compreensões sobre a didática na contemporaneidade, com base
+          em abordagens críticas, emancipatórias, inovadoras, criativas, em busca da compreensão
+          e (re)construção de práxis efetivas em favor da transformação social.
+          <br />
+          <br />
+          - Aprofundar experiências formativas, confrontar paradigmas, aprimorar espaços de
+          interlocução, diálogos e de trabalho colaborativo entre as diversas instituições de
+          educação superior e educação básica.
+
+          <br />
+
+        </p>
+      </div>
+    </div>
+  </section><!-- #objetivos -->
+
+  <!--==========================
+      Publico Section
+    ============================-->
+  <section id="publico" class="wow fadeInUp">
+    <div class="container">
+      <div class="section-header">
+        <h2>Público Alvo</h2>
+        <p style="text-align: justify;">
+          Docentes da educação básica e superior, profissionais da educação, estudantes de
+          graduação e pós-graduação.
+          <br />
+
+        </p>
+      </div>
+    </div>
+  </section><!-- #publico -->
+
+
+
+  <!--==========================
+      Eixos Section
+    ============================-->
+  <section id="services">
+    <div class="container">
+      <div class="section-header">
+        <h2>Eixos</h2>
+        <!-- <p>Sed tamen tempor magna labore dolore dolor sint tempor duis magna elit veniam aliqua esse amet veniam
+                    enim export quid quid veniam aliqua eram noster malis nulla duis fugiat culpa esse aute nulla ipsum
+                    velit export irure minim illum fore</p> -->
+      </div>
+
+      <div class="row">
+
+        <div class="col-lg-6" *ngFor="let eixo of eixos">
+          <div style="cursor: pointer; color: #cb9b15;" class="box wow fadeInLeft" (click)="openDialogEixo(eixo)">
+            <!-- <div class="icon"><i class="fa fa-bar-chart"></i></div> -->
+            <h4 class="title"><a>{{ eixo.titulo }}</a></h4>
+            <p class="description">
+              <strong [innerHTML]="eixo.tema"></strong>
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section><!-- #eixos -->
+
+
+  <!--==========================
+        coordenação Geral Section
+    ============================-->
+  <section id="team" class="wow fadeInUp">
+    <div class="container">
+      <div class="section-header">
+        <h2>Coordenação Geral</h2>
+      </div>
+      <div class="row">
+
+        <ul style="list-style: none;">
+          <li>
+            <strong>Geovana Melo – UFU</strong>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section><!-- #coordenação geral-->
+
+  <!--==========================
+        coordenação executiva Section
+    ============================-->
+  <section id="team" class="wow fadeInUp">
+    <div class="container">
+      <div class="section-header">
+        <h2>Coordenação Executiva</h2>
+      </div>
+      <div class="row">
+
+        <ul style="list-style: none;">
+          <li>
+            <strong>Andréa Maturano Longarezi - UFU</strong>
+          </li>
+          <br />
+          <li>
+            <strong>Priscilla de Andrade Silva Ximenes - UFCAT</strong>
+          </li>
+          <br />
+
+        </ul>
+      </div>
+    </div>
+  </section><!-- #coordenação -->
+
+
+  <!--==========================
+      organizacao Section
+    ============================-->
+  ~
+  <!--<section id="team" class="wow fadeInUp">
+    <div class="container">
+      <div class="section-header">
+        <h2>Organização</h2>
+      </div>
+      <div class="row">
+
+        <ul style="list-style: none;">
+          <li>
+            <strong>Instituições</strong>
+          </li>
+          <li *ngFor="let instituicao of instituicoes">
+            {{ instituicao }}
+          </li>
+          <li>
+            <strong>Comitê</strong>
+          </li>
+          <li *ngFor="let comite of comites">
+            {{ comite }}
+          </li>
+          <li>
+            <strong>Secretaria</strong>
+          </li>
+          <li *ngFor="let secretaria of secretarias">
+            {{ secretaria }}
+          </li>
+           <li>
+            <div class="row contact-info" style="cursor: pointer;">
+              <div>
+                <div class="box wow fadeInLeft" (click)="openDialogApoiadores(gruposDeTrabalho, imagensApoiadores)">
+                  <h4 class="title" style="color: #20959b"><a>+ GRUPOS DE TRABALHO</a></h4>
+                </div>
+              </div>
+            </div>
+          </li>
+
+        </ul>
+
+
+      </div>
+    </div>
+  </section>- #coordenadores -->
+
+  <!--==========================
+      organizacao Section
+    ============================-->
+  <section id="comiteCientifico" class="wow fadeInUp">
+    <div class="container">
+      <div class="section-header">
+        <h2>Comitê Científico</h2>
+      </div>
+      <div class="row">
+        <ul>
+          <ul style="list-style: none;">
+            <li>
+              <strong>Coordenação Geral:</strong>
+            </li>
+            <li *ngFor="let coordenacao of coordenacoesGerais">
+              {{ coordenacao }}
+            </li>
+          </ul>
+          <br />
+          <ul style="list-style: none;">
+            <li>
+              <strong>A Didática e as Práticas de Ensino no contexto das contrarreformas neoliberais
+              </strong>
+            </li>
+            <br />
+            <ul style="list-style: none;" *ngFor="let eixo of eixos">
+              <strong>{{ eixo.titulo + ' - ' + eixo.tema }}</strong>
+              <br /> <br />
+              <li>
+                <strong>Coordenação geral: </strong>{{ eixo.coordenacaogeral }}
+              </li>
+              <br />
+              <li>
+                <strong>Coordenação Executiva:</strong>
+              </li>
+              <li *ngFor="let coordenador of eixo.coordenacao">
+                {{ coordenador }}
+              </li>
+              <br />
+            </ul>
+          </ul>
+
+        </ul>
+
+      </div>
+    </div>
+  </section><!-- #coordenadores -->
+
+  <!--==========================
+        Comitê Organizador Section
+    ============================-->
+  <section id="comiteOrganizador" class="wow fadeInUp">
+    <div class="container">
+      <div class="section-header">
+        <h2>Comitê Organizador</h2>
+      </div>
+      <div class="row">
+
+        <ul style="list-style: none;">
+          <li>
+            Adelson Afonso da Silva Júnior - UEMG
+          </li>
+          <br />
+          <li>
+            Cristina D’Ávila – UFBA – Pres. ANDIPE
+          </li>
+          <br />
+          <li>
+            Dulcéria Tartuci – UFCAT
+          </li>
+          <br />
+          <li>
+            Érika Barroso Dauanny – UEMG
+          </li>
+          <br />
+          <li>
+            Gyzely Suely Lima – IFTM
+          </li>
+          <br />
+          <li>
+            Maria Inês Marcondes – PUC Rio
+          </li>
+          <br />
+          <li>
+            Maria Isabel de Almeida – USP
+          </li>
+          <br />
+          <li>
+            Martha Maria Prata Linhares – UFTM
+          </li>
+          <br />
+          <li>
+            Priscila Rezende Moreira - UEMG
+          </li>
+          <br />
+          <li>
+            Susana dos Santos Gomes – UFMG (Coord. GT 04 ANPED)
+          </li>
+          <br />
+          <li>
+            Vânia Finholdt Ângelo Leite – UERJ
+          </li>
+          <br />
+          <li>
+            Vânia Maria de Oliveira Vieira – UNIUBE
+          </li>
+          <br />
+        </ul>
+      </div>
+    </div>
+  </section><!-- #coordenação -->
+
+
+  <!--==========================
+        Bolsistas Section
+    ============================-->
+  <section id="bolsistas" class="wow fadeInUp">
+    <div class="container">
+      <div class="section-header">
+        <h2>Bolsistas</h2>
+      </div>
+      <div class="row">
+
+        <ul style="list-style: none;">
+          <li>
+            Giovanna Márcia Cristina Bernini - GB Cursos Preparatórios
+          </li>
+          <br />
+          <li>
+            Luciana Guimarães Pedro - Escola Parque Tibetano
+          </li>
+          <br />
+          <li>
+            Nágilla Regina Saraiva Vieira - UFTM
+          </li>
+          <br />
+          <li>
+            Naiara Soussa Vilela - Escola Estadual Messias Pedreiro
+          </li>
+          <br />
+          <li>
+            Paixão Sessémeandê - UEMG
+          </li>
+
+
+          <br />
+        </ul>
+      </div>
+    </div>
+  </section><!-- #bolsistas -->
+
+
+
+  <!--==========================
+      Historico Section
+    ============================-->
+  <section id="historico" class="wow fadeInUp">
+    <div class="container">
+      <div class="section-header">
+        <h2 style="color: #b2f9a0">Endipes Anteriores</h2>
+        <p style="color: white !important; text-align: justify;">
+          Na virada dos anos de 1970 para 1980, quando a sociedade brasileira já manifestava sinais
+          mais contundentes de oposição à ditadura militar que se instalara em 1964, um grupo de
+          educadores brasileiros deu início a um movimento que acabou por expressar, no campo
+          educacional, os mesmos anseios de mudança, presentes na sociedade da época.
+          Envolvidos com as práticas de ensino e com a didática, esses educadores reuniram-se em
+          1979 no 1º Encontro Nacional de Prática de Ensino e em 1982 no 1º Seminário A Didática
+          em Questão, dando início a um processo de questionamento dos fundamentos, das
+          concepções, das orientações políticas e dos modos como a educação era então praticada
+          em nossas escolas. Em razão da proximidade de propósito entre esses dois movimentos,
+          consolidada ao longo da realização de três encontros em cada uma destas áreas, em 1987
+          eles se fundiram e deram origem a um encontro único, que foi denominado de IV
+          ENDIPE. Desde então a didática e as práticas de ensino têm sido alvo de discussões
+          bianuais que congregam pesquisadores, especialistas, dirigentes educacionais,
+          professores e estudantes dos mais distintos espaços do país e do exterior.
+          <br />
+          O ENDIPE se consagrou ao longo dos seus 37 anos de existência como um espaço plural
+          de discussões acerca dos estudos, das pesquisas e das experiências a respeito dos
+          processos educacionais em todos os níveis de ensino. É hoje um evento muito
+          significativo no cenário nacional e suas contribuições têm sido referência para o avanço
+          da produção de conhecimento sobre os fenômenos educacionais e para a formulação de
+          propostas educacionais inovadoras.
+          <br />
+          Os 18 Encontros realizados até este momento têm permitido acompanhar as tendências
+          educacionais das três últimas décadas, seus impactos nas escolas e nas práticas docentes,
+          num movimento dialético com interferências concretas nos processos de ensino e
+          aprendizagem. Eles têm sido efetivos espaços de convivência, intercâmbio e diálogo entre
+          pessoas preocupadas com o entendimento e a transformação dos processos educacionais
+          e das práticas pedagógicas.
+          <br />
+          A expressão desse vigoroso movimento, resultante do envolvimento e compromisso das
+          forças mais atuantes do campo educacional brasileiro, é evidenciada pelo quadro
+          cronológico da realização dos ENDIPES e reforçada pelos temas que os orientaram:
+
+        </p>
+        <br />
+        <br />
+        <table class="table table-responsive table-striped tabelaCronograma">
+          <thead>
+            <tr>
+              <th class="text-center">
+                ANO
+              </th>
+              <th class="text-center">
+                TEMA
+              </th>
+              <th class="text-center">
+                COORDENAÇÃO GERAL
+              </th>
+              <th class="text-center">
+                INSTITUIÇÃO PROMOTORA
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2020</td>
+              <td>XX ENDIPE – “Fazeres-Saberes pedagógicos: diálogos, insurgências e políticas”</td>
+              <td>Giseli Barreto da Cruz / Claudia de Oliveira Fernandes</td>
+              <td>Universidade Federal do Rio de Janeiro e Universidade Federal do Estado do Rio de Janeiro –
+                Rio de Janeiro/RJ</td>
+            </tr>
+            <tr>
+              <td>2018</td>
+              <td>XIX ENDIPE – “Para onde vai a didática? O enfrentamento às abordagens teóricas e desafios
+                políticos da atualidade”</td>
+              <td>Cristina Maria D’Ávila Teixeira</td>
+              <td>Universidade Federal da Bahia – Salvador/BA</td>
+            </tr>
+            <tr>
+              <td>2016</td>
+              <td>XVIII ENDIPE – “Didática e Prática de Ensino no contexto político contemporâneo: cenas da
+                educação brasileira”</td>
+              <td>Silas Borges Monteiro</td>
+              <td>Universidade Federal do Mato Grosso – Cuiabá/MT</td>
+            </tr>
+            <tr>
+              <td>2014</td>
+              <td>XVII ENDIPE – “A Didática e as práticas de ensino nas relações entre escola, formação de
+                professores e a sociedade”</td>
+              <td>Maria do Socorro Lucena Lima</td>
+              <td>Universidade do Estado do Ceará – Fortaleza/CE</td>
+            </tr>
+            <tr>
+              <td>2012</td>
+              <td>XVI ENDIPE – “Didática e Práticas de Ensino: compromisso com a escola pública, laica,
+                gratuita e de qualidade”</td>
+              <td>Alda Marin Junqueira / Selma Garrido Pimenta</td>
+              <td>Universidade Estadual de Campinas – Campinas / SP</td>
+            </tr>
+            <tr>
+              <td>2010</td>
+              <td>XV ENDIPE – “Convergências e tensões no campo da formação e do trabalho docente: políticas e
+                práticas educacionais”</td>
+              <td>Ângela Dalben / Julio Emilio Diniz Pereira / Lucíola L. Santos</td>
+              <td>Universidade Federal de Minas Gerais – Belo Horizonte / MG</td>
+            </tr>
+            <tr>
+              <td>2008</td>
+              <td>XIV ENDIPE – “Trajetórias e Processos de Ensinar e Aprender: lugares, memórias e culturas”
+              </td>
+              <td>Maria Isabel da Cunha / Maria Helena M. B. Abrahão</td>
+              <td>Pontifícia Universidade Católica de Porto Alegre/RS</td>
+            </tr>
+            <tr>
+              <td>2006</td>
+              <td>XIII ENDIPE – “Educação, Questões Pedagógicas e Processos Formativos: compromisso com a
+                inclusão social”</td>
+              <td>Aída Maria Monteiro da Silva</td>
+              <td>Universidade Federal de Pernambuco – Recife / PE</td>
+            </tr>
+            <tr>
+              <td>2004</td>
+              <td>XII ENDIPE – “Conhecimento universal e conhecimento local”</td>
+              <td>Lillian Anna Wachowicz</td>
+              <td>Pontifícia Universidade Católica do Paraná – Curitiba/PR</td>
+            </tr>
+            <tr>
+              <td>2002</td>
+              <td>XI ENDIPE – “Igualdade e diversidade na educação"</td>
+              <td>José Carlos Libâneo</td>
+              <td>Universidade Federal de Goiás – Goiânia / GO</td>
+            </tr>
+            <tr>
+              <td>2000</td>
+              <td>X ENDIPE – “Ensinar e aprender: sujeitos, saberes, espaços e tempos”</td>
+              <td>Vera Maria Candau</td>
+              <td>Universidade do Estado do Rio de Janeiro – Rio de Janeiro/RJ</td>
+            </tr>
+            <tr>
+              <td>1998</td>
+              <td>IX ENDIPE – “Olhando a qualidade do ensino a partir da sala de aula”</td>
+              <td>Selma Garrido Pimenta</td>
+              <td>Universidade de São Paulo – Águas de Lindóia / SP</td>
+            </tr>
+            <tr>
+              <td>1996</td>
+              <td>VIII ENDIPE – “Formação e profissionalização do educador”</td>
+              <td>Leda Schelbe / Maria da Graça Soares</td>
+              <td>Universidade Federal de Santa Catarina – Florianópolis / SC</td>
+            </tr>
+            <tr>
+              <td>1994</td>
+              <td>VII ENDIPE – “Produção do conhecimento e trabalho docente”</td>
+              <td>José Carlos Libâneo</td>
+              <td>Universidade Federal de Goiás – Goiânia / GO</td>
+            </tr>
+            <tr>
+              <td>1991</td>
+              <td>VI ENDIPE – “Perspectivas do trabalho docente para o ano 2000: qual Didática e qual Prática
+                de Ensino? As bases teóricas de uma prática docente interdisciplinar: explicitações
+                necessárias”</td>
+              <td>Merion Campos Bordas</td>
+              <td>Universidade Federal do Rio Grande do Sul – Porto Alegre / RS</td>
+            </tr>
+            <tr>
+              <td>1989</td>
+              <td>V ENDIPE – “Organização do processo de trabalho docente: em busca da integração da Didática
+                e da Prática de Ensino”</td>
+              <td>Maria de Lourdes Rocha de Lima</td>
+              <td>Universidade Federal de Minas Gerais – Belo Horizonte / MG</td>
+            </tr>
+            <tr>
+              <td>1987</td>
+              <td>IV ENDIPE – “A prática pedagógica e a educação transformadora na sociedade brasileira”</td>
+              <td>Aída Maria Monteiro da Silva</td>
+              <td>Universidade Católica de Pernambuco – Recife / PE</td>
+            </tr>
+            <tr>
+              <td>1985</td>
+              <td>III Seminário A Didática em Questão (III ENDIPE)</td>
+              <td>Olga Molina</td>
+              <td>Universidade de São Paulo – São Paulo / SP</td>
+            </tr>
+            <tr>
+              <td>1983</td>
+              <td>II Seminário A Didática em Questão (II ENDIPE)</td>
+              <td>Vera Maria Candau</td>
+              <td>Universidade Católica do Rio de Janeiro/RJ</td>
+            </tr>
+            <tr>
+              <td>1982</td>
+              <td>I Seminário A Didática em Questão (I ENDIPE)</td>
+              <td>Vera Maria Candau</td>
+              <td>Universidade Católica do Rio de Janeiro/RJ</td>
+            </tr>
+
+          </tbody>
+        </table>
+        <p style="color: white !important;text-align: justify;">
+          Os ENDIPEs já foram realizados, em muitos casos mais de uma vez, nas cidades de São
+          Paulo, Rio de Janeiro, Recife, Belo Horizonte, Porto Alegre, Florianópolis, Goiânia,
+          Curitiba e Campinas. Foram dez estados brasileiros e inúmeras universidades que
+          abraçaram a proposta de realização desses eventos e empenharam esforços para que eles
+          alcançassem êxito e reconhecimento, o que se faz notar não só pela presença de elevado
+          número de participantes, mas também pela colaboração das mais significativas agências
+          de fomento brasileiras.
+          <br />
+          Pela primeira vez na história a Universidade Federal de Uberlândia, localizada em uma
+          cidade do interior de Minas Gerais, sediará uma edição do ENDIPE.
+        </p>
+      </div>
+    </div>
+
+  </section>
+
+  <!--==========================
+      modalidades Section
+    ============================-->
+  <section id="modalidades" class="wow fadeInUp">
+    <div class="container">
+      <div class="section-header">
+        <h2 style="color: #b2f9a0">Modalidades De Participação</h2>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="box wow fadeInLeft">
+            <h4 class="title">Convidado de Sessão Especial</h4>
+            <p class="description" style="text-align: justify;">
+              As Sessões Especiais, dedicadas à celebração da vigésima primeira edição do evento, serão propostas
+              pelo
+              Comitê Organizador e destinadas ao debate sobre a constituição do campo da Didática no
+              Brasil,
+              devendo contar preferencialmente com a presença dos coordenadores de todas as edições do
+              ENDIPE
+              e de pesquisadores e professores de referência nas áreas de Didática, Currículo e Formação
+              de
+              Professores.
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="box wow fadeInLeft">
+            <h4 class="title">Mediador de Minicurso</h4>
+            <p class="description" style="text-align: justify;">
+              Os Minicursos se destinarão ao desenvolvimento didático de assunto relevante e associado às
+              temáticas dos eixos do evento. Suas propostas poderão ser apresentadas por um ou mais
+              profissionais
+              da Educação Básica e da Educação Superior, devendo ser planejado para, no mínimo, duas e, no
+              máximo, três sessões de uma hora e meia cada, para um grupo limitado de participantes, com
+              inscrição
+              prévia, a ser realizada conforme cronograma do evento. As propostas de Minicursos serão
+              avaliadas e
+              selecionadas pelo Comitê Científico, conforme as normas definidas para a sua submissão e
+              avaliação.
+            </p>
+            <div class="pull-right pulse">
+              <a (click)="openDialogMinicurso()" tabindex="0" alt="Normas mediador de minicurso"
+                title="Normas mediador de minicurso" style="color: #ffffff;cursor: pointer;">Ver Normas</a><br />
+              <div *ngIf="carregando">
+                <i class="fas fa-spinner fa-pulse"></i>
+              </div>
+              <a *ngIf="!carregando" (click)="downloadTemplate('templates/templates_minicurso_2022.doc')"
+                style="color: #ffffff;cursor: pointer;">Download Template</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="box wow fadeInLeft">
+            <h4 class="title">Coordenador e expositor de Painel</h4>
+            <p class="description" style="text-align: justify;">
+              Os Painéis têm como finalidade a apresentação de trabalhos decorrentes de
+              <!--    decorrentes de-->
+              pesquisas concluídas ou experiências de ensino consolidadas. O tema do Painel deverá se
+              relacionar
+              com um dos eixos do Endipe e a sua proposta deverá conter três trabalhos de instituições
+              diferentes,
+              sendo um, obrigatoriamente, de professor/a da Educação Básica. O Painel deverá ser proposto
+              por um
+              coordenador e seus trabalhos avaliados conjuntamente, conforme as normas definidas para a
+              sua
+              submissão e avaliação.
+            </p>
+
+            <div class="pull-right">
+              <a (click)="openDialogPainel()" tabindex="0" alt="Normas Coordenador e expositor de Painel"
+                title="Normas Coordenador e expositor de Painel" style="color: #ffffff;cursor: pointer;">Ver
+                Normas</a><br />
+              <div *ngIf="carregando">
+                <i class="fas fa-spinner fa-pulse"></i>
+              </div>
+              <a *ngIf="!carregando" (click)="downloadTemplate('templates/templates_painel2022.doc')"
+                style="color: #ffffff;cursor: pointer;">Download Template</a>
+            </div>
+          </div>
+        </div>
+        <!--  </div>-->
+        <!--  <div class="row">-->
+        <div class="col-lg-6">
+          <div class="box wow fadeInLeft">
+            <h4 class="title">Expositor de Pôster</h4>
+            <p class="description" style="text-align: justify;">
+              Os Pôsteres têm como finalidade a apresentação de trabalho decorrente de pesquisas em
+              andamento
+              ou experiências de ensino em realização. O tema do Pôster deverá se relacionar com um dos
+              eixos do
+              Encontro, podendo ser submetido por estudantes de graduação e de pós-graduação, professor da Educação
+              Básica
+              e/ou professor da Educação Superior. Pretende-se que o Pôster seja debatido em salas de
+              comunicações com mediações de professores convidados. As propostas de Pôsteres serão
+              avaliadas e
+              selecionadas pelo Comitê Científico, conforme as normas definidas para a sua submissão e
+              avaliação.</p>
+            <div class="pull-right">
+              <a (click)="openDialogPoster()" tabindex="0" alt="Normas Expositor de Pôster"
+                title="Normas Expositor de Pôster" style="color: #ffffff;cursor: pointer;">Ver Normas</a><br />
+              <div *ngIf="carregando">
+                <i class="fas fa-spinner fa-pulse"></i>
+              </div>
+              <a *ngIf="!carregando" (click)="downloadTemplate('templates/template_poster2022.doc')"
+                style="color: #ffffff;cursor: pointer;">Download Template</a>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="box wow fadeInLeft">
+              <h4 class="title">Simposista</h4>
+              <p class="description" style="text-align: justify;">
+                Os Simpósios serão propostos pelo Comitê Organizador, referentes a cada um dos eixos do 21º
+                ENDIPE. Eles serão formados por três simposistas, preferencialmente de instituições e
+                Estados
+                diferentes, sendo um deles de Uberlândia. O conjunto de Simpósios envolverá
+                pesquisadores
+                nacionais e estrangeiros e professores da Educação Básica e da Educação Superior com
+                produção
+                referente às Didáticas e Práticas de Ensino.
+              </p>
+            </div>
+          </div>
+          <!--  </div>-->
+          <!--  <div class="row">-->
+          <div class="col-lg-6">
+            <div class="box wow fadeInLeft">
+              <h4 class="title">Ouvinte</h4>
+              <p class="description" style="text-align: justify;">
+                Serão aceitas no 21º ENDIPE inscrições de ouvintes sem apresentação de trabalho.
+                Poderão
+                se inscrever nessa modalidade professores da Educação Básica e da Educação Superior,
+                pesquisadores,
+                estudantes de pós-graduação e estudantes de graduação.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- #testimonials -->
+
+
+  <!--==========================
+      Cronograma Section
+    ============================-->
+
+  <section id="valores" class="wow fadeInUp mt-4">
+    <div class="container">
+      <div class="section-header">
+        <h2>Valores</h2>
+      </div>
+      <div class="col-lg-12">
+        <div class="row">
+          <table class="table table-responsive table-striped tabelaCronograma">
+            <thead>
+              <tr>
+                <th></th>
+                <th class="text-center">
+                  Março a Novembro/2022
+                </th>
+                <!--  <th class="text-center">
+                  Outubro a Dezembro/2019
+                </th>
+                <th class="text-center">
+                  Janeiro a Março/2020
+                </th>
+                <th class="text-center">
+                  Abril a Julho/2020
+                </th> -->
+              </tr>
+            </thead>
+            <tbody>
+              <!--  <tr>
+                <th class="text-nowrap" scope="row">Estudantes de Curso Normal/EM</th>
+                <td style="text-align: center">R$ 70,00</td>
+                <td style="text-align: center">R$ 80,00</td>
+                <td style="text-align: center">R$ 90,00</td>
+                <td style="text-align: center">R$ 100,00</td>
+              </tr>-->
+              <tr>
+                <th class="text-nowrap" scope="row">Estudantes de Graduação e pós-graduação com comprovação</th>
+                <td style="text-align: center">R$ 40,00</td>
+                <!--   <td style="text-align: center">R$ 80,00</td>
+                <td style="text-align: center">R$ 90,00</td>
+                <td style="text-align: center">R$ 100,00</td>-->
+              </tr>
+              <!--   <tr>
+                <th class="text-nowrap" scope="row">Estudantes de Pós-Graduação</th>
+                <td style="text-align: center">R$ 140,00</td>
+                <td style="text-align: center">R$ 160,00</td>
+                <td style="text-align: center">R$ 180,00</td>
+                <td style="text-align: center">R$ 200,00</td>
+              </tr> -->
+              <tr>
+                <th class="text-nowrap" scope="row">Professores e demais profissionais da Educação Básica</th>
+                <td style="text-align: center">R$ 80,00</td>
+                <!-- <td style="text-align: center">R$ 160,00</td>
+                <td style="text-align: center">R$ 180,00</td>
+                <td style="text-align: center">R$ 200,00</td>-->
+              </tr>
+              <tr>
+                <th class="text-nowrap" scope="row">Docentes de Educação Superior</th>
+                <td style="text-align: center">R$ 120,00</td>
+                <!--   <td style="text-align: center">R$ 315,00</td>
+                <td style="text-align: center">R$ 345,00</td>
+                <td style="text-align: center">R$ 375,00</td>-->
+              </tr>
+              <!--    <tr>
+                <th class="text-nowrap" scope="row">Desconto 20% para as #20959bes de Ensino (Pacote de 50
+                  Inscrições)</th>
+                <td style="text-align: center">R$ 5.600,00</td>
+                <td style="text-align: center">R$ 6.400,00</td>
+                <td style="text-align: center">R$ 7.200,00</td>
+                <td style="text-align: center">R$ 8.000,00</td>
+              </tr>-->
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="section-header">
+
+        <p style="color: rgb(14, 13, 13) !important; text-align: justify;">
+          Informamos que em função da organização do XXI ENDIPE ser em formato remoto, os valores<br />
+          de inscrição foram calculados considerando a diminuição de despesas com passagens aéreas, <br />
+          hospedagem e diárias para palestrantes, materiais impressos, bolsas, dentre outros itens <br />
+          que não serão necessários em função do formato do evento.
+
+          <br />
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!--==========================
+      Cronograma Section
+    ============================-->
+  <section id="normas" class="wow fadeInUp">
+    <div class="container">
+      <div class="section-header">
+        <h2>Normas Gerais</h2>
+      </div>
+      Atenção, leia as normas para não perder detalhes especificos sobre sua participação<br /><br />
+      <div class="row">
+        <div style="cursor: pointer;" class="col-lg-6">
+          <div class="box wow fadeInLeft" (click)="openDialogNormas()">
+            <h4 class="title" style="color: #20959b; font-weight: bold;"><a>Ver Normas</a></h4>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- #cronograma -->
+
+
+  <!--==========================
+      Cronograma Section
+    ============================-->
+  <section id="prazos" class="wow fadeInUp">
+    <div class="container">
+      <div class="section-header">
+        <h2>Prazos</h2>
+      </div>
+      <div class="col-lg-12 agenda">
+        <div class="row">
+          <table class="table table-responsive table-striped tabelaCronograma">
+
+            <tbody>
+
+              <tr>
+                <th class="text-nowrap">Início das Inscrições</th>
+                <th class="text-nowrap">17 de março de 2022</th>
+              </tr>
+              <tr>
+                <th class="text-nowrap">Submissão de Trabalhos</th>
+                <th class="text-nowrap">17 de março a 12 de maio de 2022<br />
+                  <!--    <b style="color: #20959b;">PRORROGADA ATÉ 18/02/2020</b>-->
+                </th>
+              </tr>
+              <tr>
+                <th class="text-nowrap">Avaliação pelo Comitê Cientifico</th>
+                <th class="text-nowrap">Até 04 de julho de 2022<br />
+                  <!--<b style="color: #20959b;">Até 29 de abril de 2020</b>-->
+                </th>
+              </tr>
+              <tr>
+                <th class="text-nowrap">Divulgação dos trabalhos aprovados</th>
+                <th class="text-nowrap"> 05 a 12 de julho de 2022<br />
+                  <!-- <b style="color: #20959b;">30 de abril de 2020</b>-->
+
+                </th>
+              </tr>
+              <tr>
+                <th class="text-nowrap">Recursos</th>
+                <th class="text-nowrap"> 18 a 22 de julho de 2022<br />
+                  <!-- <b style="color: #20959b;">04-08 de maio de 2020</b>-->
+                </th>
+              </tr>
+              <tr>
+                <th class="text-nowrap">Resposta aos recursos</th>
+                <th class="text-nowrap">Até 05 de agosto de 2022<br />
+                  <!--<b style="color: #20959b;">Até 29 de maio de 2020</b>-->
+                </th>
+              </tr>
+              <tr>
+                <th class="text-nowrap">Divulgação da programação completa</th>
+                <th class="text-nowrap">Até 30 de maio de 2022<br />
+                  <!-- <b style="color: #20959b;">Disponível</b>-->
+
+                </th>
+              </tr>
+              <tr>
+                <th class="text-nowrap">Inscrição nos Minicursos</th>
+                <th class="text-nowrap"> 06 a 26 de agosto de 2022<br />
+                  <!-- <b style="color: #20959b;">28/09 a 02/10</b>-->
+
+                </th>
+              </tr>
+
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- #cronograma -->
+
+  <!--==========================
+      Cronograma Section
+    ============================-->
+  <!-- <section id="anais" class="wow fadeInUp">
+    <div class="container">
+      <div class="section-header">
+        <h2>Anais</h2>
+      </div>
+      <a class="dropdown-item" [routerLink]="['/anais-virtual']" fragment="anais">Clique aqui para acessar</a>
+
+      <p *ngIf="anais.length > 0">Confira os anais abaixo:</p>
+
+      <ul style="list-style-type: circle;" *ngFor="let anal of anais">
+        <li><a href="{{anal.link}}" target="blank"><u>{{anal.name}}</u></a></li>
+      </ul>-->
+  <!-- </div> 
+    </div>
+  </section>
+   #cronograma -->
+
+
+  <!--==========================
+      hospedagem Section
+    ============================
+  <section id="hospedagem" class="wow fadeInUp">
+    <div class="container">
+      <div class="section-header">
+        <h2>Hospedagem</h2>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-lg-9">
+          <div class="row contact-info" style="text-align: left;">
+            <p class="box wow fadeInLeft">Informações sobre:</p><br /><br />
+            <div class="col-lg-12">
+              <div class="box wow fadeInLeft" style="cursor: pointer;" (click)="openDialogHospedagem()">
+                <h4 class="title"><a>Hospedagem</a></h4>
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <div class="box wow fadeInLeft" style="cursor: pointer;" (click)="openDialogAlimentacao()">
+                <h4 class=" title"><a>Alimentação</a></h4>
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <div class="box wow fadeInLeft" style="cursor: pointer;" (click)="openDialogTransporte()">
+                <h4 class=" title"><a>Transporte</a></h4>
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <div class="box wow fadeInLeft" style="cursor: pointer;" (click)="openDialogTurismo()">
+                <h4 class=" title"><a>Turismo</a></h4>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="col-xs-12 col-lg-3" style="margin-left: 0px;">-->
+
+  <!-- Widget Previs&atilde;o de Tempo CPTEC/INPE <iframe allowtransparency="true" marginwidth="0"
+            marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no"
+            src="https://www.cptec.inpe.br/widget/widget.php?p=241&w=h&c=051d8a&f=b3f2d1" height="200px"
+            width="215px"></iframe><noscript>Previs&atilde;o de <a href="http://www.cptec.inpe.br/cidades/tempo/241">Rio
+              de Janeiro/RJ</a> oferecido por <a href="http://www.cptec.inpe.br">CPTEC/INPE</a></noscript>
+           Widget Previs&atilde;o de Tempo CPTEC/INPE 
+        </div>
+      </div>
+    </div>
+
+
+
+  </section>-->
+  <!-- #testimonials -->
+
+  <!--==========================
+      parcerias Section
+    ============================-->
+  <section id="parcerias" class="wow fadeInUp">
+    <div class="container">
+      <div class="section-header">
+        <h2>Instituições Parceiras</h2>
+      </div>
+      <div class="row">
+        <div class="mt-4">
+          <div class="row align-items-center">
+
+            <div class="col-md-2 text-center">
+              <img src="../../assets/img/parceiros/UFTM.jpeg" alt="imagem parceiros">
+            </div>
+
+            <div class="col-md-2 text-center">
+              <img src="../../assets/img/parceiros/UFC.jpeg" alt="imagem parceiros">
+            </div>
+
+            <div class="col-md-2 text-center">
+              <img src="../../assets/img/parceiros/IF.jpeg" alt="imagem parceiros">
+            </div>
+
+            <div class="col-md-2 text-center">
+              <img src="../../assets/img/parceiros/UEMG.jpeg" alt="imagem parceiros">
+            </div>
+
+            <div class="col-md-2 text-center">
+              <img src="../../assets/img/parceiros/UNIUBE.jpeg" alt="imagem parceiros">
+            </div>
+
+            <!--   <div class="col-md-2 text-center">
+              <img src="../../assets/img/parceiros/uerj.png" alt="imagem parceiros">
+            </div>
+
+          </div>
+          <div class="row mt-4 align-items-center">
+
+            <div class="col-md-2 text-center">
+              <img src="../../assets/img/parceiros/febf.png" alt="imagem parceiros">
+            </div>
+
+            <div class="col-md-2 text-center">
+              <img src="../../assets/img/parceiros/ucp.png" alt="imagem parceiros">
+            </div>
+
+            <div class="col-md-2 text-center">
+              <img src="../../assets/img/parceiros/ines.png" alt="imagem parceiros">
+            </div>
+
+            <div class="col-md-2 text-center">
+              <img src="../../assets/img/parceiros/iserj.png" alt="imagem parceiros">
+            </div>
+
+            <div class="col-md-2 text-center">
+              <img src="../../assets/img/parceiros/estacio.png" alt="imagem parceiros">
+            </div>
+
+            <div class="col-md-2 text-center">
+              <img src="../../assets/img/parceiros/assb.png" alt="imagem parceiros">
+            </div>
+
+          </div>
+          <div class="row mt-4 align-items-center">
+
+            <div class="col-md-2 text-center">
+              <img src="../../assets/img/parceiros/Logo70AnosUerj.png" alt="imagem parceiros">
+            </div>
+
+            <div class="col-md-2 text-center">
+              <img src="../../assets/img/parcerias/cnpq.png" alt="imagem parceiros">
+            </div>
+
+            <div class="col-md-2 text-center">
+              <img src="../../assets/img/parcerias/CAPES.png" alt="imagem parceiros">
+            </div>
+
+            <div class="col-md-2 text-center">
+              <img src="../../assets/img/parcerias/faperj.png" alt="imagem parceiros">
+            </div>
+
+            <div class="col-md-2 text-center">
+              <img src="../../assets/img/parcerias/FUJB.png" alt="imagem parceiros">
+            </div>
+
+            <div class="col-md-2 text-center">
+              <img src="../../assets/img/parcerias/Faculdade de Educação.jpg" alt="imagem parceiros">
+            </div>-->
+
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+  </section>
+  <!-- #cronograma -->
+
+  <!--==========================
+      Contact Section
+    ============================-->
+  <section id="contact" class="wow fadeInUp">
+    <div class="container">
+      <div class="section-header">
+        <h2>Informações Gerais</h2>
+        <!-- <p>Sed tamen tempor magna labore dolore dolor sint tempor duis magna elit veniam aliqua esse amet veniam
+                    enim export quid quid veniam aliqua eram noster malis nulla duis fugiat culpa esse aute nulla ipsum
+                    velit export irure minim illum fore</p> -->
+      </div>
+
+      <div class="row contact-info">
+
+        <div class="col-md-12">
+          <div class="contact-address">
+            <!-- <i class="ion-ios-location-outline"></i>-->
+            <h3>Universidade Federal de Uberlândia</h3>
+            <p class="description" style="text-align: center;">
+              FACULDADE DE EDUCAÇÃO
+              <br />
+              PROGRAMA DE PÓS-GRADUAÇÃO EM EDUCAÇÃO
+              <br />
+              ENCONTRO NACIONAL DE DIDÁTICA E PRÁTICAS DE ENSINO
+              <br />
+              XXI ENDIPE
+              <br />
+              A Didática e as Práticas de Ensino no contexto das contrarreformas neoliberais (modo
+              remoto)
+            </p>
+            <!-- <address>Avenida Pasteur, 250, Urca, Rio de Janeiro-RJ, Brasil <br> CEP 22290-902
+            </address>-->
+          </div>
+        </div>
+
+        <!-- <div class="col-md-4">
+          <div class="contact-phone">
+            <i class="ion-ios-telephone-outline"></i>
+            <h3>Telefone</h3>
+            <p><a href="tel:+155895548855">+1 5589 55488 55</a></p>
+          </div>
+        </div>-->
+
+        <div class="col-md-6">
+          <div class="contact-phone">
+            <!-- <i class="ion-ios-telephone-outline"></i>-->
+            <h3>Data</h3>
+            <p>20 a 27 de novembro de 2022</p>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="contact-email">
+            <!-- <i class="ion-ios-email-outline"></i>-->
+            <h3>Email</h3>
+            <p><a href="mailto:xxiendipeuberlandia@gmail.com">xxiendipeuberlandia@gmail.com</a></p>
+          </div>
+        </div>
+
+        <div class="col-md-12">
+          <div class="contact-phone">
+            <!--    <i class="ion-ios-telephone-outline"></i> -->
+            <h3>Realização</h3>
+            <!-- <p>PPGED/FACED/UFU</p>-->
+
+            <div class="row marcador align-items-center">
+              <div class="col">
+                <div style="display: flex;width: 100%;justify-content: center;">
+                  <img class="img-fluid" src="../../assets/img/parceiros/UFU4.jpg">
+                </div>
+              </div>
+            </div>
+            <div class="row marcador align-items-center">
+              <div class="col">
+                <div style="display: flex;width: 100%;justify-content: center;">
+                  <img class="img-fluid" src="../../assets/img/parceiros/faced4.jpg">
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+
+      </div>
+      <!--<div class="row">
+        <div class="mt-4">
+          <div class="row align-items-center">
+            <div class="col-md-2 text-center">
+              <img src="../../assets/img/parceiros/UFU.jpeg" height="160px" width="340px" alt="imagem parceiros">
+            </div>
+          </div>
+        </div>
+        <div class="mt-4">
+          <div class="row align-items-center">
+            <div class="col-md-2 text-center">
+              <img src="../../assets/img/parceiros/FACED.jpeg" height="160px" width="440px" alt="imagem parceiros">
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+
+    </div>
+
+    <!-- <div class="container mb-4">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3673.9406144526793!2d-43.176698984605494!3d-22.95241408498865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x997ff614120d07%3A0xf775821e0f65b970!2sFaculdade+de+Educa%C3%A7%C3%A3o+da+Universidade+Federal+do+Rio+de+Janeiro!5e0!3m2!1spt-BR!2sbr!4v1565841264624!5m2!1spt-BR!2sbr"
+        width="100%" height="380" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>-->
+
+    <!--<div class="container">
+            <div class="form">
+                <div id="sendmessage">Sua mensagem foi enviada. Obrigado!</div>
+                <div id="errormessage"></div>
+                <form action="" method="post" role="form" class="contactForm">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="text" name="name" class="form-control" id="name" placeholder="Nome"
+                                data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                            <div class="validation"></div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Email"
+                                data-rule="email" data-msg="Please enter a valid email" />
+                            <div class="validation"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Assunto"
+                            data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                        <div class="validation"></div>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" name="message" rows="5" data-rule="requi#20959b"
+                            data-msg="Please write something for us" placeholder="Mensagem"></textarea>
+                        <div class="validation"></div>
+                    </div>
+                    <div class="text-center"><button type="submit">Enviar</button></div>
+                </form>
+            </div>
+
+        </div>-->
+  </section><!-- #contact -->
+
+</main>
+<app-footer></app-footer>
+
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
