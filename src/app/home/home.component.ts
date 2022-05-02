@@ -185,7 +185,7 @@ export class HomeComponent implements OnInit {
   eixos = [
     {
       titulo: 'Eixo 1',
-      tema: 'A Didática como campo epistemológico e disciplinar',
+      tema: 'Docências na Cibercultura: educação online',
       /*  temaCurto: 'com Formação docente',*/
       descricao: `Epistemologia da Didática. Objeto epistêmico da Didática. A produção do conhecimento 
       no campo da didática. Articulação entre o ensinar e o aprender. Teoria Didática e bases 
@@ -203,7 +203,7 @@ export class HomeComponent implements OnInit {
     },
     {
       titulo: 'Eixo 2',
-      tema: 'A Didática e os Saberes docentes estruturantes na formação de professores',
+      tema: 'Docências na Cibercultura: práticas escolares',
       /* temaCurto: 'com Currículo e Avaliação',*/
       descricao: `Relação da Didática com os saberes docentes estruturantes na formação de professores. 
       Saberes pedagógicos e didáticos relacionados ao processo de ensino-aprendizagem; 
@@ -225,8 +225,8 @@ export class HomeComponent implements OnInit {
     },
     {
       titulo: 'Eixo 3',
-      tema: `A Didática e as tecnologias da informação e comunicação no currículo e práticas 
-      de ensino`,
+      tema: `Docências na Cibercultura: ativismos e redes educativas 
+      `,
       /*temaCurto: `em Direitos Humanos, Interculturalidade e Religiões`,*/
       descricao: `A Didática, as práticas de ensino e a Mediação Tecnológica. Tecnologias Digitais e
       Mediação Pedagógica. Cultura Digital e Escola. Jogos Digitais, Tecnologias e Educação. 
@@ -244,7 +244,7 @@ export class HomeComponent implements OnInit {
     },
     {
       titulo: 'Eixo 4',
-      tema: `A Didática e Práticas de Ensino na perspectiva da Educação como Direito Constitucional e os desafios políticos da atualidade 
+      tema: `Docência na Cibercultura: diferenças 
        `,
       /*temaCurto: `entre Novas epistemologias, Diferença, Biodiversidade, Democracia e Inclusão`,*/
       descricao: `A Educação na Constituição Brasileira e na Legislação Educacional. Educação Básica:
@@ -269,7 +269,7 @@ export class HomeComponent implements OnInit {
     },
     {
       titulo: 'Eixo 5',
-      tema: `A Didática e as Práticas de ensino nas políticas de formação de Pedagogos(as) 
+      tema: `Docência na Cibercultura: artesanias 
        `,
       /* temaCurto: `entre Educação, Comunicação e Tecnologia`,*/
       descricao: `Didática e Práticas de Ensino nas diretrizes do CNE; Implementação, resistência, 
@@ -286,92 +286,9 @@ export class HomeComponent implements OnInit {
       coordenacaogeral: ` José Leonardo Leonardo Rolim de Lima Severo  - UFPB`
       ,
       pareceristas: []
-    },
-    {
-      titulo: 'Eixo 6',
-      tema: `A Didática e as Práticas de Ensino nos cursos de Licenciatura: entre tensionamentos e perspectivas 
-      `,
-      /*  temaCurto: `entre Infâncias, Juventudes e Vida Adulta`,*/
-      descricao: `Didática e Práticas de Ensino na Formação de Professores. Reformulação da proposta 
-      curricular na Licenciatura e a concepção de didática instrumental na formação do 
-      licenciando. Tensões e Desafios: Formação e prática real. Ações formativas envolvendo 
-      a Didática. Os conhecimentos do campo da Didática.  Reforma do Ensino Médio e a 
-      relação com a didática e com as Práticas de Ensino.`,
-      coordenacao: [
-
-        'Fabrício Oliveira da Silva - UEFS',
-        'Elcimar Simão Martins - UNILAB',
-        'Thiago Henrique Barnabé Corrêa - UFTM',
-        'Juliana Cordeiro Soares Branco - UEMG'
-
-      ],
-      coordenacaogeral: ` Ademilson de Sousa Soares – UFMG`
-      ,
-      pareceristas: []
-    },
-    {
-      titulo: 'Eixo 7',
-      tema: `A Didática, Práticas de Ensino - Infâncias, Juventudes e Vida Adulta 
-      `,
-      /*temaCurto: `entre Infâncias, Juventudes e Vida Adulta`,*/
-      descricao: `Didática e Práticas de Ensino na Educação Infantil, Ensino Fundamental, EJA em 
-      ambientes não escolares. Concepções de educação, infância, juventude e vida adulta, 
-      tendo como parâmetro os direitos humanos. O pedagogo, a didática, as práticas de ensino 
-      e sua relação com crianças e adolescentes em situação de vulnerabilidade.`,
-      coordenacao: [
-
-        'Altina Abadia da Silva - UFCAT',
-        'Janaína Cassiano da Silva - UFCAT',
-        'Adelson Afonso da Silva França Júnior - UEMG',
-        'Marco Antônio Franco do Amaral - IFTM'
-
-      ],
-      coordenacaogeral: ` Fernanda Duarte Araújo Silva - UFU`
-      ,
-      pareceristas: []
-    },
-    {
-      titulo: 'Eixo 8',
-      tema: `A Didática, Práticas de Ensino, Educação das Relações Étnico-raciais, Diversidade e Inclusão Escolar 
-      `,
-      /*temaCurto: `entre Infâncias, Juventudes e Vida Adulta`,*/
-      descricao: `Diferenças culturais no cotidiano escolar; Articulação entre diferença e desigualdades no 
-      processo de ensino e aprendizagem; Inclusão escolar e Educação Especial. Didática e 
-      AEE. Educação antirracista. Movimentos sociais e os processos de ensino e 
-      aprendizagem; perspectivas relacionadas a gênero, sexualidade, raça, etnias, classe social 
-      e outros.`,
-      coordenacao: [
-
-        'Valéria Peres Asnis - UFU',
-        'Priscila Alvarenga Cardoso - UFU',
-        'Lázara Cristina Silva - UFU',
-        'Maria Marta Lopes Flores - UFCAT'
-
-      ],
-      coordenacaogeral: ` Dulcéria Tartuci - UFCAT`
-      ,
-      pareceristas: []
-    },
-    {
-      titulo: 'Eixo 9',
-      tema: `A Didática da Educação Superior 
-     `,
-      /*temaCurto: `entre Infâncias, Juventudes e Vida Adulta`,*/
-      descricao: `Formação do professor Universitário. Saberes da docência universitária. Pedagogia 
-      Universitária. Didática e questões curriculares na docência Universitária. Formação dos 
-      formadores de professores. Assessoria Pedagógica na Universidade.`,
-      coordenacao: [
-
-        'Vânia Maria Vieira - UNIUBE',
-        'Maria de Lourdes Ribeiro Gaspar - IFTM',
-        'Talamira Taíta Rodrigues de Brito - UESB'
-
-      ],
-      coordenacaogeral: ` Vanessa Bueno Campos - UFU`
-      ,
-      pareceristas: []
     }
-  ];
+  ]
+    ;
 
   programacoes = PROGRAMACOES;
 

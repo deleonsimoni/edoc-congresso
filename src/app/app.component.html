@@ -5,12 +5,14 @@
         <div class="container clearfix">
           <div class="social-links float-right">
             <a [routerLink]="" *ngIf="userName">{{ 'Olá, ' + userName }}</a>
-            <a href="https://www.facebook.com/endipe2022/" title="Facebook Endipe" alt="Facebook Endipe" target="_blank"
+            <a href="https://www.facebook.com/e_docuffrj/" title="Facebook e-Doc" alt="Facebook e-Doc" target="_blank"
               class="facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/endipe2022/?hl=pt-br" title="Instagram Endipe" alt="Instagram Endipe"
+            <a href="https://www.instagram.com/e_docufrrj/?hl=pt-br" title="Instagram e-Doc" alt="Instagram e-Doc"
               target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
             <a href="https://www.youtube.com/channel/UCW_VVgPeRxR92bFu49cKGDw" title="Youtube Endipe"
               alt="Youtube Endipe" target="_blank" class="youtube"><i class="fab fa-youtube"></i></a>
+            <a href="https://twitter.com/e_docufrrj" title="Twitter e-Doc" alt="Twitter e-Doc" target="_blank"
+              class="twitter"><i class="fab fa-twitter"></i></a>
           </div>
         </div>
       </section>
@@ -19,7 +21,7 @@
         <div class="container">
 
           <div id="logo" class="pull-left">
-            <h1><a tabindex="0" [routerLink]="['/home']" fragment="body" class="scrollto">Endi<span>pe</span></a>
+            <h1><a tabindex="0" [routerLink]="['/home']" fragment="body" class="scrollto">e-<span>Doc</span></a>
             </h1>
           </div>
 
@@ -38,9 +40,7 @@
                 <div class="dropdown-menu" aria-labelledby="organizacaopMenu">
                   <a class="dropdown-item" [routerLink]="['/home']" alt="Tema" fragment="about">Tema</a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" [routerLink]="['/home']" alt="Escolha do Tema" fragment="escolha">Escolha do
-                    Tema</a>
-                  <div class="dropdown-divider"></div>
+
                   <a class="dropdown-item" [routerLink]="['/home']" alt="Apresentação"
                     fragment="clients">Apresentação</a>
                   <div class="dropdown-divider"></div>
@@ -50,11 +50,9 @@
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" [routerLink]="['/home']" alt="Eixos" fragment="services">Eixos</a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" [routerLink]="['/home']" alt="Histórico" fragment="historico">Endipes
+                  <a class="dropdown-item" [routerLink]="['/home']" alt="Histórico" fragment="historico">e-Docs
                     Anteriores</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" [routerLink]="['/home']" alt="Valores" fragment="valores">Valores
-                  </a>
+
                 </div>
               </li>
 
@@ -86,8 +84,7 @@
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" [routerLink]="['/home']" alt="Informações Gerais"
                     fragment="contact">Informações Gerais</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" [routerLink]="['/home']" alt="Valores" fragment="valores">Valores</a>
+
                 </div>
               </li>
 
@@ -154,8 +151,8 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="acoesMenu">
 
-                  <a class="dropdown-item" alt="Pagamento" [routerLink]="['/pagamento']">Pagamento</a>
-                  <div class="dropdown-divider"></div>
+                  <!--  <a class="dropdown-item" alt="Pagamento" [routerLink]="['/pagamento']">Pagamento</a>
+                  <div class="dropdown-divider"></div>-->
 
                   <a class="dropdown-item" alt="Submissão" [routerLink]="['/meus-trabalhos']">Submissão</a>
                   <div class="dropdown-divider"></div>
@@ -208,12 +205,10 @@
               [ngClass]="{'fa-chevron-down': !accordion.isOpen, 'fa-chevron-up': accordion.isOpen}"></i></a>
           <ul class="child-list">
             <li><a tabindex="0" [routerLink]="['/home']" fragment="about" (click)="sidenav.toggle()">Tema</a></li>
-            <li><a tabindex="0" [routerLink]="['/home']" fragment="escolha" (click)="sidenav.toggle()">Escolha do
-                Tema</a></li>
             <li><a tabindex="0" [routerLink]="['/home']" fragment="clients" (click)="sidenav.toggle()">Apresentação</a>
             </li>
             <li><a tabindex="0" [routerLink]="['/home']" fragment="services" (click)="sidenav.toggle()">Eixos</a></li>
-            <li><a tabindex="0" [routerLink]="['/home']" fragment="historico" (click)="sidenav.toggle()">Endipes
+            <li><a tabindex="0" [routerLink]="['/home']" fragment="historico" (click)="sidenav.toggle()">e-Docs
                 Anteriores</a>
             </li>
           </ul>
@@ -296,7 +291,7 @@
         <accordion-group>
           <a tabindex="0" accordion-heading *ngIf="isAuth" [routerLink]="">AÇÕES <i class="fa fa-chevron-down"></i></a>
           <ul class="child-list">
-            <li><a tabindex="0" [routerLink]="['/pagamento']" (click)="sidenav.toggle()">Pagamento</a></li>
+            <!--  <li><a tabindex="0" [routerLink]="['/pagamento']" (click)="sidenav.toggle()">Pagamento</a></li> -->
             <li><a tabindex="0" [routerLink]="['/meus-trabalhos']" (click)="sidenav.toggle()">Submissão</a></li>
             <!--<li><a tabindex="0"  class="menu-has-children aoVivo pulse" [routerLink]="['/meu-endipe']">Meu Endipe</a></li>
             <li><a tabindex="0" [routerLink]="['/certificados']" (click)="sidenav.toggle()">Certificados</a></li>-->
