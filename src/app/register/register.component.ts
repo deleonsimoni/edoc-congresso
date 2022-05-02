@@ -244,10 +244,10 @@ export class RegisterComponent implements OnInit {
     return this.registerForm.value.categoriaId == 1 || this.registerForm.value.categoriaId == 2
   }
 
-  public getFileName(): string {
-    const fileName = this.files ? this.files[0].name : 'Comprovante da Categoria';
-    return fileName;
-  }
+  /* public getFileName(): string {
+     const fileName = this.files ? this.files[0].name : 'Comprovante da Categoria';
+     return fileName;
+   }*/
 
   public setFileName(files: FileList): void {
     this.files = files;

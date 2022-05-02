@@ -30,25 +30,28 @@ export class SubmissaoComponent implements OnInit {
   public showAdd = true;
   public modalidadesUsuario: any[] = [];
   public modalidades = [
-    { id: 4, name: 'Mediador de minicurso' },
-    { id: 3, name: 'Expositor de pôster' },
-    { id: 5, name: 'Coordenador e/ou expositor de painel' }
+    { id: 4, name: 'Mediador de oficina' },
+    { id: 5, name: 'Expositor de painel' },
+    { id: 6, name: 'Moderador de exposição' },
+    { id: 7, name: 'Coordenador de grupo' },
+    { id: 8, name: 'Conferencista' }
   ];
   public workOptions = [
-    { id: 1, name: 'Pôster' },
+
     { id: 2, name: 'Painel' },
-    { id: 3, name: 'Minicurso' }
+    { id: 3, name: 'Oficina' },
+    { id: 4, name: 'Exposição' },
+    { id: 5, name: 'Conferência' },
+    { id: 6, name: 'Grupo de trabalho' }
+
+
   ];
   public eixos = [
-    { id: 1, name: 'A Didática como campo epistemológico e disciplinar' },
-    { id: 2, name: 'A Didática e os Saberes docentes estruturantes na formação de professores' },
-    { id: 3, name: 'A Didática e as tecnologias da informação e comunicação no currículo e práticas de ensino' },
-    { id: 4, name: 'A Didática e Práticas de Ensino na perspectiva da Educação como Direito Constitucional e os desafios políticos da atualidade' },
-    { id: 5, name: 'A Didática e as Práticas de ensino nas políticas de formação de Pedagogos(as)' },
-    { id: 6, name: 'A Didática e as Práticas de Ensino nos cursos de Licenciatura: entre tensionamentos e perspectivas' },
-    { id: 7, name: 'A Didática, Práticas de Ensino - Infâncias, Juventudes e Vida Adulta' },
-    { id: 8, name: 'A Didática, Práticas de Ensino, Educação das Relações Étnico-raciais, Diversidade e Inclusão Escolar' },
-    { id: 9, name: 'A Didática da Educação Superior' }
+    { id: 1, name: 'Docências na Cibercultura: educação online' },
+    { id: 2, name: 'Docências na Cibercultura: práticas escolares' },
+    { id: 3, name: 'Docências na Cibercultura: ativismos e redes educativas' },
+    { id: 4, name: 'Docência na Cibercultura: diferenças' },
+    { id: 5, name: 'Docência na Cibercultura: artesanias' }
 
   ];
   private filesDOC: FileList;
