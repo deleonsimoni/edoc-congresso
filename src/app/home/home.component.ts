@@ -10,6 +10,7 @@ import { ModalApoiadoresComponent } from '../modal-apoiadores/modal-apoiadores.c
 import { ModalNormasRodaConversaComponent } from '../modal-normas/modal-mediador-conversa.component';
 import { ModalNormasPainelComponent } from '../modal-normas/modal-expositor-painel.component';
 import { ModalNormasMinicursoComponent } from '../modal-normas/modal-mediador-minu-curso.component';
+import { ModalNormasFruicaoComponent } from '../modal-normas/modal-fruicao.component';
 import { ModalNormasPosterComponent } from '../modal-normas/modal-expositor-poster.component';
 import { DownloadFileService } from '../services/download-file.service';
 import { ToastrService } from 'ngx-toastr';
@@ -51,22 +52,16 @@ export class HomeComponent implements OnInit {
   };
 
   instituicoes = [
-    'Universidade Federal de Uberlândia - UFU',
-    /* 'Universidade Federal do Estado do Rio de Janeiro – UNIRIO',
-     'Universidade Federal Fluminense – UFF',
-     'Universidade Federal Rural do Rio de Janeiro – UFRRJ',
-     'Universidade do Estado do Rio de Janeiro – UERJ',
-     'Universidade Estácio de Sá – UNESA',
-     'Universidade Católica de Petrópolis – UCP',
-     'Pontifícia Universidade Católica do Rio de Janeiro – PUC-Rio',
-     'Instituto Benjamim Constant – IBC',
-     'Instituto Nacional de Educação de Surdos – INES',
-     'Instituto Superior de Educação do Rio de Janeiro – ISERJ'*/
+    'Universidade Federal Rural do Rio de Janeiro - UFRRJ',
+    'Universidade Federal do Estado do Rio de Janeiro – UNIRIO',
+    'Universidade Federal Fluminense – UFF',
+    'Universidade do Estado do Rio de Janeiro – UERJ',
+    'Pontifícia Universidade Católica do Rio de Janeiro – PUC-Rio'
+
   ];
 
   coordenacoesGerais = [
-    'Camila Lima Coimbra - UFU',
-    'Roberto Valdés Puentes - UFU'
+    'Edméa Santos - UFRRJ'
   ];
 
   imagensApoiadores = [
@@ -185,7 +180,7 @@ export class HomeComponent implements OnInit {
   eixos = [
     {
       titulo: 'Eixo 1',
-      tema: 'Docências na Cibercultura: educação online',
+      tema: 'Educação Online',
       /*  temaCurto: 'com Formação docente',*/
       descricao: `Epistemologia da Didática. Objeto epistêmico da Didática. A produção do conhecimento 
       no campo da didática. Articulação entre o ensinar e o aprender. Teoria Didática e bases 
@@ -193,17 +188,17 @@ export class HomeComponent implements OnInit {
       Fundamentos e perspectivas da didática. `,
       coordenacao: [
 
-        'Marilza Vanessa Rosa Suanno - UFG',
-        'Sandra Valéria Limonta Rosa - UFG'
+        'Edméa Santos',
+        'Tatiana Rossini'
 
       ],
-      coordenacaogeral: ` Lenilda Rêgo Albuquerque De Faria - UFAC`
-      ,
+      /*coordenacaogeral: ` Lenilda Rêgo Albuquerque De Faria - UFAC`
+      ,*/
       pareceristas: []
     },
     {
       titulo: 'Eixo 2',
-      tema: 'Docências na Cibercultura: práticas escolares',
+      tema: 'Fenômenos da Cibercultura',
       /* temaCurto: 'com Currículo e Avaliação',*/
       descricao: `Relação da Didática com os saberes docentes estruturantes na formação de professores. 
       Saberes pedagógicos e didáticos relacionados ao processo de ensino-aprendizagem; 
@@ -214,18 +209,17 @@ export class HomeComponent implements OnInit {
       formação de professores; Parceria entre universidade e a escola na formação de 
       professores.`,
       coordenacao: [
+        'Rosemary dos Santos',
+        'Miriam Amaral'
 
-        'Maria de Fátima Barbosa Abdalla – Unisantos',
-        'Martha Maria Prata-Linhares - UFTM',
-        'Silvana Soares de Araujo Mesquita - PUC-Rio'
       ],
-      coordenacaogeral: ` Vânia Finholdt Ângelo Leite – UERJ`
-      ,
+      /* coordenacaogeral: ` Vânia Finholdt Ângelo Leite – UERJ`
+       ,*/
       pareceristas: []
     },
     {
       titulo: 'Eixo 3',
-      tema: `Docências na Cibercultura: ativismos e redes educativas 
+      tema: `Artesanias Docentes 
       `,
       /*temaCurto: `em Direitos Humanos, Interculturalidade e Religiões`,*/
       descricao: `A Didática, as práticas de ensino e a Mediação Tecnológica. Tecnologias Digitais e
@@ -234,17 +228,16 @@ export class HomeComponent implements OnInit {
       Remoto Emergencial (ERE).`,
       coordenacao: [
 
-        'Daniela da Costa Britto Pereira Lima  - UFG',
-        'Giovana Cristina Zen - UFBA',
-        'Gyzely Suely Lima - IFTM'
+        'Leonardo Nolasco',
+        'Marcelo Bairral'
       ],
-      coordenacaogeral: ` Priscila Rezende Moreira - UEMG`
-      ,
+      /*coordenacaogeral: ` Priscila Rezende Moreira - UEMG`
+      ,*/
       pareceristas: []
     },
     {
       titulo: 'Eixo 4',
-      tema: `Docência na Cibercultura: diferenças 
+      tema: `Escola Básica 
        `,
       /*temaCurto: `entre Novas epistemologias, Diferença, Biodiversidade, Democracia e Inclusão`,*/
       descricao: `A Educação na Constituição Brasileira e na Legislação Educacional. Educação Básica:
@@ -257,19 +250,17 @@ export class HomeComponent implements OnInit {
       Pedagógica e Democrática da Escola. Políticas de Avaliação da Educação Básica.`,
       coordenacao: [
 
-        'Andréia Nunes Militão - UEMS/UFGD',
-        'Suzana dos Santos Gomes - UFMG',
-        'Jussara Bueno de Queiroz Paschoalino - UFRJ',
-        'Claudia Tavares do Amaral - UFCAT'
+        'Andréia ',
+        'Claudia '
 
       ],
-      coordenacaogeral: ` Robson Luiz de França - UFU`
-      ,
+      /*coordenacaogeral: ` Robson Luiz de França - UFU`
+      ,*/
       pareceristas: []
     },
     {
       titulo: 'Eixo 5',
-      tema: `Docência na Cibercultura: artesanias 
+      tema: `Redes Educativas 
        `,
       /* temaCurto: `entre Educação, Comunicação e Tecnologia`,*/
       descricao: `Didática e Práticas de Ensino nas diretrizes do CNE; Implementação, resistência, 
@@ -277,14 +268,32 @@ export class HomeComponent implements OnInit {
       e outros programas de formação.`,
       coordenacao: [
 
-        'Andréa Silva Gino - UEMG',
-        'Vilma Aparecida de Souza - UFU',
-        'Kátia Silene da Silva - UFCAT'
+        'Nilda Alves',
+        'Tánia Maddalena'
 
       ],
 
-      coordenacaogeral: ` José Leonardo Leonardo Rolim de Lima Severo  - UFPB`
-      ,
+      /*coordenacaogeral: ` José Leonardo Leonardo Rolim de Lima Severo  - UFPB`
+      ,*/
+      pareceristas: []
+    },
+    {
+      titulo: 'Eixo 6',
+      tema: `Ativismos Online
+       `,
+      /* temaCurto: `entre Educação, Comunicação e Tecnologia`,*/
+      descricao: `Didática e Práticas de Ensino nas diretrizes do CNE; Implementação, resistência, 
+      permanência de políticas de formação de Pedagogos(as); PIBID, Residência Pedagógica 
+      e outros programas de formação.`,
+      coordenacao: [
+
+        'Dilton Couto',
+        'Luciana Velloso'
+
+      ],
+
+      /*coordenacaogeral: ` José Leonardo Leonardo Rolim de Lima Severo  - UFPB`
+      ,*/
       pareceristas: []
     }
   ]
@@ -458,6 +467,13 @@ export class HomeComponent implements OnInit {
 
   public openDialogMinicurso() {
     const dialogRef = this.dialog.open(ModalNormasMinicursoComponent, {
+      data: {},
+      height: '550vh'
+    });
+  }
+
+  public openDialogFruicao() {
+    const dialogRef = this.dialog.open(ModalNormasFruicaoComponent, {
       data: {},
       height: '550vh'
     });

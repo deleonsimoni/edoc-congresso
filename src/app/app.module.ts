@@ -15,6 +15,7 @@ import { ModalProgramacaoComponent } from './modal-programacao/modal-programacao
 import { ModalNormasComponent } from './modal-normas/modal-normas.component';
 import { ModalTermoComponent } from './modal-normas/modal-termo.component';
 import { ModalNormasMinicursoComponent } from './modal-normas/modal-mediador-minu-curso.component';
+import { ModalNormasFruicaoComponent } from './modal-normas/modal-fruicao.component';
 import { ModalNormasRodaConversaComponent } from './modal-normas/modal-mediador-conversa.component';
 import { ModalNormasPainelComponent } from './modal-normas/modal-expositor-painel.component';
 import { ModalNormasPosterComponent } from './modal-normas/modal-expositor-poster.component';

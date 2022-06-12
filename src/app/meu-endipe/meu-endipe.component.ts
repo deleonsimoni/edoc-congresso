@@ -13,7 +13,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class MeuEndipeComponent implements OnInit {
 
   countDownDate;
-  days; 
+  days;
   hours;
   minutes;
   seconds;
@@ -41,42 +41,42 @@ export class MeuEndipeComponent implements OnInit {
     private sanitizer: DomSanitizer,
 
   ) { }
-/*
-  ngOnInit() {
-
-    this.countDownDate = new Date("Oct 29, 2020 00:00:00").getTime();
-
-    setInterval(() => {
-
-      var now = new Date().getTime();
-    
-      let distance = this.countDownDate - now;
+  /*
+    ngOnInit() {
+  
+      this.countDownDate = new Date("Oct 29, 2020 00:00:00").getTime();
+  
+      setInterval(() => {
+  
+        var now = new Date().getTime();
       
-      this.days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      this.hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      this.minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      this.seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    }, 1000);
-  }*/
+        let distance = this.countDownDate - now;
+        
+        this.days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        this.hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        this.minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        this.seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  
+      }, 1000);
+    }*/
   ngOnInit() {
     this.user = this.authService.getDecodedAccessToken(this.authService.getToken());
 
     //INCRIÇÕES USUARIO
-    if(this.user){
+    if (this.user) {
       this.getUserSubscribers();
       this.getUserPresentation();
-      if(this.user.monitor){
+      if (this.user.monitor) {
         this.getUserMonitors();
       }
-      if(this.user.mediador){
+      if (this.user.mediador) {
         this.getUserMediator();
       }
     }
   }
 
-  selectSchedule(id){
-    if(this.scheduleSelect == id){
+  selectSchedule(id) {
+    if (this.scheduleSelect == id) {
       this.scheduleSelect = null;
     } else {
       this.scheduleSelect = id;
@@ -84,16 +84,16 @@ export class MeuEndipeComponent implements OnInit {
     }
   }
 
-  getUserSubscribers(){
+  getUserSubscribers() {
     this.carregandoLista = true;
     this.http.get(`${this.baseUrl}/live/getSubscribersUser`).subscribe(
       (res: any) => {
-        this.schedules = res.filter((obj) => obj );
+        this.schedules = res.filter((obj) => obj);
         this.carregandoLista = false;
 
-        if(this.schedules) {
+        if (this.schedules) {
           this.schedules.forEach(element => {
-            if(element.type != 3 && element.authors){
+            if (element.type != 3 && element.authors) {
               element.authors = element.authors.split(',');
             }
           });
@@ -107,16 +107,16 @@ export class MeuEndipeComponent implements OnInit {
     );
   }
 
-  getUserPresentation(){
+  getUserPresentation() {
     this.carregandoApresentacao = true;
     this.http.get(`${this.baseUrl}/live/getPresentationsUser`).subscribe(
       (res: any) => {
-        this.apresentacoes = res.filter((obj) => obj );
+        this.apresentacoes = res.filter((obj) => obj);
         this.carregandoApresentacao = false;
 
-        if(this.apresentacoes) {
+        if (this.apresentacoes) {
           this.apresentacoes.forEach(element => {
-            if(element.authors){
+            if (element.authors) {
               element.authors = element.authors.split(',');
             }
           });
@@ -130,14 +130,14 @@ export class MeuEndipeComponent implements OnInit {
     );
   }
 
-  getUserMediator(){
+  getUserMediator() {
     this.http.get(`${this.baseUrl}/live/getUserMediator`).subscribe(
       (res: any) => {
-        this.mediators = res.filter((obj) => obj );
+        this.mediators = res.filter((obj) => obj);
 
-        if(this.mediators) {
+        if (this.mediators) {
           this.mediators.forEach(element => {
-            if(element.authors){
+            if (element.authors) {
               element.authors = element.authors.split(',');
             }
           });
@@ -150,14 +150,14 @@ export class MeuEndipeComponent implements OnInit {
     );
   }
 
-  getUserMonitors(){
+  getUserMonitors() {
     this.http.get(`${this.baseUrl}/live/getUserMonitors`).subscribe(
       (res: any) => {
-        this.monitors = res.filter((obj) => obj );
+        this.monitors = res.filter((obj) => obj);
 
-        if(this.monitors) {
+        if (this.monitors) {
           this.monitors.forEach(element => {
-            if(element.authors){
+            if (element.authors) {
               element.authors = element.authors.split(',');
             }
           });
@@ -172,52 +172,52 @@ export class MeuEndipeComponent implements OnInit {
 
   public isSubscribe(scheduleSelect) {
     if (this.user._id && scheduleSelect.hasOwnProperty('subscribers')) {
-        return scheduleSelect.subscribers.some(el => el.userId == this.user._id);
+      return scheduleSelect.subscribers.some(el => el.userId == this.user._id);
     }
-  
+
     return false;
   }
-    
+
   public cancelSignUp(type, scheduleFull) {
-      this.carregando = true;
-      if (type == 4) {
-          this.scheduleService.cancelEnrollSchedule(scheduleFull._id)
-              .subscribe(res => {
-                this.getUserSubscribers();
-                this.toastr.success('Cancelamento de inscrição realizada com sucesso', 'Sucesso');
-                  this.carregando = false;
-              }, err => {
-                  this.toastr.success('Servidor momentaneamente inoperante', 'Erro');
-                  this.carregando = false;
-              });
-  
-      } else if (type == 5) {
-          this.scheduleService.cancelEnrollSchedulePainel(scheduleFull._id)
-              .subscribe(res => {
-                this.getUserSubscribers();
-                this.toastr.success('Cancelamento de inscrição realizada com sucesso', 'Sucesso');
-                  this.carregando = false;
-              }, err => {
-                  this.toastr.success('Servidor momentaneamente inoperante', 'Erro');
-                  this.carregando = false;
-              });
-  
-      } else {
-          this.scheduleService.cancelEnrollScheduleRodaDeConversa(scheduleFull._id)
-              .subscribe(res => {
-                this.getUserSubscribers();
-                this.toastr.success('Cancelamento de inscrição realizada com sucesso', 'Sucesso');
-                  this.carregando = false;
-              }, err => {
-                  this.toastr.success('Servidor momentaneamente inoperante', 'Erro');
-                  this.carregando = false;
-              });
-      }
+    this.carregando = true;
+    if (type == 4) {
+      this.scheduleService.cancelEnrollSchedule(scheduleFull._id)
+        .subscribe(res => {
+          this.getUserSubscribers();
+          this.toastr.success('Cancelamento de inscrição realizada com sucesso', 'Sucesso');
+          this.carregando = false;
+        }, err => {
+          this.toastr.success('Servidor momentaneamente inoperante', 'Erro');
+          this.carregando = false;
+        });
+
+    } else if (type == 5) {
+      this.scheduleService.cancelEnrollSchedulePainel(scheduleFull._id)
+        .subscribe(res => {
+          this.getUserSubscribers();
+          this.toastr.success('Cancelamento de inscrição realizada com sucesso', 'Sucesso');
+          this.carregando = false;
+        }, err => {
+          this.toastr.success('Servidor momentaneamente inoperante', 'Erro');
+          this.carregando = false;
+        });
+
+    } else {
+      this.scheduleService.cancelEnrollScheduleRodaDeConversa(scheduleFull._id)
+        .subscribe(res => {
+          this.getUserSubscribers();
+          this.toastr.success('Cancelamento de inscrição realizada com sucesso', 'Sucesso');
+          this.carregando = false;
+        }, err => {
+          this.toastr.success('Servidor momentaneamente inoperante', 'Erro');
+          this.carregando = false;
+        });
+    }
   }
 
 
   //CHAT
-  listarChatWork(id){
+  listarChatWork(id) {
     this.carregando = true;
     this.http.get(`${this.baseUrl}/chat-admin/chatWork?idWork=${id}`).subscribe(
       (res: any) => {
@@ -235,7 +235,7 @@ export class MeuEndipeComponent implements OnInit {
     this.remainingText = 120 - this.newComment.length;
   }
 
-  atualizarChat(){
+  atualizarChat() {
     this.listarChatWork(this.scheduleSelect);
   }
 
@@ -245,78 +245,78 @@ export class MeuEndipeComponent implements OnInit {
 
   isAuthor(email) {
     return email === this.postAuthorEmail;
-  } 
+  }
 
-  love (commentId){
+  love(commentId) {
     this.comments['chat'].forEach(comment => {
       if (comment.id == commentId)
         comment.loved = !comment.loved
-    });      
+    });
   }
 
   reply(author) {
-      if (!this.newComment.content)
+    if (!this.newComment.content)
       this.newComment.content = ''
 
-      if (this.newComment.content.search('@' + author + '@') == -1) {
-        if (this.newComment.content[0] == '@')
-          this.newComment.content = ', ' + this.newComment.content
-        else
-          this.newComment.content = ' ' + this.newComment.content
+    if (this.newComment.content.search('@' + author + '@') == -1) {
+      if (this.newComment.content[0] == '@')
+        this.newComment.content = ', ' + this.newComment.content
+      else
+        this.newComment.content = ' ' + this.newComment.content
 
-         this.newComment.content = '@' + author + '@' + this.newComment.content
-      }
+      this.newComment.content = '@' + author + '@' + this.newComment.content
+    }
   }
 
   addNewComment() {
-      if(this.newComment){
+    if (this.newComment) {
 
-            let chatMessage = this.newComment;
-            chatMessage = chatMessage.replace(/(@[^@.]+)@/, '<span class="reply">$1</span>')
-            chatMessage = chatMessage.replace(/https?:\/\/(www.)?([a-zA-Z0-9\-_]+\.[a-zA-Z0-9]+)/, '<a href="//$2">$2</a>')
-            this.newComment = null;
+      let chatMessage = this.newComment;
+      chatMessage = chatMessage.replace(/(@[^@.]+)@/, '<span class="reply">$1</span>')
+      chatMessage = chatMessage.replace(/https?:\/\/(www.)?([a-zA-Z0-9\-_]+\.[a-zA-Z0-9]+)/, '<a ="//$2</a>')
+      this.newComment = null;
 
-            if(this.comments && this.comments._id){
+      if (this.comments && this.comments._id) {
 
-              this.http.put(`${this.baseUrl}/chat-admin/chatWork?id=${this.comments._id}`, { mensagem: chatMessage }).subscribe((res: any) => {
-                this.comments['chat'].push({
-                    content: chatMessage,
-                    publisher: {
-                      user: this.user._id,
-                      name: this.user.fullname, 
-                      email: this.user.email
-                    }
-                  });
+        this.http.put(`${this.baseUrl}/chat-admin/chatWork?id=${this.comments._id}`, { mensagem: chatMessage }).subscribe((res: any) => {
+          this.comments['chat'].push({
+            content: chatMessage,
+            publisher: {
+              user: this.user._id,
+              name: this.user.fullname,
+              email: this.user.email
+            }
+          });
 
-                this.toastr.success("Mensagem enviada com sucesso", "Sucesso");
-              }, err => {
-                this.toastr.error("Servidor momentâneamente inoperante", "Atenção");
-              });
-
-            } else {
-
-              this.http.post(`${this.baseUrl}/chat-admin/chatWork?idWork=${this.scheduleSelect}`, { mensagem: chatMessage }).subscribe((res: any) => {
-                this.comments = res;
-                /*this.comments['chat'] = ([{
-                    content: chatMessage,
-                    publisher: {
-                      user: this.user._id,
-                      name: this.user.fullname, 
-                      email: this.user.email
-                    }
-                  }]);*/
-
-                this.toastr.success("Mensagem enviada com sucesso", "Sucesso");
-              }, err => {
-                this.toastr.error("Servidor momentâneamente inoperante", "Atenção");
-              });
-
-          }
+          this.toastr.success("Mensagem enviada com sucesso", "Sucesso");
+        }, err => {
+          this.toastr.error("Servidor momentâneamente inoperante", "Atenção");
+        });
 
       } else {
-        this.toastr.error("Preencha sua mensagem antes de enviar", "Atenção");
+
+        this.http.post(`${this.baseUrl}/chat-admin/chatWork?idWork=${this.scheduleSelect}`, { mensagem: chatMessage }).subscribe((res: any) => {
+          this.comments = res;
+          /*this.comments['chat'] = ([{
+              content: chatMessage,
+              publisher: {
+                user: this.user._id,
+                name: this.user.fullname, 
+                email: this.user.email
+              }
+            }]);*/
+
+          this.toastr.success("Mensagem enviada com sucesso", "Sucesso");
+        }, err => {
+          this.toastr.error("Servidor momentâneamente inoperante", "Atenção");
+        });
 
       }
+
+    } else {
+      this.toastr.error("Preencha sua mensagem antes de enviar", "Atenção");
+
+    }
   }
 
 }

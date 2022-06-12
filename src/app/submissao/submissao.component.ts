@@ -31,9 +31,9 @@ export class SubmissaoComponent implements OnInit {
   public modalidadesUsuario: any[] = [];
   public modalidades = [
     { id: 4, name: 'Mediador de oficina' },
-    { id: 5, name: 'Expositor de painel' },
-    { id: 6, name: 'Moderador de exposição' },
-    { id: 7, name: 'Coordenador de grupo' },
+    { id: 5, name: 'Expositor de painel de pesquisa' },
+    { id: 6, name: 'Moderador de exposição e fruições artístico-literárias' },
+    /* { id: 7, name: 'Coordenador de grupo' },*/
     { id: 8, name: 'Conferencista' }
   ];
   public workOptions = [
@@ -41,17 +41,18 @@ export class SubmissaoComponent implements OnInit {
     { id: 2, name: 'Painel' },
     { id: 3, name: 'Oficina' },
     { id: 4, name: 'Exposição' },
-    { id: 5, name: 'Conferência' },
-    { id: 6, name: 'Grupo de trabalho' }
+    { id: 5, name: 'Conferência' }
+    /* { id: 6, name: 'Grupo de trabalho' }*/
 
 
   ];
   public eixos = [
-    { id: 1, name: 'Docências na Cibercultura: educação online' },
-    { id: 2, name: 'Docências na Cibercultura: práticas escolares' },
-    { id: 3, name: 'Docências na Cibercultura: ativismos e redes educativas' },
-    { id: 4, name: 'Docência na Cibercultura: diferenças' },
-    { id: 5, name: 'Docência na Cibercultura: artesanias' }
+    { id: 1, name: 'Eixo 1: Educação online' },
+    { id: 2, name: 'Eixo 2: Fenômenos da Cibercultura' },
+    { id: 3, name: 'Eixo 3: Artesaninas Docentes' },
+    { id: 4, name: 'Eixo 4: Escola Básica' },
+    { id: 5, name: 'Eixo 5: Redes Educativas' },
+    { id: 6, name: 'Eixo 6: Ativismos Online' }
 
   ];
   private filesDOC: FileList;

@@ -142,16 +142,16 @@ export class RegisterComponent implements OnInit {
       return;
     }
 
-    if (this.registerForm.value.categoriaId == 1 || this.registerForm.value.categoriaId == 2) {
-      if (!this.files) {
-        this.toastr.error('É necessário selecionar o comprovante de categoria', 'Atenção');
-        return;
-        // tslint:disable-next-line: align
-      } if (this.files[0].size > 2500 * 1027) {
-        this.toastr.error('O comprovante de categoria deve ter no máximo 2MB', 'Atenção');
-        return;
-      }
-    }
+    /* if (this.registerForm.value.categoriaId == 1 || this.registerForm.value.categoriaId == 2) {
+       if (!this.files) {
+         this.toastr.error('É necessário selecionar o comprovante de categoria', 'Atenção');
+         return;
+         // tslint:disable-next-line: align
+       } if (this.files[0].size > 2500 * 1027) {
+         this.toastr.error('O comprovante de categoria deve ter no máximo 2MB', 'Atenção');
+         return;
+       }
+     }*/
 
 
     if (this.registerForm.valid && form != null) {

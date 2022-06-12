@@ -40,7 +40,7 @@
               <strong> Universidade Federal Rural do Rio de Janeiro - 2022</strong>
             </li>
             <li>
-              <strong> Dias: 20/11 a 27/11 de 2022</strong>
+              <strong> Dias: 25/07 a 29/07 de 2022</strong>
             </li>
             <li>
               <strong>Locais</strong>
@@ -291,19 +291,15 @@
   <section id="team" class="wow fadeInUp">
     <div class="container">
       <div class="section-header">
-        <h2>Coordenação Executiva</h2>
+        <h2>Vice-Coordenação</h2>
       </div>
       <div class="row">
 
         <ul style="list-style: none;">
           <li>
-            <strong>Andréa Maturano Longarezi - UFU</strong>
+            <strong>Rosemary dos Santos - UERJ</strong>
           </li>
-          <br />
-          <li>
-            <strong>Priscilla de Andrade Silva Ximenes - UFCAT</strong>
-          </li>
-          <br />
+
 
         </ul>
       </div>
@@ -379,19 +375,16 @@
           <br />
           <ul style="list-style: none;">
             <li>
-              <strong>A Didática e as Práticas de Ensino no contexto das contrarreformas neoliberais
+              <strong>Docências na cibercultura: o que fizemos, pensamos e aprendemos durante a pandemia COVID-19?
               </strong>
             </li>
             <br />
             <ul style="list-style: none;" *ngFor="let eixo of eixos">
               <strong>{{ eixo.titulo + ' - ' + eixo.tema }}</strong>
               <br /> <br />
+
               <li>
-                <strong>Coordenação geral: </strong>{{ eixo.coordenacaogeral }}
-              </li>
-              <br />
-              <li>
-                <strong>Coordenação Executiva:</strong>
+                <strong>Coordenação:</strong>
               </li>
               <li *ngFor="let coordenador of eixo.coordenacao">
                 {{ coordenador }}
@@ -418,7 +411,8 @@
 
         <ul style="list-style: none;">
           <li>
-            Grupo 1: Cláudia e Andreia (Cap/UERJ)
+            Grupo 1:
+            Coordenação: Cláudia e Andreia (Cap/UERJ)
           </li>
           <br />
           <li>
@@ -440,11 +434,11 @@
           </li>
           <br />
           <li>
-            Grupo 6:
+            Grupo 6: Nilda Alves (UERJ)
           </li>
           <br />
           <li>
-            Grupo 7: Marcelo Bairral (UERJ)
+            Grupo 7: Marcelo Bairral (UFRRJ)
           </li>
           <br />
           <li>
@@ -453,7 +447,7 @@
           </li>
           <br />
           <li>
-            Grupo 9: Tánia Lucia Maddalena (UERJ)
+            Grupo 9: Mariano Pimentel (UNIRIO)
           </li>
           <br />
 
@@ -535,7 +529,8 @@
           (UFBA); duas rodas de conversa, duas oficinas, duas exposições artísticas, duas defesas de
           de membros do Gpdoc.
           Todos os registros do I e-Doc podem ser consultados no site do evento:
-          http://e-docenciaecibercultura2015.blogspot.com/ , destacando quem em sua primeira edição já
+          http://e-docenciaecibercultura2015.blogspot.com
+          , destacando quem em sua primeira edição já
           se materializou em um formato híbrido, deixando seus rastros nas transmissões das atividades
           via live do Facebook.
 
@@ -769,18 +764,36 @@
       <div class="row">
         <div class="col-lg-6">
           <div class="box wow fadeInLeft">
-            <h4 class="title">Conferencista</h4>
+            <h4 class="title">Moderador de exposição e fruições artístico-literárias</h4>
             <p class="description" style="text-align: justify;">
-              As conferências e mesas redondas, serão propostas
-              pelo Comitê Organizador e destinadas ao debate sobre temas contemporâneos com referências do
-              campo da Cibercultura.
-              Os artigos das conferências serão
-              avaliados e
-              selecionados pelo Comitê Científico, conforme as normas definidas para a sua submissão e
-              avaliação.
+              Coordenação: Leonardo Nolasco e Tánia Maddalena
+              <br>
+              Objetivo: Compartilhar e vivênciar ciberdispositivos artístico-literários.
+              Exemplos: performances, dispositivos, exposições online, fenômenos da cibercultura.
+              <br>
+              Oferta e público: serão ofertados até 4 (com duração de até meia hora cada) ciber-dispositivos
+              artístico-literários por dia.
+              <br>
+              Quem participará? Inscritos e não inscritos no evento.
+              <br>
+              Quem ofertará? Artistas e docentes convidados. Cada grupo de pesquisa associado diretamente ao
+              IV e-doc apresentará sugestões de ciberdispositivos. Grupos parceiros (a exemplo de egressos GPDOC
+              e da comunidade Anped GT16) serão convidados também.
+              <br>
+              Onde? Canal do YOUTUBE do IV e-doc , com acesso aberto para inscritos e não inscritos. Sala de zoom
+              acessada pela plataforma do evento para grupos de pesquisa associados.
+              <br>
+              Período: de 26, 27 e 28 de julho de 2022.
+              <br>
+              Horário: das 10:00 as 12:00.
+
+
+
             </p>
             <div class="pull-right pulse">
-
+              <!-- <a (click)="openDialogFruicao()" tabindex="0" alt="Normas de expositor de fruições´artístico-literárias"
+                title="Normas de expositor de fruições´artístico-literárias" style="color: #ffffff;cursor: pointer;">Ver
+                Normas</a><br />-->
               <div *ngIf="carregando">
                 <i class="fas fa-spinner fa-pulse"></i>
               </div>
@@ -793,21 +806,30 @@
           <div class="box wow fadeInLeft">
             <h4 class="title">Mediador de Oficina</h4>
             <p class="description" style="text-align: justify;">
-              As oficinas se destinarão ao compartilhamento de discussões e práticas educativas com temas
-              e fenômenos da cibercultura de pesquisas em andamento. Atividade que gerará intercâmbios de
-              saberes entre grupos envolvidos. Recomenda-se que membros dos grupos organizadores participem
-              das oficinas como proponentes e cursistas. Todas as manhãs teremos nove oficinas, com diferentes
-              temáticas. Atividade aberta ao público via inscrições no site do evento. Recomenda-se a participação
-              dos membros dos grupos envolvidos e também de docentes das redes do estado do Rio de Janeiro,
-              bem como de membros de outros grupos de pesquisa.
-              Os roteiros das oficinas serão
-              avaliados e
-              selecionados pelo Comitê Científico, conforme as normas definidas para a sua submissão e
-              avaliação.
+              Coordenação: Aline de Alvernaz e Maristela Midlej
+              <br>
+              Objetivo: Compartilhar e vivênciar ambiências formativas sobre docência e
+              cibercultura com grupos de pesquisa e docentes da escola básica.
+              <br>
+              Oferta e público: serão ofertadas 9 oficinas por dia. Ao todo teremos 27 oficinas com
+              30 vagas para cada oferta.
+              <br>
+              Quem cursará? docentes da rede pública do Estado do Rio de Janeiro (rede estadual e municipal)
+              e membros dos grupos associados e convidados.
+              <br>
+              Quem ofertará? Cada grupo de pesquisa associado diretamente ao IV e-doc, ofertará uma oficina.
+              Grupos parceiros (a exemplo de egressos GPDOC e da comunidade Anped GT16) serão convidados também.
+              <br>
+              Onde? Sala de zoom acessada pela plataforma do evento. Todos os cursos serão gravados, para usos
+              posteriores, mas não serão transmitidos.
+              <br>
+              Período: de 26, 27 e 28 de julho de 2022.
+              <br>
+              Horário: das 08:00 as 10:00.
             </p>
             <div class="pull-right pulse">
-              <a (click)="openDialogMinicurso()" tabindex="0" alt="Normas mediador de minicurso"
-                title="Normas mediador de minicurso" style="color: #ffffff;cursor: pointer;">Ver Normas</a><br />
+              <!--<a (click)="openDialogMinicurso()" tabindex="0" alt="Normas mediador de minicurso"
+                title="Normas mediador de minicurso" style="color: #ffffff;cursor: pointer;">Ver Normas</a><br />-->
               <div *ngIf="carregando">
                 <i class="fas fa-spinner fa-pulse"></i>
               </div>
@@ -823,20 +845,32 @@
           <div class="box wow fadeInLeft">
             <h4 class="title">Expositor de Painel</h4>
             <p class="description" style="text-align: justify;">
-              Os Painéis interativos têm como finalidade promover intercâmbios e partilhas de pesquisadores dos
-              grupos de pesquisas envolvidos, com pesquisas concluídas. Cada coordenador deverá indicar
-              um ou dois membros para cada painel. Os painéis serão transmitidos pelo Canal do Evento.
-              O resumo do painel deverá ser proposto
-              por um
-              coordenador e seus trabalhos avaliados conjuntamente, conforme as normas definidas para a
-              sua
-              submissão e avaliação.
+              Coordenadores: Dilton Couto Junior e Rosemary dos Santos
+              <br>
+              Objetivo: Compartilhar metodologias e resultados de pesquisa em Educação e Cibercultura dos
+              grupos associados.
+              <br>
+              Oferta: rodas de conversas (metodologia do painel) compostas por até 10 participantes que terão o
+              código para participar.
+              <br>
+              Quem participará? inscritos e não inscritos no evento.
+              <br>
+              Quem ofertará? Pesquisadores dos grupos associados (estudantes e egressos de mestrado e doutorado).
+              Cada grupo de pesquisa associado diretamente ao IV e-doc apresentará pesquisados desenvolvidas nas
+              diferentes temáticas.
+              <br>
+              Onde? Canal do YOUTUBE do IV e-doc, com acesso aberto para inscritos e não inscritos. Sala de zoom
+              acessada pela plataforma do evento para grupos de pesquisa associados.
+              <br>
+              Período: de 26, 27 e 28 de julho de 2022.
+              <br>
+              Horário: das 14:00 as 17:00.
             </p>
 
             <div class="pull-right">
-              <a (click)="openDialogPainel()" tabindex="0" alt="Normas Coordenador e expositor de Painel"
+              <!--<a (click)="openDialogPainel()" tabindex="0" alt="Normas Coordenador e expositor de Painel"
                 title="Normas Coordenador e expositor de Painel" style="color: #ffffff;cursor: pointer;">Ver
-                Normas</a><br />
+                Normas</a><br />-->
               <div *ngIf="carregando">
                 <i class="fas fa-spinner fa-pulse"></i>
               </div>
@@ -849,45 +883,57 @@
         <!--  <div class="row">-->
         <div class="col-lg-6">
           <div class="box wow fadeInLeft">
-            <h4 class="title">Coordenador de Grupo</h4>
+            <h4 class="title">Coordenador de Lançamento de livro</h4>
             <p class="description" style="text-align: justify;">
+              Coordenação: Luciana Veloso e Wallace Almeida
+              <br>
+              Objetivo: Compartilhar autorias sobre Educação e Cibercultura dos membros dos grupos associados
+              e convidados.
+              <br>
+              Oferta: rodas de conversas compostas por até 10 participantes.
+              <br>
+              Quem participará? inscritos e não inscritos no evento.
+              <br>
+              Quem ofertará? Pesquisadores dos grupos associados e grupos convidados.
+              <br>
+              Autores enviarão links de vídeos no Youtube de até 5 minutos sobre seus livros.
+              <br>
+              Apresentação do lançamento: membros dos grupos associados, uma dupla por dia.
+              <br>
+              Coordenação dos lançamentos de livros: mandar 1 vídeo por dia, consolidando com vídeos individuais.
+              <br>
+              Período: de 26, 27 e 28 de julho de 2022.
+              <br>
+              Horário: das 18:00 as 19:00
+            </p>
 
-              Os Coordenadores de Grupo têm como finalidade a apresentação de trabalho decorrente de pesquisas em
-              andamento
-              ou experiências de ensino em realização. O tema do artigo deverá se relacionar com um dos
-              eixos do
-              Encontro, podendo ser submetido por estudantes de graduação e de pós-graduação, professor da Educação
-              Básica
-              e/ou professor da Educação Superior. Os artigos serão
-              avaliados e
-              selecionadas pelo Comitê Científico, conforme as normas definidas para a sua submissão e
-              avaliação.</p>
-            <div class="pull-right">
-
-              <div *ngIf="carregando">
-                <i class="fas fa-spinner fa-pulse"></i>
-              </div>
-              <a *ngIf="!carregando" (click)="downloadTemplate('templates/template_grupo2022.doc')"
-                style="color: #ffffff;cursor: pointer;">Download Template</a>
-            </div>
           </div>
         </div>
         <div class="row">
           <div class="col-lg-6">
             <div class="box wow fadeInLeft">
-              <h4 class="title">Moderador de exposição e fruições artístico-literárias</h4>
+              <h4 class="title">Conferencista</h4>
               <p class="description" style="text-align: justify;">
-                As exposições e fruições artísticos-literárias serão propostas pelo Comitê Organizador,
-                referentes a cada um dos eixos do
-                e-Doc.
-                O roteiro deverá se relacionar com um dos
-                eixos do
-                Encontro, podendo ser submetido por estudantes de graduação e de pós-graduação, professor da Educação
-                Básica
-                e/ou professor da Educação Superior. Os roteiros serão
-                avaliados e
-                selecionadas pelo Comitê Científico, conforme as normas definidas para a sua submissão e
-                avaliação.
+                Coordenação: Edmea Santos e Mariano Pimentel
+                <br>
+                Objetivo: Compartilhar autorias sobre Educação e
+                <br>
+                Cibercultura com convidados internacionais e nacionais
+                <br>
+                Mediação: pesquisador associado.
+                <br>
+                Oferta: uma conferência ou mesa redonda por noite
+                <br>
+                Quem participará? inscritos e não inscritos no evento.
+                <br>
+                Quem ofertará? Pesquisadores convidados.
+                <br>
+                Mediação: pesquisador associado.
+                <br>
+                Período: de 26, 27 e 28 de julho de 2022.
+                <br>
+                Horário: das 20:00 as 22:00
+
               </p>
               <div class="pull-right pulse">
 
@@ -1051,49 +1097,37 @@
 
               <tr>
                 <th class="text-nowrap">Início das Inscrições</th>
-                <th class="text-nowrap">17 de março de 2022</th>
+                <th class="text-nowrap">20 de junho de 2022</th>
               </tr>
               <tr>
                 <th class="text-nowrap">Submissão de Trabalhos</th>
-                <th class="text-nowrap">17 de março a 12 de maio de 2022<br />
+                <th class="text-nowrap">20 de junho a 10 de julho de 2022<br />
                   <!--    <b style="color: #20959b;">PRORROGADA ATÉ 18/02/2020</b>-->
                 </th>
               </tr>
               <tr>
                 <th class="text-nowrap">Avaliação pelo Comitê Cientifico</th>
-                <th class="text-nowrap">Até 04 de julho de 2022<br />
+                <th class="text-nowrap">Até 17 de julho de 2022<br />
                   <!--<b style="color: #20959b;">Até 29 de abril de 2020</b>-->
                 </th>
               </tr>
               <tr>
-                <th class="text-nowrap">Divulgação dos trabalhos aprovados</th>
-                <th class="text-nowrap"> 05 a 12 de julho de 2022<br />
+                <th class="text-nowrap">Divulgação da programação do evento</th>
+                <th class="text-nowrap"> Até 18 de julho de 2022<br />
                   <!-- <b style="color: #20959b;">30 de abril de 2020</b>-->
 
                 </th>
               </tr>
 
-              <tr>
-                <th class="text-nowrap">Divulgação da programação completa</th>
-                <th class="text-nowrap">Até 30 de maio de 2022<br />
-                  <!-- <b style="color: #20959b;">Disponível</b>-->
 
-                </th>
-              </tr>
               <tr>
                 <th class="text-nowrap">Inscrição nas Oficinas </th>
-                <th class="text-nowrap"> 06 a 26 de agosto de 2022<br />
+                <th class="text-nowrap"> 17 a 22 de julho de 2022<br />
                   <!-- <b style="color: #20959b;">28/09 a 02/10</b>-->
 
                 </th>
               </tr>
-              <tr>
-                <th class="text-nowrap">Inscrição nos Painéis interativos </th>
-                <th class="text-nowrap"> 06 a 26 de agosto de 2022<br />
-                  <!-- <b style="color: #20959b;">28/09 a 02/10</b>-->
 
-                </th>
-              </tr>
 
             </tbody>
           </table>
@@ -1304,7 +1338,7 @@
               IV e-Doc
               <br />
               Docências na cibercultura: o que fizemos, pensamos e aprendemos durante a pandemia COVID-19?
-              (modalideda online))
+              (modalidade online))
             </p>
             <!-- <address>Avenida Pasteur, 250, Urca, Rio de Janeiro-RJ, Brasil <br> CEP 22290-902
             </address>-->
@@ -1323,7 +1357,7 @@
           <div class="contact-phone">
             <!-- <i class="ion-ios-telephone-outline"></i>-->
             <h3>Data</h3>
-            <p>20 a 27 de novembro de 2022</p>
+            <p>25 a 29 de julho de 2022</p>
           </div>
         </div>
 
