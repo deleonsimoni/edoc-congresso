@@ -384,7 +384,6 @@ async function listVirtual() {
 
   const dateNow = new Date();
   let date = dateNow.getDate().toString() + '/0' + (dateNow.getMonth() + 1);
-  console.log(date)
   //marretando para homologação.
   //const date = '29/10';
 

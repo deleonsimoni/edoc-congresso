@@ -32,7 +32,7 @@
           <nav id="nav-menu-container" [hidden]="isMobile == true">
             <ul class="nav-menu">
               <li class="pointer">
-                <a tabindex="0" class="menu-has-children aoVivo pulse" [routerLink]="['/edoc-remoto']">e-DoC
+                <a tabindex="0" class="menu-has-children aoVivo comMargem pulse" [routerLink]="['/edoc-remoto']">e-DoC
                   Remoto</a>
               </li>
 
@@ -144,7 +144,7 @@
                 </ul>
               </li>-->
               <li class="pointer">
-                <a tabindex="0" class="pulse" style="color:#195809" *ngIf="!isAuth" [routerLink]="['/register']"
+                <a tabindex="0" class="pulse" style="color:#ffffff" *ngIf="!isAuth" [routerLink]="['/register']"
                   fragment="">INSCRIÇÃO</a>
               </li>
               <li tabindex="0" class="pointer" *ngIf="!isAuth"><a tabindex="0" [routerLink]="['/login']">LOGIN</a></li>
@@ -158,15 +158,14 @@
 
                   <!--  <a class="dropdown-item" alt="Pagamento" [routerLink]="['/pagamento']">Pagamento</a>
                   <div class="dropdown-divider"></div>-->
-
+                  <a class="dropdown-item aoVivo pulse" alt="pe" [routerLink]="['/meu-edoc']" fragment="programacao">Meu
+                    e-DoC</a>
                   <a class="dropdown-item" alt="Submissão" [routerLink]="['/meus-trabalhos']">Submissão</a>
                   <div class="dropdown-divider"></div>
 
                   <a class="dropdown-item" alt="Perfil" [routerLink]="['/perfil']">Perfil</a>
-                  <div *ngIf="verifyAcess()" class="dropdown-divider"></div>
 
-                  <a class="dropdown-item aoVivo pulse" alt="pe" [routerLink]="['/meu-edoc']" fragment="programacao">Meu
-                    e-DoC</a>
+
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" alt="Certificados" [routerLink]="['/certificados']"
                     fragment="certificados">Certificados</a>
@@ -203,8 +202,8 @@
 
         <ul class="child-list">
           <li>
-            <a tabindex="0" accordion-heading class="menu-has-children aoVivo pulse" [routerLink]="['/edoc-remoto']"
-              (click)="sidenav.toggle()">e-DoC REMOTO</a>
+            <a tabindex="0" accordion-heading class="menu-has-children aoVivo comMargem pulse"
+              [routerLink]="['/edoc-remoto']" (click)="sidenav.toggle()">e-DoC REMOTO</a>
           </li>
         </ul>
 

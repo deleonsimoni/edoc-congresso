@@ -26,8 +26,8 @@
 
       <div class="row">
         <div class="col-lg-6 content">
-          <h2 style="color: #cb9b15;">TEMA</h2>
-          <h2 class="child"><strong style="color:#20959b">Docências na cibercultura: o que fizemos, pensamos
+          <h2 style="color: #03989e;">TEMA</h2>
+          <h2 class="child"><strong style="color:#9400A2">Docências na cibercultura: o que fizemos, pensamos
               e aprendemos durante a pandemia COVID-19?</strong></h2>
 
           <!-- <h3>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
@@ -76,7 +76,7 @@
             <div class="col-lg-12">
               <div class="agenda-titulo">
                 <marquee>
-                  <h2 style="color:#000000">NOVIDADES</h2>
+                  <h2 style="color:#03989e">NOVIDADES</h2>
                 </marquee>
               </div>
             </div>
@@ -251,11 +251,11 @@
       <div class="row">
 
         <div class="col-lg-6" *ngFor="let eixo of eixos">
-          <div style="cursor: pointer; color: #cb9b15;" class="box wow fadeInLeft" (click)="openDialogEixo(eixo)">
+          <div style="cursor: pointer; color: #03989e;" class="box wow fadeInLeft" (click)="openDialogEixo(eixo)">
             <!-- <div class="icon"><i class="fa fa-bar-chart"></i></div> -->
-            <h4 class="title"><a>{{ eixo.titulo }}</a></h4>
+            <h4 class="title"><a style="color: #03989e !important">{{ eixo.titulo }}</a></h4>
             <p class="description">
-              <strong [innerHTML]="eixo.tema"></strong>
+              <strong style="color: #9400A2 !important" [innerHTML]="eixo.tema"></strong>
             </p>
           </div>
         </div>
@@ -486,7 +486,7 @@
   <section id="historico" class="wow fadeInUp">
     <div class="container">
       <div class="section-header">
-        <h2 style="color: #b2f9a0">e-DoC Anteriores</h2>
+        <h2 style="color: #6fd5e7">e-DoC Anteriores</h2>
         <p style="color: white !important; text-align: justify;">
           A seguir, apresentamos uma síntese da memória dos primeiros três encontros realizados
           pelo GPDOC.
@@ -740,7 +740,7 @@
   <section id="modalidades" class="wow fadeInUp">
     <div class="container">
       <div class="section-header">
-        <h2 style="color: #b2f9a0">Modalidades De Participação</h2>
+        <h2 style="color: #6fd5e7">Modalidades De Participação</h2>
       </div>
 
       <div class="row">
@@ -780,7 +780,7 @@
                 <i class="fas fa-spinner fa-pulse"></i>
               </div>
               <a *ngIf="!carregando" (click)="downloadTemplate('templates/templates_conferencia_2022.doc')"
-                style="color: #ffffff;cursor: pointer;">Download Template</a>
+                style="color: rgb(236 207 255);cursor: pointer;">Download Template</a>
             </div>
           </div>
         </div>
@@ -816,7 +816,7 @@
                 <i class="fas fa-spinner fa-pulse"></i>
               </div>
               <a *ngIf="!carregando" (click)="downloadTemplate('templates/templates_minicurso_2022.doc')"
-                style="color: #ffffff;cursor: pointer;">Download Template</a>
+                style="color: rgb(236 207 255);cursor: pointer;">Download Template</a>
             </div>
           </div>
         </div>
@@ -857,7 +857,7 @@
                 <i class="fas fa-spinner fa-pulse"></i>
               </div>
               <a *ngIf="!carregando" (click)="downloadTemplate('templates/templates_painel2022.doc')"
-                style="color: #ffffff;cursor: pointer;">Download Template</a>
+                style="color: rgb(236 207 255);cursor: pointer;">Download Template</a>
             </div>
           </div>
         </div>
@@ -923,7 +923,7 @@
                   <i class="fas fa-spinner fa-pulse"></i>
                 </div>
                 <a *ngIf="!carregando" (click)="downloadTemplate('templates/templates_exposicao_2022.doc')"
-                  style="color: #ffffff;cursor: pointer;">Download Template</a>
+                  style="color: rgb(236 207 255);cursor: pointer;">Download Template</a>
               </div>
             </div>
           </div>
