@@ -157,8 +157,8 @@ export class CertificadoComponent implements OnInit {
     this.exibirGT = false;
     this.coringa = "";
     this.textoTemplate = this.templates.filter((element) => element.name == templateSelecionado.target.value)[0].value;
-    if (templateSelecionado.target.value == "GT") {
-      this.coringa = " participou do GT ";
+    if (templateSelecionado.target.value == "GRUPO DE PESQUISA") {
+      this.coringa = " participou do grupo de pesquisa ";
       this.exibirGT = true;
     } else if (templateSelecionado.target.value == "PRESTAÇÃO DE SERVIÇO") {
       this.coringa = " atuou como prestadora de serviço na área de ";
@@ -170,49 +170,34 @@ export class CertificadoComponent implements OnInit {
     } else if (templateSelecionado.target.value == "COORDENAÇÃO DE ATIVIDADE") {
       this.coringa = "coordenou ";
       this.exibirGT = true;
-    } else if (templateSelecionado.target.value == "SESSÃO ESPECIAL") {
+    } else if (templateSelecionado.target.value == "CONFERÊNCIA") {
+      this.coringa = " realizou a conferência ";
+      this.exibirGT = true;
+    } else if (templateSelecionado.target.value == "MEDIAÇÃO DE OFICINA") {
       this.coringa =
-        " integrou a Sessão Especial " +
-        (complementoUm || "______________") +
-        " com a palestra " +
-        (complementoDois || "_______ ");
-      this.exibirGT = true;
-    } else if (templateSelecionado.target.value == "ATIVIDADE CULTURAL") {
-      this.coringa = " realizou a apresentação cultural ";
-      this.exibirGT = true;
-    } else if (templateSelecionado.target.value == "SIMPOSIO") {
-      this.coringa = " realizou o simpósio ";
-      this.exibirGT = true;
-    } else if (templateSelecionado.target.value == "MEDIAÇÃO DE MINICURSO") {
-      this.coringa =
-        " desenvolveu o Minicurso " +
+        " desenvolveu a Oficina " +
         (complementoUm || "______________") +
         " com carga horária de " +
         (complementoDois || "_______ ") +
         " horas";
       this.exibirGT = true;
-    } else if (templateSelecionado.target.value == "PARTICIPAÇÃO DE MINICURSO") {
+    } else if (templateSelecionado.target.value == "PARTICIPAÇÃO DE OFICINA") {
       this.coringa =
-        " participou do Minicurso " +
+        " participou da Oficina " +
         (complementoUm || "______________") +
         " com carga horária de " +
         (complementoDois || "_______ ") +
         " horas";
       this.exibirGT = true;
-    } else if (templateSelecionado.target.value == "MEDIAÇÃO DE RODA DE CONVERSA") {
+    } else if (templateSelecionado.target.value == "MODERAÇÃO DE EXPOSIÇÃO E FRUIÇÕES ARTÍSTICO-LITERÁRIAS") {
       this.coringa = " fez a mediação da Roda de Conversa " + (complementoUm || "______________");
       this.exibirGT = true;
-    } else if (templateSelecionado.target.value == "PARTICIPAÇÃO DE RODA DE CONVERSA") {
-      this.coringa = " participou da Roda de Conversa " + complementoUm || "______________" + " ";
-      this.exibirGT = true;
+
     } else if (templateSelecionado.target.value == "PARTICIPAÇÃO DE PAINEL") {
       this.coringa = " participou do Painel " + complementoUm || "______________" + " ";
       this.exibirGT = true;
     } else if (templateSelecionado.target.value == "MEDIAÇÃO DE PAINEL") {
       this.coringa = " apresentou o Painel intitulado " + (complementoUm || "______________");
-      this.exibirGT = true;
-    } else if (templateSelecionado.target.value == "PÔSTER") {
-      this.coringa = " apresentou o trabalho " + (complementoUm || "______________");
       this.exibirGT = true;
     }
 
@@ -220,116 +205,75 @@ export class CertificadoComponent implements OnInit {
   }
 
   templates = [
+
     {
-      name: "ATIVIDADE CULTURAL",
+      name: "GRUPO DE PESQUISA",
       value:
-        "no XX Encontro Nacional de Didática e Prática de Ensino – XX ENDIPE – RIO 2020 – uma promoção interinstitucional coordenada pela Universidade Federal do Rio de Janeiro e pela Universidade Federal do Estado do Rio de Janeiro, no período de 29 de outubro a 12 de novembro de 2020, com carga horária total de 180 horas.",
+        "participou do Grupo de Pesquisa do IV Encontro Internacional Docência e Cibercultura – IV E-DOC – RIO 2022 – uma promoção interinstitucional coordenada pela Universidade Federal do Rio de Janeiro e pela Universidade Federal do Estado do Rio de Janeiro, no período de 25 de julho a 29 de julho de 2022, com carga horária total de 180 horas.",
     },
     {
-      name: "COMITÊ CIENTÍFICO",
+      name: "MODERAÇÃO DE EXPOSIÇÃO E FRUIÇÕES ARTÍSTICO-LITERÁRIAS",
       value:
-        "fez parte do Comitê Científico do XX Encontro Nacional de Didática e Prática de Ensino – XX ENDIPE – RIO 2020 – uma promoção interinstitucional coordenada pela Universidade Federal do Rio de Janeiro e pela Universidade Federal do Estado do Rio de Janeiro, no período de 29 de outubro a 12 de novembro de 2020, com carga horária total de 180 horas.",
-    },
-    {
-      name: "COMITÊ ORGANIZADOR",
-      value:
-        "participou do Comitê Organizador do XX Encontro Nacional de Didática e Prática de Ensino – XX ENDIPE – RIO 2020 – uma promoção interinstitucional coordenada pela Universidade Federal do Rio de Janeiro e pela Universidade Federal do Estado do Rio de Janeiro, no período de 29 de outubro a 12 de novembro de 2020, com carga horária total de 180 horas.",
-    },
-    {
-      name: "COORDENAÇÃO DE ATIVIDADE",
-      value:
-        "do XX Encontro Nacional de Didática e Prática de Ensino – XX ENDIPE – RIO 2020 – uma promoção interinstitucional coordenada pela Universidade Federal do Rio de Janeiro e pela Universidade Federal do Estado do Rio de Janeiro, no período de 29 de outubro a 12 de novembro de 2020, com carga horária total de 180 horas.",
+        "do IV Encontro Internacional Docência e Cibercultura – IV E-DOC – RIO 2022 – uma promoção interinstitucional coordenada pela Universidade Federal do Rio de Janeiro e pela Universidade Federal do Estado do Rio de Janeiro, no período de 25 de julho a 29 de julho de 2022, com carga horária total de 180 horas.",
     },
 
     {
       name: "COORDENAÇÃO GERAL",
       value:
-        "coordenou o XX Encontro Nacional de Didática e Prática de Ensino – XX ENDIPE – RIO 2020 – uma promoção interinstitucional coordenada pela Universidade Federal do Rio de Janeiro e pela Universidade Federal do Estado do Rio de Janeiro, no período de 29 de outubro a 12 de novembro de 2020, com carga horária total de 180 horas.",
+        "coordenou o IV Encontro Internacional Docência e Cibercultura – IV E-DOC – RIO 2022 – uma promoção interinstitucional coordenada pela Universidade Federal do Rio de Janeiro e pela Universidade Federal do Estado do Rio de Janeiro, no período de 25 de julho a 29 de julho de 2022, com carga horária total de 180 horas.",
     },
 
     {
-      name: "GT",
+      name: "MEDIAÇÃO DE OFICINA",
       value:
-        "do XX Encontro Nacional de Didática e Prática de Ensino – XX ENDIPE – RIO 2020 – uma promoção interinstitucional coordenada pela Universidade Federal do Rio de Janeiro e pela Universidade Federal do Estado do Rio de Janeiro, no período de 29 de outubro a 12 de novembro de 2020, com carga horária total de 180 horas.",
-    },
-
-    {
-      name: "MEDIAÇÃO DE MINICURSO",
-      value:
-        "no XX Encontro Nacional de Didática e Prática de Ensino – XX ENDIPE – RIO 2020 – uma promoção interinstitucional coordenada pela Universidade Federal do Rio de Janeiro e pela Universidade Federal do Estado do Rio de Janeiro, no período de 29 de outubro a 12 de novembro de 2020.",
+        "no IV Encontro Internacional Docência e Cibercultura – IV E-DOC – RIO 2022 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade Federal do Estado do Rio de Janeiro, no período de 25 de julho a 29 de julho de 2022.",
     },
     {
       name: "MEDIAÇÃO DE PAINEL",
       value:
-        "no XX Encontro Nacional de Didática e Prática de Ensino – XX ENDIPE – RIO 2020 – uma promoção interinstitucional coordenada pela Universidade Federal do Rio de Janeiro e pela Universidade Federal do Estado do Rio de Janeiro, no período de 29 de outubro a 12 de novembro de 2020, com carga horária total de 180 horas.",
-    },
-
-
-    {
-      name: "MEDIAÇÃO DE RODA DE CONVERSA",
-      value:
-        "no XX Encontro Nacional de Didática e Prática de Ensino – XX ENDIPE – RIO 2020 – uma promoção interinstitucional coordenada pela Universidade Federal do Rio de Janeiro e pela Universidade Federal do Estado do Rio de Janeiro, no período de 29 de outubro a 12 de novembro de 2020, com carga horária total de 180 horas.",
+        "no IV Encontro Internacional Docência e Cibercultura – IV E-DOC – RIO 2022 – uma promoção interinstitucional coordenada pela Universidade Federal do Rio de Janeiro e pela Universidade Federal do Estado do Rio de Janeiro, no período de 25 de julho a 29 de julho de 2022, com carga horária total de 180 horas.",
     },
 
     {
       name: "MONITORIA",
       value:
-        "no XX Encontro Nacional de Didática e Prática de Ensino – XX ENDIPE – RIO 2020 – uma promoção interinstitucional coordenada pela Universidade Federal do Rio de Janeiro e pela Universidade Federal do Estado do Rio de Janeiro, no período de 29 de outubro a 12 de novembro de 2020.",
+        "no IV Encontro Internacional Docência e Cibercultura – IV E-DOC – RIO 2022 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro, no período de 25 de julho a 29 de julho de 2022.",
     },
 
 
     {
       name: "PARECERISTA",
       value:
-        "participou na condição de parecerista do XX Encontro Nacional de Didática e Prática de Ensino – XX ENDIPE – RIO 2020 – uma promoção interinstitucional coordenada pela Universidade Federal do Rio de Janeiro e pela Universidade Federal do Estado do Rio de Janeiro, no período de 29 de outubro a 12 de novembro de 2020, com carga horária total de 180 horas.",
+        "participou na condição de parecerista do IV Encontro Internacional Docência e Cibercultura – IV E-DOC – RIO 2022 – uma promoção interinstitucional coordenada pela Universidade Federal do Rio de Janeiro e pela Universidade Federal do Estado do Rio de Janeiro, no período de 29 de outubro a 12 de novembro de 2020, com carga horária total de 180 horas.",
     },
 
     {
-      name: "PARTICIPAÇÃO DE MINICURSO",
+      name: "PARTICIPAÇÃO DE OFICINA",
       value:
-        "no XX Encontro Nacional de Didática e Prática de Ensino – XX ENDIPE – RIO 2020 – uma promoção interinstitucional coordenada pela Universidade Federal do Rio de Janeiro e pela Universidade Federal do Estado do Rio de Janeiro, no período de 29 de outubro a 12 de novembro de 2020.",
+        "no IV Encontro Internacional Docência e Cibercultura – IV E-DOC – RIO 2022 – uma promoção interinstitucional coordenada pela Universidade Federal do Rio de Janeiro e pela Universidade Federal do Estado do Rio de Janeiro, no período de 29 de outubro a 12 de novembro de 2020.",
     },
     {
       name: "PARTICIPAÇÃO DE PAINEL",
       value:
-        "no XX Encontro Nacional de Didática e Prática de Ensino – XX ENDIPE – RIO 2020 – uma promoção interinstitucional coordenada pela Universidade Federal do Rio de Janeiro e pela Universidade Federal do Estado do Rio de Janeiro, no período de 29 de outubro a 12 de novembro de 2020.",
-    },
-
-    {
-      name: "PARTICIPAÇÃO DE RODA DE CONVERSA",
-      value:
-        " com carga horária de 02 horas no XX Encontro Nacional de Didática e Prática de Ensino – XX ENDIPE – RIO 2020 – uma promoção interinstitucional coordenada pela Universidade Federal do Rio de Janeiro e pela Universidade Federal do Estado do Rio de Janeiro, no período de 29 de outubro a 12 de novembro de 2020.",
+        "no IV Encontro Internacional Docência e Cibercultura – IV E-DOC – RIO 2022 – uma promoção interinstitucional coordenada pela Universidade Federal do Rio de Janeiro e pela Universidade Federal do Estado do Rio de Janeiro, no período de 29 de outubro a 12 de novembro de 2020.",
     },
 
     {
       name: "PARTICIPAÇÃO GERAL",
       value:
-        "participou do XX Encontro Nacional de Didática e Prática de Ensino – XX ENDIPE – RIO 2020 – uma promoção interinstitucional coordenada pela Universidade Federal do Rio de Janeiro e pela Universidade Federal do Estado do Rio de Janeiro, no período de 29 de outubro a 12 de novembro de 2020, com carga horária total de 180 horas.",
-    },
-
-    {
-      name: "PÔSTER",
-      value:
-        "na modalidade Pôster, durante o XX Encontro Nacional de Didática e Prática de Ensino – XX ENDIPE – RIO 2020 – uma promoção interinstitucional coordenada pela Universidade Federal do Rio de Janeiro e pela Universidade Federal do Estado do Rio de Janeiro, no período de 29 de outubro a 12 de novembro de 2020, com carga horária total de 180 horas.",
+        "participou do IV Encontro Internacional Docência e Cibercultura – IV E-DOC – RIO 2022 – uma promoção interinstitucional coordenada pela Universidade Federal do Rio de Janeiro e pela Universidade Federal do Estado do Rio de Janeiro, no período de 29 de outubro a 12 de novembro de 2020, com carga horária total de 180 horas.",
     },
 
     {
       name: "PRESTAÇÃO DE SERVIÇO",
       value:
-        "para fins de realização do XX Encontro Nacional de Didática e Prática de Ensino – XX ENDIPE – RIO 2020 – uma promoção interinstitucional coordenada pela Universidade Federal do Rio de Janeiro e pela Universidade Federal do Estado do Rio de Janeiro, no período de 29 de outubro a 12 de novembro de 2020, com carga horária total de 180 horas.",
-    },
-
-
-    {
-      name: "SESSÃO ESPECIAL",
-      value:
-        "no XX Encontro Nacional de Didática e Prática de Ensino – XX ENDIPE – RIO 2020 – uma promoção interinstitucional coordenada pela Universidade Federal do Rio de Janeiro e pela Universidade Federal do Estado do Rio de Janeiro, no período de 29 de outubro a 12 de novembro de 2020, com carga horária total de 180 horas.",
+        "para fins de realização do IV Encontro Internacional Docência e Cibercultura – IV E-DOC – RIO 2022 – uma promoção interinstitucional coordenada pela Universidade Federal do Rio de Janeiro e pela Universidade Federal do Estado do Rio de Janeiro, no período de 29 de outubro a 12 de novembro de 2020, com carga horária total de 180 horas.",
     },
 
     {
-      name: "SIMPOSIO",
+      name: "CONFERÊNCIA",
       value:
-        "no XX Encontro Nacional de Didática e Prática de Ensino – XX ENDIPE – RIO 2020 – uma promoção interinstitucional coordenada pela Universidade Federal do Rio de Janeiro e pela Universidade Federal do Estado do Rio de Janeiro, no período de 29 de outubro a 12 de novembro de 2020.",
+        "no IV Encontro Internacional Docência e Cibercultura – IV E-DOC – RIO 2022 – uma promoção interinstitucional coordenada pela Universidade Federal do Rio de Janeiro e pela Universidade Federal do Estado do Rio de Janeiro, no período de 29 de outubro a 12 de novembro de 2020.",
     },
   ];
 }

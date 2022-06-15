@@ -3,15 +3,14 @@
         <div class="col-md-12">
             <div class="box">
                 <div *ngIf="!carregando" class="section-header">
-                    <div tabindex="0" alt="Bem vindo ao Endipe Virtual" class="prog-day mb-2">
+                    <div tabindex="0" alt="Bem vindo ao e-Doc remoto" class="prog-day mb-2">
                         <b><span>{{date | dayAndMonth}}</span></b>
                     </div>
                 </div>
 
                 <div *ngIf="schedules.length > 0">
                     <div *ngFor="let schedule of schedules">
-                        <div
-                            *ngIf="schedule.type == '1' || schedule.type == '7' || schedule.type == '8' || schedule.type == '10' || schedule.type == '11' || schedule.type == '12' ">
+                        <div *ngIf="schedule.type == '1' || schedule.type == '8' || schedule.type == '11'">
 
                             <div class="card-works">
                                 <div class="row">
@@ -71,7 +70,7 @@
                                                     }}</p>
                                             </div>
                                         </div>
-                                        <div *ngIf="schedule.type == '11'" class="col-12">
+                                        <!--  <div *ngIf="schedule.type == '11'" class="col-12">
                                             <strong tabindex="0">Entrevistados</strong>
                                             <div *ngIf="schedule.entrevistados">
                                                 <p tabindex="0" *ngFor="let item of schedule.entrevistados"
@@ -85,7 +84,7 @@
                                                     }}</p>
                                             </div>
 
-                                        </div>
+                                        </div>-->
                                         <hr />
                                         <div *ngIf="schedule?.virtual?.linkYoutube"
                                             class="row col-12 justify-content-center">

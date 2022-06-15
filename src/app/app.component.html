@@ -5,12 +5,12 @@
         <div class="container clearfix">
           <div class="social-links float-right">
             <a [routerLink]="" *ngIf="userName">{{ 'Olá, ' + userName }}</a>
-            <a href="https://www.facebook.com/e_docuffrj/" title="Facebook e-Doc" alt="Facebook e-Doc" target="_blank"
-              class="facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=100080513694606" title="Facebook e-Doc"
+              alt="Facebook e-Doc" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i></a>
             <a href="https://www.instagram.com/e_docufrrj/?hl=pt-br" title="Instagram e-Doc" alt="Instagram e-Doc"
               target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.youtube.com/channel/UCW_VVgPeRxR92bFu49cKGDw" title="Youtube Endipe"
-              alt="Youtube Endipe" target="_blank" class="youtube"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.youtube.com/c/GPDOCRURAL/featured" title="Youtube e-Doc" alt="Youtube e-Doc"
+              target="_blank" class="youtube"><i class="fab fa-youtube"></i></a>
             <a href="https://twitter.com/e_docufrrj" title="Twitter e-Doc" alt="Twitter e-Doc" target="_blank"
               class="twitter"><i class="fab fa-twitter"></i></a>
           </div>
@@ -27,9 +27,10 @@
 
           <nav id="nav-menu-container" [hidden]="isMobile == true">
             <ul class="nav-menu">
-              <!--<li class="pointer">
-                <a tabindex="0" class="menu-has-children aoVivo pulse" [routerLink]="['/endipe-virtual']" >ENDIPE VIRTUAL</a>
-              </li>-->
+              <li class="pointer">
+                <a tabindex="0" class="menu-has-children aoVivo pulse" [routerLink]="['/edoc-remoto']">e-Doc
+                  Remoto</a>
+              </li>
 
 
               <li class="nav-item dropdown">
@@ -72,9 +73,9 @@
                     fragment="comiteCientifico">Comitê
                     Científico</a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" [routerLink]="['/home']" alt="Comitê Organizador"
-                    fragment="comiteOrganizador">Comitê
-                    Organizador</a>
+                  <a class="dropdown-item" [routerLink]="['/home']" alt="Grupos de Pesquisa"
+                    fragment="gruposdepesquisa">Grupos
+                    de Pesquisa</a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" [routerLink]="['/home']" alt="Bolsistas" fragment="bolsistas">Bolsistas
                   </a>
@@ -160,10 +161,12 @@
                   <a class="dropdown-item" alt="Perfil" [routerLink]="['/perfil']">Perfil</a>
                   <div *ngIf="verifyAcess()" class="dropdown-divider"></div>
 
-                  <!-- <a class="dropdown-item aoVivo pulse" alt="Meu Endipe" [routerLink]="['/meu-endipe']" fragment="programacao">Meu Endipe</a>
+                  <a class="dropdown-item aoVivo pulse" alt="pe" [routerLink]="['/meu-edoc']" fragment="programacao">Meu
+                    e-Doc</a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" alt="Certificados" [routerLink]="['/certificados']" fragment="certificados">Certificados</a>
-                  <div class="dropdown-divider"></div>-->
+                  <a class="dropdown-item" alt="Certificados" [routerLink]="['/certificados']"
+                    fragment="certificados">Certificados</a>
+                  <div class="dropdown-divider"></div>
                   <a *ngIf="verifyAcess()" class="dropdown-item" [routerLink]="['/admin']">Dashboard</a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" [routerLink]="['/home']" (click)="logout()">Sair</a>
@@ -193,12 +196,13 @@
     </mat-sidenav-content>
     <mat-sidenav #sidenav mode="over">
       <accordion #accordion [isAnimated]="true" [closeOthers]="true">
-        <!--
+
         <ul class="child-list">
           <li>
-            <a tabindex="0" accordion-heading class="menu-has-children aoVivo pulse" [routerLink]="['/endipe-virtual']" (click)="sidenav.toggle()">ENDIPE VIRTUAL</a>
+            <a tabindex="0" accordion-heading class="menu-has-children aoVivo pulse" [routerLink]="['/edoc-remoto']"
+              (click)="sidenav.toggle()">e-Doc REMOTO</a>
           </li>
-        </ul>-->
+        </ul>
 
         <accordion-group>
           <a tabindex="0" accordion-heading>SOBRE <i class="fa "
@@ -222,8 +226,8 @@
                 Organizador</a></li>-->
             <li><a tabindex="0" [routerLink]="['/home']" fragment="comiteCientifico" (click)="sidenav.toggle()">Comitê
                 Científico</a></li>
-            <li><a tabindex="0" [routerLink]="['/home']" fragment="comiteOrganizador" (click)="sidenav.toggle()">Comitê
-                Organizador</a></li>
+            <li><a tabindex="0" [routerLink]="['/home']" fragment="gruposdepesquisa" (click)="sidenav.toggle()">Grupos
+                de Pesquisa</a></li>
             <li><a tabindex="0" [routerLink]="['/home']" fragment="bolsistas" (click)="sidenav.toggle()">Bolsistas
               </a></li>
             <li><a tabindex="0" [routerLink]="['/home']" fragment="parcerias" (click)="sidenav.toggle()">Instituições
@@ -293,8 +297,9 @@
           <ul class="child-list">
             <!--  <li><a tabindex="0" [routerLink]="['/pagamento']" (click)="sidenav.toggle()">Pagamento</a></li> -->
             <li><a tabindex="0" [routerLink]="['/meus-trabalhos']" (click)="sidenav.toggle()">Submissão</a></li>
-            <!--<li><a tabindex="0"  class="menu-has-children aoVivo pulse" [routerLink]="['/meu-endipe']">Meu Endipe</a></li>
-            <li><a tabindex="0" [routerLink]="['/certificados']" (click)="sidenav.toggle()">Certificados</a></li>-->
+            <li><a tabindex="0" class="menu-has-children aoVivo pulse" [routerLink]="['/meu-edoc']">Meu e-Doc</a>
+            </li>
+            <li><a tabindex="0" [routerLink]="['/certificados']" (click)="sidenav.toggle()">Certificados</a></li>
             <li><a [routerLink]="['/perfil']" (click)="sidenav.toggle()">Perfil</a></li>
             <li *ngIf="verifyAcess()">
               <a tabindex="0" [routerLink]="['/admin']" (click)="sidenav.toggle()">Dashboard</a>

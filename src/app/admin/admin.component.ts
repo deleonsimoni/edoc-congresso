@@ -31,13 +31,13 @@ export class AdminComponent implements OnInit {
 
   private adminRoutes = [
     { name: 'INSCRITOS', path: '/admin/inscritos' },
-    { name: 'NOTICÍAS', path: '/admin/noticias' },
+    { name: 'NOTÍCIAS', path: '/admin/noticias' },
     { name: 'ANAIS', path: '/admin/anais' },
     { name: 'CONFERENCISTAS', path: '/admin/conferencistas' },
     { name: 'PARECERISTAS/COORDENADORES', path: '/admin/coordenadores' },
     { name: 'TRABALHOS/PARECERISTAS', path: '/admin/vincular-trabalho' },
     { name: 'PROGRAMAÇÃO', path: '/admin/programacao' },
-    { name: 'EMAIL', path: '/admin/email' },
+    /* { name: 'EMAIL', path: '/admin/email' },*/
     { name: 'CHAT', path: '/admin/chat' }
 
 

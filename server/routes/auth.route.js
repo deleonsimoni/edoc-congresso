@@ -23,28 +23,18 @@ router.get('/refresh', passport.authenticate('jwt', { session: false }), refresh
 
 async function register(req, res, next) {
   let formulario = JSON.parse(req.body.formulario);
-  let fileName = null;
+
 
   if (formulario.document && await userCtrl.checkDocumentDup(formulario.document)) {
     return res.status(500).send({ message: "cpf duplicado" });
   } else {
-    if (formulario.categoriaId == 1 || formulario.categoriaId == 2 && req.files.file) {
-      fileName = config.PATH_S3_DEV ? config.PATH_S3_DEV + 'xxiendiperio2022/comprovantes/' + formulario.document + "_" + req.files.file.name : 'xxiendiperio2022/comprovantes/' + formulario.document + "_" + req.files.file.name;
-      S3Uploader.uploadFile(fileName, req.files.file.data).then(async fileData => {
-        console.log('Sucesso envio comprovante para AWS ' + fileName);
-        formulario.comprovanteAWS = fileName;
-        await saveUser(formulario, req, next);
-      }).catch(err => {
-        console.log(err);
-        res.sendStatus(500);
-      });
-    } else {
-      await saveUser(formulario, req, next);
-    }
 
+    await saveUser(formulario, req, next);
   }
 
 }
+
+
 
 async function saveUser(formulario, req, next) {
   let user = await userCtrl.insert(formulario);

@@ -1,24 +1,24 @@
 const aberturaCtrl = require('../schedule/abertura.controller');
 const simposioCtrl = require('../schedule/simposio.controller');
 const lancamentoDeLivrosCtrl = require('../schedule/lancamentoDeLivros.controller');
-const atividadeCulturalCtrl = require('../schedule/atividadeCultural.controller');
+/*const atividadeCulturalCtrl = require('../schedule/atividadeCultural.controller');
 const sessoesEspeciaisCtrl = require('../schedule/sessoesEspeciais.controller');
 const rodaReunioesEntidadesRedesCtrl = require('../schedule/rodaReunioesEntidadesRedes.controller');
-const posterCtrl = require('../schedule/poster.controller');
+const posterCtrl = require('../schedule/poster.controller');*/
 const encerramentoCtrl = require('../schedule/encerramento.controller');
 const paginate = require("jw-paginate");
 const Minicurso = require('../../models/schedule/minicurso.model');
 const Painel = require('../../models/schedule/painel.model');
 const RodasDeConversa = require('../../models/schedule/rodasDeConversa.model');
-const Poster = require('../../models/schedule/poster.model');
+/*const Poster = require('../../models/schedule/poster.model');*/
 const User = require('../../models/user.model');
 const Work = require('../../models/work.model');
 const Abertura = require('../../models/schedule/abertura.model');
-const AtividadeCultural = require('../../models/schedule/atividadeCultural.model');
+/*const AtividadeCultural = require('../../models/schedule/atividadeCultural.model');*/
 const Simposio = require('../../models/schedule/simposio.model');
 const LancamentoLivros = require('../../models/schedule/lancamentoDeLivros.model');
-const SessaoEspecial = require('../../models/schedule/sessoesEspeciais.model');
-const ConexaoEntrevista = require('../../models/schedule/rodaReunioesEnidadesRedes.model');
+/*const SessaoEspecial = require('../../models/schedule/sessoesEspeciais.model');*/
+/*const ConexaoEntrevista = require('../../models/schedule/rodaReunioesEnidadesRedes.model');*/
 const Encerramento = require('../../models/schedule/encerramento.model');
 const S3Uploader = require('../../controllers/aws.controller');
 const config = require('../../config/config');
@@ -129,31 +129,7 @@ async function listScheduleWorkPaginate(req) {
         .limit(pageSize);
       break;
 
-    case 3:
-      total = await Poster.find(
-        {
-          $and:
-            [
-              { 'dates.date': { $in: date } },
-              search
 
-            ]
-        }).count();
-      schedule = await Poster.find(
-        {
-          $and:
-            [
-              { 'dates.date': { $in: date } },
-              search
-
-            ]
-        })
-        .sort({
-          'dates.startTime': 1
-        })
-        .skip(pageSize * page - pageSize)
-        .limit(pageSize);
-      break;
     //FIM WORKS
     //INICIO GENERICS
     case 1:
@@ -177,25 +153,7 @@ async function listScheduleWorkPaginate(req) {
         .skip(pageSize * page - pageSize)
         .limit(pageSize);
       break;
-    case 7:
-      total = await AtividadeCultural.find({
-        $and: [
-          { date: date },
-          search
-        ]
-      }).count();
-      schedule = await AtividadeCultural.find({
-        $and: [
-          { date: date },
-          search
-        ]
-      })
-        .sort({
-          startTime: 1
-        })
-        .skip(pageSize * page - pageSize)
-        .limit(pageSize);
-      break;
+
     case 8:
       total = await Simposio.find({
         $and: [
@@ -232,44 +190,7 @@ async function listScheduleWorkPaginate(req) {
         .skip(pageSize * page - pageSize)
         .limit(pageSize);
       break;
-    case 10:
-      total = await SessaoEspecial.find({
-        $and: [
-          { date: date },
-          search
-        ]
-      }).count();
-      schedule = await SessaoEspecial.find({
-        $and: [
-          { date: date },
-          search
-        ]
-      })
-        .sort({
-          startTime: 1
-        })
-        .skip(pageSize * page - pageSize)
-        .limit(pageSize);
-      break;
-    case 11:
-      total = await ConexaoEntrevista.find({
-        $and: [
-          { date: date },
-          search
-        ]
-      }).count();
-      schedule = await ConexaoEntrevista.find({
-        $and: [
-          { date: date },
-          search
-        ]
-      })
-        .sort({
-          startTime: 1
-        })
-        .skip(pageSize * page - pageSize)
-        .limit(pageSize);
-      break;
+
     case 12:
       total = await Encerramento.find({
         $and: [
@@ -343,10 +264,7 @@ async function getSubscribersUser(user) {
           schedule = await RodasDeConversa.findById({ _id: user.cursosInscritos[index].idSchedule }).lean();
           if (schedule) schedule.type = 2;
           break;
-        case 3:
-          schedule = await Poster.findById({ _id: user.cursosInscritos[index].idSchedule }).lean();
-          if (schedule) schedule.type = 3;
-          break;
+
       }
 
       schedules.push(schedule);
@@ -450,16 +368,12 @@ async function getUserMonitors(req) {
           if (schedule) schedule.type = 5;
           response.push(schedule);
           break;
-        case 2: //rodaDeConversa
+        case 2: //exposição
           schedule = await RodasDeConversa.findById(req.user.monitor[index].idSchedule).lean();
           if (schedule) schedule.type = 2;
           response.push(schedule);
           break;
-        case 3: //pôster
-          schedule = await Poster.findById(req.user.monitor[index].idSchedule).lean();
-          if (schedule) schedule.type = 3;
-          response.push(schedule);
-          break;
+
       }
     }
   }
@@ -469,8 +383,8 @@ async function getUserMonitors(req) {
 async function listVirtual() {
 
   const dateNow = new Date();
-  let date = dateNow.getDate().toString() + '/' + (dateNow.getMonth() + 1);
-
+  let date = dateNow.getDate().toString() + '/0' + (dateNow.getMonth() + 1);
+  console.log(date)
   //marretando para homologação.
   //const date = '29/10';
 
@@ -491,10 +405,10 @@ async function listVirtual() {
     virtual.encerramento = [];
   }
 
-  virtual.atividadeCultural = await atividadeCulturalCtrl.listSchedule(date);
+  /* virtual.atividadeCultural = await atividadeCulturalCtrl.listSchedule(date);*/
   virtual.lancamentoDeLivros = await lancamentoDeLivrosCtrl.listSchedule(date);
-  virtual.rodaReunioesEntidadesRedes = await rodaReunioesEntidadesRedesCtrl.listSchedule(date);
-  virtual.sessoesEspeciais = await sessoesEspeciaisCtrl.listSchedule(date);
+  /* virtual.rodaReunioesEntidadesRedes = await rodaReunioesEntidadesRedesCtrl.listSchedule(date);*/
+  /* virtual.sessoesEspeciais = await sessoesEspeciaisCtrl.listSchedule(date);*/
   virtual.simposio = await simposioCtrl.listSchedule(date);
 
   virtual.date = date;

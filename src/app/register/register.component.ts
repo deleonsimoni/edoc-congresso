@@ -25,7 +25,7 @@ export class RegisterComponent implements OnInit {
     { id: 3, name: 'Expositor de pôster' },
     { id: 4, name: 'Mediador de minicurso' },
     { id: 5, name: 'Coordenador e expositor de painel' },
-    { id: 6, name: 'Simposista' },
+    { id: 2, name: 'Simposista' },
     { id: 7, name: 'Ouvinte' }
   ];
 

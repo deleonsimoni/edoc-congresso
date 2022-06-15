@@ -117,28 +117,6 @@
 
     </div>
 
-    <div class="section">
-        <h6>Pagamento</h6>
-    </div>
-    <div class="row align-items-center">
-
-        <div class="col-sm-4">
-            <strong>Confirmar pagamento</strong>
-            <div *ngIf="subscribed.payment" class="form-group">
-                <div class="btn-group" role="group" aria-label="Basic example">
-                    <button (click)="confirmPayment(subscribed)"
-                        [ngStyle]="{'background-color: green;color:white':  subscribed.payment.icPaid, 'background-color: white;color: black': subscribed.payment.icPaid}"
-                        type="button" [ngClass]="{'btn btn-success': subscribed.payment.icPaid}"
-                        class="btn">Sim</button>
-                    <button (click)="denyPayment(subscribed)"
-                        [ngStyle]="{'background-color: red;color:white':  !subscribed.payment.icPaid, 'background-color: white;color: black': subscribed.payment.icPaid}"
-                        type="button" [ngClass]="{'btn btn-danger': !subscribed.payment.icPaid}"
-                        class="btn">Não</button>
-                </div>
-            </div>
-
-        </div>
-    </div>
     <div *ngIf="subscribed.works.length > 0" class="section">
         <h6>Trabalhos</h6>
 

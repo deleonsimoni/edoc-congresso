@@ -1,9 +1,9 @@
 export const MODALITIES = [
-  { id: 1, name: "Convidado de sessão especial" },
-  { id: 3, name: "Pôster" },
-  { id: 4, name: "Minicurso" },
+
+  { id: 2, name: "Exposição" },
+  { id: 4, name: "Oficina" },
   { id: 5, name: "Painel" },
-  { id: 6, name: "Simposista" },
+  { id: 8, name: "Conferencista" },
   { id: 7, name: "Ouvinte" },
 ];
 
@@ -14,15 +14,13 @@ export const CATEGORY_PAYMENT = [
 ];
 
 export const AXIS = [
-  { id: 1, name: "Eixo 1: A Didática como campo epistemológico e disciplinar" },
-  { id: 2, name: "Eixo 2: A Didática e os Saberes docentes estruturantes na formação de professores" },
-  { id: 3, name: "Eixo 3: A Didática e as tecnologias da informação e comunicação no currículo e práticas de ensino" },
-  { id: 4, name: "Eixo 4: A Didática e Práticas de Ensino na perspectiva da Educação como Direito Constitucional e os desafios políticos da atualidade" },
-  { id: 5, name: "Eixo 5: A Didática e as Práticas de ensino nas políticas de formação de Pedagogos(as)" },
-  { id: 6, name: "Eixo 6: A Didática e as Práticas de Ensino nos cursos de Licenciatura: entre tensionamentos e perspectivas" },
-  { id: 7, name: "Eixo 7: A Didática, Práticas de Ensino - Infâncias, Juventudes e Vida Adulta" },
-  { id: 8, name: "Eixo 8: A Didática, Práticas de Ensino, Educação das Relações Étnico-raciais, Diversidade e Inclusão Escolar" },
-  { id: 9, name: "Eixo 9: A Didática da Educação Superior" },
+  { id: 1, name: "Eixo 1: Educação Online" },
+  { id: 2, name: "Eixo 2: Fenômenos da Cibercultura" },
+  { id: 3, name: "Eixo 3: Artesanias Docentes" },
+  { id: 4, name: "Eixo 4: Escola Básica" },
+  { id: 5, name: "Eixo 5: Redes Educativas" },
+  { id: 6, name: "Eixo 6: Ativismos Online" },
+
 ];
 
 export const WORK_OPTIONS = [
@@ -34,15 +32,12 @@ export const WORK_OPTIONS = [
 
 export const SCHEDULE_TYPE = [
   { id: 1, name: "Abertura" },
-  { id: 7, name: "Atividade Cultural" },
   { id: 12, name: "Encerramento" },
   { id: 9, name: "Lançamento de Livros" },
-  { id: 4, name: "Minicurso" },
+  { id: 4, name: "Oficina" },
   { id: 5, name: "Painel" },
-  { id: 3, name: "Pôster" },
-  { id: 11, name: "Conexão Entrevista" },
-  { id: 10, name: "Sessões Especiais" },
-  { id: 8, name: "Simpósio" },
+  { id: 2, name: "Exposição e fruições artístico-literárias" },
+  { id: 8, name: "Conferência" },
 ];
 
 export const THEME_SIMPOSIO = [
@@ -82,7 +77,7 @@ export const THEME_SIMPOSIO = [
 export const PROGRAMACOES = [
   {
     titulo: "Abertura",
-    data: "14/7",
+    data: "25/7",
     horario: "16:00-21:00",
     local: "Vivo Rio",
     endereco:

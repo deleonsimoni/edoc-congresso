@@ -32,7 +32,7 @@ export class SubmissaoComponent implements OnInit {
   public modalidades = [
     { id: 4, name: 'Mediador de oficina' },
     { id: 5, name: 'Expositor de painel de pesquisa' },
-    { id: 6, name: 'Moderador de exposição e fruições artístico-literárias' },
+    { id: 2, name: 'Moderador de exposição e fruições artístico-literárias' },
     /* { id: 7, name: 'Coordenador de grupo' },*/
     { id: 8, name: 'Conferencista' }
   ];

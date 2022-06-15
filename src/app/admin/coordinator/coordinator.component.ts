@@ -19,15 +19,12 @@ export class CoordinatorComponent implements OnInit, OnDestroy {
   @ViewChildren('checkboxMultiple') private checkboxesMultiple: QueryList<any>;
 
   public eixos = [
-    { id: 1, name: "Eixo 1: A Didática como campo epistemológico e disciplinar" },
-    { id: 2, name: "Eixo 2: A Didática e os Saberes docentes estruturantes na formação de professores" },
-    { id: 3, name: "Eixo 3: A Didática e as tecnologias da informação e comunicação no currículo e práticas de ensino" },
-    { id: 4, name: "Eixo 4: A Didática e Práticas de Ensino na perspectiva da Educação como Direito Constitucional e os desafios políticos da atualidade" },
-    { id: 5, name: "Eixo 5: A Didática e as Práticas de ensino nas políticas de formação de Pedagogos(as)" },
-    { id: 6, name: "Eixo 6: A Didática e as Práticas de Ensino nos cursos de Licenciatura: entre tensionamentos e perspectivas" },
-    { id: 7, name: "Eixo 7: A Didática, Práticas de Ensino - Infâncias, Juventudes e Vida Adulta" },
-    { id: 8, name: "Eixo 8: A Didática, Práticas de Ensino, Educação das Relações Étnico-raciais, Diversidade e Inclusão Escolar" },
-    { id: 9, name: "Eixo 9: A Didática da Educação Superior" }
+    { id: 1, name: "Eixo 1: Educação Online" },
+    { id: 2, name: "Eixo 2: Fenômenos da Cibercultura" },
+    { id: 3, name: "Eixo 3: Artesanias Docentes" },
+    { id: 4, name: "Eixo 4: Escola Básica" },
+    { id: 5, name: "Eixo 5: Redes Educativas" },
+    { id: 6, name: "Eixo 6: Ativismo Online" }
   ];
 
   public axisId = null;

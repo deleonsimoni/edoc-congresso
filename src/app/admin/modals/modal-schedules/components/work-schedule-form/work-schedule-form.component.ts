@@ -17,14 +17,14 @@ export class WorkScheduleFormComponent {
   public form: FormGroup;
   public axisCollection = AXIS;
   public works = [];
-  public days = ["29/10", "30/10", "31/10", "01/11", "02/11", "03/11", "04/11", "05/11", "06/11", "07/11", "08/11", "09/11", "10/11", "11/11", "12/11"];
+  public days = ["25/07", "26/07", "27/07", "28/07", "29/07"];
   public selectedWork;
   public selectedWorkPoster = [];
 
   public modelConfig = { standalone: true };
 
   constructor(private builder: FormBuilder, private toastr: ToastrService, private adminService: AdminService) {
-    
+
     this.form = this.builder.group({
       work: [null],
       axis: [null],
@@ -64,9 +64,9 @@ export class WorkScheduleFormComponent {
       if (data.hasOwnProperty(key)) {
         if (key == "axis") {
           this.form.get(key).patchValue(Number(data[key]));
-        }else if (key == "dates") {
+        } else if (key == "dates") {
           this.fillArray(data.dates, key);
-        }else if (key == "worksPoster") {
+        } else if (key == "worksPoster") {
           this.selectedWorkPoster = data.worksPoster;
           this.fillArray(data.worksPoster, key);
         } else {
@@ -83,36 +83,36 @@ export class WorkScheduleFormComponent {
       if (key == 0) {
         form.controls[0].patchValue(el);
       } else {
-          form.push(this.builder.group(el));
+        form.push(this.builder.group(el));
       }
     });
   }
 
   private listAllWorks(axis, modality) {
-      this.adminService.retrieveAllWorksValids(axis, modality).subscribe((works) => {
-        if (works.temErro) {
-          this.toastr.error("Erro", works);
-        } else {
-          this.works = works;
+    this.adminService.retrieveAllWorksValids(axis, modality).subscribe((works) => {
+      if (works.temErro) {
+        this.toastr.error("Erro", works);
+      } else {
+        this.works = works;
 
-          //caso seja poster - tratar os trabalhos para combobox
-          if(this.type == 3){
-            let workFor = this.selectedWorkPoster;
+        //caso seja poster - tratar os trabalhos para combobox
+        if (this.type == 3) {
+          let workFor = this.selectedWorkPoster;
 
-            for (let index = 0; index < workFor.length; index++) {
-              this.selectedWorkPoster[index] = this.works.filter(e => {
-              return workFor[index].work == e._id 
-              })[0];
-            }
-          } else {
-            this.selectedWork = this.works.filter(e => {
-              return this.form.get("work").value == e._id 
-              })[0];
+          for (let index = 0; index < workFor.length; index++) {
+            this.selectedWorkPoster[index] = this.works.filter(e => {
+              return workFor[index].work == e._id
+            })[0];
           }
-
-
+        } else {
+          this.selectedWork = this.works.filter(e => {
+            return this.form.get("work").value == e._id
+          })[0];
         }
-      });
+
+
+      }
+    });
   }
 
   get dates() {
@@ -140,7 +140,7 @@ export class WorkScheduleFormComponent {
 
   public setWorkFormPoster(workForm, i) {
     const dataCtrel = this.form.get("worksPoster") as FormArray;
-    dataCtrel.at(i).patchValue({"work": workForm._id, "workTitle": workForm.title});
+    dataCtrel.at(i).patchValue({ "work": workForm._id, "workTitle": workForm.title });
     //{ "work": workForm._id, "workTitle": workForm.title}
   }
 

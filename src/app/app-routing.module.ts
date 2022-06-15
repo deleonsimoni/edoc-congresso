@@ -24,7 +24,7 @@ const routes: Routes = [
     redirectTo: 'home'
   },
   {
-    path: 'endipe-virtual',
+    path: 'edoc-remoto',
     component: HomeVirtualComponent
   },
   {
@@ -68,7 +68,7 @@ const routes: Routes = [
     component: CertificadoComponent
   },
   {
-    path: 'meu-endipe',
+    path: 'meu-edoc',
     component: MeuEndipeComponent
   },
   {

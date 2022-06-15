@@ -12,13 +12,13 @@ import { AuthService } from "../../../services/auth.service";
 })
 export class ProgramacaoAbertaComponent implements OnInit {
 
- 
+
 
   public workModalities = WORK_OPTIONS;
   public programacoes = SCHEDULE_TYPE;
   public schedules$: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
-  @ViewChild('selecioneDia', {static: false}) selecioneDia: any;
-  public days = ["29/10", "30/10", "31/10", "01/11", "02/11", "03/11", "04/11", "05/11", "06/11", "07/11", "08/11", "09/11", "10/11", "11/11", "12/11"];
+  @ViewChild('selecioneDia', { static: false }) selecioneDia: any;
+  public days = ["25/07", "26/07", "27/07", "28/07", "29/07"];
   daySelect;
   modalitySelect;
   carregando = false;
@@ -58,11 +58,11 @@ export class ProgramacaoAbertaComponent implements OnInit {
 
   constructor(
     private auth: AuthService,
-    ) {
-  
+  ) {
+
   }
 
-  ngOnInit() { 
+  ngOnInit() {
 
     this.user = this.auth.getDecodedAccessToken(this.auth.getToken());
 
