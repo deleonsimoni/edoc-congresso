@@ -219,7 +219,7 @@ export class HomeComponent implements OnInit {
     },
     {
       titulo: 'Eixo 3',
-      tema: `Artesanias Docentes 
+      tema: `Hiperartesanias docentes e Hiperescritas de si 
       `,
       /*temaCurto: `em Direitos Humanos, Interculturalidade e Religiões`,*/
       descricao: `A Didática, as práticas de ensino e a Mediação Tecnológica. Tecnologias Digitais e
