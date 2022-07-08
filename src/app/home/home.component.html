@@ -1,78 +1,4 @@
-<!-- <app-header></app-header> -->
-<!--==========================
-    Intro Section
-  ============================-->
-<section id="intro" *ngIf="intro == 1" (click)="intro = 2">
-
-  <div alt="Logo do evento" title="Logo do evento" class="intro-content">
-    <!--<h2>XX Endipe <span>|</span> Rio 2020</h2>
-         <div>
-            <a class="btn-get-started scrollto" style="cursor: pointer" [routerLink]="['/home']"
-                fragment="pricing">Inscreva-se</a>
-             href="#about" 
-             <a href="#portfolio" class="btn-projects scrollto">Our Projects</a> 
-        </div>-->
-  </div>
-
-</section><!-- #intro -->
-
-<section id="intro2" *ngIf="intro == 2" (click)="intro = 3">
-
-  <div alt="Logo do evento" title="Logo do evento" class="intro-content">
-    <!--<h2>XX Endipe <span>|</span> Rio 2020</h2>
-         <div>
-            <a class="btn-get-started scrollto" style="cursor: pointer" [routerLink]="['/home']"
-                fragment="pricing">Inscreva-se</a>
-             href="#about" 
-             <a href="#portfolio" class="btn-projects scrollto">Our Projects</a> 
-        </div>-->
-  </div>
-
-</section><!-- #intro -->
-
-<section id="intro3" *ngIf="intro == 3" (click)="intro = 4">
-
-  <div alt="Logo do evento" title="Logo do evento" class="intro-content">
-    <!--<h2>XX Endipe <span>|</span> Rio 2020</h2>
-         <div>
-            <a class="btn-get-started scrollto" style="cursor: pointer" [routerLink]="['/home']"
-                fragment="pricing">Inscreva-se</a>
-             href="#about" 
-             <a href="#portfolio" class="btn-projects scrollto">Our Projects</a> 
-        </div>-->
-  </div>
-
-</section><!-- #intro -->
-
-<section id="intro4" *ngIf="intro == 4" (click)="intro = 5">
-
-  <div alt="Logo do evento" title="Logo do evento" class="intro-content">
-    <!--<h2>XX Endipe <span>|</span> Rio 2020</h2>
-         <div>
-            <a class="btn-get-started scrollto" style="cursor: pointer" [routerLink]="['/home']"
-                fragment="pricing">Inscreva-se</a>
-             href="#about" 
-             <a href="#portfolio" class="btn-projects scrollto">Our Projects</a> 
-        </div>-->
-  </div>
-
-</section><!-- #intro -->
-
-<section id="intro5" *ngIf="intro == 5" (click)="intro = 6">
-
-  <div alt="Logo do evento" title="Logo do evento" class="intro-content">
-    <!--<h2>XX Endipe <span>|</span> Rio 2020</h2>
-         <div>
-            <a class="btn-get-started scrollto" style="cursor: pointer" [routerLink]="['/home']"
-                fragment="pricing">Inscreva-se</a>
-             href="#about" 
-             <a href="#portfolio" class="btn-projects scrollto">Our Projects</a> 
-        </div>-->
-  </div>
-
-</section><!-- #intro -->
-
-<section id="intro6" *ngIf="intro == 6" (click)="intro = 1">
+<section id="intro">
 
   <div alt="Logo do evento" title="Logo do evento" class="intro-content">
     <!--<h2>XX Endipe <span>|</span> Rio 2020</h2>
@@ -96,8 +22,8 @@
 
       <div class="row">
         <div class="col-lg-6 content">
-          <h2 style="color: #cb9b15;">TEMA</h2>
-          <h2 class="child"><strong style="color:#20959b">Docências na cibercultura: o que fizemos, pensamos
+          <h2 style="color: #03989e;">TEMA</h2>
+          <h2 class="child"><strong style="color:#9400A2">Docências na cibercultura: o que fizemos, pensamos
               e aprendemos durante a pandemia COVID-19?</strong></h2>
 
           <!-- <h3>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
@@ -146,7 +72,7 @@
             <div class="col-lg-12">
               <div class="agenda-titulo">
                 <marquee>
-                  <h2 style="color:#20959b">NOTÍCIAS</h2>
+                  <h2 style="color:#03989e">NOVIDADES</h2>
                 </marquee>
               </div>
             </div>
@@ -321,11 +247,11 @@
       <div class="row">
 
         <div class="col-lg-6" *ngFor="let eixo of eixos">
-          <div style="cursor: pointer; color: #cb9b15;" class="box wow fadeInLeft" (click)="openDialogEixo(eixo)">
+          <div style="cursor: pointer; color: #03989e;" class="box wow fadeInLeft" (click)="openDialogEixo(eixo)">
             <!-- <div class="icon"><i class="fa fa-bar-chart"></i></div> -->
-            <h4 class="title"><a>{{ eixo.titulo }}</a></h4>
+            <h4 class="title"><a style="color: #03989e !important">{{ eixo.titulo }}</a></h4>
             <p class="description">
-              <strong [innerHTML]="eixo.tema"></strong>
+              <strong style="color: #9400A2 !important" [innerHTML]="eixo.tema"></strong>
             </p>
           </div>
         </div>
@@ -411,7 +337,7 @@
             <div class="row contact-info" style="cursor: pointer;">
               <div>
                 <div class="box wow fadeInLeft" (click)="openDialogApoiadores(gruposDeTrabalho, imagensApoiadores)">
-                  <h4 class="title" style="color: #20959b"><a>+ GRUPOS DE TRABALHO</a></h4>
+                  <h4 class="title" style="color: #9400A2"><a>+ GRUPOS DE TRABALHO</a></h4>
                 </div>
               </div>
             </div>
@@ -556,7 +482,7 @@
   <section id="historico" class="wow fadeInUp">
     <div class="container">
       <div class="section-header">
-        <h2 style="color: #b2f9a0">e-Doc Anteriores</h2>
+        <h2 style="color: #6fd5e7">e-Doc Anteriores</h2>
         <p style="color: white !important; text-align: justify;">
           A seguir, apresentamos uma síntese da memória dos primeiros três encontros realizados
           pelo GPDOC.
@@ -810,7 +736,7 @@
   <section id="modalidades" class="wow fadeInUp">
     <div class="container">
       <div class="section-header">
-        <h2 style="color: #b2f9a0">Modalidades De Participação</h2>
+        <h2 style="color: #6fd5e7">Modalidades De Participação</h2>
       </div>
 
       <div class="row">
@@ -850,7 +776,7 @@
                 <i class="fas fa-spinner fa-pulse"></i>
               </div>
               <a *ngIf="!carregando" (click)="downloadTemplate('templates/templates_conferencia_2022.doc')"
-                style="color: #ffffff;cursor: pointer;">Download Template</a>
+                style="color: rgb(236 207 255);cursor: pointer;">Download Template</a>
             </div>
           </div>
         </div>
@@ -886,7 +812,7 @@
                 <i class="fas fa-spinner fa-pulse"></i>
               </div>
               <a *ngIf="!carregando" (click)="downloadTemplate('templates/templates_minicurso_2022.doc')"
-                style="color: #ffffff;cursor: pointer;">Download Template</a>
+                style="color: rgb(236 207 255);cursor: pointer;">Download Template</a>
             </div>
           </div>
         </div>
@@ -927,7 +853,7 @@
                 <i class="fas fa-spinner fa-pulse"></i>
               </div>
               <a *ngIf="!carregando" (click)="downloadTemplate('templates/templates_painel2022.doc')"
-                style="color: #ffffff;cursor: pointer;">Download Template</a>
+                style="color: rgb(236 207 255);cursor: pointer;">Download Template</a>
             </div>
           </div>
         </div>
@@ -993,7 +919,7 @@
                   <i class="fas fa-spinner fa-pulse"></i>
                 </div>
                 <a *ngIf="!carregando" (click)="downloadTemplate('templates/templates_exposicao_2022.doc')"
-                  style="color: #ffffff;cursor: pointer;">Download Template</a>
+                  style="color: rgb(236 207 255);cursor: pointer;">Download Template</a>
               </div>
             </div>
           </div>
@@ -1085,7 +1011,7 @@
                 <td style="text-align: center">R$ 375,00</td>
               </tr>
                   <tr>
-                <th class="text-nowrap" scope="row">Desconto 20% para as #20959bes de Ensino (Pacote de 50
+                <th class="text-nowrap" scope="row">Desconto 20% para as #9400A2es de Ensino (Pacote de 50
                   Inscrições)</th>
                 <td style="text-align: center">R$ 5.600,00</td>
                 <td style="text-align: center">R$ 6.400,00</td>
@@ -1123,7 +1049,7 @@
       <div class="row">
         <div style="cursor: pointer;" class="col-lg-6">
           <div class="box wow fadeInLeft" (click)="openDialogNormas()">
-            <h4 class="title" style="color: #20959b; font-weight: bold;"><a>Ver Normas</a></h4>
+            <h4 class="title" style="color: #9400A2; font-weight: bold;"><a>Ver Normas</a></h4>
           </div>
         </div>
 
@@ -1154,19 +1080,19 @@
               <tr>
                 <th class="text-nowrap">Submissão de Trabalhos</th>
                 <th class="text-nowrap">20 de junho a 10 de julho de 2022<br />
-                  <!--    <b style="color: #20959b;">PRORROGADA ATÉ 18/02/2020</b>-->
+                  <!--    <b style="color: #9400A2;">PRORROGADA ATÉ 18/02/2020</b>-->
                 </th>
               </tr>
               <tr>
                 <th class="text-nowrap">Avaliação pelo Comitê Cientifico</th>
                 <th class="text-nowrap">Até 17 de julho de 2022<br />
-                  <!--<b style="color: #20959b;">Até 29 de abril de 2020</b>-->
+                  <!--<b style="color: #9400A2;">Até 29 de abril de 2020</b>-->
                 </th>
               </tr>
               <tr>
                 <th class="text-nowrap">Divulgação da programação do evento</th>
                 <th class="text-nowrap"> Até 18 de julho de 2022<br />
-                  <!-- <b style="color: #20959b;">30 de abril de 2020</b>-->
+                  <!-- <b style="color: #9400A2;">30 de abril de 2020</b>-->
 
                 </th>
               </tr>
@@ -1175,7 +1101,7 @@
               <tr>
                 <th class="text-nowrap">Inscrição nas Oficinas </th>
                 <th class="text-nowrap"> 17 a 22 de julho de 2022<br />
-                  <!-- <b style="color: #20959b;">28/09 a 02/10</b>-->
+                  <!-- <b style="color: #9400A2;">28/09 a 02/10</b>-->
 
                 </th>
               </tr>
@@ -1517,7 +1443,7 @@
                         <div class="validation"></div>
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control" name="message" rows="5" data-rule="requi#20959b"
+                        <textarea class="form-control" name="message" rows="5" data-rule="requi#9400A2"
                             data-msg="Please write something for us" placeholder="Mensagem"></textarea>
                         <div class="validation"></div>
                     </div>
