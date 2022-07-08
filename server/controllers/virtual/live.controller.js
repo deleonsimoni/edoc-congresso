@@ -384,6 +384,7 @@ async function listVirtual() {
 
   const dateNow = new Date();
   let date = dateNow.getDate().toString() + '/0' + (dateNow.getMonth() + 1);
+  console.log(date)
   //marretando para homologação.
   //const date = '29/10';
 
@@ -397,7 +398,7 @@ async function listVirtual() {
   //} else {
   //  virtual.abertura = [];
   //}
-  if (date == "12/11") {
+  if (date == "29/07") {
     virtual.encerramento = await encerramentoCtrl.listSchedule(date);
   }
   else {

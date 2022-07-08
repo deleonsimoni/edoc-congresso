@@ -23,7 +23,7 @@ h1.example-app-name {
   cursor: pointer;
 }
 
-.dropdown-item:hover {
+.dropdown-item:hover{
   color: #20959b;
 }
 
@@ -147,16 +147,13 @@ div.header {
   height: 100%;
 }
 
-.aoVivo {
+.aoVivo{
   font: bold 18px Helvetica;
   color: #ffffff !important;
   text-decoration: none;
-  background-color: rgb(252, 25, 42) !important;
+  background-color: rgb(252,25,42);
   padding: 5px 10px 5px 10px;
   border-radius: 5px;
-}
-
-.comMargem {
   margin: 10px 0px 0px 0px;
 }
 
@@ -173,7 +170,6 @@ div.header {
     -webkit-transform: scale(1);
     -webkit-filter: brightness(100%);
   }
-
   100% {
     -webkit-transform: scale(1.05);
     -webkit-filter: brightness(100%);
@@ -185,7 +181,6 @@ div.header {
     transform: scale(1);
     filter: brightness(100%);
   }
-
   100% {
     transform: scale(1.05);
     filter: brightness(100%);
