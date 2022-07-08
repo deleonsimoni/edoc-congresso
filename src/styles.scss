@@ -127,7 +127,7 @@ h6 {
   height: 84px;
   transition: all 0.5s;
   z-index: 997;
-  background-image: linear-gradient(to bottom right, #17cad1, #03989e);
+  background-image: linear-gradient(to bottom right, #17cad1, #F36BFF);
   box-shadow: 0px 6px 9px 0px rgba(0, 0, 0, 0.06);
 }
 
@@ -164,6 +164,58 @@ h6 {
   height: 60vh;
   position: relative;
   background: url("./assets/img/banner.jpg") no-repeat;
+  //background: url("./assets/img/banner_old.jpeg") no-repeat;
+  background-position-x: center;
+  background-size: contain;
+}
+
+#intro2 {
+  width: 100%;
+  height: 60vh;
+  position: relative;
+  background: url("./assets/img/banner2.png") no-repeat;
+  //background: url("./assets/img/banner_old.jpeg") no-repeat;
+  background-position-x: center;
+  background-size: contain;
+}
+
+
+#intro3 {
+  width: 100%;
+  height: 60vh;
+  position: relative;
+  background: url("./assets/img/banner1.png") no-repeat;
+  //background: url("./assets/img/banner_old.jpeg") no-repeat;
+  background-position-x: center;
+  background-size: contain;
+}
+
+
+#intro4 {
+  width: 100%;
+  height: 60vh;
+  position: relative;
+  background: url("./assets/img/banner3.png") no-repeat;
+  //background: url("./assets/img/banner_old.jpeg") no-repeat;
+  background-position-x: center;
+  background-size: contain;
+}
+
+#intro5 {
+  width: 100%;
+  height: 60vh;
+  position: relative;
+  background: url("./assets/img/banner4.png") no-repeat;
+  //background: url("./assets/img/banner_old.jpeg") no-repeat;
+  background-position-x: center;
+  background-size: contain;
+}
+
+#intro6 {
+  width: 100%;
+  height: 60vh;
+  position: relative;
+  background: url("./assets/img/banner5.png") no-repeat;
   //background: url("./assets/img/banner_old.jpeg") no-repeat;
   background-position-x: center;
   background-size: contain;

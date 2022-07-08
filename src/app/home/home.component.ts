@@ -40,6 +40,7 @@ export class HomeComponent implements OnInit {
   carregando = false;
   noticias = [];
   anais = [];
+  intro = 1;
 
   configuracaoCarrossel = {
     nav: true,

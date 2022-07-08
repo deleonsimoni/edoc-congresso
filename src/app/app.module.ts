@@ -78,6 +78,7 @@ import { AnaisVirtualComponent } from './endipe-virtual/anais-virtual/anais-virt
     ModalTermoComponent,
     ModalNormasMinicursoComponent,
     ModalNormasRodaConversaComponent,
+    ModalNormasFruicaoComponent,
     ModalNormasPainelComponent,
     ModalNormasPosterComponent,
     ModalApoiadoresComponent,
