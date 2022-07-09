@@ -27,7 +27,7 @@ import { MatDialog } from "@angular/material";
 export class AppComponent implements OnInit {
   @ViewChild("accordion", { static: false }) accordion: AccordionPanelComponent;
 
-  title = "endipe";
+  title = "edoc2022";
   isMobile: boolean;
   public isAuth = false;
   public user: any;

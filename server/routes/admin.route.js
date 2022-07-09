@@ -126,7 +126,7 @@ router.post(
   asyncHandler(insertAuthorWork)
 );
 router.post(
-  "/alterUserWorkFile/xxiendiperio2022/:idWork",
+  "/alterUserWorkFile/edoc2022/:idWork",
   [
     passport.authenticate("jwt", {
       session: false,
@@ -136,7 +136,7 @@ router.post(
   asyncHandler(alterUserWorkFile)
 );
 router.post(
-  "/uploadWork/xxiendiperio2022/:id",
+  "/uploadWork/edoc2022/:id",
   [
     passport.authenticate("jwt", {
       session: false,

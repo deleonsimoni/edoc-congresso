@@ -4,5 +4,5 @@ export const environment = {
   //HOMOLOGACAO
   //host: 'http://15.229.13.3:8080/api'
   //PROD
-  host: 'http://e-doc.pro.br:8080/api'
+  host: 'http://e-doc.pro.br/api'
 };

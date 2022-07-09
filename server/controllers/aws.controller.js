@@ -16,7 +16,7 @@ function uploadFile(key, file) {
   });
 
   var s3Config = {
-    Bucket: 'endipe',
+    Bucket: 'edoc2022',
     Key: key,
     Body: file
   };
@@ -69,7 +69,7 @@ async function downloadFile(key) {
   });
 
   var s3Config = {
-    Bucket: 'endipe',
+    Bucket: 'edoc2022',
     Key: key
   };
 
