@@ -372,6 +372,11 @@ async function uploadWork(req, res) {
   let formulario = JSON.parse(req.body.formulario);
   console.log('Validando Usuarios' + JSON.stringify(formulario.authors));
 
+  let responseEcodigo = await validarEcodigo(formulario.modalityId, formulario.ecodigo);
+  if (responseEcodigo.temErro) {
+    return responseEcodigo;
+  }
+
   let responseValidationEmails = await validateEmailsFrom(formulario.authors, formulario.usuarioPrincipal);
   if (responseValidationEmails.temErro) {
     console.log('dados inválidos do front: ' + JSON.stringify(responseValidationEmails));
@@ -421,6 +426,28 @@ async function validateEmailsFrom(users, usuarioPrincipal) {
   if (resultado) {
     retorno.temErro = true;
     retorno.mensagem = `Há emails duplicados, verifique o campo de autores`
+  }
+
+  return retorno;
+
+}
+
+
+async function validarEcodigo(modalidade, codigo) {
+
+  let retorno = {
+    temErro: false,
+    mensagem: ''
+  }
+
+  if ((modalidade == 4 && codigo != 'oficina') ||
+    (modalidade == 5 && codigo != 'painel') ||
+    (modalidade == 2 && codigo != 'expo') ||
+    (modalidade == 8 && codigo != 'confe')) {
+
+    retorno.temErro = true;
+    retorno.mensagem = `Código inválido... :(`
+
   }
 
   return retorno;

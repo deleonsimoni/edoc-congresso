@@ -119,6 +119,7 @@ export class SubmissaoComponent implements OnInit {
       typeWork: [null],
       usuarioPrincipal: [null],
       title: [null, [Validators.required]],
+      ecodigo: [null, [Validators.required]],
       authors: this.builder.array([
         this.createFields()
       ])
@@ -142,6 +143,10 @@ export class SubmissaoComponent implements OnInit {
 
     const usuarioLogado = this.authService.getUserLogado();
 
+    if (!this.submissionForm.value.ecodigo) {
+      this.toastr.error('É necessário digitar o e-código', 'Atenção');
+      return;
+    }
     if (!this.filesPDF) {
       this.toastr.error('É necessário selecionar o arquivo PDF', 'Atenção');
       return;
