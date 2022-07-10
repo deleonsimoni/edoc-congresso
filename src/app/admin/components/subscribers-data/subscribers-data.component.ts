@@ -220,22 +220,20 @@ export class SubscribersDataComponent implements OnInit {
 
   public modalities = [
 
-    { id: 4, name: 'Mediador de minicurso' },
-    { id: 3, name: 'Expositor de pôster' },
-    { id: 5, name: 'Coordenador e/ou expositor de painel' },
+    { id: 4, name: 'Mediador de oficina' },
+    { id: 5, name: 'Expositor de painel de pesquisa' },
+    { id: 2, name: 'Moderador de exposição e fruições artístico-literárias' },
+    { id: 8, name: 'Conferencista' }
 
   ];
 
   public eixos = [
-    { id: 1, name: 'A Didática como campo epistemológico e disciplinar' },
-    { id: 2, name: 'A Didática e os Saberes docentes estruturantes na formação de professores' },
-    { id: 3, name: 'A Didática e as tecnologias da informação e comunicação no currículo e práticas de ensino' },
-    { id: 4, name: 'A Didática e Práticas de Ensino na perspectiva da Educação como Direito Constitucional e os desafios políticos da atualidade' },
-    { id: 5, name: 'A Didática e as Práticas de ensino nas políticas de formação de Pedagogos(as)' },
-    { id: 6, name: 'A Didática e as Práticas de Ensino nos cursos de Licenciatura: entre tensionamentos e perspectivas' },
-    { id: 7, name: 'A Didática, Práticas de Ensino - Infâncias, Juventudes e Vida Adulta' },
-    { id: 8, name: 'A Didática, Práticas de Ensino, Educação das Relações Étnico-raciais, Diversidade e Inclusão Escolar' },
-    { id: 9, name: 'A Didática da Educação Superior' }
+    { id: 1, name: "Eixo 1: Educação Online" },
+    { id: 2, name: "Eixo 2: Fenômenos da Cibercultura" },
+    { id: 3, name: "Eixo 3: Hiperartesanias docentes e Hiperescritas de si" },
+    { id: 4, name: "Eixo 4: Escola Básica" },
+    { id: 5, name: "Eixo 5: Redes Educativas" },
+    { id: 6, name: "Eixo 6: Ativismo Online" }
 
   ];
 

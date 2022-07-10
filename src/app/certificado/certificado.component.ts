@@ -64,7 +64,7 @@ export class CertificadoComponent implements OnInit {
           (work.reviewReviewer && work.reviewReviewer.review && work.reviewReviewer.review.icAllow != "Nao")) ||
           (work.recurso && work.recurso.icAllow == "Sim"))
       ) {
-        this.templateAutomatico.target.value = "MEDIAÇÃO DE MINICURSO";
+        this.templateAutomatico.target.value = "MEDIAÇÃO DE OFICINA";
         this.preencherTemplate(this.templateAutomatico, work.title, "04");
       } else if (
         work.modalityId == 5 && (((work.reviewAdmin && work.reviewAdmin.review.icAllow == "Sim") &&
@@ -78,8 +78,12 @@ export class CertificadoComponent implements OnInit {
           (work.reviewReviewer && work.reviewReviewer.review && work.reviewReviewer.review.icAllow != "Nao")) ||
           (work.recurso && work.recurso.icAllow == "Sim"))
       ) {
-        this.templateAutomatico.target.value = "PÔSTER";
-        this.preencherTemplate(this.templateAutomatico, work.title, "03");
+        this.templateAutomatico.target.value = "MODERAÇÃO DE EXPOSIÇÃO E FRUIÇÕES ARTÍSTICO-LITERÁRIAS";
+        this.preencherTemplate(this.templateAutomatico, work.title, "02");
+      }
+      {
+        this.templateAutomatico.target.value = "CONFERENCISTA";
+        this.preencherTemplate(this.templateAutomatico, work.title, "08");
       }
     });
   }
@@ -165,7 +169,7 @@ export class CertificadoComponent implements OnInit {
       this.exibirGT = true;
     } else if (templateSelecionado.target.value == "MONITORIA") {
       this.coringa =
-        " atuou como monitora, perfazendo um total de ______ horas de trabalho de pré-produção, produção e pós produção ";
+        " atuou como monitor(a), perfazendo um total de ______ horas de trabalho de pré-produção, produção e pós produção ";
       this.exibirGT = true;
     } else if (templateSelecionado.target.value == "COORDENAÇÃO DE ATIVIDADE") {
       this.coringa = "coordenou ";
@@ -190,7 +194,7 @@ export class CertificadoComponent implements OnInit {
         " horas";
       this.exibirGT = true;
     } else if (templateSelecionado.target.value == "MODERAÇÃO DE EXPOSIÇÃO E FRUIÇÕES ARTÍSTICO-LITERÁRIAS") {
-      this.coringa = " fez a mediação da Roda de Conversa " + (complementoUm || "______________");
+      this.coringa = " fez a mediação da exposição " + (complementoUm || "______________");
       this.exibirGT = true;
 
     } else if (templateSelecionado.target.value == "PARTICIPAÇÃO DE PAINEL") {
@@ -209,71 +213,71 @@ export class CertificadoComponent implements OnInit {
     {
       name: "GRUPO DE PESQUISA",
       value:
-        "participou do Grupo de Pesquisa do IV Encontro Internacional Docência e Cibercultura – IV E-DOC – RIO 2022 – uma promoção interinstitucional coordenada pela Universidade Federal do Rio de Janeiro e pela Universidade Federal do Estado do Rio de Janeiro, no período de 25 de julho a 29 de julho de 2022, com carga horária total de 180 horas.",
+        "do IV Encontro Internacional Docência e Cibercultura – IV E-DOC – RIO 2022 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro, no período de 25 de julho a 29 de julho de 2022.",
     },
     {
       name: "MODERAÇÃO DE EXPOSIÇÃO E FRUIÇÕES ARTÍSTICO-LITERÁRIAS",
       value:
-        "do IV Encontro Internacional Docência e Cibercultura – IV E-DOC – RIO 2022 – uma promoção interinstitucional coordenada pela Universidade Federal do Rio de Janeiro e pela Universidade Federal do Estado do Rio de Janeiro, no período de 25 de julho a 29 de julho de 2022, com carga horária total de 180 horas.",
+        "do IV Encontro Internacional Docência e Cibercultura – IV E-DOC – RIO 2022 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro, no período de 25 de julho a 29 de julho de 2022.",
     },
 
     {
       name: "COORDENAÇÃO GERAL",
       value:
-        "coordenou o IV Encontro Internacional Docência e Cibercultura – IV E-DOC – RIO 2022 – uma promoção interinstitucional coordenada pela Universidade Federal do Rio de Janeiro e pela Universidade Federal do Estado do Rio de Janeiro, no período de 25 de julho a 29 de julho de 2022, com carga horária total de 180 horas.",
+        "coordenou o IV Encontro Internacional Docência e Cibercultura – IV E-DOC – RIO 2022 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro, no período de 25 de julho a 29 de julho de 2022.",
     },
 
     {
       name: "MEDIAÇÃO DE OFICINA",
       value:
-        "no IV Encontro Internacional Docência e Cibercultura – IV E-DOC – RIO 2022 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade Federal do Estado do Rio de Janeiro, no período de 25 de julho a 29 de julho de 2022.",
+        "no IV Encontro Internacional Docência e Cibercultura – IV E-DOC – RIO 2022 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro, no período de 25 de julho a 29 de julho de 2022.",
     },
     {
       name: "MEDIAÇÃO DE PAINEL",
       value:
-        "no IV Encontro Internacional Docência e Cibercultura – IV E-DOC – RIO 2022 – uma promoção interinstitucional coordenada pela Universidade Federal do Rio de Janeiro e pela Universidade Federal do Estado do Rio de Janeiro, no período de 25 de julho a 29 de julho de 2022, com carga horária total de 180 horas.",
+        "no IV Encontro Internacional Docência e Cibercultura – IV E-DOC – RIO 2022 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro, no período de 25 de julho a 29 de julho de 2022.",
     },
 
     {
       name: "MONITORIA",
       value:
-        "no IV Encontro Internacional Docência e Cibercultura – IV E-DOC – RIO 2022 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro, no período de 25 de julho a 29 de julho de 2022.",
+        "no IV Encontro Internacional Docência e Cibercultura – IV E-DOC – RIO 2022 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro, no período de 25 de julho a 29 de julho de 2022.",
     },
 
 
     {
-      name: "PARECERISTA",
+      name: "COORDENADOR DE EIXO",
       value:
-        "participou na condição de parecerista do IV Encontro Internacional Docência e Cibercultura – IV E-DOC – RIO 2022 – uma promoção interinstitucional coordenada pela Universidade Federal do Rio de Janeiro e pela Universidade Federal do Estado do Rio de Janeiro, no período de 29 de outubro a 12 de novembro de 2020, com carga horária total de 180 horas.",
+        "participou na condição de Coordenador(a) de Eixo do IV Encontro Internacional Docência e Cibercultura – IV E-DOC – RIO 2022 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro, no período de 25 de julho a 29 de julho de 2022.",
     },
 
     {
       name: "PARTICIPAÇÃO DE OFICINA",
       value:
-        "no IV Encontro Internacional Docência e Cibercultura – IV E-DOC – RIO 2022 – uma promoção interinstitucional coordenada pela Universidade Federal do Rio de Janeiro e pela Universidade Federal do Estado do Rio de Janeiro, no período de 29 de outubro a 12 de novembro de 2020.",
+        "no IV Encontro Internacional Docência e Cibercultura – IV E-DOC – RIO 2022 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro, no período de 25 de julho a 29 de julho de 2022.",
     },
     {
       name: "PARTICIPAÇÃO DE PAINEL",
       value:
-        "no IV Encontro Internacional Docência e Cibercultura – IV E-DOC – RIO 2022 – uma promoção interinstitucional coordenada pela Universidade Federal do Rio de Janeiro e pela Universidade Federal do Estado do Rio de Janeiro, no período de 29 de outubro a 12 de novembro de 2020.",
+        "no IV Encontro Internacional Docência e Cibercultura – IV E-DOC – RIO 2022 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro, no período de 25 de julho a 29 de julho de 2022.",
     },
 
     {
       name: "PARTICIPAÇÃO GERAL",
       value:
-        "participou do IV Encontro Internacional Docência e Cibercultura – IV E-DOC – RIO 2022 – uma promoção interinstitucional coordenada pela Universidade Federal do Rio de Janeiro e pela Universidade Federal do Estado do Rio de Janeiro, no período de 29 de outubro a 12 de novembro de 2020, com carga horária total de 180 horas.",
+        "participou do IV Encontro Internacional Docência e Cibercultura – IV E-DOC – RIO 2022 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro, no período de 25 de julho a 29 de julho de 2022.",
     },
 
     {
       name: "PRESTAÇÃO DE SERVIÇO",
       value:
-        "para fins de realização do IV Encontro Internacional Docência e Cibercultura – IV E-DOC – RIO 2022 – uma promoção interinstitucional coordenada pela Universidade Federal do Rio de Janeiro e pela Universidade Federal do Estado do Rio de Janeiro, no período de 29 de outubro a 12 de novembro de 2020, com carga horária total de 180 horas.",
+        "para fins de realização do IV Encontro Internacional Docência e Cibercultura – IV E-DOC – RIO 2022 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro, no período de 25 de julho a 29 de julho de 2022.",
     },
 
     {
       name: "CONFERÊNCIA",
       value:
-        "no IV Encontro Internacional Docência e Cibercultura – IV E-DOC – RIO 2022 – uma promoção interinstitucional coordenada pela Universidade Federal do Rio de Janeiro e pela Universidade Federal do Estado do Rio de Janeiro, no período de 29 de outubro a 12 de novembro de 2020.",
+        "no IV Encontro Internacional Docência e Cibercultura – IV E-DOC – RIO 2022 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro, no período de 25 de julho a 29 de julho de 2022.",
     },
   ];
 }

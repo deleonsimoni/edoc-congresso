@@ -49,7 +49,7 @@ export class SubmissaoComponent implements OnInit {
   public eixos = [
     { id: 1, name: 'Eixo 1: Educação online' },
     { id: 2, name: 'Eixo 2: Fenômenos da Cibercultura' },
-    { id: 3, name: 'Eixo 3: Artesaninas Docentes' },
+    { id: 3, name: 'Eixo 3: Hiperartesanias docentes e Hiperescritas de si' },
     { id: 4, name: 'Eixo 4: Escola Básica' },
     { id: 5, name: 'Eixo 5: Redes Educativas' },
     { id: 6, name: 'Eixo 6: Ativismos Online' }
