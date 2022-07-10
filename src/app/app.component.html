@@ -164,6 +164,12 @@
 
                   <a class="dropdown-item" alt="Perfil" [routerLink]="['/perfil']">Perfil</a>
                   <div *ngIf="verifyAcess()" class="dropdown-divider"></div>
+                  <div class="dropdown-divider"></div>
+
+                  <a class="dropdown-item" alt="Lançamento de livros" target="_blank"
+                    href="https://docs.google.com/forms/d/e/1FAIpQLScfyjh0U-pwHBU4XNZHG2VHA19ca6hLV9MhRJSplDNHT2hdvA/viewform?vc=0&c=0&w=1&flr=0">Lançamento
+                    de
+                    livros</a>
 
                   <a class="dropdown-item aoVivo pulse" alt="pe" [routerLink]="['/meu-eDoC']" fragment="programacao">Meu
                     e-DoC</a>
@@ -305,6 +311,8 @@
             </li>
             <li><a tabindex="0" [routerLink]="['/certificados']" (click)="sidenav.toggle()">Certificados</a></li>
             <li><a [routerLink]="['/perfil']" (click)="sidenav.toggle()">Perfil</a></li>
+            <li><a href="https://forms.gle/rF7ixeszQcKmMWp19" target="_blank" (click)="sidenav.toggle()">Lançamento de
+                Livros</a></li>
             <li *ngIf="verifyAcess()">
               <a tabindex="0" [routerLink]="['/admin']" (click)="sidenav.toggle()">Dashboard</a>
             </li>

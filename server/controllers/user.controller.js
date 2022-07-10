@@ -496,7 +496,6 @@ async function validarEmailDuplicado(usuarios) {
 async function validatePaymentUsers(users, modalityId) {
 
   let userFind;
-  let isUsuarioEducacaoBasica = false;
   let retorno = {
     temErro: false,
     mensagem: '',
@@ -513,10 +512,6 @@ async function validatePaymentUsers(users, modalityId) {
 
     if (userFind) {
 
-      //checa se o usuario é da modalidade de educação básica
-      if (userFind.modalityId && userFind.categoriaId == 2) {
-        isUsuarioEducacaoBasica = true;
-      }
 
       if (!userFind.payment || !userFind.payment.icPaid) {
         retorno.temErro = true;
@@ -542,11 +537,6 @@ async function validatePaymentUsers(users, modalityId) {
       break;
     }
   };
-
-  if (!isUsuarioEducacaoBasica && modalityId == 5) {
-    retorno.temErro = true;
-    retorno.mensagem = `Nenhum dos participantes está inscrito na modalidade de professores e demais profissionais da educação básica`
-  }
 
   return retorno;
 
