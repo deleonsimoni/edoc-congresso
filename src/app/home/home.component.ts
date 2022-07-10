@@ -251,8 +251,8 @@ export class HomeComponent implements OnInit {
       Pedagógica e Democrática da Escola. Políticas de Avaliação da Educação Básica.`,
       coordenacao: [
 
-        'Andréia ',
-        'Claudia '
+        'Andrea da Paixão Fernandes',
+        'Cláudia Hernandez Barreiros Sonco'
 
       ],
       /*coordenacaogeral: ` Robson Luiz de França - UFU`
