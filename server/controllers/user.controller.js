@@ -440,10 +440,10 @@ async function validarEcodigo(modalidade, codigo) {
     mensagem: ''
   }
 
-  if ((modalidade == 4 && codigo != 'oficina') ||
-    (modalidade == 5 && codigo != 'painel') ||
-    (modalidade == 2 && codigo != 'expo') ||
-    (modalidade == 8 && codigo != 'confe')) {
+  if ((modalidade == 4 && codigo != 'edoc1') ||
+    (modalidade == 5 && codigo != 'edoc2') ||
+    (modalidade == 2 && codigo != 'edoc3') ||
+    (modalidade == 8 && codigo != 'edoc4')) {
 
     retorno.temErro = true;
     retorno.mensagem = `Código inválido... :(`
@@ -517,9 +517,9 @@ async function validatePaymentUsers(users, modalityId) {
         retorno.temErro = true;
         retorno.mensagem = `O usuário ${users[i].email} não possui pagamento válido`
         break;
-      } else if (userFind.works && userFind.works.length >= 2) {
+      } else if (userFind.works && userFind.works.length >= 3) {
         retorno.temErro = true;
-        retorno.mensagem = `O usuário ${users[i].email} já possui dois trabalhos submetidos`
+        retorno.mensagem = `O usuário ${users[i].email} já possui três trabalhos submetidos`
         break;
       } else if (userFind.works.length == 1 && await validateModalityDup(userFind.works[0], modalityId)) {
         retorno.temErro = true;

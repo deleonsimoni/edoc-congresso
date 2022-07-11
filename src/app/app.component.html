@@ -31,10 +31,10 @@
 
           <nav id="nav-menu-container" [hidden]="isMobile == true">
             <ul class="nav-menu">
-              <li class="pointer">
+              <!-- <li class="pointer">
                 <a tabindex="0" class="menu-has-children aoVivo comMargem pulse" [routerLink]="['/eDoC-remoto']">e-DoC
                   Remoto</a>
-              </li>
+              </li>-->
 
 
               <li class="nav-item dropdown">
@@ -171,12 +171,12 @@
                     de
                     livros</a>
 
-                  <a class="dropdown-item aoVivo pulse" alt="pe" [routerLink]="['/meu-eDoC']" fragment="programacao">Meu
+                  <!-- <a class="dropdown-item aoVivo pulse" alt="pe" [routerLink]="['/meu-eDoC']" fragment="programacao">Meu
                     e-DoC</a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" alt="Certificados" [routerLink]="['/certificados']"
                     fragment="certificados">Certificados</a>
-                  <div class="dropdown-divider"></div>
+                  <div class="dropdown-divider"></div>-->
                   <a *ngIf="verifyAcess()" class="dropdown-item" [routerLink]="['/admin']">Dashboard</a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" [routerLink]="['/home']" (click)="logout()">Sair</a>
@@ -207,12 +207,12 @@
     <mat-sidenav #sidenav mode="over">
       <accordion #accordion [isAnimated]="true" [closeOthers]="true">
 
-        <ul class="child-list">
+        <!--<ul class="child-list">
           <li>
             <a tabindex="0" accordion-heading class="menu-has-children aoVivo pulse" [routerLink]="['/eDoC-remoto']"
               (click)="sidenav.toggle()">e-DoC REMOTO</a>
           </li>
-        </ul>
+        </ul>-->
 
         <accordion-group>
           <a tabindex="0" accordion-heading>SOBRE <i class="fa "
@@ -307,9 +307,9 @@
           <ul class="child-list">
             <!--  <li><a tabindex="0" [routerLink]="['/pagamento']" (click)="sidenav.toggle()">Pagamento</a></li> -->
             <li><a tabindex="0" [routerLink]="['/meus-trabalhos']" (click)="sidenav.toggle()">Submissão</a></li>
-            <li><a tabindex="0" class="menu-has-children aoVivo pulse" [routerLink]="['/meu-eDoC']">Meu e-DoC</a>
+            <!--<li><a tabindex="0" class="menu-has-children aoVivo pulse" [routerLink]="['/meu-eDoC']">Meu e-DoC</a>
             </li>
-            <li><a tabindex="0" [routerLink]="['/certificados']" (click)="sidenav.toggle()">Certificados</a></li>
+            <li><a tabindex="0" [routerLink]="['/certificados']" (click)="sidenav.toggle()">Certificados</a></li>-->
             <li><a [routerLink]="['/perfil']" (click)="sidenav.toggle()">Perfil</a></li>
             <li><a href="https://forms.gle/rF7ixeszQcKmMWp19" target="_blank" (click)="sidenav.toggle()">Lançamento de
                 Livros</a></li>

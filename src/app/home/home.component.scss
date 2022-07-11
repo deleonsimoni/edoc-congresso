@@ -675,6 +675,40 @@
   background-color: #20959b;
 }
 
+#realizacao {
+  padding: 30px 0;
+}
+
+#realizacao img {
+  max-width: 100%;
+  opacity: 0.5;
+  transition: 0.3s;
+  padding: 15px 0;
+}
+
+#realizacao img:hover {
+  opacity: 1;
+}
+
+#realizacao .owl-nav,
+#realizacao .owl-dots {
+  margin-top: 5px;
+  text-align: center;
+}
+
+#realizacao .owl-dot {
+  display: inline-block;
+  margin: 0 5px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ddd;
+}
+
+#realizacao .owl-dot.active {
+  background-color: #20959b;
+}
+
 /* Testimonials Section
 --------------------------------*/
 
