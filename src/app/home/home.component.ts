@@ -183,10 +183,10 @@ export class HomeComponent implements OnInit {
       titulo: 'Eixo 1',
       tema: 'Educação Online',
       /*  temaCurto: 'com Formação docente',*/
-      descricao: `Epistemologia da Didática. Objeto epistêmico da Didática. A produção do conhecimento 
-      no campo da didática. Articulação entre o ensinar e o aprender. Teoria Didática e bases 
-      para propostas pedagógicas. Didática e Epistemologia da prática e/ou práxis. 
-      Fundamentos e perspectivas da didática. `,
+      /* descricao: `Epistemologia da Didática. Objeto epistêmico da Didática. A produção do conhecimento 
+       no campo da didática. Articulação entre o ensinar e o aprender. Teoria Didática e bases 
+       para propostas pedagógicas. Didática e Epistemologia da prática e/ou práxis. 
+       Fundamentos e perspectivas da didática. `,*/
       coordenacao: [
 
         'Edméa Santos',
@@ -201,14 +201,14 @@ export class HomeComponent implements OnInit {
       titulo: 'Eixo 2',
       tema: 'Fenômenos da Cibercultura',
       /* temaCurto: 'com Currículo e Avaliação',*/
-      descricao: `Relação da Didática com os saberes docentes estruturantes na formação de professores. 
+      /*descricao: `Relação da Didática com os saberes docentes estruturantes na formação de professores. 
       Saberes pedagógicos e didáticos relacionados ao processo de ensino-aprendizagem; 
       Planejamento, sequência didática e avaliação; Concepções de formação de professores; 
       Concepções de profissionalização docente; Formação inicial e continuada de professores; 
       Estágio Supervisionado na formação de professores; Metodologias e mediações didáticas
       na formação de professores; Pesquisa-ação; pesquisa colaborativa; narrativas na 
       formação de professores; Parceria entre universidade e a escola na formação de 
-      professores.`,
+      professores.`,*/
       coordenacao: [
         'Rosemary dos Santos',
         'Miriam Amaral'
@@ -223,10 +223,10 @@ export class HomeComponent implements OnInit {
       tema: `Hiperartesanias docentes e Hiperescritas de si 
       `,
       /*temaCurto: `em Direitos Humanos, Interculturalidade e Religiões`,*/
-      descricao: `A Didática, as práticas de ensino e a Mediação Tecnológica. Tecnologias Digitais e
-      Mediação Pedagógica. Cultura Digital e Escola. Jogos Digitais, Tecnologias e Educação. 
-      As Plataformas Digitais e os Ambientes Virtuais de Aprendizagem (AVA). Ensino 
-      Remoto Emergencial (ERE).`,
+      /* descricao: `A Didática, as práticas de ensino e a Mediação Tecnológica. Tecnologias Digitais e
+       Mediação Pedagógica. Cultura Digital e Escola. Jogos Digitais, Tecnologias e Educação. 
+       As Plataformas Digitais e os Ambientes Virtuais de Aprendizagem (AVA). Ensino 
+       Remoto Emergencial (ERE).`,*/
       coordenacao: [
 
         'Leonardo Nolasco',
@@ -241,14 +241,14 @@ export class HomeComponent implements OnInit {
       tema: `Escola Básica 
        `,
       /*temaCurto: `entre Novas epistemologias, Diferença, Biodiversidade, Democracia e Inclusão`,*/
-      descricao: `A Educação na Constituição Brasileira e na Legislação Educacional. Educação Básica:
-      Objetivos, princípios e diretrizes curriculares. A educação no contexto das 
-      transformações da sociedade contemporânea. Políticas regressivas e ataques aos direitos
-      educacionais. A Didática e as Práticas de Ensino e o contexto político contemporâneo. As 
-      reformas políticas e o papel da Didática e das Práticas de Ensino no debate 
-      contemporâneo. Os projetos de regulação da educação escolar (BNCC, Escola sem 
-      Partido, Reforma do Ensino Médio). Planejamento e gestão da educação. Gestão 
-      Pedagógica e Democrática da Escola. Políticas de Avaliação da Educação Básica.`,
+      /* descricao: `A Educação na Constituição Brasileira e na Legislação Educacional. Educação Básica:
+       Objetivos, princípios e diretrizes curriculares. A educação no contexto das 
+       transformações da sociedade contemporânea. Políticas regressivas e ataques aos direitos
+       educacionais. A Didática e as Práticas de Ensino e o contexto político contemporâneo. As 
+       reformas políticas e o papel da Didática e das Práticas de Ensino no debate 
+       contemporâneo. Os projetos de regulação da educação escolar (BNCC, Escola sem 
+       Partido, Reforma do Ensino Médio). Planejamento e gestão da educação. Gestão 
+       Pedagógica e Democrática da Escola. Políticas de Avaliação da Educação Básica.`,*/
       coordenacao: [
 
         'Andrea da Paixão Fernandes',
@@ -264,9 +264,9 @@ export class HomeComponent implements OnInit {
       tema: `Redes Educativas 
        `,
       /* temaCurto: `entre Educação, Comunicação e Tecnologia`,*/
-      descricao: `Didática e Práticas de Ensino nas diretrizes do CNE; Implementação, resistência, 
-      permanência de políticas de formação de Pedagogos(as); PIBID, Residência Pedagógica 
-      e outros programas de formação.`,
+      /* descricao: `Didática e Práticas de Ensino nas diretrizes do CNE; Implementação, resistência, 
+       permanência de políticas de formação de Pedagogos(as); PIBID, Residência Pedagógica 
+       e outros programas de formação.`,*/
       coordenacao: [
 
         'Nilda Alves',
@@ -280,12 +280,12 @@ export class HomeComponent implements OnInit {
     },
     {
       titulo: 'Eixo 6',
-      tema: `Ativismos Online
+      tema: `Ativismos Online e redes sociais
        `,
       /* temaCurto: `entre Educação, Comunicação e Tecnologia`,*/
-      descricao: `Didática e Práticas de Ensino nas diretrizes do CNE; Implementação, resistência, 
-      permanência de políticas de formação de Pedagogos(as); PIBID, Residência Pedagógica 
-      e outros programas de formação.`,
+      /* descricao: `Didática e Práticas de Ensino nas diretrizes do CNE; Implementação, resistência, 
+       permanência de políticas de formação de Pedagogos(as); PIBID, Residência Pedagógica 
+       e outros programas de formação.`,*/
       coordenacao: [
 
         'Dilton Couto',

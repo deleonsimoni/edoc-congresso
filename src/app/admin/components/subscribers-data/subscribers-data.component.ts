@@ -233,7 +233,7 @@ export class SubscribersDataComponent implements OnInit {
     { id: 3, name: "Eixo 3: Hiperartesanias docentes e Hiperescritas de si" },
     { id: 4, name: "Eixo 4: Escola Básica" },
     { id: 5, name: "Eixo 5: Redes Educativas" },
-    { id: 6, name: "Eixo 6: Ativismo Online" }
+    { id: 6, name: "Eixo 6: Ativismo Online e redes sociais" }
 
   ];
 
