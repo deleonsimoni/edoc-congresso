@@ -230,7 +230,7 @@ export class HomeComponent implements OnInit {
       coordenacao: [
 
         'Leonardo Nolasco',
-        'Marcelo Bairral'
+        'Tania Lucía Maddalena'
       ],
       /*coordenacaogeral: ` Priscila Rezende Moreira - UEMG`
       ,*/
@@ -270,7 +270,7 @@ export class HomeComponent implements OnInit {
       coordenacao: [
 
         'Nilda Alves',
-        'Tánia Maddalena'
+        'Marcelo Bairral'
 
       ],
 
