@@ -15,7 +15,7 @@
             <div class="card-works">
                 <div class="row">
                     <div class="col-sm-10">
-                        <h5 style="color: #20959b">{{type | modalities}} - {{schedule.axis | axis}}</h5>
+                        <h5 style="color: #20959b">{{type | ome}} - {{schedule.axis | axis}}</h5>
                         <h3 *ngIf="type != '3'" tabindex="0"><b>{{schedule.workTitle}}</b></h3>
                         <h3 *ngIf="type == '3'" tabindex="0" alt="Pôster"><b>Apresentação de trabalhos</b></h3>
                         <h4 tabindex="0" *ngFor="let day of schedule.dates">{{day.date + ' ' + (day.startTime ?
