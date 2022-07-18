@@ -19,16 +19,18 @@ export const AXIS = [
   { id: 3, name: "Eixo 3: Hiperartesanias docentes e Hiperescritas de si" },
   { id: 4, name: "Eixo 4: Escola Básica" },
   { id: 5, name: "Eixo 5: Redes Educativas" },
-  { id: 6, name: "Eixo 6: Ativismos Online" },
+  { id: 6, name: "Eixo 6: Ativismos Online e redes sociais" },
 
 ];
 
 export const WORK_OPTIONS = [
-  { id: 1, name: "Pôster" },
   { id: 2, name: "Painel" },
-  { id: 3, name: "Minicurso" },
-  ,
+  { id: 3, name: "Oficina" },
+  { id: 4, name: 'Exposição' },
+  { id: 5, name: 'Conferência' },
+
 ];
+
 
 export const SCHEDULE_TYPE = [
   { id: 1, name: "Abertura" },
@@ -78,7 +80,7 @@ export const PROGRAMACOES = [
   {
     titulo: "Abertura",
     data: "25/7",
-    horario: "16:00-21:00",
+    horario: "09:00-09:30",
     local: "Vivo Rio",
     endereco:
       "Av. Infante Dom Henrique, 85 - Aterro do Flamengo, Rio de Janeiro – Ao lado do Museu de Arte Moderna e do Aeroporto Santos Dumont.",
