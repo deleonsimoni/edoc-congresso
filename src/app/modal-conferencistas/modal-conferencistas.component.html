@@ -11,27 +11,23 @@
     </div>
     <mat-dialog-content>
 
-      <!-- <div *ngIf="conferencistas.length > 0" class="row">
-        <div class="mt-4">
-          <div class="row align-items-center">
+      <div *ngIf="conferencistas.length > 0">
 
-            <div class="col-md-2 text-center" *ngFor="let conf of conferencistas| sort:'fullname'">
+
+        <div class="container " *ngFor="let conf of conferencistas| sort:'fullname'">
+          <div class="row">
+            <div class="col-sm-12">
               <img [src]="conf.imagem ? _DomSanitizationService.bypassSecurityTrustUrl(conf.imagem) : conf.imagemLocal"
                 title="{{conf.fullname}}">
             </div>
+            <div class="col-sm-12">{{conf.fullname}}</div>
+            <div class="col-sm-11">{{conf.description}}</div>
+          </div>
 
-          </div>
         </div>
-      </div> -->
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="box wow fadeInLeft">
-            <!--    <h4 class="title">EM PREPARAÇÃO</h4>-->
-            <p class="description" style="text-align: justify;">
-              EM PREPARAÇÃO </p>
-          </div>
-        </div>
+
       </div>
+
     </mat-dialog-content>
   </div>
 </section>

@@ -29,7 +29,7 @@ export class ModalConferencistasComponent implements OnInit {
       this.carregando = false;
       this.conferencistas = res;
       this.getImageConferencista();
-      this.popularConferencistasLocal();
+      //this.popularConferencistasLocal();
 
     }, err => {
       this.carregando = false;
