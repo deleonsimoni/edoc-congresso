@@ -16,7 +16,7 @@ function uploadFile(key, file) {
   });
 
   var s3Config = {
-    Bucket: 'edoc2022',
+    Bucket: 'edocimage',
     Key: key,
     Body: file
   };

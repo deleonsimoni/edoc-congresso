@@ -17,8 +17,9 @@
         <div class="container " *ngFor="let conf of conferencistas| sort:'fullname'">
           <div class="row">
             <div class="col-sm-12">
-              <img [src]="conf.imagem ? _DomSanitizationService.bypassSecurityTrustUrl(conf.imagem) : conf.imagemLocal"
-                title="{{conf.fullname}}">
+              <img width="304" height="236" src="https://edocimage.s3.sa-east-1.amazonaws.com/{{conf.imagePathS3}}"
+                class="img-fluid img-thumbnail capa-livro" />
+
             </div>
             <div class="col-sm-12">{{conf.fullname}}</div>
             <div class="col-sm-11">{{conf.description}}</div>

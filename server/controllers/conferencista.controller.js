@@ -18,7 +18,7 @@ async function insertConferencista(req) {
   let conferencista = JSON.parse(req.body.formulario);
   let retorno = { temErro: true };
 
-  let fileName = config.PATH_S3_DEV ? config.PATH_S3_DEV + 'edoc2022/conferencista/' + req.files.fileArray.name : 'edoc2022/conferencista/' + req.files.fileArray.name;
+  let fileName = 'edocimage/conferencista/' + req.files.fileArray.name;
   await S3Uploader.uploadFile(fileName, req.files.fileArray.data).then(fileData => {
     console.log('Arquivo submetido para AWS ' + fileName);
     conferencista.imagePathS3 = fileName;

@@ -28,7 +28,6 @@ export class ModalConferencistasComponent implements OnInit {
     this.conferencistaService.listar().subscribe((res: any) => {
       this.carregando = false;
       this.conferencistas = res;
-      this.getImageConferencista();
       //this.popularConferencistasLocal();
 
     }, err => {
@@ -40,22 +39,22 @@ export class ModalConferencistasComponent implements OnInit {
   public close(): void {
     this.dialogRef.close();
   }
-
-  public getImageConferencista() {
-
-    this.conferencistas.forEach(element => {
-
-      this.donwloadService.getImage(element.imagePathS3).subscribe((res: any) => {
-        element.imagem = "data:image/jpeg;base64," + this.encode(res.data.Body.data);
-      }, err => {
-        console.log('Erro ao obter a imagem');
+  /*
+    public getImageConferencista() {
+  
+      this.conferencistas.forEach(element => {
+  
+        this.donwloadService.getImage(element.imagePathS3).subscribe((res: any) => {
+          element.imagem = "data:image/jpeg;base64," + this.encode(res.data.Body.data);
+        }, err => {
+          console.log('Erro ao obter a imagem');
+        });
+  
       });
-
-    });
-
-
-  }
-
+  
+  
+    }
+  */
   popularConferencistasLocal() {
     this.conferencistas.push({
       fullname: 'Abraham Magendzo (Universidad Academia de Humanismo Cristiano)',
