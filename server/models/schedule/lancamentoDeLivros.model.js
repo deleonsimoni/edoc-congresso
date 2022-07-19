@@ -22,6 +22,11 @@ const ScheduleSchema = new mongoose.Schema({
     linkSale: {
       type: String,
     },
+
+    linkPresentation: {
+      type: String,
+    },
+
     nameMiniature: {
       type: String,
     }

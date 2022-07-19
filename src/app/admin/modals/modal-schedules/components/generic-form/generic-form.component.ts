@@ -34,7 +34,7 @@ export class GenericFormComponent {
       endTime: [null],
       place: [null],
       virtual: this.builder.group({ linkYoutube: [null], linkZoom: [null] }),
-      books: this.builder.array([this.builder.group({ title: [null], author: [null], resume: [null], linkSale: [null], miniature: [null], nameMiniature: [null], isChangeImage: false })]),
+      books: this.builder.array([this.builder.group({ title: [null], author: [null], resume: [null], linkSale: [null], linkPresentation: [null], miniature: [null], nameMiniature: [null], isChangeImage: false })]),
       address: [null],
       theme: [null],
       coordinators: this.builder.array([this.createCoordinatorsField()]),
@@ -182,7 +182,7 @@ export class GenericFormComponent {
 
   public addBook() {
     const dataCtrel = this.form.get("books") as FormArray;
-    dataCtrel.push(this.builder.group({ title: [null], author: [null], resume: [null], linkSale: [null], miniature: [null], nameMiniature: [null], isChangeImage: false }));
+    dataCtrel.push(this.builder.group({ title: [null], author: [null], resume: [null], linkSale: [null], linkPresentation: [null], miniature: [null], nameMiniature: [null], isChangeImage: false }));
   }
 
 

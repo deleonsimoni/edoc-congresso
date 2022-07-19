@@ -1,0 +1,114 @@
+<section id="programacao" class="wow fadeInUp">
+  <div class="container">
+
+    <div class="row contact-info mb-5" style="">
+      <div class="col-md-12">
+        <div class="section-header mt-3 mb-5">
+          <h2>Lançamento de Livros</h2>
+
+          <div class="container-fluid p-0">
+            <section class="p-3 align-items-center" *ngFor="let library of livros">
+              <!-- Livros Autorais -->
+
+              <h2 class="mb-4 mt-4 d-none d-lg-block">{{library.date}} - {{library.titles}}</h2>
+
+              <div class="row mb-4" *ngFor="let book of library.books">
+                <div class="col-4">
+                  <img width="304" height="236"
+                    src="https://edocimage.s3.sa-east-1.amazonaws.com/edocimage/books/{{book.nameMiniature}}"
+                    class="img-fluid img-thumbnail capa-livro" />
+
+                </div>
+                <div class="col-8">
+
+                  <h3><b>{{book.title}}</b></h3>
+                  <div style="text-align: justify; text-justify: inter-word;" class="mb-4">
+                    <p>De: <b>{{book.author}}</b></p>
+                    <p><a href="{{book.linkSale}}" target="_blank">+ Saiba mais</a></p>
+
+                  </div>
+
+                  <div class="accordion" id="accordionExample">
+
+                    <div class="card">
+                      <div class="card-header" id="headingTwo">
+                        <h5 class="mb-0">
+                          <button class="btn btn-link btn-livro collapsed" type="button" data-toggle="collapse"
+                            data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Vídeo de Apresentação
+                          </button>
+                        </h5>
+                      </div>
+                      <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo"
+                        data-parent="#accordionExample">
+                        <div class="card-body">
+                          <iframe width="560" height="315" [src]='sanitizeLink(book.linkPresentation)' frameborder="0"
+                            allowfullscreen></iframe>
+
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="card">
+                      <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                          <button class="btn btn-link btn-livro" type="button" data-toggle="collapse"
+                            data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Resumo
+                          </button>
+                        </h5>
+                      </div>
+
+                      <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+                        data-parent="#accordionExample">
+                        <div class="card-body" style="text-align: justify; text-justify: inter-word;">
+                          {{book.resume}}
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+
+
+            </section>
+          </div>
+          <!-- FIM DOS AUTORAIS -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

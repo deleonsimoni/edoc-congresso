@@ -47,12 +47,14 @@
         </div>
         <div class="group" *ngIf="type != '9'">
             <p class="label">Link do Youtube</p>
-            <p class="hour"><a href="{{ schedule?.virtual?.linkYoutube }}" target="_blank">{{ schedule?.virtual?.linkYoutube }}</a></p>
+            <p class="hour"><a href="{{ schedule?.virtual?.linkYoutube }}" target="_blank">{{
+                    schedule?.virtual?.linkYoutube }}</a></p>
 
         </div>
         <div class="group" *ngIf="type == '9'">
             <p class="label">Link do Zoom</p>
-            <p class="hour"><a href="{{ schedule?.virtual?.linkZoom }}" target="_blank">{{ schedule?.virtual?.linkZoom }}</a></p>
+            <p class="hour"><a href="{{ schedule?.virtual?.linkZoom }}" target="_blank">{{ schedule?.virtual?.linkZoom
+                    }}</a></p>
 
         </div>
         <!-- EXIBICAO WORK POSTER-->
@@ -73,7 +75,8 @@
                     Link do livro: {{ books.linkSale }}
                 </p>
                 <p class="title not-dash" style="margin: 0px 0px 4px 24px !important;">
-                    <img width="100px" height="150px" src="https://ffainfinity.s3-sa-east-1.amazonaws.com/books/{{books.nameMiniature}}">
+                    <img width="100px" height="150px"
+                        src="https://edocimage.s3.sa-east-1.amazonaws.com/edocimage/books/{{books.nameMiniature}}">
                 </p>
             </div>
         </div>

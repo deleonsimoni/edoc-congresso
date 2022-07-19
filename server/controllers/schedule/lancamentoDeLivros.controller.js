@@ -10,13 +10,20 @@ module.exports = {
 }
 
 async function listSchedule(date) {
-  var livro = await LancamentoDeLivros.find({
-    date: date
-  })
+  let livro;
 
-    .sort({
+  if (date != 'all') {
+    livro = await LancamentoDeLivros.find({
+      date: date
+    }).sort({
       startTime: 1
     });
+  } else {
+    livro = await LancamentoDeLivros.find({}).sort({
+      date: 1
+    });
+
+  }
   /*
     for (let i = 0; i < livro.length; i++) {  
       for (let j = 0; j < livro[i].books.length; j++) {
@@ -76,7 +83,7 @@ async function uploadBooks(books) {
 
     if (books[i].isChangeImage) {
 
-      fileName = 'books/' + books[i].nameMiniature;
+      fileName = 'edocimage/books/' + books[i].nameMiniature;
 
       let buf = Buffer.from(books[i].miniature.replace(/^data:image\/\w+;base64,/, ""), 'base64')
 

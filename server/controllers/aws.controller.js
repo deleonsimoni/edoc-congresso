@@ -42,7 +42,7 @@ function uploadBase64(key, file) {
   });
 
   var s3Config = {
-    Bucket: 'ffainfinity',
+    Bucket: 'edocimage',
     Key: key,
     Body: file,
     ACL: "public-read",

@@ -16,6 +16,7 @@ import { MeuEndipeComponent } from './meu-endipe/meu-endipe.component';
 import { InscrevaseComponent } from './programacao/components/inscrevase/inscrevase.component';
 import { ProgramacaoAbertaComponent } from './programacao/components/programacao-aberta/programacao-aberta.component';
 import { AnaisVirtualComponent } from './endipe-virtual/anais-virtual/anais-virtual.component';
+import { LancamentoLivrosComponent } from './lancamento-livros/lancamento-livros.component';
 
 const routes: Routes = [
   {
@@ -82,6 +83,11 @@ const routes: Routes = [
   {
     path: 'anais-virtual',
     component: AnaisVirtualComponent
+  }
+  ,
+  {
+    path: 'lancamento-livros',
+    component: LancamentoLivrosComponent
   }
 ];
 

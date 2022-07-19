@@ -127,6 +127,8 @@
       Entrevistador(es)
     </button>
   </div>
+
+
   <!-- LANCAMENTO DE LIVROS -->
   <div class="form-group col-md-12" *ngIf="type == '9'">
     <label for="books" class="label">Obras</label>
@@ -146,30 +148,34 @@
 
           <div #images class="row form-group col-md-12">
 
-              <div class="form-group col-md-2">
-                <div class="miniature-img ">
-                  <img  id="imageRender{{i}}" src="../../assets/img/user.png">
-                  <button (click)="loadImage(i)"><i class="fas fa-camera"></i></button>
+            <div class="form-group col-md-2">
+              <div class="miniature-img ">
+                <img id="imageRender{{i}}" src="../../assets/img/user.png">
+                <button (click)="loadImage(i)"><i class="fas fa-camera"></i></button>
+              </div>
+            </div>
+
+            <div class="col-md-10">
+              <div class="row">
+                <div class="form-group col-md-12">
+                  <label for="resume" class="label">Resumo</label>
+                  <textarea name="resume" class="form-control" id="resume{{i}}" cols="30" rows="5"
+                    formControlName="resume"></textarea>
+                </div>
+
+                <div class="form-group col-md-12">
+                  <label for="linkSale" class="label">Link do livro</label>
+                  <input type="text" class="form-control" formControlName="linkSale" />
+                </div>
+                <div class="form-group col-md-12">
+                  <label for="linkPresentatios" class="label">Link de apresentação</label>
+                  <input type="text" class="form-control" formControlName="linkPresentation" />
                 </div>
               </div>
-
-              <div class="col-md-10">
-                <div class="row">
-                  <div class="form-group col-md-12">
-                    <label for="resume" class="label">Resumo</label>
-                    <textarea name="resume" class="form-control" id="resume{{i}}" cols="30" rows="5"
-                      formControlName="resume"></textarea>
-                  </div>
-
-                  <div class="form-group col-md-12">
-                    <label for="linkSale" class="label">Link do livro</label>
-                    <input type="text" class="form-control" formControlName="linkSale" />
-                  </div>
-                </div>
-              </div>
+            </div>
 
 
-          </div>          
+          </div>
 
 
           <div class="col-md-1 align-items-center icon" *ngIf="i > 0">
