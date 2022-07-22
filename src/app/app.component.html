@@ -31,10 +31,10 @@
 
           <nav id="nav-menu-container" [hidden]="isMobile == true">
             <ul class="nav-menu">
-              <!-- <li class="pointer">
-                <a tabindex="0" class="menu-has-children aoVivo comMargem pulse" [routerLink]="['/eDoC-remoto']">e-DoC
+              <li class="pointer">
+                <a tabindex="0" class="menu-has-children aoVivo comMargem pulse" [routerLink]="['/edoc-remoto']">e-DoC
                   Remoto</a>
-              </li>-->
+              </li>
 
 
               <li class="nav-item dropdown">
@@ -103,11 +103,11 @@
                   <a class="dropdown-item" alt="Programação" [routerLink]="['/programacao']"
                     fragment="programacao">Geral</a>
                   <div class="dropdown-divider"></div>
-                  <!-- <a class="dropdown-item" alt="Inscreva-se" [routerLink]="['/programacao-aberta']"
+                  <a class="dropdown-item" alt="Inscreva-se" [routerLink]="['/programacao-aberta']"
                     fragment="inscreva">Atividades Abertas</a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" alt="Inscreva-se" [routerLink]="['/inscrevase']"
-                    fragment="inscreva">Atividades Fechadas</a>-->
+                    fragment="inscreva">Atividades Fechadas</a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" alt="Conferencistas" [routerLink]="['/home']"
                     (click)="openConferencistasModal()">Conferencistas</a>
@@ -211,12 +211,12 @@
     <mat-sidenav #sidenav mode="over">
       <accordion #accordion [isAnimated]="true" [closeOthers]="true">
 
-        <!--<ul class="child-list">
+        <ul class="child-list">
           <li>
-            <a tabindex="0" accordion-heading class="menu-has-children aoVivo pulse" [routerLink]="['/eDoC-remoto']"
+            <a tabindex="0" accordion-heading class="menu-has-children aoVivo pulse" [routerLink]="['/edoc-remoto']"
               (click)="sidenav.toggle()">e-DoC REMOTO</a>
           </li>
-        </ul>-->
+        </ul>
 
         <accordion-group>
           <a tabindex="0" accordion-heading>SOBRE <i class="fa "
@@ -258,10 +258,10 @@
           <ul class="child-list">
             <li> <a tabindex="0" accordion-heading [routerLink]="['/programacao']" (click)="sidenav.toggle()">Geral</a>
             </li>
-            <!--<li><a tabindex="0" accordion-heading [routerLink]="['/programacao-aberta']"
+            <li><a tabindex="0" accordion-heading [routerLink]="['/programacao-aberta']"
                 (click)="sidenav.toggle()">Atividades Abertas</a></li>
             <li><a tabindex="0" accordion-heading [routerLink]="['/inscrevase']" (click)="sidenav.toggle()">Atividades
-                Fechadas</a></li>-->
+                Fechadas</a></li>
             <li> <a tabindex="0" accordion-heading (click)="openConferencistasModal()">Conferencistas</a></li>
             <li> <a tabindex="0" accordion-heading [routerLink]="['/lancamento-livros']">Lançamento de Livros</a>
 

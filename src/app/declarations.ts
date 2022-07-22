@@ -46,34 +46,34 @@ export const THEME_SIMPOSIO = [
   {
     id: 1,
     name:
-      "I - DIDÁTICA(S) ENTRE DIÁLOGOS, INSURGÊNCIAS E POLÍTICAS: TENSÕES E PERSPECTIVAS NA RELAÇÃO COM FORMAÇÃO DOCENTE",
+      "Eixo 1: Educação Online",
   },
   {
     id: 2,
     name:
-      "II - DIDÁTICA(S) ENTRE DIÁLOGOS, INSURGÊNCIAS E POLÍTICAS: TENSÕES E PERSPECTIVAS NA RELAÇÃO COM CURRICULO E AVALIAÇÃO",
+      "Eixo 2: Fenômenos da Cibercultura",
   },
   {
     id: 3,
     name:
-      "III - DIDÁTICA(S) ENTRE DIÁLOGOS, INSURGÊNCIAS E POLÍTICAS: TENSÕES E PERSPECTIVAS NA RELAÇÃO EM DIREITOS HUMANOS, INTRERCULTURALIDADE E RELIGIÕES",
+      "Eixo 3: Hiperartesanias docentes e Hiperescritas de si",
   },
   {
     id: 4,
     name:
-      "IV - DIDÁTICA(S) ENTRE DIÁLOGOS, INSURGÊNCIAS E POLÍTICAS: TENSÕES E PERSPECTIVAS NA RELAÇÃO ENTRE NOVAS EPISTEMOLOGIAS, BIODIVERSIDADE, DIFERENÇA, DEMOCRACIA E INCLUSÃO",
+      "Eixo 4: Escola Básica",
   },
   {
     id: 5,
     name:
-      "V - DIDÁTICA(S) ENTRE DIÁLOGOS, INSURGÊNCIAS E POLÍTICAS: TENSÕES E PERSPECTIVAS NA RELAÇÃO ENTRE EDUCAÇÃO, COMUNICAÇÃO E TECNOLOGIAS",
+      "Eixo 5: Redes Educativas",
   },
   {
     id: 6,
     name:
-      "VI- DIDÁTICA(S) ENTRE DIÁLOGOS, INSURGÊNCIAS E POLÍTICAS: TENSÕES E PERSPECTIVAS NA RELAÇÃO ENTRE INFÂNCIAS, JUVENTUDES E VIDA E ADULTA",
+      "Eixo 6: Ativismos Online e redes sociais",
   },
-  { id: 7, name: "VII- SIMPÓSIOS INTEGRADORES" },
+
 ];
 
 export const PROGRAMACOES = [

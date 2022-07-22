@@ -40,10 +40,10 @@ export class LiveVirtualComponent implements OnInit {
     if (this.scheduleSelect == schedule._id) {
       this.scheduleSelect = null;
     } else {
-      if(schedule.virtual && schedule.virtual.linkYoutube){
+      if (schedule.virtual && schedule.virtual.linkYoutube) {
         schedule.virtual.linkYoutube = '//www.youtube.com/embed/' + this.getIdYoutube(schedule.virtual.linkYoutube);
         this.linkYoutubeSafe = this._sanitizer.bypassSecurityTrustResourceUrl(schedule.virtual.linkYoutube);
-        this.chatYoutubeSafe = this._sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/live_chat?v='+ this.getIdYoutube(schedule.virtual.linkYoutube) + '&embed_domain=' + window.location.hostname);
+        this.chatYoutubeSafe = this._sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/live_chat?v=' + this.getIdYoutube(schedule.virtual.linkYoutube) + '&embed_domain=' + window.location.hostname);
       }
 
       this.scheduleSelect = schedule._id;
@@ -86,29 +86,29 @@ export class LiveVirtualComponent implements OnInit {
           element.type = 8;
         });
 
-        res.atividadeCultural.forEach(element => {
-          element.type = 7;
-        });
+        /*  res.atividadeCultural.forEach(element => {
+            element.type = 7;
+          });*/
 
         res.lancamentoDeLivros.forEach(element => {
           element.type = 9;
         });
 
-        res.rodaReunioesEntidadesRedes.forEach(element => {
+        /*res.rodaReunioesEntidadesRedes.forEach(element => {
           element.type = 11;
         });
 
         res.sessoesEspeciais.forEach(element => {
           element.type = 10;
-        });
+        });*/
 
 
 
         this.schedules = [
-          ...res.atividadeCultural,
-          ...res.rodaReunioesEntidadesRedes,
+          /*...res.atividadeCultural,
+          ...res.rodaReunioesEntidadesRedes,*/
           ...res.simposio,
-          ...res.sessoesEspeciais,
+          /* ...res.sessoesEspeciais,*/
           ...res.lancamentoDeLivros,
           ...res.abertura,
           ...res.encerramento
@@ -139,8 +139,8 @@ export class LiveVirtualComponent implements OnInit {
   }
 
 
-  selectBookSchedule(schedule){
-    if(this.scheduleSelect == schedule._id){
+  selectBookSchedule(schedule) {
+    if (this.scheduleSelect == schedule._id) {
       this.scheduleSelect = null;
     } else {
       this.scheduleSelect = schedule._id;
@@ -149,8 +149,8 @@ export class LiveVirtualComponent implements OnInit {
     }
   }
 
-  
-  getBooksPaginated(schedule, event){
+
+  getBooksPaginated(schedule, event) {
     this.carregando = true;
     let pageChoose = event && event.pageIndex + 1 || 1;
     this.http.get(`${this.baseUrl}/live/scheduleBooksPaginate?page=${pageChoose}&id=${schedule._id}`).subscribe(
@@ -160,17 +160,17 @@ export class LiveVirtualComponent implements OnInit {
         this.carregando = false;
 
         let indexArray = 0;
-        setTimeout( () => {
+        setTimeout(() => {
           schedule.books.forEach(element => {
-  
-            if((document.getElementById(element.nameMiniature) as HTMLImageElement)){
+
+            if ((document.getElementById(element.nameMiniature) as HTMLImageElement)) {
               let file = element.miniature.data;
               const base64 = btoa(new Uint8Array(file).reduce((data, byte) => data + String.fromCharCode(byte), ''));
               (document.getElementById(element.nameMiniature) as HTMLImageElement).src = 'data:image/jpg;base64,' + base64;
-              indexArray++;  
+              indexArray++;
             }
-           
-          }); 
+
+          });
         }, 100);
       },
       (err) => {

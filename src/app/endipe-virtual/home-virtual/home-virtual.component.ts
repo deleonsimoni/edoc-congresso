@@ -12,12 +12,12 @@ import { ModalBemVindoComponent } from 'src/app/modal-bem-vindo/modal-bem-vindo.
 })
 export class HomeVirtualComponent implements OnInit {
 
-  
+
   carregando = false;
   user;
   comments;
 
-  constructor(    
+  constructor(
     private toastr: ToastrService,
     @Inject('BASE_API_URL') private baseUrl: string,
     private http: HttpClient,
@@ -28,7 +28,7 @@ export class HomeVirtualComponent implements OnInit {
 
     this.retrieveUser();
 
-    if(!localStorage.getItem("bemVindoEndipeVirtual")){
+    if (!localStorage.getItem("bemVindoEndipeVirtual")) {
 
       const dialogRef = this.dialog.open(ModalBemVindoComponent, {});
 

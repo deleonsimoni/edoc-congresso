@@ -393,11 +393,11 @@ async function listVirtual() {
   }
 
   let virtual = { schedules: [] };
-  //if (date == "29/10") {
-  virtual.abertura = await aberturaCtrl.listSchedule(date);
-  //} else {
-  //  virtual.abertura = [];
-  //}
+  if (date == "25/07") {
+    virtual.abertura = await aberturaCtrl.listSchedule(date);
+  } else {
+    virtual.abertura = [];
+  }
   if (date == "29/07") {
     virtual.encerramento = await encerramentoCtrl.listSchedule(date);
   }

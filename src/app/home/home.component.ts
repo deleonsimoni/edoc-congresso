@@ -190,7 +190,8 @@ export class HomeComponent implements OnInit {
       coordenacao: [
 
         'Edméa Santos',
-        'Tatiana Rossini'
+        'Tatiana Rossini',
+        'Mayra Ribeiro'
 
       ],
       /*coordenacaogeral: ` Lenilda Rêgo Albuquerque De Faria - UFAC`

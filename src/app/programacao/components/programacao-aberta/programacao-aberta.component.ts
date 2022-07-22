@@ -18,7 +18,7 @@ export class ProgramacaoAbertaComponent implements OnInit {
   public programacoes = SCHEDULE_TYPE;
   public schedules$: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
   @ViewChild('selecioneDia', { static: false }) selecioneDia: any;
-  public days = ["25/07", "26/07", "27/07", "28/07", "29/07"];
+  public days = ["2507", "26/07", "27/07", "28/07", "29/07"];
   daySelect;
   modalitySelect;
   carregando = false;
@@ -29,14 +29,7 @@ export class ProgramacaoAbertaComponent implements OnInit {
       name: 'Abertura',
       type: 1
     },
-    {
-      name: 'Atividade Cultural',
-      type: 7
-    },
-    {
-      name: 'Conexão Entrevista',
-      type: 11
-    },
+
     {
       name: 'Encerramento',
       type: 12
@@ -45,12 +38,9 @@ export class ProgramacaoAbertaComponent implements OnInit {
       name: 'Lançamentos de Livros',
       type: 9
     },
+
     {
-      name: 'Sessão Especial',
-      type: 10
-    },
-    {
-      name: 'Simpósios',
+      name: 'Conferências',
       type: 8
     }
   ];
