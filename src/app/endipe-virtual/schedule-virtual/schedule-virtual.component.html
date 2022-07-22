@@ -26,27 +26,31 @@
                     <div class="col-sm-2">
 
 
-                        <div>
+                        <!--  <div>
                             <ng-container *ngIf="type != '3'">
                                 <h4 class="mb-4"><button class="btn btn-warning">Inscrições Encerradas</button></h4>
                             </ng-container>
-                        </div>
-                        <!--
+                        </div>-->
+
                         <div *ngIf="!carregando && user?.payment?.icPaid && type != '3'">
-                            <ng-container *ngIf="!isSubscribe(schedule) && schedule.qtdSubscribers - (schedule.subscribers ? schedule.subscribers.length : 0) > 0">
-                                <h4 class="mb-4"><button (click)="signUp(type, schedule)" class="btn btn-inscrever">Inscrever </button></h4>
+                            <ng-container
+                                *ngIf="!isSubscribe(schedule) && schedule.qtdSubscribers - (schedule.subscribers ? schedule.subscribers.length : 0) > 0">
+                                <h4 class="mb-4"><button (click)="signUp(type, schedule)"
+                                        class="btn btn-inscrever">Inscrever </button></h4>
                             </ng-container>
 
-                            <ng-container *ngIf="(schedule.qtdSubscribers - schedule?.subscribers.length) == 0 && !isSubscribe(schedule)">
+                            <ng-container
+                                *ngIf="(schedule.qtdSubscribers - schedule?.subscribers.length) == 0 && !isSubscribe(schedule)">
                                 <h4 class="mb-4"><button class="btn btn-warning">Vagas Encerradas</button></h4>
                             </ng-container>
 
                             <ng-container *ngIf="isSubscribe(schedule)">
-                                <h4 class="mb-4"><button (click)="cancelSignUp(type, schedule)" class="btn btn-danger">Cancelar Inscrição</button></h4>
+                                <h4 class="mb-4"><button (click)="cancelSignUp(type, schedule)"
+                                        class="btn btn-danger">Cancelar Inscrição</button></h4>
                             </ng-container>
 
-                        </div> 
--->
+                        </div>
+
                         <div *ngIf="carregando">
                             <h4 class="mb-4"><button class="btn btn-inscrever"><i
                                         class="fas fa-spinner fa-pulse"></i></button></h4>
