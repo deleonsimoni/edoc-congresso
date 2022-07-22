@@ -149,7 +149,7 @@ export class CertificadoComponent implements OnInit {
       var position = 0;
       this.carregando = false;
       pdf.addImage(contentDataURL, "PNG", 0, position, imgWidth, imgHeight);
-      pdf.save("Certificado Endipe.pdf"); // Generated PDF
+      pdf.save("Certificado Edoc.pdf"); // Generated PDF
     });
   }
 
