@@ -28,11 +28,11 @@ export class HomeVirtualComponent implements OnInit {
 
     this.retrieveUser();
 
-    if (!localStorage.getItem("bemVindoEndipeVirtual")) {
+    if (!localStorage.getItem("bemVindoEndocVirtual")) {
 
       const dialogRef = this.dialog.open(ModalBemVindoComponent, {});
 
-      localStorage.setItem("bemVindoEndipeVirtual", "1");
+      localStorage.setItem("bemVindoEndocVirtual", "1");
 
     }
 
