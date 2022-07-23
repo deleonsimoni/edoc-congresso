@@ -3,6 +3,7 @@ const Mural = require('../../models/virtual/mural.model');
 const ChatWork = require('../../models/virtual/chatWork.model');
 
 const paginate = require("jw-paginate");
+const { consoleTestResultHandler } = require('tslint/lib/test');
 
 module.exports = {
   getChat,
@@ -63,7 +64,7 @@ async function insertChat(mensagem, user) {
     content: mensagem,
     publisher: {
       user: user._id,
-      name: user.fullname, 
+      name: user.fullname,
       email: user.email,
       icAdmin: user.icAdmin
     }
@@ -86,14 +87,14 @@ async function updateChat(idChat, mensagem, user) {
 
   return await Chat.findOneAndUpdate({
     _id: idChat
-    }, {
-      icReply: user.icAdmin,
-      $addToSet: {
-        chat: chat
-      }
-    }, {
-      new: true
-    },
+  }, {
+    icReply: user.icAdmin,
+    $addToSet: {
+      chat: chat
+    }
+  }, {
+    new: true
+  },
     function (err, doc) {
       if (err) return res.send(500, {
         error: err
@@ -108,27 +109,33 @@ async function updateChat(idChat, mensagem, user) {
 async function getChatMural(req) {
 
   const dateNow = new Date();
-  let date = dateNow.getDate().toString() + '/' + (dateNow.getMonth() + 1);
+  let date = dateNow.getDate().toString() + '/' + '0' + (dateNow.getMonth() + 1);
   const pageSize = 6;
   const page = req.query.page || 1;
   let total;
 
-  if(date.length == 4){
+  /*if(date.length == 4){
     date = "0" + date;
+  }*/
+
+  try {
+    total = await Mural.aggregate([{ $match: { 'date': date } }, { $project: { chat: { $size: '$chat' } } }]);
+    console.log('aaa ' + total)
+  } catch {
+    const mural = await Mural.findOne({ 'date': date });
+    return { mural };
   }
 
-  try{
-    total = await Mural.aggregate([{$match: { 'date': date}}, {$project: {chat: {$size: '$chat'}}}]);
-  } catch{
+  if (total == '') {
     const mural = await Mural.findOne({ 'date': date });
-    return {mural};
+    return { mural };
   }
 
   let begin = total[0] ? (total[0].chat - 1) - pageSize : 0;
-  if (begin < 0 ) begin = 0;
+  if (begin < 0) begin = 0;
   let end = total[0] ? total[0].chat : 1;
-  if (end == 0 ) end = 1;
-  const mural = await Mural.findOne({ 'date': date }, {'chat':{$slice:[begin, end]}});
+  if (end == 0) end = 1;
+  const mural = await Mural.findOne({ 'date': date }, { 'chat': { $slice: [begin, end] } });
 
   const pager = await paginate(total, page, pageSize);
 
@@ -151,13 +158,13 @@ async function insertChatMural(mensagem, user) {
     content: mensagem,
     publisher: {
       user: user._id,
-      name: user.fullname, 
+      name: user.fullname,
       email: user.email,
       icAdmin: user.icAdmin
     }
   }];
 
-  return await new Chat(chat).save();
+  return await new Mural(chat).save();
 }
 
 async function updateChatMural(idChat, mensagem, user, res) {
@@ -174,13 +181,13 @@ async function updateChatMural(idChat, mensagem, user, res) {
 
   await Mural.findOneAndUpdate({
     _id: idChat
-    }, {
-      icReply: user.icAdmin,
-      $addToSet: {
-        chat: chat
-      }
-    });
-  
+  }, {
+    icReply: user.icAdmin,
+    $addToSet: {
+      chat: chat
+    }
+  });
+
   return await "ok";
 
 }
@@ -190,17 +197,17 @@ async function deleteChatMural(req, res) {
 
   let canDelete = false;
 
-  if(req.user.icAdmin) {
+  if (req.user.icAdmin) {
     canDelete = true;
   } else {
-    let muralFind = await Mural.find({"chat._id": req.query.idChat},{ "chat.$": 1 });
-    if(muralFind[0].chat && req.user.email == muralFind[0].chat[0].publisher.email){
+    let muralFind = await Mural.find({ "chat._id": req.query.idChat }, { "chat.$": 1 });
+    if (muralFind[0].chat && req.user.email == muralFind[0].chat[0].publisher.email) {
       canDelete = true;
     }
 
   }
 
-  if(canDelete) {
+  if (canDelete) {
     await Mural.findOneAndUpdate(
       {
         _id: req.query.id,
@@ -236,7 +243,7 @@ async function insertChatWork(idWork, mensagem, user) {
 
   let chatExist = await ChatWork.findOne({ 'idWork': idWork }).select("_id");
 
-  if(chatExist){
+  if (chatExist) {
 
     return updateChatWork(chatExist._id, mensagem, user);
 
@@ -244,17 +251,17 @@ async function insertChatWork(idWork, mensagem, user) {
     let chat = {};
 
     chat.idWork = idWork;
-   
+
     chat.chat = [{
       content: mensagem,
       publisher: {
         user: user._id,
-        name: user.fullname, 
+        name: user.fullname,
         email: user.email,
         icAdmin: user.icAdmin
       }
     }];
-  
+
     return await new ChatWork(chat).save();
   }
 
@@ -275,14 +282,14 @@ async function updateChatWork(idChat, mensagem, user) {
 
   return await ChatWork.findOneAndUpdate({
     _id: idChat
-    }, {
-      icReply: user.icAdmin,
-      $addToSet: {
-        chat: chat
-      }
-    }, {
-      new: true
-    },
+  }, {
+    icReply: user.icAdmin,
+    $addToSet: {
+      chat: chat
+    }
+  }, {
+    new: true
+  },
     function (err, doc) {
       if (err) return res.send(500, {
         error: err

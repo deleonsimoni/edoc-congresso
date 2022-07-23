@@ -98,6 +98,8 @@ export class TimeLineVirtualComponent implements OnInit {
       chatMessage = chatMessage.replace(/https?:\/\/(www.)?([a-zA-Z0-9\-_]+\.[a-zA-Z0-9]+)/, '<a href="//$2">$2</a>')
       this.newComment = null;
 
+
+
       if (this.comments._id) {
 
         this.http.put(`${this.baseUrl}/chat-admin/mural?id=${this.comments._id}`, { mensagem: chatMessage }).subscribe((res: any) => {
@@ -111,7 +113,7 @@ export class TimeLineVirtualComponent implements OnInit {
 
       } else {
 
-        this.http.post(`${this.baseUrl}/chat-mural/mural`, { mensagem: chatMessage }).subscribe((res: any) => {
+        this.http.post(`${this.baseUrl}/chat-admin/mural`, { mensagem: chatMessage }).subscribe((res: any) => {
           this.comments = res;
           this.comments['chat'] = ([{
             content: chatMessage,

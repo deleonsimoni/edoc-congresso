@@ -15,7 +15,7 @@
             <div class="card-works">
                 <div class="row">
                     <div class="col-sm-10">
-                        <h5 style="color: #20959b">{{type | modalities}} - {{schedule.axis | axis}}</h5>
+                        <h5 style="color: #000000">{{type | modalities}} - {{schedule.axis | axis}}</h5>
                         <h3 *ngIf="type != '3'" tabindex="0"><b>{{schedule.workTitle}}</b></h3>
                         <h3 *ngIf="type == '3'" tabindex="0" alt="Pôster"><b>Apresentação de trabalhos</b></h3>
                         <h4 tabindex="0" *ngFor="let day of schedule.dates">{{day.date + ' ' + (day.startTime ?
@@ -59,7 +59,8 @@
 
                         <div style="cursor: pointer !important;">
                             <h4 style="position: absolute; bottom: 0; left: 0; cursor: pointer !important;"
-                                (click)="selectSchedule(schedule);">Mais detalhes <i class="fa fa-chevron-down"></i>
+                                (click)="selectSchedule(schedule);">Clique para mais detalhes <i
+                                    class="fa fa-chevron-down"></i>
                             </h4>
                         </div>
                     </div>
@@ -78,6 +79,7 @@
                             <strong>Resumo</strong>
                             <p style="text-align: justify; text-justify: inter-word;">{{ schedule.resumePropose }}</p>
                         </div>
+
                     </div>
 
                     <div *ngIf="type == '3'" class="row align-items-center">
@@ -118,8 +120,8 @@
             <div class="card-works">
                 <div class="row">
                     <div class="col-sm-10">
-                        <h5 *ngIf="type != '8'" style="color: #20959b">{{type | modalitiesWork}}</h5>
-                        <h5 *ngIf="type == '8'" style="color: #20959b">{{schedule.theme | themeSimposio}}</h5>
+                        <h5 *ngIf="type != '8'" style="color: #000000">{{type | modalitiesWork}}</h5>
+                        <h5 *ngIf="type == '8'" style="color: #000000">{{schedule.theme | themeSimposio}}</h5>
                         <h3 tabindex="0" *ngIf="type != '8'"><b>{{schedule?.titles[0]}}</b></h3>
                         <h3 tabindex="0" *ngIf="type  == '8'"><b>{{schedule.themeSpeeches}}</b></h3>
                         <h4 tabindex="0">{{schedule.date + ' ' + (schedule.startTime ? schedule.startTime : '') + ' - '
@@ -189,13 +191,14 @@
             <div class="card-works">
                 <div class="row">
                     <div class="col-sm-10">
-                        <h5 style="color: #20959b">{{type | modalitiesWork}}</h5>
+                        <h5 style="color: #000000">{{type | modalitiesWork}}</h5>
                         <h3 tabindex="0"><b>{{schedule?.titles[0]}}</b></h3>
                         <h4 tabindex="0">{{schedule.date + ' ' + (schedule.startTime ? schedule.startTime : '') + ' - '
                             + (schedule.endTime ? schedule.endTime : '')}}</h4>
                         <h4 tabindex="0" class="mb-1">
                             Link para acesso: <b>
-                                <a tabindex="0" *ngIf="schedule?.virtual?.linkZoom"
+                                <a style="color: #ffffff;
+                                text-decoration: underline;" tabindex="0" *ngIf="schedule?.virtual?.linkZoom"
                                     [attr.href]="schedule?.virtual?.linkZoom" target="_blank">Clique Aqui</a>
                                 <span tabindex="0" *ngIf="schedule?.virtual?.linkZoom"> ou copie
                                     {{schedule?.virtual?.linkZoom}}</span>

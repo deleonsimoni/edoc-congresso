@@ -31,6 +31,7 @@ module.exports = {
   getPrice,
   uploadWork,
   downloadFileS3,
+  downloadFileS3Image,
   createCoordinator,
   getCoordinator,
   deleteCoordinator,
@@ -328,6 +329,11 @@ async function generatePayment(req, res) {
 async function downloadFileS3(req) {
   console.log('pegando Arquivo ' + req);
   return await S3Uploader.downloadFile(req);
+}
+
+async function downloadFileS3Image(req) {
+  console.log('pegando Arquivo ' + req);
+  return await S3Uploader.downloadFileBucketImage(req);
 }
 
 async function getUserByEmail(email) {

@@ -4,6 +4,7 @@ const config = require('../config/config');
 module.exports = {
   uploadFile,
   downloadFile,
+  downloadFileBucketImage,
   sendEmailAWS,
   uploadBase64,
 }
@@ -61,6 +62,28 @@ function uploadBase64(key, file) {
   });
 }
 
+async function downloadFileBucketImage(key) {
+
+  const s3 = new AWS.S3({
+    accessKeyId: config.AWS_ACCESS_KEY,
+    secretAccessKey: config.AWS_SECRET_ACCESS_KEY
+  });
+
+  var s3Config = {
+    Bucket: 'edocimage',
+    Key: key
+  };
+
+  return new Promise((resolve, reject) => {
+    s3.getObject(s3Config, (err, resp) => {
+      if (err) {
+        reject({ success: false, data: err });
+      }
+      resolve({ success: true, data: resp });
+    })
+  })
+};
+
 async function downloadFile(key) {
 
   const s3 = new AWS.S3({
@@ -75,11 +98,11 @@ async function downloadFile(key) {
 
   return new Promise((resolve, reject) => {
     s3.getObject(s3Config, (err, resp) => {
-      if (err) {
-        console.log('Erro AWS', err);
-        reject({ success: false, data: err });
+      if (err && err.statusCode == 404) {
+        console.log('ERRO > ' + err.statusCode)
+        resolve({ success: false, data: err });
       }
-      resolve({ sucess: true, data: resp });
+      resolve({ success: true, data: resp });
     })
   })
 };

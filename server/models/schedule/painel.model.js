@@ -16,7 +16,7 @@ const ScheduleSchema = new mongoose.Schema({
   workAuthor: [{
     type: String
   }],
-  
+
   axis: {
     type: String
   },
@@ -33,6 +33,9 @@ const ScheduleSchema = new mongoose.Schema({
       type: String
     },
     linkZoom: {
+      type: String
+    },
+    linkYoutube: {
       type: String
     },
     linkAudio: {

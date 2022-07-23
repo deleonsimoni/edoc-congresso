@@ -9,7 +9,7 @@ export class DayMonthPipe implements PipeTransform {
     let dayWithMont: String = value;
 
     switch (dayWithMont.substring(0, dayWithMont.indexOf('/'))) {
-      case "21":
+      case "25":
         return dayWithMont + " - Segunda"
       case "26":
         return dayWithMont + " - Terça"

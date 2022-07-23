@@ -1,237 +1,249 @@
 #forum {
     * {
-      margin: 0;
-      padding: 0;
-      background: none;
-      border: 0;
-      border-radius: 0;
-      outline: 0;
-      box-sizing: border-box;
-      color: inherit;
-      font: inherit;
-      line-height: inherit;
-      user-select: none;
-      cursor: default;
-  }
-  
-  body {
-      margin: 0 auto;
-      padding: 20px;
-      width: 100%;
-      min-width: 440px;
-      max-width: 740px;
-      background: #e5e5e5;
-      color: #000;
-      font: 300 14px/20px 'Helvetica Neue', sans-serif;
-  }
-
-  .textarea-wrapper {
-    position:relative;
+        margin: 0;
+        padding: 0;
+        background: none;
+        border: 0;
+        border-radius: 0;
+        outline: 0;
+        box-sizing: border-box;
+        color: inherit;
+        font: inherit;
+        line-height: inherit;
+        user-select: none;
+        cursor: default;
     }
-  .remaning {
-    position:absolute;
-    bottom: 10px;
-    right:10px;
-  }   
-  
-  ul {
-      list-style: none;
-  }
-  
-  ul li {
-      background: #fff;
-      border-radius: 2px;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-      position: relative;
-  }
-  
-  ul li:not(:first-child) {
-      margin-top: 20px;
-  }
-  
-  ul li:before {
-      content: '';
-      border-width: 10px 10px 10px 0;
-      border-style: solid;
-      border-color: transparent #fff;
-      position: absolute;
-      top: 10px;
-      left: -10px;
-  }
-  
-  ul li header {
-      border-bottom: 1px solid #e5e5e5;
-      font-size: 0;
-  }
-  
-  ul li header h1 {
-      padding: 10px 20px;
-      font-size: 14px;
-      font-weight: 500;
-      display: inline-block;
-  }
-  
-  ul li header h1 a {
-      text-decoration: none;
-      cursor: pointer;
-  }
-  
-  ul li header h1.author {
-      color: #2c8d13;
-  }
-  
-  ul li header h1.author:after {
-      content: 'Você';
-      margin-left: 10px;
-      padding: 0 4px;
-      background: #2c8d13;
-      border-radius: 2px;
-      color: #fff;
-      font-size: 10px;
-      font-weight: normal;
-      text-transform: uppercase;
-      position: absolute;
-  }
-  
-  ul li header h1.author a {
-      color: #2c8d13;
-  }
-  
-  ul li header img {
-      width: 60px;
-      height: 60px;
-      background: #fff;
-      border: 4px solid #fff;
-      border-radius: 2px;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-      position: absolute;
-      top: 0;
-      left: -80px;
-  }
-  
-  ul li header div {
-      height: 40px;
-      float: right;
-  }
-  
-  ul li header div button {
-      width: 40px;
-      height: 40px;
-      cursor: pointer;
-  }
-  
 
-  
-  ul li p {
-      padding: 20px;
-      white-space: pre-line;
-      overflow-x: hidden;
-  }
-  
-  ul li p .reply {
-      color: #9a3;
-  }
-  
-  ul li p a {
-      text-decoration: underline;
-      cursor: pointer;
-  }
-  
-  ul li p a:hover {
-      text-decoration: none;
-  }
-  
-  form {
-      margin-top: 20px;
-     // padding: 20px 20px 20px 100px;
-      background: #fff;
-      border-radius: 2px;
-      font-size: 0;
-      position: relative;
-  }
-  
-  form:before {
-      content: '';
-      border-width: 10px 10px 10px 0;
-      border-style: solid;
-      border-color: transparent rgba(229, 229, 229, 0.5);
-      position: absolute;
-      top: 30px;
-      left: 90px;
-  }
-  
-  form input, form textarea {
-      padding: 10px 20px;
-      width: 100%;
-      background: rgba(229, 229, 229, 0.5) no-repeat;
-      font-size: 14px;
-      user-select: text;
-      display: block;
-      cursor: text;
-  }
-  
-  form input:not(:first-child), form textarea:not(:first-child) {
-      margin-top: 2px;
-  }
-  
-  form input[placeholder='Email'], form input[placeholder='Website'], form textarea[placeholder='Email'], form textarea[placeholder='Website'] {
-      width: 50%;
-      display: inline-block;
-  }
-  
-  form input[placeholder='Email'], form textarea[placeholder='Email'] {
-      border-right: 1px solid #fff;
-  }
-  
-  form input[placeholder='Website'], form textarea[placeholder='Website'] {
-      border-left: 1px solid #fff;
-  }
-  
-  form input::-webkit-input-placeholder, form textarea::-webkit-input-placeholder {
-      color: #666;
-  }
-  
-  form input::-moz-placeholder, form textarea::-moz-placeholder {
-      color: #666;
-  }
-  
-  form input:-moz-placeholder, form textarea:-moz-placeholder {
-      color: #666;
-  }
-  
-  form input:-ms-input-placeholder, form textarea:-ms-input-placeholder {
-      color: #666;
-  }
-  
-  form textarea {
-      margin-top: 1px;
-      padding: 20px;
-      height: 120px;
-      resize: none;
-  }
-  
-  form img {
-      width: 60px;
-      height: 60px;
-      background: rgba(229, 229, 229, 0.5);
-      border: 4px solid rgba(229, 229, 229, 0.5);
-      border-radius: 2px;
-      position: absolute;
-      top: 20px;
-      left: 20px;
-  }
-  
-  form button {
-      margin: 10px 10px 0 auto;
-      padding: 10px 0;
-      width: 200px;
-      background: #2c8d13;
-      border-radius: 2px;
-      color: white;
-      font-size: 14px;
-      display: block;
-      cursor: pointer;
-  }
+    body {
+        margin: 0 auto;
+        padding: 20px;
+        width: 100%;
+        min-width: 440px;
+        max-width: 740px;
+        background: #e5e5e5;
+        color: #000;
+        font: 300 14px/20px 'Helvetica Neue', sans-serif;
+    }
+
+    .textarea-wrapper {
+        position: relative;
+    }
+
+    .remaning {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    ul li {
+        background: #fff;
+        border-radius: 2px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        position: relative;
+    }
+
+    ul li:not(:first-child) {
+        margin-top: 20px;
+    }
+
+    ul li:before {
+        content: '';
+        border-width: 10px 10px 10px 0;
+        border-style: solid;
+        border-color: transparent #fff;
+        position: absolute;
+        top: 10px;
+        left: -10px;
+    }
+
+    ul li header {
+        border-bottom: 1px solid #e5e5e5;
+        font-size: 0;
+    }
+
+    ul li header h1 {
+        padding: 10px 20px;
+        font-size: 14px;
+        font-weight: 500;
+        display: inline-block;
+    }
+
+    ul li header h1 a {
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    ul li header h1.author {
+        color: #2c8d13;
+    }
+
+    ul li header h1.author:after {
+        content: 'Você';
+        margin-left: 10px;
+        padding: 0 4px;
+        background: #2c8d13;
+        border-radius: 2px;
+        color: #fff;
+        font-size: 10px;
+        font-weight: normal;
+        text-transform: uppercase;
+        position: absolute;
+    }
+
+    ul li header h1.author a {
+        color: #2c8d13;
+    }
+
+    ul li header img {
+        width: 60px;
+        height: 60px;
+        background: #fff;
+        border: 4px solid #fff;
+        border-radius: 2px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        position: absolute;
+        top: 0;
+        left: -80px;
+    }
+
+    ul li header div {
+        height: 40px;
+        float: right;
+    }
+
+    ul li header div button {
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+    }
+
+
+
+    ul li p {
+        padding: 20px;
+        white-space: pre-line;
+        overflow-x: hidden;
+    }
+
+    ul li p .reply {
+        color: #9a3;
+    }
+
+    ul li p a {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    ul li p a:hover {
+        text-decoration: none;
+    }
+
+    form {
+        margin-top: 20px;
+        // padding: 20px 20px 20px 100px;
+        background: #fff;
+        border-radius: 2px;
+        font-size: 0;
+        position: relative;
+    }
+
+    form:before {
+        content: '';
+        border-width: 10px 10px 10px 0;
+        border-style: solid;
+        border-color: transparent rgba(229, 229, 229, 0.5);
+        position: absolute;
+        top: 30px;
+        left: 90px;
+    }
+
+    form input,
+    form textarea {
+        padding: 10px 20px;
+        width: 100%;
+        background: rgba(229, 229, 229, 0.5) no-repeat;
+        font-size: 14px;
+        user-select: text;
+        display: block;
+        cursor: text;
+    }
+
+    form input:not(:first-child),
+    form textarea:not(:first-child) {
+        margin-top: 2px;
+    }
+
+    form input[placeholder='Email'],
+    form input[placeholder='Website'],
+    form textarea[placeholder='Email'],
+    form textarea[placeholder='Website'] {
+        width: 50%;
+        display: inline-block;
+    }
+
+    form input[placeholder='Email'],
+    form textarea[placeholder='Email'] {
+        border-right: 1px solid #fff;
+    }
+
+    form input[placeholder='Website'],
+    form textarea[placeholder='Website'] {
+        border-left: 1px solid #fff;
+    }
+
+    form input::-webkit-input-placeholder,
+    form textarea::-webkit-input-placeholder {
+        color: #666;
+    }
+
+    form input::-moz-placeholder,
+    form textarea::-moz-placeholder {
+        color: #666;
+    }
+
+    form input:-moz-placeholder,
+    form textarea:-moz-placeholder {
+        color: #666;
+    }
+
+    form input:-ms-input-placeholder,
+    form textarea:-ms-input-placeholder {
+        color: #666;
+    }
+
+    form textarea {
+        margin-top: 1px;
+        padding: 20px;
+        height: 120px;
+        resize: none;
+    }
+
+    form img {
+        width: 60px;
+        height: 60px;
+        background: rgba(229, 229, 229, 0.5);
+        border: 4px solid rgba(229, 229, 229, 0.5);
+        border-radius: 2px;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+    }
+
+    form button {
+        margin: 10px 10px 0 auto;
+        padding: 10px 0;
+        width: 200px;
+        background-image: linear-gradient(to bottom right, #17cad1, #F36BFF);
+        border-radius: 2px;
+        color: white;
+        font-size: 14px;
+        display: block;
+        cursor: pointer;
+    }
 
 
 

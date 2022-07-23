@@ -38,6 +38,9 @@ const ScheduleSchema = new mongoose.Schema({
     linkZoom: {
       type: String
     },
+    linkYoutube: {
+      type: String
+    },
     linkAudio: {
       type: String
     },

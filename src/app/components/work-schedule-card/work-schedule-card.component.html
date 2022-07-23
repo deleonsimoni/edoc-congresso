@@ -11,6 +11,9 @@
           <p class="label">Link do Zoom</p>
           <p class="title not-dash" style="margin: 0px 0px 4px 24px !important;"><a href="{{  item.linkZoom  }}"
               target="_blank">{{ item.linkZoom }}</a></p>
+          <p class="label">Link do Youtube</p>
+          <p class="title not-dash" style="margin: 0px 0px 4px 24px !important;"><a href="{{  item.linkYoutube  }}"
+              target="_blank">{{ item.linkYoutube }}</a></p>
         </div>
       </div>
       <div class="col-6">
@@ -22,15 +25,16 @@
             </a>
 
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <a class="dropdown-item pointer" (click)="showSubscribers(schedule.workTitle, schedule.subscribers)">Ver Inscritos</a>
+              <a class="dropdown-item pointer" (click)="showSubscribers(schedule.workTitle, schedule.subscribers)">Ver
+                Inscritos</a>
               <a class="dropdown-item pointer" (click)="editSchedule()">Editar</a>
               <!--<a class="dropdown-item pointer" (click)="removeSchedule(schedule._id)">Excluir</a>-->
             </div>
           </div>
 
           <div *ngIf="!admin">
-           
-           
+
+
 
           </div>
         </div>

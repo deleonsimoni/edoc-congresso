@@ -34,7 +34,7 @@ export class WorkScheduleFormComponent {
       monitor: [null],
       mediator: [null],
       worksPoster: this.builder.array([this.builder.group({ work: [null], workTitle: [null], linkPPT: [null] })]),
-      dates: this.builder.array([this.builder.group({ startTime: [null], endTime: [null], date: [null], linkZoom: [null] })]),
+      dates: this.builder.array([this.builder.group({ startTime: [null], endTime: [null], date: [null], linkZoom: [null], linkYoutube: [null] })]),
       virtual: this.builder.group({ linkZoom: [null], monitor: [null], mediator: [null], ppt: [null] }),
       workTitle: [null],
       qtdSubscribers: [null],
@@ -121,7 +121,7 @@ export class WorkScheduleFormComponent {
 
   public addDate() {
     const dataCtrel = this.form.get("dates") as FormArray;
-    dataCtrel.push(this.builder.group({ startTime: [null], endTime: [null], date: [null], linkZoom: [null] }));
+    dataCtrel.push(this.builder.group({ startTime: [null], endTime: [null], date: [null], linkZoom: [null], linkYoutube: [null] }));
   }
 
   public removeDate(pos) {

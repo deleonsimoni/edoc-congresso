@@ -18,7 +18,7 @@ export class ProgramacaoAbertaComponent implements OnInit {
   public programacoes = SCHEDULE_TYPE;
   public schedules$: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
   @ViewChild('selecioneDia', { static: false }) selecioneDia: any;
-  public days = ["2507", "26/07", "27/07", "28/07", "29/07"];
+  public days = ["25/07", "26/07", "27/07", "28/07", "29/07"];
   daySelect;
   modalitySelect;
   carregando = false;

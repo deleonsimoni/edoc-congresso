@@ -117,6 +117,10 @@ async function uploadWork(req, res) {
 
 async function downloadFile(req, res) {
   let response = await userCtrl.downloadFileS3(req.query.fileName);
+
+  if (!response.success) {
+    response = await userCtrl.downloadFileS3Image(req.query.fileName);
+  }
   res.json(response);
 }
 

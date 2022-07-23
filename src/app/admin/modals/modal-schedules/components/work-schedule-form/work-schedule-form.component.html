@@ -44,96 +44,96 @@
     </div>
   </div>
 
-  <hr/>
+  <hr />
 
 
 
 
-    <div class="form-group col-md-12">
-      <label for="dates" class="label">Dias</label>
-      <br />
-      <div class="mb-2" formArrayName="dates" *ngFor="let item of dates['controls']; let i = index">
-        <div [formArrayName]="i">
-          <div class="row justify-content-center">
-           
-            <div class="form-group col-md-4" >
-              <label for="startTime" class="label">Hora início</label>
-              <input type="time" min="08:00" max="21:00" class="form-control" name="startTime" id="startTime"
-                formControlName="startTime" />
-            </div>
-            <div class="form-group col-md-4">
-              <label for="endTime" class="label">Hora fim</label>
-              <input type="time" min="08:00" max="21:00" class="form-control" name="endTime" id="endTime"
-                formControlName="endTime" />
-            </div>
-            <div class="form-group col-md-4">
-              <label for="date" class="label">Data</label>
-              <select class="form-control" name="date" id="date" formControlName="date">
-                <option *ngFor="let day of days" [value]="day">{{ day }}</option>
-              </select>
-            </div>
-            <div class="form-row col-md-12" >
-              <div class="form-group col-md-12">
-                <label for="linkZoom" class="label">Link do Zoom</label>
-                <input type="text" class="form-control" formControlName="linkZoom" name="linkZoom" />
-              </div>
-            </div>
-            <div class="col-md-1 align-items-center icon" *ngIf="i > 0">
-              <button type="button" (click)="removeDate(i)">
-                <i class="fas fa-trash"></i>
-              </button>
-            </div>
+  <div class="form-group col-md-12">
+    <label for="dates" class="label">Dias</label>
+    <br />
+    <div class="mb-2" formArrayName="dates" *ngFor="let item of dates['controls']; let i = index">
+      <div [formArrayName]="i">
+        <div class="row justify-content-center">
+
+          <div class="form-group col-md-4">
+            <label for="startTime" class="label">Hora início</label>
+            <input type="time" min="08:00" max="21:00" class="form-control" name="startTime" id="startTime"
+              formControlName="startTime" />
           </div>
-        </div>
-      </div>
-    </div>
-    <button *ngIf="type != '3'" type="button" class="add-coordinator" (click)="addDate()">
-      <i class="fa fa-plus"></i>
-      Mais Dias
-    </button>
-
-
-    <!-- TRABALHOS DE POSTER -->
-    <div class="form-group col-md-12" *ngIf="type == '3'">
-      <label for="works" class="label">Trabalhos</label>
-      <br />
-      <div class="mb-2" formArrayName="worksPoster" *ngFor="let item of worksPoster['controls']; let i = index">
-        <div [formArrayName]="i">
-          <div class="row justify-content-center">
-
+          <div class="form-group col-md-4">
+            <label for="endTime" class="label">Hora fim</label>
+            <input type="time" min="08:00" max="21:00" class="form-control" name="endTime" id="endTime"
+              formControlName="endTime" />
+          </div>
+          <div class="form-group col-md-4">
+            <label for="date" class="label">Data</label>
+            <select class="form-control" name="date" id="date" formControlName="date">
+              <option *ngFor="let day of days" [value]="day">{{ day }}</option>
+            </select>
+          </div>
+          <div class="form-row col-md-12">
             <div class="form-group col-md-12">
-              <label class="label">Pôster</label>
-              <select class="form-control" id="com{{i}}" [ngModelOptions]="{ standalone: true }" [(ngModel)]="selectedWorkPoster[i]"
-              (ngModelChange)="setWorkFormPoster($event, i)">
-                <option 
-                  *ngFor="let work of works; let j = index"
-                  id="d{{i}}{{j}}"
-                  [ngValue]="work"
-                  type="combobox">
-                  {{ work.title }}
-                </option>
-              </select>
+              <label for="linkZoom" class="label">Link do Zoom</label>
+              <input type="text" class="form-control" formControlName="linkZoom" name="linkZoom" />
             </div>
-           
-            <div class="form-group col-md-12" >
-              <label for="startTime" class="label">Link da apresentação</label>
-              <input type="text" class="form-control" formControlName="linkPPT" />
+            <div class="form-group col-md-12">
+              <label for="linkZoom" class="label">Link do Youtube</label>
+              <input type="text" class="form-control" formControlName="linkYoutube" name="linkZoom" />
             </div>
-            
-            <div class="col-md-1 align-items-center icon" *ngIf="i > 0">
-              <button type="button" (click)="removeWorkPoster(i)">
-                <i class="fas fa-trash"></i>
-              </button>
-            </div>
+          </div>
+          <div class="col-md-1 align-items-center icon" *ngIf="i > 0">
+            <button type="button" (click)="removeDate(i)">
+              <i class="fas fa-trash"></i>
+            </button>
           </div>
         </div>
       </div>
     </div>
-    <button *ngIf="type == '3'" type="button" class="add-coordinator" (click)="addWorkPoster()">
-      <i class="fa fa-plus"></i>
-      Mais Trabalhos
-    </button>
-    <!-- FIM TRABALHOS DE POSTER -->
+  </div>
+  <button *ngIf="type != '3'" type="button" class="add-coordinator" (click)="addDate()">
+    <i class="fa fa-plus"></i>
+    Mais Dias
+  </button>
+
+
+  <!-- TRABALHOS DE POSTER -->
+  <div class="form-group col-md-12" *ngIf="type == '3'">
+    <label for="works" class="label">Trabalhos</label>
+    <br />
+    <div class="mb-2" formArrayName="worksPoster" *ngFor="let item of worksPoster['controls']; let i = index">
+      <div [formArrayName]="i">
+        <div class="row justify-content-center">
+
+          <div class="form-group col-md-12">
+            <label class="label">Pôster</label>
+            <select class="form-control" id="com{{i}}" [ngModelOptions]="{ standalone: true }"
+              [(ngModel)]="selectedWorkPoster[i]" (ngModelChange)="setWorkFormPoster($event, i)">
+              <option *ngFor="let work of works; let j = index" id="d{{i}}{{j}}" [ngValue]="work" type="combobox">
+                {{ work.title }}
+              </option>
+            </select>
+          </div>
+
+          <div class="form-group col-md-12">
+            <label for="startTime" class="label">Link da apresentação</label>
+            <input type="text" class="form-control" formControlName="linkPPT" />
+          </div>
+
+          <div class="col-md-1 align-items-center icon" *ngIf="i > 0">
+            <button type="button" (click)="removeWorkPoster(i)">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button *ngIf="type == '3'" type="button" class="add-coordinator" (click)="addWorkPoster()">
+    <i class="fa fa-plus"></i>
+    Mais Trabalhos
+  </button>
+  <!-- FIM TRABALHOS DE POSTER -->
 
 
 
@@ -157,7 +157,7 @@
     </div>
   </div>
 
-  <div class="form-row"  *ngIf="type == '3'">
+  <div class="form-row" *ngIf="type == '3'">
     <div class="form-group col-md-12">
       <label for="mediator" class="label">E-mail do Mediador</label>
       <input type="text" class="form-control" formControlName="mediator" name="mediator" />
