@@ -16,7 +16,7 @@ const ScheduleSchema = new mongoose.Schema({
   workAuthor: [{
     fullname: String
   }],
-  
+
   dates: [{
 
     startTime: {
@@ -29,6 +29,9 @@ const ScheduleSchema = new mongoose.Schema({
       type: String
     },
     linkZoom: {
+      type: String
+    },
+    linkYoutube: {
       type: String
     },
     linkAudio: {
@@ -72,12 +75,12 @@ const ScheduleSchema = new mongoose.Schema({
   authors: {
     type: String
   },
-  
+
   resumePropose: {
     type: String
   },
 
-  
+
   createAt: {
     type: Date,
     default: Date.now

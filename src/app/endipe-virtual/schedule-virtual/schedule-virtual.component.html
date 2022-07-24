@@ -79,6 +79,10 @@
                             <strong>Resumo</strong>
                             <p style="text-align: justify; text-justify: inter-word;">{{ schedule.resumePropose }}</p>
                         </div>
+                        <div *ngIf="schedule.dates[0].linkYoutube" class="col-12">
+                            <iframe width="560" height="315" [src]='sanitizeLink(schedule.dates[0].linkYoutube)'
+                                frameborder="0" allowfullscreen></iframe>
+                        </div>
 
                     </div>
 
@@ -243,22 +247,62 @@
                             <div class="form-group col-md-2">
                                 <div class="miniature-img ">
                                     <img width="100px" height="150px"
-                                        src="https://ffainfinity.s3-sa-east-1.amazonaws.com/books/{{item.nameMiniature}}">
+                                        src="https://edocimage.s3.sa-east-1.amazonaws.com/edocimage/books/{{item.nameMiniature}}"
+                                        class="img-fluid img-thumbnail capa-livro" />
                                 </div>
                             </div>
 
                             <div class="col-md-10">
-                                <div class="row">
-                                    <div class="form-group col-md-12">
-                                        <strong>Acesse</strong>
-                                        <p style="text-align: justify; text-justify: inter-word;"><a
-                                                [attr.href]="item.linkSale" target="_blank">Clique aqui</a></p>
+
+
+                                <div class="accordion" id="accordionExample">
+
+                                    <div class="card">
+                                        <div class="card-header" id="headingTwo">
+                                            <h5 class="mb-0">
+                                                <button class="btn btn-link btn-livro collapsed" type="button"
+                                                    data-toggle="collapse" data-target="#collapseTwo"
+                                                    aria-expanded="false" aria-controls="collapseTwo">
+                                                    Vídeo de Apresentação
+                                                </button>
+                                            </h5>
+                                        </div>
+                                        <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo"
+                                            data-parent="#accordionExample">
+                                            <div class="card-body">
+                                                <iframe width="560" height="315"
+                                                    [src]='sanitizeLink(item.linkPresentation)' frameborder="0"
+                                                    allowfullscreen></iframe>
+
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="form-group col-md-12">
-                                        <strong>Resumo</strong>
-                                        <p style="text-align: justify; text-justify: inter-word;">{{item.resume}}</p>
+
+                                    <div class="card">
+                                        <div class="card-header" id="headingOne">
+                                            <h5 class="mb-0">
+                                                <button class="btn btn-link btn-livro" type="button"
+                                                    data-toggle="collapse" data-target="#collapseOne"
+                                                    aria-expanded="true" aria-controls="collapseOne">
+                                                    Resumo
+                                                </button>
+                                            </h5>
+                                        </div>
+
+                                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+                                            data-parent="#accordionExample">
+                                            <div class="card-body"
+                                                style="text-align: justify; text-justify: inter-word;">
+                                                {{item.resume}}
+                                            </div>
+                                        </div>
                                     </div>
+
                                 </div>
+
+
+
+
                             </div>
                         </div>
                         <hr />

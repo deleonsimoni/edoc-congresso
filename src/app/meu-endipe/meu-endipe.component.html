@@ -25,7 +25,7 @@
                 <div class="card-works">
                     <div class="row">
                         <div class="col-sm-10">
-                            <h5 tabindex="0" style="color: #20959b">{{schedule.type | modalities}} - {{schedule.axis |
+                            <h5 tabindex="0" style="color: #000000">{{schedule.type | modalities}} - {{schedule.axis |
                                 axis}}</h5>
                             <h3 tabindex="0" *ngIf="schedule.type != '3'"><b>{{schedule.workTitle}}</b></h3>
                             <h3 tabindex="0" *ngIf="schedule.type == '3'"><b>Apresentação de trabalhos</b></h3>
@@ -85,6 +85,10 @@
                                 <p tabindex="0" style="text-align: justify; text-justify: inter-word;">{{
                                     schedule.resumePropose }}</p>
                             </div>
+                            <div *ngIf="schedule.dates[0].linkYoutube" class="col-12">
+                                <iframe width="560" height="315" [src]='sanitizeLink(schedule.dates[0].linkYoutube)'
+                                    frameborder="0" allowfullscreen></iframe>
+                            </div>
                         </div>
                         <div *ngIf="schedule.type == '3'">
                             <div class="col-12">
@@ -112,6 +116,8 @@
                                                     autores.fullname }}</p>
                                             </div>
                                         </div>
+
+
                                     </div>
 
                                     <br />
@@ -133,37 +139,38 @@
                                         <header>
                                             <h1 tabindex="0"
                                                 [ngClass]="{ 'author': isAuthor(comment?.publisher?.email) }">
-                                                {{ comment.publisher.name }}
+                                                De: {{ comment.publisher.name }}
                                             </h1>
 
                                             <!--<div>
-                                        <button (click)="love(comment.id)" [ngClass]="{ 'loved': comment.loved }"></button>
-                                        <button (click)="reply(comment.publisher.name)"></button>
-                                    </div>-->
+                                                <button (click)="love(comment.id)"
+                                                    [ngClass]="{ 'loved': comment.loved }"></button>
+                                                <button (click)="reply(comment.publisher.name)"></button>
+                                            </div>-->
 
                                         </header>
                                         <p tabindex="0" [innerHTML]="parseContent(comment.content)"></p>
 
                                     </li>
                                 </ul>
-                                <!--
-                                <form name="form" (ngSubmit)="addNewComment()" novalidate>
-                                <button tabindex="0" type="button" *ngIf="!carregando" class="btn btn-primary" (click)="atualizarChat()">Ver novas mensagens</button>
-                                <button tabindex="0" type="button" *ngIf="carregando" class="btn btn-primary"><i class="fa fa-spinner fa-pulse"></i></button> 
 
-                                <div class="textarea-wrapper">
-                                    {{remainingText}}
-                                    <textarea tabindex="0" placeholder="Digite aqui..." maxlength="120" 
-                                            [ngModelOptions]="{standalone: true}" 
-                                            [(ngModel)]="newComment" 
-                                            (ngModelChange)="justifyChange(newComment)"
-                                            required>
+                                <form name="form" (ngSubmit)="addNewComment()" novalidate>
+                                    <button tabindex="0" type="button" *ngIf="!carregando" class="btn btn-primary"
+                                        (click)="atualizarChat()">Ver novas mensagens</button>
+                                    <button tabindex="0" type="button" *ngIf="carregando" class="btn btn-primary"><i
+                                            class="fa fa-spinner fa-pulse"></i></button>
+
+                                    <div class="textarea-wrapper">
+                                        {{remainingText}}
+                                        <textarea tabindex="0" placeholder="Digite aqui..." maxlength="120"
+                                            [ngModelOptions]="{standalone: true}" [(ngModel)]="newComment"
+                                            (ngModelChange)="justifyChange(newComment)" required>
                                     </textarea>
-                                    <button tabindex="0" type="submit">Enviar</button>
-        
-                                </div>
-        
-                                </form>-->
+                                        <button tabindex="0" type="submit">Enviar</button>
+
+                                    </div>
+
+                                </form>
 
                             </div>
                         </section>
@@ -178,7 +185,7 @@
 
 
         <div *ngIf="!carregandoLista && schedules.length == 0">
-            <h2><b>Em breve</b></h2>
+            <h2><b>Você ainda não se inscreveu em nenhuma programação.</b></h2>
             <hr />
         </div>
 

@@ -120,7 +120,6 @@ async function getChatMural(req) {
 
   try {
     total = await Mural.aggregate([{ $match: { 'date': date } }, { $project: { chat: { $size: '$chat' } } }]);
-    console.log('aaa ' + total)
   } catch {
     const mural = await Mural.findOne({ 'date': date });
     return { mural };

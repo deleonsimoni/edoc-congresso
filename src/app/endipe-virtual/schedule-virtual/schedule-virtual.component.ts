@@ -23,7 +23,7 @@ export class ScheduleVirtualComponent implements OnInit {
   @Input() user: any;
 
   page = null;
-  schedules= [];
+  schedules = [];
   pager: any = {};
   pagerBooks: any = {};
   pageEvent: PageEvent;
@@ -33,7 +33,8 @@ export class ScheduleVirtualComponent implements OnInit {
   pageHot;
   scheduleSelect;
   differ: KeyValueDiffer<string, any>;
-  @ViewChild('trabalho', {static: false}) trabalhoId: any;
+  @ViewChild('trabalho', { static: false }) trabalhoId: any;
+  regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
 
   linkYoutubeSafe;
 
@@ -46,7 +47,7 @@ export class ScheduleVirtualComponent implements OnInit {
     private scheduleService: ScheduleService,
     private _sanitizer: DomSanitizer,
 
-  ) { 
+  ) {
     this.differ = this.differs.find({}).create();
   }
 
@@ -54,11 +55,17 @@ export class ScheduleVirtualComponent implements OnInit {
     this.getSchedulePaginate(null, this.day, this.type, this.autor, this.eixo, this.titulo);
   }
 
-  selectSchedule(schedule){
-    if(this.scheduleSelect == schedule._id){
+  sanitizeLink(link) {
+    var match = link.match(this.regExp);
+    link = 'https://www.youtube.com/embed/' + match[7]
+    return this._sanitizer.bypassSecurityTrustResourceUrl(link);
+  }
+
+  selectSchedule(schedule) {
+    if (this.scheduleSelect == schedule._id) {
       this.scheduleSelect = null;
     } else {
-      if(schedule.virtual && schedule.virtual.linkYoutube){
+      if (schedule.virtual && schedule.virtual.linkYoutube) {
         schedule.virtual.linkYoutube = '//www.youtube.com/embed/' + this.getIdYoutube(schedule.virtual.linkYoutube);
         this.linkYoutubeSafe = this._sanitizer.bypassSecurityTrustResourceUrl(schedule.virtual.linkYoutube);
       }
@@ -75,8 +82,8 @@ export class ScheduleVirtualComponent implements OnInit {
       : null;
   }
 
-  selectBookSchedule(schedule){
-    if(this.scheduleSelect == schedule._id){
+  selectBookSchedule(schedule) {
+    if (this.scheduleSelect == schedule._id) {
       this.scheduleSelect = null;
     } else {
       this.scheduleSelect = schedule._id;
@@ -89,27 +96,27 @@ export class ScheduleVirtualComponent implements OnInit {
     const change = this.differ.diff(this);
     if (change) {
       change.forEachChangedItem(item => {
-        if(item.key == 'day' || item.key == 'type' || item.key == 'search'){
+        if (item.key == 'day' || item.key == 'type' || item.key == 'search') {
           this.getSchedulePaginate(null, this.day, this.type, this.autor, this.eixo, this.titulo);
         }
       });
     }
   }
 
-  alerta(event, a, b){
+  alerta(event, a, b) {
     console.log(event)
   }
 
-  getSchedulePaginate(event, day, type, autor, eixo, titulo){
+  getSchedulePaginate(event, day, type, autor, eixo, titulo) {
     this.carregandoLista = true;
     let pageChoose = event && event.pageIndex + 1 || 1;
     this.http.get(`${this.baseUrl}/live/scheduleWorkPaginate?page=${pageChoose}&date=${day}&type=${type}&eixo=${eixo}&autor=${autor}&titulo=${titulo}`).subscribe(
       (res: any) => {
         this.schedules = res.schedule || [];
-        if(this.schedules) {
+        if (this.schedules) {
           this.trabalhoId.nativeElement.focus()
           this.schedules.forEach(element => {
-            if(element.authors){
+            if (element.authors) {
               element.authors = element.authors.split(',');
             }
           });
@@ -124,7 +131,7 @@ export class ScheduleVirtualComponent implements OnInit {
     );
   }
 
-  getBooksPaginated(schedule, event){
+  getBooksPaginated(schedule, event) {
     this.carregando = true;
     let pageChoose = event && event.pageIndex + 1 || 1;
     this.http.get(`${this.baseUrl}/live/scheduleBooksPaginate?page=${pageChoose}&id=${schedule._id}`).subscribe(
@@ -134,17 +141,17 @@ export class ScheduleVirtualComponent implements OnInit {
         this.carregando = false;
 
         let indexArray = 0;
-        setTimeout( () => {
+        setTimeout(() => {
           schedule.books.forEach(element => {
-  
-            if((document.getElementById(element.nameMiniature) as HTMLImageElement)){
+
+            if ((document.getElementById(element.nameMiniature) as HTMLImageElement)) {
               let file = element.miniature.data;
               const base64 = btoa(new Uint8Array(file).reduce((data, byte) => data + String.fromCharCode(byte), ''));
               (document.getElementById(element.nameMiniature) as HTMLImageElement).src = 'data:image/jpg;base64,' + base64;
-              indexArray++;  
+              indexArray++;
             }
-           
-          }); 
+
+          });
         }, 100);
       },
       (err) => {
@@ -154,97 +161,97 @@ export class ScheduleVirtualComponent implements OnInit {
     );
   }
 
-public isSubscribe(scheduleSelect) {
-  if (this.user._id && scheduleSelect.hasOwnProperty('subscribers')) {
+  public isSubscribe(scheduleSelect) {
+    if (this.user._id && scheduleSelect.hasOwnProperty('subscribers')) {
       return scheduleSelect.subscribers.some(el => el.userId == this.user._id);
-  }
+    }
 
-  return false;
-}
+    return false;
+  }
 
   public signUp(type, scheduleFull) {
     this.carregando = true;
     if (type == 4) {
-        this.scheduleService.enrollSchedule(scheduleFull._id)
-            .subscribe((res: any) => {
-              this.carregando = false;
-              if(res.msg){
-                this.toastr.error(res.msg, 'Atenção');
-              } else {
-                this.getSchedulePaginate(null, this.day, this.type, this.autor, this.eixo, this.titulo);
-                this.toastr.success('Inscrição realizada com sucesso', 'Sucesso');
-              }
-            }, err => {
-                this.toastr.success('Servidor momentaneamente inoperante', 'Erro');
-                this.carregando = false;
-            });
+      this.scheduleService.enrollSchedule(scheduleFull._id)
+        .subscribe((res: any) => {
+          this.carregando = false;
+          if (res.msg) {
+            this.toastr.error(res.msg, 'Atenção');
+          } else {
+            this.getSchedulePaginate(null, this.day, this.type, this.autor, this.eixo, this.titulo);
+            this.toastr.success('Inscrição realizada com sucesso', 'Sucesso');
+          }
+        }, err => {
+          this.toastr.success('Servidor momentaneamente inoperante', 'Erro');
+          this.carregando = false;
+        });
     } else if (type == 5) {
-        this.scheduleService.enrollSchedulePainel(scheduleFull._id)
-            .subscribe((res: any) => {
-              this.carregando = false;
-              if(res.msg){
-                this.toastr.error(res.msg, 'Atenção');
-              } else {
-                this.getSchedulePaginate(null, this.day, this.type, this.autor, this.eixo, this.titulo);
-                this.toastr.success('Inscrição realizada com sucesso', 'Sucesso');
-              }
-            }, err => {
-                this.toastr.success('Servidor momentaneamente inoperante', 'Erro');
-                this.carregando = false;
-            });
+      this.scheduleService.enrollSchedulePainel(scheduleFull._id)
+        .subscribe((res: any) => {
+          this.carregando = false;
+          if (res.msg) {
+            this.toastr.error(res.msg, 'Atenção');
+          } else {
+            this.getSchedulePaginate(null, this.day, this.type, this.autor, this.eixo, this.titulo);
+            this.toastr.success('Inscrição realizada com sucesso', 'Sucesso');
+          }
+        }, err => {
+          this.toastr.success('Servidor momentaneamente inoperante', 'Erro');
+          this.carregando = false;
+        });
     }
     else {
-        this.scheduleService.enrollScheduleRodaDeConversa(scheduleFull._id)
-            .subscribe((res: any) => {
-              this.carregando = false;
-              if(res.msg){
-                this.toastr.error(res.msg, 'Atenção');
-              } else {
-                this.getSchedulePaginate(null, this.day, this.type, this.autor, this.eixo, this.titulo);
-                this.toastr.success('Inscrição realizada com sucesso', 'Sucesso');
-              }
-            }, err => {
-                this.toastr.success('Servidor momentaneamente inoperante', 'Erro');
-                this.carregando = false;
-            });
+      this.scheduleService.enrollScheduleRodaDeConversa(scheduleFull._id)
+        .subscribe((res: any) => {
+          this.carregando = false;
+          if (res.msg) {
+            this.toastr.error(res.msg, 'Atenção');
+          } else {
+            this.getSchedulePaginate(null, this.day, this.type, this.autor, this.eixo, this.titulo);
+            this.toastr.success('Inscrição realizada com sucesso', 'Sucesso');
+          }
+        }, err => {
+          this.toastr.success('Servidor momentaneamente inoperante', 'Erro');
+          this.carregando = false;
+        });
     }
-}
+  }
 
-public cancelSignUp(type, scheduleFull) {
+  public cancelSignUp(type, scheduleFull) {
     this.carregando = true;
     if (type == 4) {
-        this.scheduleService.cancelEnrollSchedule(scheduleFull._id)
-            .subscribe(res => {
-              this.getSchedulePaginate(null, this.day, this.type, this.autor, this.eixo, this.titulo);
-              this.toastr.success('Cancelamento de inscrição realizada com sucesso', 'Sucesso');
-                this.carregando = false;
-            }, err => {
-                this.toastr.success('Servidor momentaneamente inoperante', 'Erro');
-                this.carregando = false;
-            });
+      this.scheduleService.cancelEnrollSchedule(scheduleFull._id)
+        .subscribe(res => {
+          this.getSchedulePaginate(null, this.day, this.type, this.autor, this.eixo, this.titulo);
+          this.toastr.success('Cancelamento de inscrição realizada com sucesso', 'Sucesso');
+          this.carregando = false;
+        }, err => {
+          this.toastr.success('Servidor momentaneamente inoperante', 'Erro');
+          this.carregando = false;
+        });
 
     } else if (type == 5) {
-        this.scheduleService.cancelEnrollSchedulePainel(scheduleFull._id)
-            .subscribe(res => {
-              this.getSchedulePaginate(null, this.day, this.type, this.autor, this.eixo, this.titulo);
-              this.toastr.success('Cancelamento de inscrição realizada com sucesso', 'Sucesso');
-                this.carregando = false;
-            }, err => {
-                this.toastr.success('Servidor momentaneamente inoperante', 'Erro');
-                this.carregando = false;
-            });
+      this.scheduleService.cancelEnrollSchedulePainel(scheduleFull._id)
+        .subscribe(res => {
+          this.getSchedulePaginate(null, this.day, this.type, this.autor, this.eixo, this.titulo);
+          this.toastr.success('Cancelamento de inscrição realizada com sucesso', 'Sucesso');
+          this.carregando = false;
+        }, err => {
+          this.toastr.success('Servidor momentaneamente inoperante', 'Erro');
+          this.carregando = false;
+        });
 
     } else {
-        this.scheduleService.cancelEnrollScheduleRodaDeConversa(scheduleFull._id)
-            .subscribe(res => {
-              this.getSchedulePaginate(null, this.day, this.type, this.autor, this.eixo, this.titulo);
-              this.toastr.success('Cancelamento de inscrição realizada com sucesso', 'Sucesso');
-                this.carregando = false;
-            }, err => {
-                this.toastr.success('Servidor momentaneamente inoperante', 'Erro');
-                this.carregando = false;
-            });
+      this.scheduleService.cancelEnrollScheduleRodaDeConversa(scheduleFull._id)
+        .subscribe(res => {
+          this.getSchedulePaginate(null, this.day, this.type, this.autor, this.eixo, this.titulo);
+          this.toastr.success('Cancelamento de inscrição realizada com sucesso', 'Sucesso');
+          this.carregando = false;
+        }, err => {
+          this.toastr.success('Servidor momentaneamente inoperante', 'Erro');
+          this.carregando = false;
+        });
     }
-}
+  }
 
 }

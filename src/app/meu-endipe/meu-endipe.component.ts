@@ -31,6 +31,8 @@ export class MeuEndipeComponent implements OnInit {
   postAuthorEmail = '';
   newComment = null;
   remainingText;
+  regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+
 
   constructor(
     private authService: AuthService,
@@ -41,6 +43,13 @@ export class MeuEndipeComponent implements OnInit {
     private sanitizer: DomSanitizer,
 
   ) { }
+
+  sanitizeLink(link) {
+    var match = link.match(this.regExp);
+    link = 'https://www.youtube.com/embed/' + match[7]
+    return this.sanitizer.bypassSecurityTrustResourceUrl(link);
+  }
+
   /*
     ngOnInit() {
   
