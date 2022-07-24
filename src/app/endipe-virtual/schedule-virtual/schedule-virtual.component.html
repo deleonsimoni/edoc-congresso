@@ -57,8 +57,8 @@
                         </div>
 
 
-                        <div style="cursor: pointer !important;">
-                            <h4 style="position: absolute; bottom: 0; left: 0; cursor: pointer !important;"
+                        <div style="cursor: pointer !important;" class="mt-5">
+                            <h4 style="position: absolute; bottom: 0; left: 15px; cursor: pointer !important;"
                                 (click)="selectSchedule(schedule);">Clique para mais detalhes <i
                                     class="fa fa-chevron-down"></i>
                             </h4>
@@ -137,11 +137,12 @@
                             <h4 class="mb-4"><button class="btn btn-inscrever"><i
                                         class="fas fa-spinner fa-pulse"></i></button></h4>
                         </div>
-                        <div style="cursor: pointer !important;">
-                            <h4 style="position: absolute; bottom: 0; left: 0; cursor: pointer !important;"
+                        <div style="cursor: pointer !important;" class="mt-4">
+                            <h4 style="position: absolute; bottom: 0; left: 15px; cursor: pointer !important;"
                                 (click)="selectSchedule(schedule);">Mais detalhes <i class="fa fa-chevron-down"></i>
                             </h4>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -215,9 +216,9 @@
                             <h4 class="mb-4"><button class="btn btn-inscrever"><i
                                         class="fas fa-spinner fa-pulse"></i></button></h4>
                         </div>
-                        <div style="cursor: pointer !important;">
+                        <div style="cursor: pointer !important;" class="mt-5">
                             <h4 *ngIf="!carregando"
-                                style="position: absolute; bottom: 0; left: 0; cursor: pointer !important;"
+                                style="position: absolute; bottom: 0; left: 15px; cursor: pointer !important;"
                                 (click)="selectBookSchedule(schedule)">Mais detalhes <i class="fa fa-chevron-down"></i>
                             </h4>
                             <h4 *ngIf="carregando"

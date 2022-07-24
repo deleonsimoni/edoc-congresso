@@ -8,6 +8,9 @@
   right: 0;
 }
 
+
+
+
 .example-is-mobile .example-toolbar {
   position: fixed;
   padding: 0px;
@@ -92,6 +95,11 @@ div.header {
 
 @media only screen and (max-width: 576px) {
 
+  a {
+    color: #ffffff;
+    transition: 0.5s;
+  }
+
   .mat-toolbar-row,
   .mat-toolbar-single-row {
     min-height: 75px;
@@ -103,6 +111,8 @@ div.header {
 }
 
 @media only screen and (min-width: 769px) {
+
+
 
   .mat-toolbar-row,
   .mat-toolbar-single-row {

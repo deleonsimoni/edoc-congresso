@@ -538,8 +538,9 @@ async function sendEmail(req) {
   let attachment;
 
   let formulario = JSON.parse(req.body.formulario);
+  console.log(formulario)
 
-  console.log(`########## ENVIANDO EMAILS PARA GRUPO ${req.body.formulario.groupId} ##########`);
+  console.log(`########## ENVIANDO EMAILS PARA GRUPO ${formulario.groupId} ##########`);
 
   switch (Number(formulario.groupId)) {
     case 1:

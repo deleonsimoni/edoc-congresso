@@ -37,7 +37,7 @@ export class AdminComponent implements OnInit {
     { name: 'PARECERISTAS/COORDENADORES', path: '/admin/coordenadores' },
     { name: 'TRABALHOS/PARECERISTAS', path: '/admin/vincular-trabalho' },
     { name: 'PROGRAMAÇÃO', path: '/admin/programacao' },
-    /* { name: 'EMAIL', path: '/admin/email' },*/
+    { name: 'EMAIL', path: '/admin/email' },
     { name: 'CHAT', path: '/admin/chat' }
 
 
