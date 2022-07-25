@@ -183,7 +183,8 @@
                         <hr />
                         <div *ngIf="schedule?.virtual?.linkYoutube" class="row col-12 justify-content-center">
                             <iframe tabindex="0" alt="clique para assistir" width="100%" height="400"
-                                [src]='linkYoutubeSafe' frameborder="0" allowfullscreen></iframe>
+                                [src]='sanitizeLink(schedule.virtual.linkYoutube)' frameborder="0"
+                                allowfullscreen></iframe>
                         </div>
                     </div>
                 </div>
