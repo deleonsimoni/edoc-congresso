@@ -39,10 +39,9 @@ export class CertificadoComponent implements OnInit {
       this.nome = this.user.fullname;
 
       if (!this.user.icAdmin) {
-        if (this.user.payment && this.user.payment.icPaid) {
-          this.templateAutomatico.target.value = 'PARTICIPAÇÃO GERAL';
-          this.preencherTemplate(this.templateAutomatico, null, null);
-        }
+        this.templateAutomatico.target.value = 'PARTICIPAÇÃO GERAL';
+        this.preencherTemplate(this.templateAutomatico, null, null);
+
         if (this.user.works && this.user.works.length > 0) {
           this.carregarTrabalhosUsuario();
         }
