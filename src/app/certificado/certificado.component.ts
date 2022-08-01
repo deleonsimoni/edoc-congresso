@@ -60,31 +60,24 @@ export class CertificadoComponent implements OnInit {
     this.works.forEach((work) => {
       //MiniCurso
       if (
-        work.modalityId == 4 && (((work.reviewAdmin && work.reviewAdmin.review.icAllow == "Sim") &&
-          (work.reviewReviewer && work.reviewReviewer.review && work.reviewReviewer.review.icAllow != "Nao")) ||
-          (work.recurso && work.recurso.icAllow == "Sim"))
+        work.modalityId == 4
       ) {
         this.templateAutomatico.target.value = "MEDIAÇÃO DE OFICINA";
         this.preencherTemplate(this.templateAutomatico, work.title, "04");
       } else if (
-        work.modalityId == 5 && (((work.reviewAdmin && work.reviewAdmin.review.icAllow == "Sim") &&
-          (work.reviewReviewer && work.reviewReviewer.review && work.reviewReviewer.review.icAllow != "Nao")) ||
-          (work.recurso && work.recurso.icAllow == "Sim"))
+        work.modalityId == 5
+
       ) {
         this.templateAutomatico.target.value = "MEDIAÇÃO DE PAINEL";
         this.preencherTemplate(this.templateAutomatico, work.title, "05");
       } else if (
-        work.modalityId == 3 && (((work.reviewAdmin && work.reviewAdmin.review.icAllow == "Sim") &&
-          (work.reviewReviewer && work.reviewReviewer.review && work.reviewReviewer.review.icAllow != "Nao")) ||
-          (work.recurso && work.recurso.icAllow == "Sim"))
+        work.modalityId == 2
+
       ) {
         this.templateAutomatico.target.value = "MODERAÇÃO DE EXPOSIÇÃO E FRUIÇÕES ARTÍSTICO-LITERÁRIAS";
         this.preencherTemplate(this.templateAutomatico, work.title, "02");
       }
-      {
-        this.templateAutomatico.target.value = "CONFERENCISTA";
-        this.preencherTemplate(this.templateAutomatico, work.title, "08");
-      }
+
     });
   }
 
@@ -92,11 +85,16 @@ export class CertificadoComponent implements OnInit {
     let control = 0;
     this.inscricoes.forEach((work) => {
       if (this.user.cursosInscritos[control].icModalityId == 4) {
-        this.templateAutomatico.target.value = "PARTICIPAÇÃO DE MINICURSO";
+        this.templateAutomatico.target.value = "PARTICIPAÇÃO DE OFICINA";
         let horas = 4;
         this.preencherTemplate(this.templateAutomatico, work.workTitle, horas);
-      } else if (this.user.cursosInscritos[control].icModalityId == 5) {
-        this.templateAutomatico.target.value = "PARTICIPAÇÃO DE PAINEL";
+      }
+      /*    else if (this.user.cursosInscritos[control].icModalityId == 5) {
+            this.templateAutomatico.target.value = "PARTICIPAÇÃO DE PAINEL";
+            this.preencherTemplate(this.templateAutomatico, work.workTitle, null);
+          }*/
+      else if (this.user.cursosInscritos[control].icModalityId == 5) {
+        this.templateAutomatico.target.value = "PARTICIPAÇÃO DE EXPOSIÇÃO E FRUIÇÕES ARTÍSTICO-LITERÁRIAS";
         this.preencherTemplate(this.templateAutomatico, work.workTitle, null);
       }
       control++;
@@ -161,10 +159,7 @@ export class CertificadoComponent implements OnInit {
     this.exibirGT = false;
     this.coringa = "";
     this.textoTemplate = this.templates.filter((element) => element.name == templateSelecionado.target.value)[0].value;
-    if (templateSelecionado.target.value == "GRUPO DE PESQUISA") {
-      this.coringa = " participou do grupo de pesquisa ";
-      this.exibirGT = true;
-    } else if (templateSelecionado.target.value == "PRESTAÇÃO DE SERVIÇO") {
+    if (templateSelecionado.target.value == "PRESTAÇÃO DE SERVIÇO") {
       this.coringa = " atuou como prestadora de serviço na área de ";
       this.exibirGT = true;
     } else if (templateSelecionado.target.value == "MONITORIA") {
@@ -210,11 +205,7 @@ export class CertificadoComponent implements OnInit {
 
   templates = [
 
-    {
-      name: "GRUPO DE PESQUISA",
-      value:
-        "do IV Encontro Internacional Docência e Cibercultura – IV E-DOC – RIO 2022 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro, no período de 25 de julho a 29 de julho de 2022.",
-    },
+
     {
       name: "MODERAÇÃO DE EXPOSIÇÃO E FRUIÇÕES ARTÍSTICO-LITERÁRIAS",
       value:
