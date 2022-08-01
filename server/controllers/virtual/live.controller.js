@@ -391,7 +391,7 @@ async function listVirtual() {
   if (date.length == 4) {
     date = "0" + date;
   }
-
+  date = "25/07"
   let virtual = { schedules: [] };
   if (date == "25/07") {
     virtual.abertura = await aberturaCtrl.listSchedule(date);

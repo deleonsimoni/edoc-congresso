@@ -33,9 +33,9 @@
                                             <h4 class="mb-4"><button class="btn btn-inscrever"><i
                                                         class="fas fa-spinner fa-pulse"></i></button></h4>
                                         </div>
-                                        <div style="cursor: pointer !important;">
+                                        <div style="cursor: pointer !important;" class="mt-5">
                                             <h4 tabindex="0" alt="Clique para ver detalhes"
-                                                style="position: absolute; bottom: 0; left: 2px; cursor: pointer !important;">
+                                                style="position: absolute; bottom: 0; left: 15px; cursor: pointer !important;">
                                                 <a class="btn btn-primary" (keyup.enter)="selectSchedule(schedule);"
                                                     (click)="selectSchedule(schedule);">Assistir <i
                                                         class="fa fa-chevron-down"></i></a>
@@ -88,6 +88,11 @@
                                         <hr />
                                         <div *ngIf="schedule?.virtual?.linkYoutube"
                                             class="row col-12 justify-content-center">
+                                            <div class="row clo-12 p-4">
+                                                <a style="color:rgb(59, 59, 238)" target="_blank"
+                                                    href="{{schedule?.virtual?.linkYoutube}}">Clique aqui para assistir
+                                                    direto no YouTube</a>
+                                            </div>
                                             <iframe tabindex="0" alt="clique para assistir" width="75%" height="400"
                                                 [src]='linkYoutubeSafe' frameborder="0" allowfullscreen></iframe>
                                             <iframe width="25%" height="400" [src]='chatYoutubeSafe' frameborder="0"
@@ -129,9 +134,9 @@
                                             <h4 class="mb-4"><button class="btn btn-inscrever"><i
                                                         class="fas fa-spinner fa-pulse"></i></button></h4>
                                         </div>
-                                        <div style="cursor: pointer !important;">
+                                        <div style="cursor: pointer !important; margin-top: 78px;">
                                             <h4 class="btn btn-primary" *ngIf="!carregando"
-                                                style="position: absolute; bottom: 0; left: 0; cursor: pointer !important;"
+                                                style="position: absolute; bottom: 0; left: 10px; cursor: pointer !important;"
                                                 (click)="selectBookSchedule(schedule)">Mais detalhes <i
                                                     class="fa fa-chevron-down"></i></h4>
                                             <h4 *ngIf="carregando"
@@ -165,7 +170,7 @@
                                             <div class="form-group col-md-2">
                                                 <div class="miniature-img ">
                                                     <img width="100px" height="150px"
-                                                        src="https://edocimage.s3.sa-east-1.amazonaws.com/edocimage/books/{{book.nameMiniature}}"
+                                                        src="https://edocimage.s3.sa-east-1.amazonaws.com/edocimage/books/{{item.nameMiniature}}"
                                                         class="img-fluid img-thumbnail capa-livro" />
                                                 </div>
                                             </div>
