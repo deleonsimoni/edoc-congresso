@@ -85,17 +85,17 @@ export class CertificadoComponent implements OnInit {
     this.inscricoes.forEach((work) => {
       if (this.user.cursosInscritos[control].icModalityId == 4) {
         this.templateAutomatico.target.value = "PARTICIPAÇÃO DE OFICINA";
-        let horas = 4;
+        let horas = 2;
         this.preencherTemplate(this.templateAutomatico, work.workTitle, horas);
       }
       /*    else if (this.user.cursosInscritos[control].icModalityId == 5) {
             this.templateAutomatico.target.value = "PARTICIPAÇÃO DE PAINEL";
             this.preencherTemplate(this.templateAutomatico, work.workTitle, null);
           }*/
-      else if (this.user.cursosInscritos[control].icModalityId == 5) {
-        this.templateAutomatico.target.value = "PARTICIPAÇÃO DE EXPOSIÇÃO E FRUIÇÕES ARTÍSTICO-LITERÁRIAS";
-        this.preencherTemplate(this.templateAutomatico, work.workTitle, null);
-      }
+      /* else if (this.user.cursosInscritos[control].icModalityId == 5) {
+         this.templateAutomatico.target.value = "PARTICIPAÇÃO DE EXPOSIÇÃO E FRUIÇÕES ARTÍSTICO-LITERÁRIAS";
+         this.preencherTemplate(this.templateAutomatico, work.workTitle, null);
+       }*/
       control++;
     });
   }
@@ -171,7 +171,12 @@ export class CertificadoComponent implements OnInit {
     } else if (templateSelecionado.target.value == "CONFERÊNCIA") {
       this.coringa = " realizou a conferência ";
       this.exibirGT = true;
-    } else if (templateSelecionado.target.value == "MEDIAÇÃO DE OFICINA") {
+    } else if (templateSelecionado.target.value == "ORGANIZAÇÃO") {
+      this.coringa = " participou da organização ";
+      this.exibirGT = true;
+    }
+
+    else if (templateSelecionado.target.value == "MEDIAÇÃO DE OFICINA") {
       this.coringa =
         " desenvolveu a Oficina " +
         (complementoUm || "______________") +
@@ -268,6 +273,11 @@ export class CertificadoComponent implements OnInit {
       name: "CONFERÊNCIA",
       value:
         "no IV Encontro Internacional Docência e Cibercultura – IV E-DOC – RIO 2022 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro, no período de 25 de julho a 29 de julho de 2022.",
+    },
+    {
+      name: "ORGANIZAÇÃO",
+      value:
+        "do IV Encontro Internacional Docência e Cibercultura – IV E-DOC – RIO 2022 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro, no período de 25 de julho a 29 de julho de 2022.",
     },
   ];
 }
