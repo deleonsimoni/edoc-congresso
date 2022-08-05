@@ -195,6 +195,9 @@ export class CertificadoComponent implements OnInit {
     } else if (templateSelecionado.target.value == "MODERAÇÃO DE EXPOSIÇÃO E FRUIÇÕES ARTÍSTICO-LITERÁRIAS") {
       this.coringa = " fez a mediação da exposição " + (complementoUm || "______________");
       this.exibirGT = true;
+    } else if (templateSelecionado.target.value == "PARTICIPAÇÃO DE EXPOSIÇÃO E FRUIÇÕES ARTÍSTICO-LITERÁRIAS") {
+      this.coringa = " participou da exposição " + (complementoUm || "______________");
+      this.exibirGT = true;
 
     } else if (templateSelecionado.target.value == "PARTICIPAÇÃO DE PAINEL") {
       this.coringa = " participou do Painel " + complementoUm || "______________" + " ";
@@ -212,6 +215,11 @@ export class CertificadoComponent implements OnInit {
 
     {
       name: "MODERAÇÃO DE EXPOSIÇÃO E FRUIÇÕES ARTÍSTICO-LITERÁRIAS",
+      value:
+        "do IV Encontro Internacional Docência e Cibercultura – IV E-DOC – RIO 2022 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro, no período de 25 de julho a 29 de julho de 2022.",
+    },
+    {
+      name: "PARTICIPAÇÃO DE EXPOSIÇÃO E FRUIÇÕES ARTÍSTICO-LITERÁRIAS",
       value:
         "do IV Encontro Internacional Docência e Cibercultura – IV E-DOC – RIO 2022 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro, no período de 25 de julho a 29 de julho de 2022.",
     },
