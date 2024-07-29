@@ -55,8 +55,8 @@
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" [routerLink]="['/home']" alt="Eixos" fragment="services">Eixos</a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" [routerLink]="['/home']" alt="Histórico" fragment="historico">e-DoCs
-                    Anteriores</a>
+                  <!-- <a class="dropdown-item" [routerLink]="['/home']" alt="Histórico" fragment="historico">e-DoCs
+                    Anteriores</a>-->
 
                 </div>
               </li>
@@ -83,12 +83,12 @@
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" [routerLink]="['/home']" alt="Bolsistas" fragment="bolsistas">Bolsistas
                   </a>
-                  <div class="dropdown-divider"></div>
+                  <!-- <div class="dropdown-divider"></div>
                   <a class="dropdown-item" [routerLink]="['/home']" alt="Instituições Parceiras"
                     fragment="parcerias">Instituições Parceiras</a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" [routerLink]="['/home']" alt="Informações Gerais"
-                    fragment="contact">Informações Gerais</a>
+                    fragment="contact">Informações Gerais</a>-->
 
                 </div>
               </li>
@@ -134,6 +134,19 @@
               </li>
 
 
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" alt="memoria" id="memoriaMenu" role="button"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  MEMÓRIAS E-DOC
+                </a>
+                <div class="dropdown-menu" aria-labelledby="memoriaMenu">
+                  <a class="dropdown-item" [routerLink]="['/memoria']" fragment="iv">e-Docs anterioes</a>
+                  <div class="dropdown-divider"></div>
+                  <!--<a class="dropdown-item" [routerLink]="['/memoria']" fragment="I">I,II,III e-Doc</a>
+                  <div class="dropdown-divider"></div>-->
+
+                </div>
+              </li>
 
               <!--
               <li class="menu-has-children pointer">
@@ -221,14 +234,14 @@
             <li><a tabindex="0" [routerLink]="['/home']" fragment="clients" (click)="sidenav.toggle()">Apresentação</a>
             </li>
             <li><a tabindex="0" [routerLink]="['/home']" fragment="services" (click)="sidenav.toggle()">Eixos</a></li>
-            <li><a tabindex="0" [routerLink]="['/home']" fragment="historico" (click)="sidenav.toggle()">e-DoCs
+            <!-- <li><a tabindex="0" [routerLink]="['/home']" fragment="historico" (click)="sidenav.toggle()">e-DoCs
                 Anteriores</a>
-            </li>
+            </li>-->
           </ul>
         </accordion-group>
 
         <accordion-group>
-          <a accordion-heading>ORGANIZAÇÃO <i class="fa fa-chevron-down"></i></a>
+          <a accordion-heading>ORGANIZAÇÃO<i class="fa fa-chevron-down"></i></a>
           <ul class="child-list">
             <li><a tabindex="0" [routerLink]="['/home']" fragment="team" (click)="sidenav.toggle()">Coordenação</a></li>
             <!--<li><a tabindex="0" [routerLink]="['/home']" fragment="team" (click)="sidenav.toggle()">Comitê
@@ -239,11 +252,11 @@
                 de Pesquisa</a></li>
             <li><a tabindex="0" [routerLink]="['/home']" fragment="bolsistas" (click)="sidenav.toggle()">Bolsistas
               </a></li>
-            <li><a tabindex="0" [routerLink]="['/home']" fragment="parcerias" (click)="sidenav.toggle()">Instituições
+            <!-- <li><a tabindex="0" [routerLink]="['/home']" fragment="parcerias" (click)="sidenav.toggle()">Instituições
                 Parceiras</a>
             </li>
             <li><a tabindex="0" [routerLink]="['/home']" fragment="contact" (click)="sidenav.toggle()">Informações
-                Gerais</a></li>
+                Gerais</a></li>-->
           </ul>
         </accordion-group>
 
@@ -276,21 +289,26 @@
           </ul>
         </accordion-group>
 
-        <!--    <accordion-group>
-          <a tabindex="0" accordion-heading>RIO DE JANEIRO <i class="fa fa-chevron-down"></i></a>
+        <accordion-group>
+          <a tabindex="0" accordion-heading>MEMÓRIAS<i class="fa fa-chevron-down"></i></a>
           <ul class="child-list">
-            <li><a tabindex="0" [routerLink]="['/home']" fragment="hospedagem" (click)="sidenav.toggle()">Hospedagem</a>
+            <li><a tabindex="0" [routerLink]="['/memoria']" fragment="e-Docs Anteriores" (click)="sidenav.toggle()">IV
+                e-Doc</a>
             </li>
-            <li><a tabindex="0" [routerLink]="['/home']" fragment="hospedagem" (click)="sidenav.toggle()">Transporte</a>
-            </li>
-            <li><a tabindex="0" [routerLink]="['/home']" fragment="hospedagem"
+            <!--  <li><a tabindex="0" [routerLink]="['/memoria']" fragment="I,II,III e-Doc"
+                (click)="sidenav.toggle()">I,II,III
+                e-Doc</a>
+            </li>-->
+            <!--<li><a tabindex="0" [routerLink]="['/home']" fragment="hospedagem"
                 (click)="sidenav.toggle()">Alimentação</a>
             </li>
             <li><a tabindex="0" [routerLink]="['/home']" fragment="hospedagem" (click)="sidenav.toggle()">Turismo</a>
             </li>
-            <li><a tabindex="0" [routerLink]="['/home']" fragment="hospedagem" (click)="sidenav.toggle()">Clima</a></li>
+            <li><a tabindex="0" [routerLink]="['/home']" fragment="hospedagem" (click)="sidenav.toggle()">Clima</a></li>-->
           </ul>
-        </accordion-group>-->
+        </accordion-group>
+
+
 
         <ul class="child-list" *ngIf="!isAuth">
           <li>

@@ -68,6 +68,7 @@ import { getPtBRPaginatorINTL } from './ptBR-paginator-intl';
 import { ModalBemVindoComponent } from './modal-bem-vindo/modal-bem-vindo.component';
 import { AnaisVirtualComponent } from './endipe-virtual/anais-virtual/anais-virtual.component';
 import { LancamentoLivrosComponent } from './lancamento-livros/lancamento-livros.component';
+import { MemoriaComponent } from './memoria/memoria.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -114,6 +115,7 @@ import { LancamentoLivrosComponent } from './lancamento-livros/lancamento-livros
     ModalBemVindoComponent,
     AnaisVirtualComponent,
     LancamentoLivrosComponent,
+    MemoriaComponent,
   ],
   imports: [
     BrowserModule,

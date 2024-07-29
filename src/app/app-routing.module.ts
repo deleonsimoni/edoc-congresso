@@ -17,6 +17,7 @@ import { InscrevaseComponent } from './programacao/components/inscrevase/inscrev
 import { ProgramacaoAbertaComponent } from './programacao/components/programacao-aberta/programacao-aberta.component';
 import { AnaisVirtualComponent } from './endipe-virtual/anais-virtual/anais-virtual.component';
 import { LancamentoLivrosComponent } from './lancamento-livros/lancamento-livros.component';
+import { MemoriaComponent } from './memoria/memoria.component';
 
 const routes: Routes = [
   {
@@ -88,6 +89,10 @@ const routes: Routes = [
   {
     path: 'lancamento-livros',
     component: LancamentoLivrosComponent
+  },
+  {
+    path: 'memoria',
+    component: MemoriaComponent
   }
 ];
 
