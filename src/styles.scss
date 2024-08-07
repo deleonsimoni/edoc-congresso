@@ -71,14 +71,18 @@ h6 {
   color: #fff;
 }
 
+.text-white {
+  color: #ffbd59 !important;
+}
+
 /*--------------------------------------------------------------
   # Top Bar
   --------------------------------------------------------------*/
 
 #topbar {
-  background: #fff;
+  background: #000000;
   padding: 10px 0;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #000000;
   font-size: 14px;
 }
 
@@ -127,7 +131,7 @@ h6 {
   height: 84px;
   transition: all 0.5s;
   z-index: 997;
-  background-image: linear-gradient(to bottom right, #17cad1, #F36BFF);
+  background-image: linear-gradient(to bottom right, #1a42a4, #ffbd59);
   box-shadow: 0px 6px 9px 0px rgba(0, 0, 0, 0.06);
 }
 
@@ -348,7 +352,7 @@ h6 {
   padding: 10px 8px;
   text-decoration: none;
   display: inline-block;
-  color: #004b99;
+  color: #ffffff;
   font-family: "Raleway", sans-serif;
   font-weight: 700;
   font-size: 14px;
@@ -357,7 +361,7 @@ h6 {
 
 .nav-menu li:hover>a,
 .nav-menu .menu-active>a {
-  color: #20959b;
+  color: #fcf157;
 }
 
 .nav-menu>li {
@@ -367,7 +371,7 @@ h6 {
 .nav-menu ul {
   padding: 10px;
   box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
-  background: #fff;
+  background: #000000;
 }
 
 .nav-menu ul li {
@@ -384,7 +388,7 @@ h6 {
 }
 
 .nav-menu ul li:hover>a {
-  color: #20959b;
+  color: #000000;
 }
 
 .nav-menu ul ul {
@@ -471,7 +475,7 @@ h6 {
 }
 
 #mobile-nav ul .menu-item-active {
-  color: #20959b;
+  color: #000000;
 }
 
 #mobile-body-overly {
@@ -613,6 +617,13 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #services .box .icon {
   float: left;
+}
+
+
+.dropdown-item:active {
+  color: #000000 !important;
+  text-decoration: none;
+  background-color: #f8f79d;
 }
 
 #services .box .icon i {

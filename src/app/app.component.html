@@ -3,7 +3,7 @@
     <div class="header">
       <section id="topbar" class="d-none d-lg-block">
         <div class="container clearfix">
-          <div class="social-links float-right">
+          <div class="social-links float-right text-white">
             <a [routerLink]="" *ngIf="userName">{{ 'Olá, ' + userName }}</a>
             <a href="https://facebook.com/edocrural" title="Facebook e-DoC" alt="Facebook e-DoC" target="_blank"
               class="facebook"><i class="fab fa-facebook-f"></i></a>
@@ -31,10 +31,10 @@
 
           <nav id="nav-menu-container" [hidden]="isMobile == true">
             <ul class="nav-menu">
-              <li class="pointer">
+              <!-- <li class="pointer">
                 <a tabindex="0" class="menu-has-children aoVivo comMargem pulse" [routerLink]="['/edoc-remoto']">e-DoC
                   Virtual</a>
-              </li>
+              </li>-->
 
 
               <li class="nav-item dropdown">
@@ -94,7 +94,7 @@
               </li>
 
 
-              <li class="nav-item dropdown">
+              <!-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" alt="Programação" id="programacaoMenu" role="button"
                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   PROGRAMAÇÃO
@@ -115,9 +115,9 @@
                   <a class="dropdown-item" alt="Lançamento de livros" [routerLink]="['/lancamento-livros']">Lançamento
                     de Livros</a>
                 </div>
-              </li>
+              </li>-->
 
-              <li class="nav-item dropdown">
+              <!-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" alt="Submissão" id="programacaoMenu" role="button"
                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   ORIENTAÇÕES
@@ -131,7 +131,7 @@
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" [routerLink]="['/anais-virtual']" fragment="anais">Anais</a>
                 </div>
-              </li>
+              </li>-->
 
 
               <li class="nav-item dropdown">
@@ -219,12 +219,12 @@
     <mat-sidenav #sidenav mode="over">
       <accordion #accordion [isAnimated]="true" [closeOthers]="true">
 
-        <ul class="child-list">
+        <!--<ul class="child-list">
           <li>
             <a tabindex="0" accordion-heading class="menu-has-children aoVivo pulse" [routerLink]="['/edoc-remoto']"
               (click)="sidenav.toggle()">e-DoC Virtual</a>
           </li>
-        </ul>
+        </ul>-->
 
         <accordion-group>
           <a tabindex="0" accordion-heading>SOBRE <i class="fa "
