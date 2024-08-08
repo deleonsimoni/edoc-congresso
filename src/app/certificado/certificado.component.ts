@@ -216,76 +216,76 @@ export class CertificadoComponent implements OnInit {
     {
       name: "MODERAÇÃO DE EXPOSIÇÃO E FRUIÇÕES ARTÍSTICO-LITERÁRIAS",
       value:
-        "do V Encontro Internacional Docência e Cibercultura – V E-DOC – RIO 2024 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro, no período de 25 de julho a 29 de julho de 2022.",
+        "do V Encontro Internacional Docência e Cibercultura – V E-DOC – RIO 2024 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro.",
     },
     {
       name: "PARTICIPAÇÃO DE EXPOSIÇÃO E FRUIÇÕES ARTÍSTICO-LITERÁRIAS",
       value:
-        "do V Encontro Internacional Docência e Cibercultura – V E-DOC – RIO 2024 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro, no período de 25 de julho a 29 de julho de 2022.",
+        "do V Encontro Internacional Docência e Cibercultura – V E-DOC – RIO 2024 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro.",
     },
 
     {
       name: "COORDENAÇÃO GERAL",
       value:
-        "coordenou o V Encontro Internacional Docência e Cibercultura – V E-DOC – RIO 2024 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro, no período de 25 de julho a 29 de julho de 2022.",
+        "coordenou o V Encontro Internacional Docência e Cibercultura – V E-DOC – RIO 2024 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro.",
     },
 
     {
       name: "MEDIAÇÃO DE OFICINA",
       value:
-        "no V Encontro Internacional Docência e Cibercultura – V E-DOC – RIO 2024 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro, no período de 25 de julho a 29 de julho de 2022.",
+        "no V Encontro Internacional Docência e Cibercultura – V E-DOC – RIO 2024 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro.",
     },
     {
       name: "MEDIAÇÃO DE PAINEL",
       value:
-        "no V Encontro Internacional Docência e Cibercultura – V E-DOC – RIO 2024 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro, no período de 25 de julho a 29 de julho de 2022.",
+        "no V Encontro Internacional Docência e Cibercultura – V E-DOC – RIO 2024 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro.",
     },
 
     {
       name: "MONITORIA",
       value:
-        "no V Encontro Internacional Docência e Cibercultura – V E-DOC – RIO 2024 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro, no período de 25 de julho a 29 de julho de 2022.",
+        "no V Encontro Internacional Docência e Cibercultura – V E-DOC – RIO 2024 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro.",
     },
 
 
     {
       name: "COORDENADOR DE EIXO",
       value:
-        "participou na condição de Coordenador(a) de Eixo do V Encontro Internacional Docência e Cibercultura – V E-DOC – RIO 2024 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro, no período de 25 de julho a 29 de julho de 2022.",
+        "participou na condição de Coordenador(a) de Eixo do V Encontro Internacional Docência e Cibercultura – V E-DOC – RIO 2024 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro.",
     },
 
     {
       name: "PARTICIPAÇÃO DE OFICINA",
       value:
-        "no V Encontro Internacional Docência e Cibercultura – V E-DOC – RIO 2024 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro, no período de 25 de julho a 29 de julho de 2022.",
+        "no V Encontro Internacional Docência e Cibercultura – V E-DOC – RIO 2024 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro.",
     },
     {
       name: "PARTICIPAÇÃO DE PAINEL",
       value:
-        "no V Encontro Internacional Docência e Cibercultura – V E-DOC – RIO 2024 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro, no período de 25 de julho a 29 de julho de 2022.",
+        "no V Encontro Internacional Docência e Cibercultura – V E-DOC – RIO 2024 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro.",
     },
 
     {
       name: "PARTICIPAÇÃO GERAL",
       value:
-        "participou do V Encontro Internacional Docência e Cibercultura – V E-DOC – RIO 2024 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro, no período de 25 de julho a 29 de julho de 2022.",
+        "participou do V Encontro Internacional Docência e Cibercultura – V E-DOC – RIO 2024 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro.",
     },
 
     {
       name: "PRESTAÇÃO DE SERVIÇO",
       value:
-        "para fins de realização do V Encontro Internacional Docência e Cibercultura – V E-DOC – RIO 2024 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro, no período de 25 de julho a 29 de julho de 2022.",
+        "para fins de realização do V Encontro Internacional Docência e Cibercultura – V E-DOC – RIO 2024 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro.",
     },
 
     {
       name: "CONFERÊNCIA",
       value:
-        "no V Encontro Internacional Docência e Cibercultura – V E-DOC – RIO 2024 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro, no período de 25 de julho a 29 de julho de 2022.",
+        "no V Encontro Internacional Docência e Cibercultura – V E-DOC – RIO 2024 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro.",
     },
     {
       name: "ORGANIZAÇÃO",
       value:
-        "do V Encontro Internacional Docência e Cibercultura – V E-DOC – RIO 2024 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro, no período de 25 de julho a 29 de julho de 2022.",
+        "do V Encontro Internacional Docência e Cibercultura – V E-DOC – RIO 2024 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro.",
     },
   ];
 }
