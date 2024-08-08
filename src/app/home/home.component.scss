@@ -1,6 +1,122 @@
+/* Estilos para a seção */
+#escolha {
+  background-color: #f9f9f9;
+  /* Cor de fundo clara */
+  padding: 2rem 0;
+  /* Espaçamento interno */
+}
+
+.section-header h2 {
+  text-align: center;
+  /* Centraliza o título principal */
+  color: #333;
+  /* Cor escura para contraste */
+  margin-bottom: 2rem;
+  /* Espaçamento abaixo do título */
+}
+
+.event {
+  background-color: #fff;
+  /* Cor de fundo das seções de evento */
+  border: 1px solid #ddd;
+  /* Borda leve para separar eventos */
+  border-radius: 8px;
+  /* Bordas arredondadas */
+  padding: 1.5rem;
+  /* Espaçamento interno */
+  margin-bottom: 1.5rem;
+  /* Espaçamento entre eventos */
+}
+
+.event h3 {
+  font-size: 1.5rem;
+  /* Tamanho da fonte do título do evento */
+  color: #007bff;
+  /* Cor azul para os títulos */
+  margin-bottom: 0.5rem;
+  /* Espaçamento abaixo do título */
+}
+
+.event p {
+  font-size: 1.1rem;
+  /* Tamanho da fonte dos parágrafos */
+  color: #555;
+  /* Cor do texto para melhor legibilidade */
+  margin-bottom: 0.5rem;
+  /* Espaçamento entre parágrafos */
+}
+
+.event a {
+  color: #007bff;
+  /* Cor azul para os links */
+  text-decoration: none;
+  /* Remove o sublinhado dos links */
+}
+
+.event a:hover {
+  text-decoration: underline;
+  /* Sublinhado ao passar o mouse */
+}
+
+
+
+
+
+
+
+
+/* Ajustes gerais para o carrossel */
 .carousel-item img {
-  height: 100%;
   object-fit: cover;
+  /* Faz com que a imagem cubra o espaço sem distorcer */
+  height: 60vh;
+  /* Ajusta a altura da imagem */
+}
+
+/* Ajuste do carrossel para dispositivos móveis */
+@media (max-width: 768px) {
+  .carousel-item img {
+    height: 50vh;
+    /* Reduz a altura para telas menores */
+  }
+
+  .carousel-caption {
+    font-size: 0.8rem;
+    /* Ajusta o tamanho da fonte para dispositivos menores */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Adiciona fundo semitransparente para melhorar a legibilidade */
+    padding: 10px;
+    /* Adiciona um pouco de espaçamento interno */
+    border-radius: 5px;
+    /* Opcional: adiciona bordas arredondadas */
+  }
+}
+
+@media (max-width: 576px) {
+  .carousel-item img {
+    height: 40vh;
+    /* Ajusta ainda mais para telas muito pequenas */
+  }
+
+  .carousel-caption {
+    font-size: 0.7rem;
+    /* Ajusta o tamanho da fonte para telas pequenas */
+  }
+}
+
+/* Ajusta os controles do carrossel */
+.carousel-control-prev,
+.carousel-control-next {
+  width: 5%;
+  /* Ajusta a largura dos controles */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Adiciona fundo semitransparente para os ícones dos controles */
+  border-radius: 50%;
+  /* Faz os ícones dos controles parecerem botões redondos */
 }
 
 #about {

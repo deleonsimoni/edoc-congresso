@@ -516,7 +516,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 .section-header h2 {
   font-size: 32px;
-  color: #03989e;
+  color: #000000;
   text-transform: uppercase;
   font-weight: 700;
   position: relative;
@@ -529,7 +529,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   display: block;
   width: 50px;
   height: 3px;
-  background: #9400A2;
+  background: #ffbd59;
   bottom: 0;
   left: 0;
 }
@@ -542,9 +542,6 @@ body.mobile-nav-active #mobile-nav-toggle {
 /* About Section
   --------------------------------*/
 
-#about {
-  padding: 0px 0 30px 0;
-}
 
 #about .about-img {
   overflow: hidden;

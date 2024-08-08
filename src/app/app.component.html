@@ -37,7 +37,7 @@
               </li>-->
 
 
-              <li class="nav-item dropdown">
+              <!--  <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" alt="Sobre" href="#" id="organizacaopMenu" role="button"
                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   SOBRE
@@ -55,43 +55,14 @@
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" [routerLink]="['/home']" alt="Eixos" fragment="services">Eixos</a>
                   <div class="dropdown-divider"></div>
-                  <!-- <a class="dropdown-item" [routerLink]="['/home']" alt="Histórico" fragment="historico">e-DoCs
-                    Anteriores</a>-->
+                   <a class="dropdown-item" [routerLink]="['/home']" alt="Histórico" fragment="historico">e-DoCs
+                    Anteriores</a>
 
                 </div>
-              </li>
+              </li>-->
 
 
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" alt="Organização" id="organizacaopMenu" role="button"
-                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  ORGANIZAÇÃO
-                </a>
-                <div class="dropdown-menu" aria-labelledby="organizacaopMenu">
-                  <a class="dropdown-item" [routerLink]="['/home']" alt="coordenação" fragment="team">Coordenação</a>
-                  <!-- <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" [routerLink]="['/home']" alt="Comitê Organizador" fragment="team">Comitê
-                    Organizador</a>-->
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" [routerLink]="['/home']" alt="Comitê Científico"
-                    fragment="comiteCientifico">Comitê
-                    Científico</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" [routerLink]="['/home']" alt="Grupos de Pesquisa"
-                    fragment="gruposdepesquisa">Grupos
-                    de Pesquisa</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" [routerLink]="['/home']" alt="Bolsistas" fragment="bolsistas">Bolsistas
-                  </a>
-                  <!-- <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" [routerLink]="['/home']" alt="Instituições Parceiras"
-                    fragment="parcerias">Instituições Parceiras</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" [routerLink]="['/home']" alt="Informações Gerais"
-                    fragment="contact">Informações Gerais</a>-->
 
-                </div>
-              </li>
 
 
               <!-- <li class="nav-item dropdown">
@@ -159,10 +130,10 @@
                   <li><a tabindex="0" alt="clima" [routerLink]="['/home']" fragment="Clima">Clima</a></li>
                 </ul>
               </li>-->
-              <li class="pointer">
+              <!--<li class="pointer">
                 <a tabindex="0" class="pulse" style="color:#ffffff" *ngIf="!isAuth" [routerLink]="['/register']"
                   fragment="">INSCRIÇÃO</a>
-              </li>
+              </li>-->
               <li tabindex="0" class="pointer" *ngIf="!isAuth"><a tabindex="0" [routerLink]="['/login']">LOGIN</a></li>
 
               <li *ngIf="isAuth" class="nav-item dropdown">

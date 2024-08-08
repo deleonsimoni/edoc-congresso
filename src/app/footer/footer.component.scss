@@ -22,3 +22,58 @@
 #footer .credits a {
   color: #2c8d13;
 }
+
+
+
+
+
+
+
+
+
+
+
+.footer-section {
+  background-color: #f8f9fa;
+  /* Cor de fundo clara */
+  padding: 3rem 0;
+  /* Aumenta o espaçamento interno */
+}
+
+.footer-section h2 {
+  text-align: center;
+  /* Centraliza o título */
+  color: #333;
+  /* Cor escura para contraste */
+  margin-bottom: 2rem;
+  /* Espaçamento abaixo do título */
+}
+
+.partner-logos {
+  display: flex;
+  /* Flexbox para alinhar as imagens em linha */
+  flex-wrap: wrap;
+  /* Permite que as imagens se movam para a linha seguinte em telas pequenas */
+  justify-content: center;
+  /* Centraliza as imagens */
+  gap: 2rem;
+  /* Espaçamento entre as imagens */
+}
+
+.partner-logos img {
+  width: 150px;
+  /* Largura fixa para todas as imagens */
+  height: auto;
+  /* Mantém a proporção da imagem */
+  max-height: 100px;
+  /* Limita a altura máxima para evitar imagens muito grandes */
+  object-fit: contain;
+  /* Ajusta a imagem para se ajustar ao contêiner sem distorcer */
+  transition: transform 0.3s ease;
+  /* Transição suave para o efeito hover */
+}
+
+.partner-logos img:hover {
+  transform: scale(1.1);
+  /* Efeito de zoom ao passar o mouse */
+}
