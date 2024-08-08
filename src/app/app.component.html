@@ -197,68 +197,9 @@
           </li>
         </ul>-->
 
-        <accordion-group>
-          <a tabindex="0" accordion-heading>SOBRE <i class="fa "
-              [ngClass]="{'fa-chevron-down': !accordion.isOpen, 'fa-chevron-up': accordion.isOpen}"></i></a>
-          <ul class="child-list">
-            <li><a tabindex="0" [routerLink]="['/home']" fragment="about" (click)="sidenav.toggle()">Tema</a></li>
-            <li><a tabindex="0" [routerLink]="['/home']" fragment="clients" (click)="sidenav.toggle()">Apresentação</a>
-            </li>
-            <li><a tabindex="0" [routerLink]="['/home']" fragment="services" (click)="sidenav.toggle()">Eixos</a></li>
-            <!-- <li><a tabindex="0" [routerLink]="['/home']" fragment="historico" (click)="sidenav.toggle()">e-DoCs
-                Anteriores</a>
-            </li>-->
-          </ul>
-        </accordion-group>
-
-        <accordion-group>
-          <a accordion-heading>ORGANIZAÇÃO<i class="fa fa-chevron-down"></i></a>
-          <ul class="child-list">
-            <li><a tabindex="0" [routerLink]="['/home']" fragment="team" (click)="sidenav.toggle()">Coordenação</a></li>
-            <!--<li><a tabindex="0" [routerLink]="['/home']" fragment="team" (click)="sidenav.toggle()">Comitê
-                Organizador</a></li>-->
-            <li><a tabindex="0" [routerLink]="['/home']" fragment="comiteCientifico" (click)="sidenav.toggle()">Comitê
-                Científico</a></li>
-            <li><a tabindex="0" [routerLink]="['/home']" fragment="gruposdepesquisa" (click)="sidenav.toggle()">Grupos
-                de Pesquisa</a></li>
-            <li><a tabindex="0" [routerLink]="['/home']" fragment="bolsistas" (click)="sidenav.toggle()">Bolsistas
-              </a></li>
-            <!-- <li><a tabindex="0" [routerLink]="['/home']" fragment="parcerias" (click)="sidenav.toggle()">Instituições
-                Parceiras</a>
-            </li>
-            <li><a tabindex="0" [routerLink]="['/home']" fragment="contact" (click)="sidenav.toggle()">Informações
-                Gerais</a></li>-->
-          </ul>
-        </accordion-group>
 
 
-        <accordion-group>
-          <a accordion-heading>PROGRAMAÇÃO <i class="fa fa-chevron-down"></i></a>
-          <ul class="child-list">
-            <li> <a tabindex="0" accordion-heading [routerLink]="['/programacao']" (click)="sidenav.toggle()">Geral</a>
-            </li>
-            <li><a tabindex="0" accordion-heading [routerLink]="['/programacao-aberta']"
-                (click)="sidenav.toggle()">Atividades Abertas</a></li>
-            <li><a tabindex="0" accordion-heading [routerLink]="['/inscrevase']" (click)="sidenav.toggle()">Atividades
-                Fechadas</a></li>
-            <li> <a tabindex="0" accordion-heading (click)="openConferencistasModal()">Conferencistas</a></li>
-            <li> <a tabindex="0" accordion-heading [routerLink]="['/lancamento-livros']">Lançamento de Livros</a>
 
-          </ul>
-        </accordion-group>
-
-        <accordion-group>
-          <a tabindex="0" accordion-heading>ORIENTAÇÕES <i class="fa fa-chevron-down"></i></a>
-          <ul class="child-list">
-            <li><a tabindex="0" [routerLink]="['/home']" fragment="modalidades"
-                (click)="sidenav.toggle()">Modalidades</a>
-            </li>
-            <li><a tabindex="0" [routerLink]="['/home']" fragment="normas" (click)="sidenav.toggle()">Normas</a></li>
-            <li><a tabindex="0" [routerLink]="['/home']" fragment="prazos" (click)="sidenav.toggle()">Prazos</a></li>
-            <li><a tabindex="0" [routerLink]="['/anais-virtual']" fragment="anais" (click)="sidenav.toggle()">Anais</a>
-            </li>
-          </ul>
-        </accordion-group>
 
         <accordion-group>
           <a tabindex="0" accordion-heading>MEMÓRIAS<i class="fa fa-chevron-down"></i></a>
@@ -281,11 +222,6 @@
 
 
 
-        <ul class="child-list" *ngIf="!isAuth">
-          <li>
-            <a accordion-heading [routerLink]="['/register']" (click)="sidenav.toggle()">INSCRIÇÃO</a>
-          </li>
-        </ul>
 
         <ul class="child-list" *ngIf="!isAuth">
           <li>
