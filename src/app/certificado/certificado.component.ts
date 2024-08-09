@@ -161,7 +161,13 @@ export class CertificadoComponent implements OnInit {
     if (templateSelecionado.target.value == "PRESTAÇÃO DE SERVIÇO") {
       this.coringa = " atuou como prestadora de serviço na área de ";
       this.exibirGT = true;
-    } else if (templateSelecionado.target.value == "MONITORIA") {
+    }
+    else if (templateSelecionado.target.value == "PARTICIPAÇÃO PALESTRA") {
+      this.coringa =
+        " participou da palestra intitulada SE PAULO FREIRE FOSSE VIVO USARIA CHATGPT no dia 08 de agosto de 2024 com duração de 02 horas.";
+      this.exibirGT = true;
+    }
+    else if (templateSelecionado.target.value == "MONITORIA") {
       this.coringa =
         " atuou como monitor(a), perfazendo um total de ______ horas de trabalho de pré-produção, produção e pós produção ";
       this.exibirGT = true;
@@ -214,78 +220,83 @@ export class CertificadoComponent implements OnInit {
 
 
     {
+      name: "PARTICIPAÇÃO PALESTRA",
+      value:
+        "",
+    },
+    {
       name: "MODERAÇÃO DE EXPOSIÇÃO E FRUIÇÕES ARTÍSTICO-LITERÁRIAS",
       value:
-        "do V Encontro Internacional Docência e Cibercultura – V E-DOC – RIO 2024 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro.",
+        "do V Encontro Internacional Docência e Cibercultura – V E-DOC – RIO 2024.",
     },
     {
       name: "PARTICIPAÇÃO DE EXPOSIÇÃO E FRUIÇÕES ARTÍSTICO-LITERÁRIAS",
       value:
-        "do V Encontro Internacional Docência e Cibercultura – V E-DOC – RIO 2024 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro.",
+        "do V Encontro Internacional Docência e Cibercultura – V E-DOC – RIO 2024.",
     },
 
     {
       name: "COORDENAÇÃO GERAL",
       value:
-        "coordenou o V Encontro Internacional Docência e Cibercultura – V E-DOC – RIO 2024 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro.",
+        "coordenou o V Encontro Internacional Docência e Cibercultura – V E-DOC – RIO 2024.",
     },
 
     {
       name: "MEDIAÇÃO DE OFICINA",
       value:
-        "no V Encontro Internacional Docência e Cibercultura – V E-DOC – RIO 2024 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro.",
+        "no V Encontro Internacional Docência e Cibercultura – V E-DOC – RIO 2024.",
     },
     {
       name: "MEDIAÇÃO DE PAINEL",
       value:
-        "no V Encontro Internacional Docência e Cibercultura – V E-DOC – RIO 2024 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro.",
+        "no V Encontro Internacional Docência e Cibercultura – V E-DOC – RIO 2024.",
     },
 
     {
       name: "MONITORIA",
       value:
-        "no V Encontro Internacional Docência e Cibercultura – V E-DOC – RIO 2024 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro.",
+        "no V Encontro Internacional Docência e Cibercultura – V E-DOC – RIO 2024.",
     },
 
 
     {
       name: "COORDENADOR DE EIXO",
       value:
-        "participou na condição de Coordenador(a) de Eixo do V Encontro Internacional Docência e Cibercultura – V E-DOC – RIO 2024 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro.",
+        "participou na condição de Coordenador(a) de Eixo do V Encontro Internacional Docência e Cibercultura – V E-DOC – RIO 2024.",
     },
 
     {
       name: "PARTICIPAÇÃO DE OFICINA",
       value:
-        "no V Encontro Internacional Docência e Cibercultura – V E-DOC – RIO 2024 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro.",
+        "no V Encontro Internacional Docência e Cibercultura – V E-DOC – RIO 2024.",
     },
     {
       name: "PARTICIPAÇÃO DE PAINEL",
       value:
-        "no V Encontro Internacional Docência e Cibercultura – V E-DOC – RIO 2024 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro.",
+        "no V Encontro Internacional Docência e Cibercultura – V E-DOC – RIO 2024.",
     },
 
     {
       name: "PARTICIPAÇÃO GERAL",
       value:
-        "participou do V Encontro Internacional Docência e Cibercultura – V E-DOC – RIO 2024 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro.",
+        "participou do V Encontro Internacional Docência e Cibercultura – V E-DOC – RIO 2024.",
     },
 
     {
       name: "PRESTAÇÃO DE SERVIÇO",
       value:
-        "para fins de realização do V Encontro Internacional Docência e Cibercultura – V E-DOC – RIO 2024 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro.",
+        "para fins de realização do V Encontro Internacional Docência e Cibercultura – V E-DOC – RIO 2024.",
     },
 
     {
       name: "CONFERÊNCIA",
       value:
-        "no V Encontro Internacional Docência e Cibercultura – V E-DOC – RIO 2024 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro.",
+        "no V Encontro Internacional Docência e Cibercultura – V E-DOC – RIO 2024.",
     },
     {
       name: "ORGANIZAÇÃO",
       value:
-        "do V Encontro Internacional Docência e Cibercultura – V E-DOC – RIO 2024 – uma promoção interinstitucional coordenada pela Universidade Federal Rural do Rio de Janeiro e pela Universidade do Estado do Rio de Janeiro.",
+        "do V Encontro Internacional Docência e Cibercultura – V E-DOC – RIO 2024.",
     },
   ];
 }
