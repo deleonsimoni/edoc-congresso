@@ -67,15 +67,16 @@
 
 /* Ajustes gerais para o carrossel */
 .carousel-item img {
-  object-fit: cover;
+  object-fit: contain;
   /* Faz com que a imagem cubra o espaço sem distorcer */
-  height: 75vh;
+  height: 60vh;
   /* Ajusta a altura da imagem */
 }
 
 /* Ajuste do carrossel para dispositivos móveis */
 @media (max-width: 768px) {
   .carousel-item img {
+
     height: 50vh;
     /* Reduz a altura para telas menores */
   }
