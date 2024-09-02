@@ -1,7 +1,7 @@
 <div class="card-content">
   <div class="card">
     <div class="row">
-      <div class="col-6">
+      <div *ngIf="type != '13'" class="col-6">
         <span class="title" style="color: white;">Dia(s)</span>
         <div class="group" *ngFor="let item of schedule.dates">
           <p class="title">{{ item.date }} </p>
@@ -50,6 +50,20 @@
           </p>
         </div>
 
+        <div class="group" *ngIf="type != '3'">
+          <p class="label">Data</p>
+          <p class="title">
+            {{ schedule.date }}
+          </p>
+        </div>
+
+        <div class="group" *ngIf="type != '3'">
+          <p class="label">Link</p>
+          <p class="title">
+            {{ schedule.place }}
+          </p>
+        </div>
+
 
         <!-- EXIBICAO WORK POSTER-->
 
@@ -68,7 +82,7 @@
         <!-- FIM WORK POSTER-->
 
 
-        <div class="group">
+        <div *ngIf="type != '13'" class="group">
           <p class="label">Eixo</p>
           <p class="title">
             {{ schedule.axis | axis }}

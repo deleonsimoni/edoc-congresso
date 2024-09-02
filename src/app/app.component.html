@@ -130,10 +130,10 @@
                   <li><a tabindex="0" alt="clima" [routerLink]="['/home']" fragment="Clima">Clima</a></li>
                 </ul>
               </li>-->
-              <!--<li class="pointer">
+              <li class="pointer">
                 <a tabindex="0" class="pulse" style="color:#ffffff" *ngIf="!isAuth" [routerLink]="['/register']"
                   fragment="">INSCRIÇÃO</a>
-              </li>-->
+              </li>
               <li tabindex="0" class="pointer" *ngIf="!isAuth"><a tabindex="0" [routerLink]="['/login']">LOGIN</a></li>
 
               <li *ngIf="isAuth" class="nav-item dropdown">
@@ -144,17 +144,17 @@
                 <div class="dropdown-menu" aria-labelledby="acoesMenu">
 
                   <!--  <a class="dropdown-item" alt="Pagamento" [routerLink]="['/pagamento']">Pagamento</a>
-                  <div class="dropdown-divider"></div>-->
+                  <div class="dropdown-divider"></div>
 
                   <a class="dropdown-item" alt="Submissão" [routerLink]="['/meus-trabalhos']">Submissão</a>
-                  <div class="dropdown-divider"></div>
+                  <div class="dropdown-divider"></div>-->
 
                   <a class="dropdown-item" alt="Perfil" [routerLink]="['/perfil']">Perfil</a>
                   <div *ngIf="verifyAcess()" class="dropdown-divider"></div>
 
-                  <div class="dropdown-divider"></div>
+                 <!-- <div class="dropdown-divider"></div>
                   <a class="dropdown-item aoVivo pulse" alt="pe" [routerLink]="['/meu-edoc']" fragment="programacao">Meu
-                    e-DoC</a>
+                    e-DoC</a>-->
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" alt="Certificados" [routerLink]="['/certificados']"
                     fragment="certificados">Certificados</a>

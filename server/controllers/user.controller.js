@@ -5,6 +5,7 @@ const Work = require('../models/work.model');
 const RodaDeConversa = require('../models/schedule/rodasDeConversa.model');
 const MiniCurso = require('../models/schedule/minicurso.model');
 const Painel = require('../models/schedule/painel.model');
+const Edoc2024 = require('../models/schedule/edoc2024.model');
 
 const Prices = require('../config/prices');
 const IncomingForm = require('formidable').IncomingForm;
@@ -867,7 +868,10 @@ async function getWorksInscricoes(inscricoes) {
   for (let i = 0; i < inscricoes.length; i++) {
 
     let work;
-    if (inscricoes[i].icModalityId == 4) {
+    if (inscricoes[i].icModalityId == 13) {
+      work = await Edoc2024.findById(inscricoes[i].idSchedule).select('_id workTitle date');
+    }
+    else if (inscricoes[i].icModalityId == 4) {
       work = await MiniCurso.findById(inscricoes[i].idSchedule).select('_id workTitle dates');
     }
     else if (inscricoes[i].icModalityId == 5) {

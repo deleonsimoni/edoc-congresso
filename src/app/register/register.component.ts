@@ -60,7 +60,7 @@ export class RegisterComponent implements OnInit {
       pcdId: [null],
       icForeign: [false],
       isPCD: [false],
-      categoriaId: [null, [Validators.required]],
+      categoriaId: [null],
       deficiencyType: [null],
       document: [null, [Validators.required]],
       address: this.builder.group({
@@ -78,7 +78,7 @@ export class RegisterComponent implements OnInit {
         cellphone: [null, [Validators.required]],
       }),
       institution: this.builder.group({
-        name: [null, [Validators.required]],
+        name: [null],
         initials: [null]
       }),
       modalityId: new FormArray([]),
@@ -125,10 +125,7 @@ export class RegisterComponent implements OnInit {
       return;
     }
 
-    if (!this.registerForm.value.categoriaId) {
-      this.toastr.error('É necessário selecionar a categoria de inscrição.', 'Atenção: ');
-      return;
-    }
+
 
 
 

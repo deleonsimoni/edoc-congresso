@@ -42,9 +42,9 @@ export class CertificadoComponent implements OnInit {
         this.templateAutomatico.target.value = 'PARTICIPAÇÃO GERAL';
         this.preencherTemplate(this.templateAutomatico, null, null);
 
-        if (this.user.works && this.user.works.length > 0) {
+       /* if (this.user.works && this.user.works.length > 0) {
           this.carregarTrabalhosUsuario();
-        }
+        }*/
         if (this.user.cursosInscritos && this.user.cursosInscritos.length > 0) {
           this.carregarInscricoes();
         }
@@ -83,7 +83,11 @@ export class CertificadoComponent implements OnInit {
   private gerarCertificadosInscricoes() {
     let control = 0;
     this.inscricoes.forEach((work) => {
-      if (this.user.cursosInscritos[control].icModalityId == 4) {
+      if (this.user.cursosInscritos[control].icModalityId == 13) {
+        this.templateAutomatico.target.value = "PARTICIPAÇÃO PALESTRA";
+        this.preencherTemplate(this.templateAutomatico, work.workTitle, work.date);
+      }
+      else if (this.user.cursosInscritos[control].icModalityId == 4) {
         this.templateAutomatico.target.value = "PARTICIPAÇÃO DE OFICINA";
         let horas = 2;
         this.preencherTemplate(this.templateAutomatico, work.workTitle, horas);
@@ -164,7 +168,7 @@ export class CertificadoComponent implements OnInit {
     }
     else if (templateSelecionado.target.value == "PARTICIPAÇÃO PALESTRA") {
       this.coringa =
-        " participou da palestra intitulada SE PAULO FREIRE FOSSE VIVO USARIA CHATGPT no dia 08 de agosto de 2024 com duração de 02 horas.";
+        " participou da palestra intitulada " + complementoUm + " no dia " + complementoDois + " com duração de 02 horas.";
       this.exibirGT = true;
     }
     else if (templateSelecionado.target.value == "MONITORIA") {

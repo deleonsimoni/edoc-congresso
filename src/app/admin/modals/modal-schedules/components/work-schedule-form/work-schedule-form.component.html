@@ -1,5 +1,26 @@
 <form [formGroup]="form" class="form">
-  <div class="form-row">
+  <div class="form-row" >
+    <div class="form-group col-md-12">
+      <label for="qtdSubscribers" class="label">Nome</label>
+      <input type="text" name="Nome" class="form-control" id="Nome"
+        formControlName="workTitle" />
+    </div>
+  </div>
+  <div class="form-row" >
+    <div class="form-group col-md-12">
+      <label for="qtdSubscribers" class="label">Data</label>
+      <input type="text" name="Nome" class="form-control" id="Nome"
+        formControlName="date" />
+    </div>
+  </div>
+  <div class="form-row" >
+    <div class="form-group col-md-12">
+      <label for="qtdSubscribers" class="label">Link</label>
+      <input type="text" name="Nome" class="form-control" id="Nome"
+        formControlName="place" />
+    </div>
+  </div>
+  <div class="form-row" *ngIf="type != '13'">
     <div class="form-group col-md-12">
       <select class="form-control" id="axis" formControlName="axis">
         <option *ngFor="let eixo of axisCollection" [selected]="eixo.id == axis" [value]="eixo.id">
@@ -8,7 +29,7 @@
       </select>
     </div>
   </div>
-  <div class="form-row" *ngIf="type != '3'">
+  <div class="form-row" *ngIf="type != '3' && type != '13'">
     <div class="form-group col-md-12">
       <select class="form-control" id="work" [ngModelOptions]="{ standalone: true }" [(ngModel)]="selectedWork"
         (ngModelChange)="setWorkForm($event)">
@@ -19,7 +40,7 @@
       </select>
     </div>
   </div>
-  <div class="form-row" *ngIf="type != '3'">
+  <div class="form-row" *ngIf="type != '3' && type != '13'">
     <div class="form-group col-md-12">
       <label for="authors" class="label">Autores</label>
       <br />
@@ -30,7 +51,7 @@
   </div>
   <div class="form-row" *ngIf="type != '3'">
     <div class="form-group col-md-12">
-      <label for="resumePropose" class="label">Resumo da proposta</label>
+      <label for="resumePropose" class="label">Resumo</label>
       <textarea name="resumePropose" class="form-control" id="resumePropose" cols="30" rows="5"
         formControlName="resumePropose"></textarea>
     </div>
@@ -46,10 +67,46 @@
 
   <hr />
 
+  
+  <div class="form-group col-md-12" *ngIf="type == '13'">
+    <label for="dates" class="label">Conteúdos</label>
+    <br />
+    <div class="mb-2" formArrayName="contents" *ngFor="let item of dates['controls']; let i = index">
+      <div [formArrayName]="i">
+        <div class="row justify-content-center">
+
+        
+          
+            <div class="form-group col-md-12">
+              <label for="linkZoom" class="label">Nome</label>
+              <input type="text" class="form-control" formControlName="name" name="linkZoom" />
+            </div>
+
+            <div class="form-group col-md-12">
+              <label for="linkZoom" class="label">Link</label>
+              <input type="text" class="form-control" formControlName="value" name="linkZoom" />
+            </div>
+
+          </div>
 
 
 
-  <div class="form-group col-md-12">
+          <div class="col-md-1 align-items-center icon" *ngIf="i > 0">
+            <button type="button" (click)="removeDate(i)">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  <button *ngIf="type == '13'" type="button" class="add-coordinator" (click)="addDate()">
+    <i class="fa fa-plus"></i>
+    Mais 
+  </button>
+
+
+  <div class="form-group col-md-12" *ngIf="type != '13'">
     <label for="dates" class="label">Dias</label>
     <br />
     <div class="mb-2" formArrayName="dates" *ngFor="let item of dates['controls']; let i = index">
@@ -91,7 +148,7 @@
       </div>
     </div>
   </div>
-  <button *ngIf="type != '3'" type="button" class="add-coordinator" (click)="addDate()">
+  <button *ngIf="type != '3' && type != '13'" type="button" class="add-coordinator" (click)="addDate()">
     <i class="fa fa-plus"></i>
     Mais Dias
   </button>

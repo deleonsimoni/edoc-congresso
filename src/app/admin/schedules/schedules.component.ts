@@ -107,7 +107,7 @@ export class SchedulesComponent implements OnInit {
 
   public showWorkCard() {
     if (this.typeId) {
-      return this.typeId == 2 || this.typeId == 4 || this.typeId == 3 || this.typeId == 5;
+      return this.typeId == 2 || this.typeId == 4 || this.typeId == 3 || this.typeId == 5  || this.typeId == 13;
     }
 
     return false;

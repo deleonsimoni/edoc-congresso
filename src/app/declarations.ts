@@ -40,6 +40,7 @@ export const SCHEDULE_TYPE = [
   { id: 5, name: "Painel" },
   { id: 2, name: "Exposição e fruições artístico-literárias" },
   { id: 8, name: "Conferência" },
+  { id: 13, name: "Edoc 2024" },
 ];
 
 export const THEME_SIMPOSIO = [

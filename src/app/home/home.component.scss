@@ -62,7 +62,26 @@
 
 
 
+.btn-inscrever {
+  color: #318d71;
+  background-color: white;
+  border-color: #007bff;
+  font-size: 20px;
+}
 
+.btn-inscrever:focus {
+  color: white;
+  background-color: #318d71;
+  border-color: #318d71;
+  font-size: 20px;
+}
+
+.btn-inscrever:hover {
+  color: white;
+  background-color: #318d71;
+  border-color: #318d71;
+  font-size: 20px;
+}
 
 
 /* Ajustes gerais para o carrossel */

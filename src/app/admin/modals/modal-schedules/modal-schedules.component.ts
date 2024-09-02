@@ -54,7 +54,7 @@ export class ModalSchedulesComponent {
   public get showWorkScheduleForm() {
     if (this.axis.value) {
       const axis = Number(this.axis.value);
-      return axis == 2 || axis == 4 || axis == 3 || axis == 5;
+      return axis == 2 || axis == 4 || axis == 3 || axis == 5 || axis == 13;
     }
 
     return false;

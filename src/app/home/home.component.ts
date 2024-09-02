@@ -26,6 +26,8 @@ import { PROGRAMACOES } from '../declarations';
 import { ModalEncerramentoComponent } from '../modal-encerramento/modal-encerramento.component';
 import { ModalAberturaComponent } from '../modal-abertura/modal-abertura.component';
 import { AnaisService } from '../services/anais.service';
+import { ScheduleService } from '../services/schedule.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -41,6 +43,7 @@ export class HomeComponent implements OnInit {
   noticias = [];
   anais = [];
   intro = 1;
+  user;
 
   configuracaoCarrossel = {
     nav: true,
@@ -301,7 +304,8 @@ export class HomeComponent implements OnInit {
   ]
     ;
 
-  programacoes = PROGRAMACOES;
+  //programacoes = PROGRAMACOES;
+  works;
 
   constructor(
     private router: Router,
@@ -310,6 +314,8 @@ export class HomeComponent implements OnInit {
     private noticiasService: NoticiasService,
     private anaisService: AnaisService,
     private toastr: ToastrService,
+    private scheduleService: ScheduleService,
+    private authService: AuthService
 
   ) {
 
@@ -328,11 +334,20 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-
-    this.listarNoticias();
+    this.authService.refresh().subscribe((res: any) => {
+      this.user = res.user;
+    });
+    this.listarWorks();
 
   }
 
+
+  public listarWorks() {
+
+    this.scheduleService.retrieveSchedules(13, null).subscribe((data) => {
+      this.works = data;
+    });
+  }
 
   public listarNoticias() {
     this.noticiasService.listar()
@@ -508,4 +523,51 @@ export class HomeComponent implements OnInit {
       height: '550vh'
     });
   }
+
+
+
+
+
+
+  public isSubscribe(scheduleSelect) {
+    if (this.user._id && scheduleSelect.hasOwnProperty('subscribers')) {
+      return scheduleSelect.subscribers.some(el => el.userId == this.user._id);
+    }
+
+    return false;
+  }
+
+  public signUp(type, scheduleFull) {
+    this.carregando = true;
+      this.scheduleService.enrollScheduleEdoc2024(scheduleFull._id)
+        .subscribe((res: any) => {
+          this.carregando = false;
+          if (res.msg) {
+            this.toastr.error(res.msg, 'Atenção');
+          } else {
+            this.listarWorks();
+            this.toastr.success('Inscrição realizada com sucesso', 'Sucesso');
+          }
+        }, err => {
+          this.toastr.success('Servidor momentaneamente inoperante', 'Erro');
+          this.carregando = false;
+        });
+   
+  }
+
+  public cancelSignUp(type, scheduleFull) {
+    this.carregando = true;
+  
+    this.scheduleService.cancelEnrollScheduleEdoc2024(scheduleFull._id)
+      .subscribe(res => {
+        this.toastr.success('Cancelamento de inscrição realizada com sucesso', 'Sucesso');
+        this.carregando = false;
+        this.listarWorks();
+
+      }, err => {
+        this.toastr.success('Servidor momentaneamente inoperante', 'Erro');
+        this.carregando = false;
+      });
+  }
+
 }

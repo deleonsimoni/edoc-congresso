@@ -20,6 +20,7 @@
       <div class="row" *ngIf="carregando">
         <i class="fas fa-spinner fa-pulse"></i>
       </div>
+    
       <ng-container *ngIf="showGenericForm && !carregando">
         <generic-form (submitForm)="sendSchedule($event)" [type]="axis.value" [data]="form ? form.data : null">
         </generic-form>

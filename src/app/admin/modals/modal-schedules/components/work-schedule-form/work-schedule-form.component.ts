@@ -29,12 +29,13 @@ export class WorkScheduleFormComponent {
       work: [null],
       axis: [null],
       place: [null],
+      date: [null],
       authors: [null],
       address: [null],
       monitor: [null],
       mediator: [null],
       worksPoster: this.builder.array([this.builder.group({ work: [null], workTitle: [null], linkPPT: [null] })]),
-      dates: this.builder.array([this.builder.group({ startTime: [null], endTime: [null], date: [null], linkZoom: [null], linkYoutube: [null] })]),
+      contents: this.builder.array([this.builder.group({ name: [null], value: [null]})]),
       virtual: this.builder.group({ linkZoom: [null], monitor: [null], mediator: [null], ppt: [null] }),
       workTitle: [null],
       qtdSubscribers: [null],
@@ -64,8 +65,8 @@ export class WorkScheduleFormComponent {
       if (data.hasOwnProperty(key)) {
         if (key == "axis") {
           this.form.get(key).patchValue(Number(data[key]));
-        } else if (key == "dates") {
-          this.fillArray(data.dates, key);
+        } else if (key == "contents") {
+          this.fillArray(data.contents, key);
         } else if (key == "worksPoster") {
           this.selectedWorkPoster = data.worksPoster;
           this.fillArray(data.worksPoster, key);
@@ -116,16 +117,16 @@ export class WorkScheduleFormComponent {
   }
 
   get dates() {
-    return this.form.get("dates");
+    return this.form.get("contents");
   }
 
   public addDate() {
-    const dataCtrel = this.form.get("dates") as FormArray;
-    dataCtrel.push(this.builder.group({ startTime: [null], endTime: [null], date: [null], linkZoom: [null], linkYoutube: [null] }));
+    const dataCtrel = this.form.get("contents") as FormArray;
+    dataCtrel.push(this.builder.group({ name: [null], value: [null]}));
   }
 
   public removeDate(pos) {
-    const dataCtrel = this.form.get("dates") as FormArray;
+    const dataCtrel = this.form.get("contents") as FormArray;
     dataCtrel.removeAt(pos);
   }
 

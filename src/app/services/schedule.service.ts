@@ -50,4 +50,12 @@ export class ScheduleService {
   public cancelEnrollSchedulePainel(id) {
     return this.http.post(`${this.baseUrl}/schedule/unsubscribePainel/${id}`, {});
   }
+
+  public enrollScheduleEdoc2024(id) {
+    return this.http.post(`${this.baseUrl}/schedule/subscribeEdoc2024/${id}`, {});
+  }
+
+  public cancelEnrollScheduleEdoc2024(id) {
+    return this.http.post(`${this.baseUrl}/schedule/unsubscribeEdoc2024/${id}`, {});
+  }
 }

@@ -9,6 +9,7 @@ const lancamentoDeLivrosCtrl = require('../controllers/schedule/lancamentoDeLivr
 const atividadeCulturalCtrl = require('../controllers/schedule/atividadeCultural.controller');
 const rodasDeConversaCtrl = require('../controllers/schedule/rodasDeConversa.controller');
 const painelCtrl = require('../controllers/schedule/painel.controller');
+const edoc2024Ctrl = require('../controllers/schedule/edoc2024.controller');
 const sessoesEspeciaisCtrl = require('../controllers/schedule/sessoesEspeciais.controller');
 const rodaReunioesEntidadesRedesCtrl = require('../controllers/schedule/rodaReunioesEntidadesRedes.controller');
 const encerramentoCtrl = require('../controllers/schedule/encerramento.controller');
@@ -50,6 +51,14 @@ router.post('/subscribePainel/:workId', passport.authenticate('jwt', {
   session: false
 }), asyncHandler(subscribePainel));
 
+router.post('/unsubscribeEdoc2024/:workId', passport.authenticate('jwt', {
+  session: false
+}), asyncHandler(unsubscribeEdoc2024));
+
+router.post('/subscribeEdoc2024/:workId', passport.authenticate('jwt', {
+  session: false
+}), asyncHandler(subscribeEdoc2024));
+
 
 router.put('/:idType/:id', passport.authenticate('jwt', {
   session: false
@@ -86,6 +95,16 @@ async function unsubscribePainel(req, res) {
 
 async function subscribePainel(req, res) {
   let users = await painelCtrl.subscribePainel(req.params.workId, req.user._id, req.user.email);
+  res.json(users);
+}
+
+async function unsubscribeEdoc2024(req, res) {
+  let users = await edoc2024Ctrl.unsubscribeEdoc2024(req.params.workId, req.user._id);
+  res.json(users);
+}
+
+async function subscribeEdoc2024(req, res) {
+  let users = await edoc2024Ctrl.subscribeEdoc2024(req.params.workId, req.user._id, req.user.email);
   res.json(users);
 }
 
@@ -138,6 +157,10 @@ async function listSchedule(req, res) {
       break;
     case 12:
       schedules = await encerramentoCtrl.listSchedule(data);
+      res.json(schedules);
+      break;
+    case 13:
+      schedules = await edoc2024Ctrl.listSchedule(req.body);
       res.json(schedules);
       break;
   }
@@ -194,6 +217,10 @@ async function insertSchedule(req, res) {
         break;
       case 12:
         schedules = await encerramentoCtrl.insertSchedule(req.body);
+        res.json(schedules);
+        break;
+      case 13:
+        schedules = await edoc2024Ctrl.insertSchedule(req.body);
         res.json(schedules);
         break;
     }
@@ -253,6 +280,10 @@ async function updateSchedule(req, res) {
         schedules = await encerramentoCtrl.updateSchedule(req.params.id, req.body);
         res.json(schedules);
         break;
+      case 13:
+        schedules = await edoc2024Ctrl.updateSchedule(req.params.id, req.body);
+        res.json(schedules);
+        break;
     }
   }
 }
@@ -309,6 +340,10 @@ async function deleteSchedule(req, res) {
         break;
       case 12:
         schedules = await encerramentoCtrl.deleteSchedule(req.params.id);
+        res.json(schedules);
+        break;
+      case 13:
+        schedules = await edoc2024Ctrl.deleteSchedule(req.params.id);
         res.json(schedules);
         break;
     }
