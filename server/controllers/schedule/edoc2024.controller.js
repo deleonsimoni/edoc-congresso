@@ -35,6 +35,7 @@ async function insertSchedule(schedule) {
 
 }
 
+ 
 async function updateSchedule(id, schedule) {
 
   let painelOld = await Edoc2024.findById(id);

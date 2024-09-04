@@ -288,6 +288,7 @@ async function getUserWorks(req, res) {
 
 async function getWorks(req, res) {
   const user = req.user;
+  return res.sendStatus(401);
   if (user.icAdmin) {
     const works = await adminCtrl.getWorks(req.params.id);
     res.json(works);
