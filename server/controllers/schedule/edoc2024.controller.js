@@ -16,7 +16,7 @@ module.exports = {
 async function listSchedule() {
   return await Edoc2024.find()
     .sort({
-      createAt: 1
+      createAt: -1
     });
 }
 
@@ -144,7 +144,7 @@ async function checkSubscribeDup(workId, userId) {
 
       let schedulesDatesCheck = await getSchedulesDates(mySchedules);
     
-      if(schedulesDatesCheck){
+     /* if(schedulesDatesCheck){
 
         for (let index = 0; index < schedulesDatesCheck.length; index++) {
           for (let k = 0; k < schedulesDatesCheck[index].dates.length; k++) {
@@ -162,7 +162,7 @@ async function checkSubscribeDup(workId, userId) {
             }
           }
         }
-      }
+      }*/
 
     } else {
 
