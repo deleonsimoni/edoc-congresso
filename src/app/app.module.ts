@@ -70,7 +70,6 @@ import { AnaisVirtualComponent } from './endipe-virtual/anais-virtual/anais-virt
 import { LancamentoLivrosComponent } from './lancamento-livros/lancamento-livros.component';
 import { MemoriaComponent } from './memoria/memoria.component';
 
-import { SliderModule } from 'angular-image-slider';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
 
 @NgModule({
@@ -142,7 +141,6 @@ import {IvyCarouselModule} from 'angular-responsive-carousel';
     ProgramacaoModule,
     GlobalComponentsModule,
     PipesModule,
-    SliderModule,
     IvyCarouselModule
   ],
   entryComponents: [
