@@ -303,6 +303,8 @@ export class HomeComponent implements OnInit {
     }
   ]
     ;
+  public imagesUrl;
+
 
   //programacoes = PROGRAMACOES;
   works;
@@ -334,6 +336,8 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.imagesUrl = [{path: './assets/img/c1.jpeg'},{path: './assets/img/c2.jpeg'}, {path: './assets/img/c3.jpeg'}, {path: './assets/img/c4.jpeg'}, {path: './assets/img/c5.jpeg'} ];
+
     this.authService.refresh().subscribe((res: any) => {
       this.user = res.user;
     });
@@ -530,7 +534,7 @@ export class HomeComponent implements OnInit {
 
 
   public isSubscribe(scheduleSelect) {
-    if (this.user._id && scheduleSelect.hasOwnProperty('subscribers')) {
+    if (this.user && this.user._id && scheduleSelect.hasOwnProperty('subscribers')) {
       return scheduleSelect.subscribers.some(el => el.userId == this.user._id);
     }
 

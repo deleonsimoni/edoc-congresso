@@ -44,7 +44,7 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    const elmnt = document.getElementById('main'); elmnt.scrollIntoView({behavior: 'smooth'});
   }
 
   private createForm(): void {

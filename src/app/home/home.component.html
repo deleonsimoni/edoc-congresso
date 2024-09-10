@@ -44,6 +44,12 @@
               <!-- Adicione legendas aqui se necessário -->
             </div>
           </div>
+          <div class="carousel-item">
+            <img src="../assets/img/8.png" class="d-block w-100" alt="Slide 3">
+            <div class="carousel-caption d-none d-md-block">
+              <!-- Adicione legendas aqui se necessário -->
+            </div>
+          </div>
 
 
         </div>
@@ -74,17 +80,23 @@
           <div class="event">
             <h3>{{work.workTitle}}</h3>
 
-
             <div *ngIf="work.qtdSubscribers && work.qtdSubscribers > 0">
               <ng-container
-                  *ngIf="!isSubscribe(work) && work.qtdSubscribers - (work.subscribers ? work.subscribers.length : 0) > 0">
+                  *ngIf="user && !isSubscribe(work) && work.qtdSubscribers - (work.subscribers ? work.subscribers.length : 0) > 0">
                   <h4 class="mb-4"><button (click)="signUp(13, work)"
                           class="btn btn-inscrever">Inscreva-se </button></h4>
               </ng-container>
 
               <ng-container
-                  *ngIf="(work.qtdSubscribers - work?.subscribers.length) == 0 && !isSubscribe(work)">
+                  *ngIf="user && (work.qtdSubscribers - work?.subscribers.length) == 0 && !isSubscribe(work)">
                   <h4 class="mb-4"><button class="btn btn-warning">Vagas Encerradas</button></h4>
+              </ng-container>
+
+              <ng-container
+                  *ngIf="!user">
+                 <a [routerLink]="['/register']"> 
+                  <h4 class="mb-4"><button class="btn btn-info">Registre-se para se inscrever</button></h4>
+                 </a>
               </ng-container>
 
               <ng-container *ngIf="isSubscribe(work)">
@@ -116,9 +128,16 @@
 
 
       </div>
+   
+      <div class="event">
+        <h3>Fotos do evento</h3>
+      </div>
     </div>
+
   </section>
 
+    <carousel [images]="imagesUrl">
+  </carousel>
 
 </main>
 <app-footer></app-footer>

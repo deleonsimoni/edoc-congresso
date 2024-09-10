@@ -63,12 +63,16 @@ import { NgxImageCompressService } from 'ngx-image-compress';
 import { SecretariaVirtualComponent } from './endipe-virtual/secretaria-virtual/secretaria-virtual.component';
 import { LiveVirtualComponent } from './endipe-virtual/live-virtual/live-virtual.component';
 import { TimeLineVirtualComponent } from './endipe-virtual/time-line-virtual/time-line-virtual.component';
-import { MatPaginatorIntl } from '@angular/material';
+import { MatPaginatorIntl, MatSliderModule } from '@angular/material';
 import { getPtBRPaginatorINTL } from './ptBR-paginator-intl';
 import { ModalBemVindoComponent } from './modal-bem-vindo/modal-bem-vindo.component';
 import { AnaisVirtualComponent } from './endipe-virtual/anais-virtual/anais-virtual.component';
 import { LancamentoLivrosComponent } from './lancamento-livros/lancamento-livros.component';
 import { MemoriaComponent } from './memoria/memoria.component';
+
+import { SliderModule } from 'angular-image-slider';
+import {IvyCarouselModule} from 'angular-responsive-carousel';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -137,7 +141,9 @@ import { MemoriaComponent } from './memoria/memoria.component';
     AdminModule,
     ProgramacaoModule,
     GlobalComponentsModule,
-    PipesModule
+    PipesModule,
+    SliderModule,
+    IvyCarouselModule
   ],
   entryComponents: [
     ModalInscricaoComponent,
