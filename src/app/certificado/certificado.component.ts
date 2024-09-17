@@ -85,11 +85,11 @@ export class CertificadoComponent implements OnInit {
     this.inscricoes.forEach((work) => {
       if (this.user.cursosInscritos[control].icModalityId == 13) {
 
-        if(work.date.contains('24/09/2024 às 15h')){
+        if(work.date.includes('24/09/2024 às 15h')){
            this.templateAutomatico.target.value = "PARTICIPAÇÃO CONFERENCIA";
-        } else if(work.date.contains('19/09/2024 às 19h')) {
+        } else if(work.date.includes('19/09/2024 às 19h')) {
           this.templateAutomatico.target.value = "PARTICIPAÇÃO RODA DE CONVERSA";
-        } else if(work.date.contains('24/09/2024 às 19h')) {
+        } else if(work.date.includes('24/09/2024 às 19h')) {
           this.templateAutomatico.target.value = "PARTICIPAÇÃO SARAU";
         }  else {
           this.templateAutomatico.target.value = "PARTICIPAÇÃO PALESTRA";
@@ -193,7 +193,7 @@ export class CertificadoComponent implements OnInit {
     }
     else if (templateSelecionado.target.value == "PARTICIPAÇÃO SARAU") {
       this.coringa =
-        " participou do sarau intitulada " + complementoUm + " no dia " + complementoDois + ".";
+        " participou do sarau intitulado " + complementoUm + " no dia " + complementoDois + ".";
       this.exibirGT = true;
     }
     else if (templateSelecionado.target.value == "MONITORIA") {
@@ -250,6 +250,21 @@ export class CertificadoComponent implements OnInit {
 
     {
       name: "PARTICIPAÇÃO PALESTRA",
+      value:
+        "",
+    },
+    {
+      name: "PARTICIPAÇÃO CONFERENCIA",
+      value:
+        "",
+    },
+    {
+      name: "PARTICIPAÇÃO RODA DE CONVERSA",
+      value:
+        "",
+    },
+    {
+      name: "PARTICIPAÇÃO SARAU",
       value:
         "",
     },
