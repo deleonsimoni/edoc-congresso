@@ -84,7 +84,17 @@ export class CertificadoComponent implements OnInit {
     let control = 0;
     this.inscricoes.forEach((work) => {
       if (this.user.cursosInscritos[control].icModalityId == 13) {
-        this.templateAutomatico.target.value = "PARTICIPAÇÃO PALESTRA";
+
+        if(work.date.contains('24/09/2024 às 15h')){
+           this.templateAutomatico.target.value = "PARTICIPAÇÃO CONFERENCIA";
+        } else if(work.date.contains('19/09/2024 às 19h')) {
+          this.templateAutomatico.target.value = "PARTICIPAÇÃO RODA DE CONVERSA";
+        } else if(work.date.contains('24/09/2024 às 19h')) {
+          this.templateAutomatico.target.value = "PARTICIPAÇÃO SARAU";
+        }  else {
+          this.templateAutomatico.target.value = "PARTICIPAÇÃO PALESTRA";
+        }
+
         this.preencherTemplate(this.templateAutomatico, work.workTitle, work.date);
       }
       else if (this.user.cursosInscritos[control].icModalityId == 4) {
@@ -169,6 +179,21 @@ export class CertificadoComponent implements OnInit {
     else if (templateSelecionado.target.value == "PARTICIPAÇÃO PALESTRA") {
       this.coringa =
         " participou da palestra intitulada " + complementoUm + " no dia " + complementoDois + " com duração de 02 horas.";
+      this.exibirGT = true;
+    }
+    else if (templateSelecionado.target.value == "PARTICIPAÇÃO CONFERENCIA") {
+      this.coringa =
+        " participou da conferência intitulada " + complementoUm + " no dia " + complementoDois + ".";
+      this.exibirGT = true;
+    }
+    else if (templateSelecionado.target.value == "PARTICIPAÇÃO RODA DE CONVERSA") {
+      this.coringa =
+        " participou da roda de conversa intitulada " + complementoUm + " no dia " + complementoDois + ".";
+      this.exibirGT = true;
+    }
+    else if (templateSelecionado.target.value == "PARTICIPAÇÃO SARAU") {
+      this.coringa =
+        " participou do sarau intitulada " + complementoUm + " no dia " + complementoDois + ".";
       this.exibirGT = true;
     }
     else if (templateSelecionado.target.value == "MONITORIA") {
