@@ -114,8 +114,8 @@
             <p><strong>Quando:</strong> {{work.date}}</p>
             <p><strong>Onde:</strong> <a href="{{work.place}}"
                 target="_blank"> Clique aqui</a></p>
-            <strong *ngIf="work?.contents">Conteúdos</strong>
-            <ul>
+            <strong *ngIf="work?.contents && work?.contents[0].name">Conteúdos</strong>
+            <ul *ngIf="work?.contents[0].name">
               <li *ngFor="let content of work?.contents"><a
                   href="{{content.value}}"
                   target="_blank"> {{content.name}}</a>
@@ -136,8 +136,8 @@
 
   </section>
 
-    <carousel [images]="imagesUrl">
-  </carousel>
+  <!--  <carousel [images]="imagesUrl">
+  </carousel>-->
 
 </main>
 <app-footer></app-footer>
