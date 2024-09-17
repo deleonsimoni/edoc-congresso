@@ -75,50 +75,44 @@
       <div class="section-header">
         <h2>Docência na cibercultura: encontros disruptivos? de Agosto a Dezembro de 2024</h2>
 
-        <div *ngFor="let work of works; let i = index" >
+        <div *ngFor="let work of works; let i = index">
 
           <div class="event">
             <h3>{{work.workTitle}}</h3>
 
             <div *ngIf="work.qtdSubscribers && work.qtdSubscribers > 0">
               <ng-container
-                  *ngIf="user && !isSubscribe(work) && work.qtdSubscribers - (work.subscribers ? work.subscribers.length : 0) > 0">
-                  <h4 class="mb-4"><button (click)="signUp(13, work)"
-                          class="btn btn-inscrever">Inscreva-se </button></h4>
+                *ngIf="user && !isSubscribe(work) && work.qtdSubscribers - (work.subscribers ? work.subscribers.length : 0) > 0">
+                <h4 class="mb-4"><button (click)="signUp(13, work)" class="btn btn-inscrever">Inscreva-se </button></h4>
               </ng-container>
 
-              <ng-container
-                  *ngIf="user && (work.qtdSubscribers - work?.subscribers.length) == 0 && !isSubscribe(work)">
-                  <h4 class="mb-4"><button class="btn btn-warning">Vagas Encerradas</button></h4>
+              <ng-container *ngIf="user && (work.qtdSubscribers - work?.subscribers.length) == 0 && !isSubscribe(work)">
+                <h4 class="mb-4"><button class="btn btn-warning">Vagas Encerradas</button></h4>
               </ng-container>
 
-              <ng-container
-                  *ngIf="!user">
-                 <a [routerLink]="['/register']"> 
-                  <h4 class="mb-4"><button class="btn btn-info">Registre-se para se inscrever</button></h4>
-                 </a>
+              <ng-container *ngIf="!user">
+                <a [routerLink]="['/register']">
+                  <h4 class="mb-4"><button class="btn btn-info">Registre-se/Faça o login para se inscrever</button></h4>
+                </a>
               </ng-container>
 
               <ng-container *ngIf="isSubscribe(work)">
-                  <h4 class="mb-4"><button (click)="cancelSignUp(13, work)"
-                          class="btn btn-danger">Cancelar Inscrição</button></h4>
+                <h4 class="mb-4"><button (click)="cancelSignUp(13, work)" class="btn btn-danger">Cancelar
+                    Inscrição</button></h4>
               </ng-container>
 
               <div *ngIf="carregando">
-                <h4 class="mb-4"><button class="btn btn-inscrever"><i
-                            class="fas fa-spinner fa-pulse"></i></button></h4>
+                <h4 class="mb-4"><button class="btn btn-inscrever"><i class="fas fa-spinner fa-pulse"></i></button></h4>
+              </div>
             </div>
-          </div>
 
 
             <p><strong>Quando:</strong> {{work.date}}</p>
-            <p><strong>Onde:</strong> <a href="{{work.place}}"
-                target="_blank"> Clique aqui</a></p>
+            <p><strong>Onde:</strong> <a href="{{work.place}}" target="_blank"> Clique aqui</a></p>
             <strong *ngIf="work?.contents">Conteúdos</strong>
             <ul>
-              <li *ngFor="let content of work?.contents"><a
-                  href="{{content.value}}"
-                  target="_blank"> {{content.name}}</a>
+              <li *ngFor="let content of work?.contents"><a href="{{content.value}}" target="_blank">
+                  {{content.name}}</a>
               </li>
             </ul>
 
@@ -128,7 +122,7 @@
 
 
       </div>
-   
+
       <div class="event">
         <h3>Fotos do evento</h3>
       </div>
@@ -136,7 +130,7 @@
 
   </section>
 
-    <carousel [images]="imagesUrl">
+  <carousel [images]="imagesUrl">
   </carousel>
 
 </main>
