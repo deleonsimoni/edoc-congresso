@@ -12,7 +12,7 @@
 
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <!--<div class="form-check">
+                        <div class="form-check">
                             <input class="form-check-input" type="radio" name="icForeign" id="foreign1" [value]="true"
                                 formControlName="icForeign">
                             <label class="form-check-label" for="foreign1">
@@ -25,12 +25,20 @@
                             <label class="form-check-label" for="foreign2">
                                 Não sou estrangeiro
                             </label>
-                        </div>-->
-                        <input type="text" class="form-control" name="document" id="document" placeholder="CPF"
+                        </div>
+
+                        <input *ngIf="!registerForm.controls.icForeign.value" type="text" class="form-control" name="document" id="document" placeholder="CPF"
                             formControlName="document" [dropSpecialCharacters]="true" mask="000.000.000-00" />
                         <span class="text-danger"
                             *ngIf="registerForm.controls.document.touched  && registerForm.controls.document.errors">
                             Verifique o CPF
+                        </span>
+
+                        <input *ngIf="registerForm.controls.icForeign.value" type="text" class="form-control" name="document" id="document" placeholder="Passaporte"
+                            formControlName="document"  />
+                        <span class="text-danger"
+                            *ngIf="registerForm.controls.document.touched  && registerForm.controls.document.errors">
+                            Verifique o passaporte
                         </span>
                     </div>
                 </div>
