@@ -29,6 +29,7 @@ export class WorkScheduleFormComponent {
       work: [null],
       axis: [null],
       place: [null],
+      presencial2024: [null],
       date: [null],
       authors: [null],
       address: [null],

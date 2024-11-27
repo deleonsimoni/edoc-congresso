@@ -19,7 +19,9 @@ const ScheduleSchema = new mongoose.Schema({
     type: String
   },
 
-  
+  presencial2024: {
+    type: Boolean
+  },
 
   monitor: {
     type: String

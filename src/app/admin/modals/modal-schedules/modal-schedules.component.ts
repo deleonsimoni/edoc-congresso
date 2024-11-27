@@ -60,6 +60,15 @@ export class ModalSchedulesComponent {
     return false;
   }
 
+  public get showFlag2024() {
+    if (this.axis.value) {
+      const axis = Number(this.axis.value);
+      return axis == 13;
+    }
+
+    return false;
+  }
+
   public sendSchedule(event) {
     this.carregando = true;
     if (event.id) {

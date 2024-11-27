@@ -13,6 +13,21 @@
         formControlName="date" />
     </div>
   </div>
+
+
+  <div *ngIf="type == '13'" class="col-sm-2 border-right">
+    <section class="example-section">
+        <small>Presencial?</small>
+        <section class="example-section">
+            <mat-checkbox formControlName="presencial2024" type="checkbox" class="example-margin"
+                >
+                Sim
+            </mat-checkbox>
+        </section>
+    </section>
+</div>
+
+
   <div class="form-row" >
     <div class="form-group col-md-12">
       <label for="qtdSubscribers" class="label">Link</label>

@@ -75,15 +75,28 @@
       <div class="section-header">
         <h2>Docência na cibercultura: encontros disruptivos? de Agosto a Dezembro de 2024</h2>
 
-        <div *ngFor="let work of works; let i = index">
+        <!-- Botão para alternar a lista -->
+        <div class="text-center my-4">
+          <button class="btn btn-primary toggle-button" (click)="toggleList()"
+            [ngClass]="{ 'animate-button': animationActive }" (animationend)="animationActive = false">
+            {{ isPresencial ? 'Mostrar Não Presenciais' : 'Mostrar Presenciais 10/12' }}
+          </button>
+        </div>
+
+        <!-- Listagem dinâmica com base na variável isPresencial -->
+        <div *ngFor="let work of (isPresencial ? worksPresencial : works); let i = index">
+          
+          <p *ngIf="isPresencial" class="presencial-text animate-text">
+            Evento presencial na UFRRJ - Campus Seropédica 10 de DEZ.
+          </p>
 
           <div class="event">
-            <h3>{{work.workTitle}}</h3>
+            <h3>{{ work.workTitle }}</h3>
 
             <div *ngIf="work.qtdSubscribers && work.qtdSubscribers > 0">
               <ng-container
                 *ngIf="user && !isSubscribe(work) && work.qtdSubscribers - (work.subscribers ? work.subscribers.length : 0) > 0">
-                <h4 class="mb-4"><button (click)="signUp(13, work)" class="btn btn-inscrever">Inscreva-se </button></h4>
+                <h4 class="mb-4"><button (click)="signUp(13, work)" class="btn btn-inscrever">Inscreva-se</button></h4>
               </ng-container>
 
               <ng-container *ngIf="user && (work.qtdSubscribers - work?.subscribers.length) == 0 && !isSubscribe(work)">
@@ -92,7 +105,8 @@
 
               <ng-container *ngIf="!user">
                 <a [routerLink]="['/register']">
-                  <h4 class="mb-4"><button class="btn btn-info">Registre-se / Faça o login para se inscrever</button></h4>
+                  <h4 class="mb-4"><button class="btn btn-info">Registre-se / Faça o login para se inscrever</button>
+                  </h4>
                 </a>
               </ng-container>
 
@@ -106,28 +120,18 @@
               </div>
             </div>
 
-
-            <p><strong>Quando:</strong> {{work.date}}</p>
-            <p><strong>Onde:</strong> <a href="{{work.place}}" target="_blank"> Clique aqui</a></p>
+            <p><strong>Quando:</strong> {{ work.date }}</p>
+            <p><strong>Onde:</strong> <a href="{{ work.place }}" target="_blank"> Clique aqui</a></p>
             <strong *ngIf="work?.contents">Conteúdos</strong>
             <ul>
-              <li *ngFor="let content of work?.contents"><a href="{{content.value}}" target="_blank">
-                  {{content.name}}</a>
+              <li *ngFor="let content of work?.contents"><a href="{{ content.value }}" target="_blank">
+                  {{ content.name }}</a>
               </li>
             </ul>
-
           </div>
-
         </div>
-
-
       </div>
-
-     <!-- <div class="event">
-        <h3>Fotos do evento</h3>
-      </div>-->
     </div>
-
   </section>
 
   <!--  <carousel [images]="imagesUrl">

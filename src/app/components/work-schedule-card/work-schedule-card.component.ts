@@ -29,7 +29,7 @@ export class WorkScheduleCardComponent {
     ) { }
 
     ngAfterViewInit() {
-        this.userId = this.user._id
+        this.userId = this.user ? this.user._id._id : ''
     }
 
     ngOnDestroy() {

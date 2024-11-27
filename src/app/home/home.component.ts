@@ -44,7 +44,14 @@ export class HomeComponent implements OnInit {
   anais = [];
   intro = 1;
   user;
+  isPresencial: boolean = false;
+  animationActive: boolean = false;
 
+  public toggleList() {
+    this.isPresencial = !this.isPresencial;
+    this.animationActive = true; // Ativa a classe de animação
+  }
+  
   configuracaoCarrossel = {
     nav: true,
     slideBy: 2,
@@ -308,6 +315,7 @@ export class HomeComponent implements OnInit {
 
   //programacoes = PROGRAMACOES;
   works;
+  worksPresencial;
 
   constructor(
     private router: Router,
@@ -336,6 +344,16 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    const today = new Date();
+    const day = today.getDate();
+    const month = today.getMonth() + 1; // Os meses no JavaScript são baseados em 0
+
+    // Define `isPresencial` como true se for 10/12
+    if (day === 10 && month === 12) {
+      this.isPresencial = true;
+    }
+    
     this.imagesUrl = [{path: './assets/img/c1.jpeg'},{path: './assets/img/c2.jpeg'}, {path: './assets/img/c3.jpeg'}, {path: './assets/img/c4.jpeg'}, {path: './assets/img/c5.jpeg'} ];
 
     this.authService.refresh().subscribe((res: any) => {
@@ -349,7 +367,9 @@ export class HomeComponent implements OnInit {
   public listarWorks() {
 
     this.scheduleService.retrieveSchedules(13, null).subscribe((data) => {
-      this.works = data;
+      this.works = data.filter((item: any) => item.presencial2024 == false || !item.presencial2024);
+      this.worksPresencial = data.filter((item: any) => item.presencial2024 === true);
+
     });
   }
 
