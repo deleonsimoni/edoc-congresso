@@ -79,17 +79,21 @@
         <div class="text-center my-4">
           <button class="btn btn-primary toggle-button" (click)="toggleList()"
             [ngClass]="{ 'animate-button': animationActive }" (animationend)="animationActive = false">
-            {{ isPresencial ? 'Mostrar Não Presenciais' : 'Mostrar Presenciais 10/12' }}
+            {{ isPresencial ? 'Clique para Evento Online' : 'Clique para Evento Presencial' }}
           </button>
         </div>
+
+        <p *ngIf="isPresencial" class="presencial-text animate-text">
+          Evento presencial na UFRRJ - Campus Seropédica 10 de DEZ.
+        </p>
+
+        <p *ngIf="!isPresencial" class="presencial-text animate-text">
+          Evento online
+        </p>
 
         <!-- Listagem dinâmica com base na variável isPresencial -->
         <div *ngFor="let work of (isPresencial ? worksPresencial : works); let i = index">
           
-          <p *ngIf="isPresencial" class="presencial-text animate-text">
-            Evento presencial na UFRRJ - Campus Seropédica 10 de DEZ.
-          </p>
-
           <div class="event">
             <h3>{{ work.workTitle }}</h3>
 

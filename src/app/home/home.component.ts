@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit {
   anais = [];
   intro = 1;
   user;
-  isPresencial: boolean = false;
+  isPresencial: boolean = true;
   animationActive: boolean = false;
 
   public toggleList() {
