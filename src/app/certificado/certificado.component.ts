@@ -178,7 +178,7 @@ export class CertificadoComponent implements OnInit {
     }
     else if (templateSelecionado.target.value == "PARTICIPAÇÃO PALESTRA") {
       this.coringa =
-        " participou da palestra intitulada " + complementoUm + " no dia " + complementoDois + " com duração de 02 horas.";
+        " participou da " + complementoUm + " no dia " + complementoDois + ".";
       this.exibirGT = true;
     }
     else if (templateSelecionado.target.value == "PARTICIPAÇÃO CONFERENCIA") {

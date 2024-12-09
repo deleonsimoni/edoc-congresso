@@ -368,7 +368,7 @@ export class HomeComponent implements OnInit {
 
     this.scheduleService.retrieveSchedules(13, null).subscribe((data) => {
       this.works = data.filter((item: any) => item.presencial2024 == false || !item.presencial2024);
-      this.worksPresencial = data.filter((item: any) => item.presencial2024 === true);
+      this.worksPresencial = data.filter((item: any) => item.presencial2024 === true).reverse();
 
     });
   }
